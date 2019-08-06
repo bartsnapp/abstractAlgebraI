@@ -1,0 +1,85 @@
+\documentclass[noauthor,nooutcomes,twosided]{xourse}
+
+\input{preamble.tex}
+
+
+\usepackage{imakeidx}
+\makeindex[intoc]
+
+% Store usual maketitle as othermaketitle
+\let\othermaketitle\maketitle
+
+\renewcommand{\maketitle}{ %
+\pagestyle{empty}
+
+\begin{center}
+  \Huge \bfseries\sffamily Skeleton Notes:
+
+  \rule{\textwidth}{0.2ex}
+
+
+  \includegraphics[height=5in]{Skeleton_diagram-eps-converted-to.pdf}
+
+
+  \rule{\textwidth}{0.2ex}
+  
+   \bfseries\sffamily Abstract Algebra I
+\end{center}
+
+\cleardoublepage
+
+\let\maketitle\othermaketitle % renew maketitle to usual definition.
+}
+
+
+\title{Commutative algebra: skeleton notes}
+\author{Bart Snapp}
+
+\begin{document}
+\maketitle
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+
+\cleardoublepage
+
+\pagestyle{main}
+\setcounter{titlenumber}{-1}
+\frontstyle
+\activity{references/references.tex}
+\chapterstyle
+\activity{groups/titlePage.tex}
+\sectionstyle
+\activity{groups/groups.tex}
+\activity{groups/dihedral.tex}
+\activity{groups/cyclic.tex}
+\activity{groups/matrix.tex}
+\activity{groups/permutation.tex}
+\chapterstyle
+\activity{lagrangesTheorem/titlePage.tex}
+\sectionstyle
+\activity{lagrangesTheorem/subgroups.tex}
+\activity{lagrangesTheorem/cosets.tex}
+\activity{lagrangesTheorem/lagrangesTheorem.tex}
+\activity{lagrangesTheorem/quotientGroups.tex}
+\chapterstyle
+\activity{homomorphisms/titlePage.tex}
+\sectionstyle
+\activity{homomorphisms/isoAndHom.tex}
+\activity{homomorphisms/noethersIsoThm.tex}
+\activity{homomorphisms/correspondenceThm.tex}
+\chapterstyle
+\activity{classification/titlePage.tex}
+\sectionstyle
+\activity{classification/orderUpToEight.tex}
+\activity{classification/abelianGroups.tex}
+\activity{classification/finiteSimpleGroups.tex}
+\chapterstyle
+\activity{fields/titlePage.tex}
+
+
+%\pdfOnly{\printindex}
+
+\end{document}

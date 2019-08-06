@@ -1,0 +1,351 @@
+\usepackage[T1]{fontenc}
+\usepackage{stix2}
+
+ 
+\usepackage{tikz-cd}
+\tikzset{>=stealth}
+\tikzcdset{arrow style=tikz}
+\usetikzlibrary{math} %% for assigning variables
+
+\usepackage[sans]{dsfont}
+
+\usepackage{stmaryrd,pifont}
+
+
+\let\oldbibliography\thebibliography%% to compact bib
+\renewcommand{\thebibliography}[1]{%
+  \oldbibliography{#1}%
+  \setlength{\itemsep}{0pt}%
+}
+
+
+\DefineVerbatimEnvironment{macaulay2}{Verbatim}{numbers=left,frame=lines,label=Macaulay2,labelposition=topline}
+
+\DefineVerbatimEnvironment{gap}{Verbatim}{numbers=left,frame=lines,label=GAP,labelposition=topline}
+
+%%% This next bit of code defines all our theorem environments
+\makeatletter
+\let\c@theorem\relax
+\let\c@corollary\relax
+\makeatother
+
+\let\definition\relax
+\let\enddefinition\relax
+
+\let\theorem\relax
+\let\endtheorem\relax
+
+\let\proposition\relax
+\let\endproposition\relax
+
+\let\exercise\relax
+\let\endexercise\relax
+
+\let\question\relax
+\let\endquestion\relax
+
+\let\remark\relax
+\let\endremark\relax
+
+\let\corollary\relax
+\let\endcorollary\relax
+
+
+\let\example\relax
+\let\endexample\relax
+
+\let\warning\relax
+\let\endwarning\relax
+
+\let\lemma\relax
+\let\endlemma\relax
+
+
+\let\algorithm\relax
+\let\endalgorithm\relax
+\usepackage{algpseudocode}
+
+\newtheoremstyle{SlantTheorem}{\topsep}{\topsep}%%% space between body and thm
+		{\slshape}                      %%% Thm body font
+		{}                              %%% Indent amount (empty = no indent)
+		{\bfseries\sffamily}            %%% Thm head font
+		{}                              %%% Punctuation after thm head
+		{3ex}                           %%% Space after thm head
+		{\thmname{#1}\thmnumber{ #2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
+\theoremstyle{SlantTheorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+%% \newtheorem*{dfnn}{Definition}
+%% \newtheorem{ques}{Question}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+%% \newtheorem*{war}{WARNING}
+%% \newtheorem*{cor}{Corollary}
+%% \newtheorem*{eg}{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem*{touchstone}{Touchstone}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{example}{Example}
+\newtheorem*{warning}{WARNING}
+
+\let\algorithm\relax
+\let\endalgorithm\relax
+\newtheoremstyle{Alg}{\topsep}{\topsep}%%% space between body and thm
+		{}                              %%% Thm body font
+		{}                              %%% Indent amount (empty = no indent)
+		{\bfseries\sffamily}            %%% Thm head font
+		{}                              %%% Punctuation after thm head
+		{3ex}                           %%% Space after thm head
+		{\thmname{#1}\thmnumber{ #2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
+\theoremstyle{Alg}
+\newtheorem*{algorithm}{Algorithm}
+
+
+
+
+\newtheoremstyle{Exercise}{\topsep}{\topsep} %%% space between body and thm
+		{}                           %%% Thm body font
+		{}                           %%% Indent amount (empty = no indent)
+		{\bfseries\sffamily}         %%% Thm head font
+		{)}                          %%% Punctuation after thm head
+		{ }                          %%% Space after thm head
+		{\thmnumber{#2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
+\theoremstyle{Exercise}
+\newtheorem{exercise}{}[theorem]
+
+%% \newtheoremstyle{Question}{\topsep}{\topsep} %%% space between body and thm
+%% 		{\bfseries}                  %%% Thm body font
+%% 		{3ex}                        %%% Indent amount (empty = no indent)
+%% 		{}                           %%% Thm head font
+%% 		{}                           %%% Punctuation after thm head
+%% 		{}                           %%% Space after thm head
+%% 		{\thmnumber{#2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
+\newtheoremstyle{Question}{3em}{3em} %%% space between body and thm
+		{\large\bfseries}                           %%% Thm body font
+		{3ex}                           %%% Indent amount (empty = no indent)
+		{\bfseries}                  %%% Thm head font
+		{}                          %%% Punctuation after thm head
+		{ }                          %%% Space after thm head
+		{}%%% Thm head spec
+\theoremstyle{Question}
+\newtheorem*{question}{}
+
+
+
+
+
+
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\bar}{\overline}
+\renewcommand{\hat}{\widehat}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\V}{\mathbb V}
+\newcommand{\I}{\mathbb I}
+\newcommand{\A}{\mathbb A}
+\newcommand{\iso}{\simeq}
+\newcommand{\ph}{\varphi}
+\newcommand{\Cf}{\mathcal{C}}
+\newcommand{\IZ}{\mathrm{Int}(\Z)}
+\newcommand{\dsum}{\oplus}
+\newcommand{\directsum}{\bigoplus}
+\newcommand{\union}{\bigcup}
+\newcommand{\subgp}{\leq}
+\newcommand{\normal}{\trianglelefteq}
+\renewcommand{\i}{\mathfrak}
+\renewcommand{\a}{\mathfrak{a}}
+\renewcommand{\b}{\mathfrak{b}}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\q}{\mathfrak{q}}
+\newcommand{\dfn}[1]{\textbf{#1}\index{#1}}
+\let\hom\relax
+\DeclareMathOperator{\ann}{Ann}
+\DeclareMathOperator{\h}{ht}
+\DeclareMathOperator{\hom}{Hom}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\maxspec}{MaxSpec}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\ass}{Ass}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ff}{Frac}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\syz}{Syz}
+\DeclareMathOperator{\gr}{Gr}
+\DeclareMathOperator{\multideg}{multideg}
+\renewcommand{\ker}{\mathop{\mathrm{Ker}}\nolimits}
+\newcommand{\coker}{\mathop{\mathrm{Coker}}\nolimits}
+\newcommand{\lps}{[\hspace{-0.25ex}[}
+\newcommand{\rps}{]\hspace{-0.25ex}]}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\tensor}{\otimes}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\X}{\mathbf X}
+\newcommand{\Y}{\mathbf Y}
+\renewcommand{\k}{\boldsymbol{\kappa}}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\l}{\ell}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\lto}{\mathop{\longrightarrow\,}\limits}
+\newcommand{\rad}{\sqrt}
+\newcommand{\hf}{H}
+\newcommand{\hs}{H\!S}
+\newcommand{\hp}{H\!P}
+\renewcommand{\vec}{\mathbf}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\subset}{\subseteq}
+\renewcommand{\supset}{\supseteq}
+\newcommand{\macaulay}{\normalfont\textsl{Macaulay2}}
+\newcommand{\GAP}{\normalfont\textsf{GAP}}
+\newcommand{\invlim}{\varprojlim}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\valpha}{{\boldsymbol\alpha}}
+\newcommand{\vbeta}{{\boldsymbol\beta}}
+\newcommand{\vgamma}{{\boldsymbol\gamma}}
+\newcommand{\dotp}{\bullet}
+\newcommand{\lc}{\normalfont\textsc{lc}}
+\newcommand{\lt}{\normalfont\textsc{lt}}
+\newcommand{\lm}{\normalfont\textsc{lm}}
+\newcommand{\from}{\leftarrow}
+\newcommand{\transpose}{\intercal}
+\newcommand{\grad}{\boldsymbol\nabla}
+\newcommand{\curl}{\boldsymbol{\nabla\times}}
+\renewcommand{\d}{\, d}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+%\renewcommand{\proofname}{Sketch of Proof}
+
+
+\renewenvironment{proof}[1][Proof]
+  {\begin{trivlist}\item[\hskip \labelsep \itshape \bfseries #1{}\hspace{2ex}]\upshape}
+{\qed\end{trivlist}}
+
+\newenvironment{sketch}[1][Sketch of Proof]
+  {\begin{trivlist}\item[\hskip \labelsep \itshape \bfseries #1{}\hspace{2ex}]\upshape}
+{\qed\end{trivlist}}
+
+
+
+\makeatletter
+\renewcommand\section{\@startsection{paragraph}{10}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\large\sffamily\bfseries}}
+\renewcommand\subsection{\@startsection{subparagraph}{10}{\z@}%
+                                    {3.25ex \@plus1ex \@minus.2ex}%
+                                    {-1em}%
+                                    {\normalfont\normalsize\sffamily\bfseries}}
+\makeatother
+
+%% Fix weird index/bib issue.
+\makeatletter
+\gdef\ttl@savemark{\sectionmark{}}
+\makeatother
+
+
+\makeatletter
+%% no number for refs
+\newcommand\frontstyle{%
+  \def\activitystyle{activity-chapter}
+  \def\maketitle{%
+    \addtocounter{titlenumber}{1}%
+                    {\flushleft\small\sffamily\bfseries\@pretitle\par\vspace{-1.5em}}%
+                    {\flushleft\LARGE\sffamily\bfseries\@title \par }%
+                    {\vskip .6em\noindent\textit\theabstract\setcounter{problem}{0}\setcounter{sectiontitlenumber}{0}}%
+                    \par\vspace{2em}
+                    \phantomsection\addcontentsline{toc}{section}{\textbf{\@title}}%
+                  }}
+\makeatother
+
+
+
+\NewEnviron{annotate}{\small \itshape \BODY \vspace{.5cm}}
+
+
+%%%% TIKZ STUFF
+
+
+
+\def\IsEven#1{%
+  %TT\fi
+  \pgfmathparse{int(mod(#1,2))}%
+  \ifnum\pgfmathresult=0
+}
+\newcommand{\parity}[2]{%
+  \if\IsEven{#1}%
+    \if\IsEven{#2}%
+      #1 and #2 are even.%
+    \else%
+      #1 is even and #2 is odd.%
+    \fi
+  \else
+    \if\IsEven{#2}%
+      #1 is odd and #2 is even.%
+    \else
+      #1 and #2 are odd.%
+    \fi
+  \fi
+}
+
+
+
+%% N-GON code
+\tikzset{
+    pics/tikzngon/.style={
+        code={
+        \tikzmath{\xx = #1;\rr=1.7;}
+        \draw[ultra thick] ({\rr*sin(0*360/\xx)},{\rr*cos(0*360/\xx)})
+        \foreach \x in {0,1,...,\xx}
+           {
+           -- ({\rr*sin(\x*360/\xx)},{\rr*cos(\x*360/\xx)}) 
+           }
+           -- cycle;
+  }}}
+
+%% N-GON code (even)
+\tikzset{
+    pics/tikzegon/.style={
+        code={
+        \tikzmath{\xx = #1;\rr=1.7;}
+        \draw[ultra thick] ({\rr*sin(0*360/\xx+180/\xx)},{\rr*cos(0*360/\xx+180/\xx)})
+        \foreach \x in {0,1,...,\xx}
+           {
+           -- ({\rr*sin(\x*360/\xx+180/\xx)},{\rr*cos(\x*360/\xx+180/\xx)}) 
+           }
+           -- cycle;
+  }}}
+%% \tikzset{
+%%     pics/tikzngon/.style={
+%%         code={
+%%         \tikzmath{\xx = #1;\rr=1.7;}
+%%         \draw[ultra thick] ({\rr*sin(0*360/\xx)},{\rr*cos(0*360/\xx)})
+%%         \foreach \x in {0,1,...,\xx}
+%%            {
+%%            -- ({\rr*sin(\x*360/\xx + \pgfextra{\if\IsEven{\xx}180/\xx\else 0\fi} )},{\rr*cos(\x*360/\xx)}) 
+%%            }
+%%            -- cycle;
+%%   }}}
+
+
+
+%% N-CLOCK code
+\tikzset{
+    pics/tikznclock/.style={
+        code={
+        \tikzmath{\xx = #1;\rr=1.7;\dd=.4;}
+  \foreach \x in {0,1,...,\xx-1}
+           {
+             \node[circle,fill=black,inner sep=0pt, minimum size=13pt,text=white]
+             at ({(\rr-\dd)*sin(\x*360/\xx)},{(\rr-\dd)*cos(\x*360/\xx}) {\bfseries\sffamily\small \x};
+           }
+  \draw[thick] (0,0) circle (\rr);
+  }}}

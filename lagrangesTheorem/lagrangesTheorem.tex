@@ -1,0 +1,62 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Lagrange's theorem}
+
+\begin{document}
+\begin{abstract}
+  We prove Lagranges theorem.
+\end{abstract}
+\maketitle
+
+\begin{definition}
+  Let $S$ be a subrgoup of a finite group $G$. The \dfn{index} of $S$ in $G$, denoted
+  \[
+  [G:S] = \text{(number of left cosets)}
+  \]
+  is number of left cosets of $S$.\index{index@$[G:S]$}
+\end{definition}
+
+
+
+\begin{theorem}[Lagrange]
+  If $G$ is a finite group with subgroup $S$, then 
+  \[
+  |G| = [G:S]\cdot |S|.
+  \]
+  \begin{proof}
+    First note that by Proposition~\ref{P:CSG}, $|S| = |gS|$. By
+    Theorem~\ref{T:CPG}, $G$ is partitoned by the left cosets of
+    $S$. This means that every element of $G$ is in exactly one left
+    coset. Hence
+    \[
+    |G| = [G:S]\cdot |S|.
+    \]
+  \end{proof}
+\end{theorem}
+
+\begin{corollary}
+  Let $G$ be a finite group with $g\in G$. In this case, the order of
+  $g$ divides the order of $G$.
+\end{corollary}
+
+\begin{corollary}
+  Let $G$ be a group where $|G|= p$, a prime number. Then $G$ is
+  cyclic and any element $g\in G$, $g\ne e$, can act as a generator.
+\end{corollary}
+
+\begin{corollary}
+  Let $S \subgp T \subgp G$ be subgroups of a finite group
+  $G$. Then
+  \[
+  [G:S] = [G:T]\cdot [T:S].
+  \]
+\end{corollary}
+
+You may wonder, is the converse of Lagrange's theorem true?
+
+
+\end{document}

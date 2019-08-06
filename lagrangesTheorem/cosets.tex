@@ -1,0 +1,143 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Cosets}
+
+\begin{document}
+\begin{abstract}
+We introduce cosets of subgroups, and show that they partition the
+group.
+\end{abstract}
+\maketitle
+
+
+\begin{definition}
+  Let $S$ be a subgroup of $G$. A \textbf{left }\dfn{coset} of $S$ is a set of
+  the form
+  \[
+  gS := \{g\cdot s : s\in S\}.
+  \]
+  where $g\in G$. A \textbf{right }\dfn{coset} of $S$ is a set of the form
+  \[
+  Sg := \{s\cdot g : s\in S\}.
+  \]
+\end{definition}
+
+\begin{remark}
+  Below we will work exculsively with left cosets. However, all of the
+  same results are true for right cosets, and in fact the proofs are
+  essentially the same.
+\end{remark}
+
+
+
+\begin{proposition}[Cosets are the size of the subgroup]\label{P:CSG}
+  Let $S$ be a subgroup of $G$. For any $g\in G$,
+  \[
+  |S| = |gS|.
+  \]
+  \begin{proof}
+    Define a function
+    \begin{align*}
+      \eta: S &\to g S\\
+      s &\mapsto g\cdot s.
+    \end{align*}
+    We claim that $\eta$ is bijective. First note that by definition
+    of cosets $\eta$ is surjective.
+
+    Now we must show that $\eta$ is injective. Suppose that $\eta(s) =
+    \eta(t)$. Write with me:
+    \begin{align*}
+      \eta(s) &= \eta(t) \\
+      gs &= gt\\
+      g^{-1} g s &= g^{-1} g t\\
+      s &= t.
+    \end{align*}
+    Thus if two elements are equal in the image of $\eta$, the must
+    have come from equal elements in the preimage of $\eta$. So we see
+    that $\eta$ is injective.
+
+    Since $\eta$ is bijective, $|S|= |gS|$.
+  \end{proof}
+\end{proposition}
+
+\begin{corollary}[Cosets have the same order]
+  Let $S$ be a subgroup of $G$. All left cosets of $G$ have the same
+  order.
+\end{corollary}
+
+\begin{remark}
+  The same result holds replacing ``left'' cosets with ``right''
+  cosets.
+\end{remark}
+
+
+
+\begin{lemma}[Cosets are equal or disjoint]\label{L:cosetED}
+  Let $S$ be a subgroup of $G$. Left cosets of $S$ are either equal or
+  disjoint.
+  \begin{proof}
+    We will prove that if left cosets are not disjoint, then they are
+    equal. Suppose that there exists $c$ such that $c\in aS \cap
+    bS$. Write with me
+    \[
+    as_1 = c = bs_2.
+    \]
+    So, $as_1 = bs_2$, this means
+    \[
+    as_1 S = bs_2 S.
+    \]
+    But $as_1S = aS$ and $bs_2 S = bS$, so $aS = bS$.
+  \end{proof}
+\end{lemma}
+
+
+
+
+\begin{theorem}[Cosets partition the group]\label{T:CPG}
+  Let $S$ be a subgroup of $G$, 
+  \[
+  G = \union_{g\in G} gS
+  \]
+  and for all $a,b\in G$, if $aS \ne bS$,
+  \[
+  aS\cap bS = \emptyset.
+  \]
+  \begin{proof}
+    All that remains to be shown is that $G = \union_{g\in G}
+    gS$. Since $e\in S$, this is true. The rest follows from
+    Lemma~\ref{L:cosetED}.
+  \end{proof}
+\end{theorem}
+
+
+
+
+%% \begin{lemma}[Criterion for coset equality]
+%%   Let $S$ be a subgroup of $G$. If $a,b\in G$,
+%%   \[
+%%   aS = bS \Leftrightarrow ab^{-1}\in S.
+%%   \]
+%%   \begin{proof}
+%%     $(\Rightarrow)$ If $aS = bS$, then there exists $s\in S$ with
+%%     \begin{align*}
+%%       a &= b\cdot s,\\
+%%       ab^{-1} &= s,
+%%     \end{align*}
+%%     so $ab^{-1}\in S$.
+
+
+%%     $(\Leftarrow)$ If $ab^{-1}\in S$, then for some $s\in S$, $a = bs$
+%%     and so $aS =bS$.
+%%   \end{proof}
+%% \end{lemma}
+
+
+
+
+
+
+\end{document}

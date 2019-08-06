@@ -1,0 +1,175 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Matrix groups}
+
+\begin{document}
+\begin{abstract}
+  Sets of matricies can form groups.
+\end{abstract}
+\maketitle
+
+Matrices are functions between vector spaces. Let's prove that the
+linear transformations of $\R$-vector spaces are matrices. Our proof
+will be general enough that one could change the set of scalars.
+
+\begin{lemma}[Matricies are linear transformations]
+  The function $\vec{L}: V \to W$ from an $m$-dimensional vector space
+  $V$ to a $n$-dimensional vector space $W$ is a linear transformation
+  if and only if can be represented by a $m\times n$ matrix.
+  \begin{proof}
+    $(\Rightarrow)$ Recall the definition of a linear transformation,
+    for $\vec{u},\vec{v}\in V$:
+    \begin{enumerate}
+    \item $\vec{L}(\vec{u}+\vec{v}) = \vec{L}(\vec{u})+\vec{L}(\vec{v})$.
+    \item $\vec{L}(s \vec{v}) = s\vec{L}(\vec{v})$.
+    \end{enumerate}
+    We will show that any function on vector spaces having these
+    properties can be expressed as a matrix over the set of scalars.
+
+    The image of $\vec{L}$ is completely determined by the action of
+    $\vec{L}$ on a basis. Let $\{\vec{b}_1,\dots,\vec{b}_m\}$ be a
+    basis for $V$. Then if $\vec{v}\in V$, we may write
+    \begin{align*}
+      \vec{v} &= \begin{bmatrix}
+        a_1\\
+        \vdots \\
+        a_m
+        \end{bmatrix}\\
+      &=a_1\vec{b}_1 + \dots + a_m\vec{b}_m.
+    \end{align*}
+    Now,
+    \begin{align*}
+      \vec{L}(\vec{v})&=\vec{L}(a_1\vec{b}_1 + \dots + a_m\vec{b}_m)\\
+      &= \vec{L}(a_1\vec{b}_1) + \dots + \vec{L}(a_m\vec{b}_m) \\
+      &= a_1\vec{L}(\vec{b}_1) + \dots + a_m\vec{L}(\vec{b}_m).
+    \end{align*}
+    Hence, we only need to know where $\vec{L}$ maps each basis
+    element. In this case, we can represent
+    \[
+    \vec{L} = \begin{bmatrix}
+      \vec{L}(\vec{b}_1) & \cdots & \vec{L}(\vec{b}_m)
+    \end{bmatrix}
+    \]
+    where each $\vec{L}(\vec{b}_i)$ is a column vector of length $n$.
+    So, we may write
+    \[
+    \vec{L}(\vec{v}) = \begin{bmatrix}
+      \vec{L}(\vec{b}_1) & \cdots & \vec{L}(\vec{b}_m)
+    \end{bmatrix} \begin{bmatrix}
+        a_1\\
+        \vdots \\
+        a_m
+        \end{bmatrix}.
+    \]
+    We have now shown that every linear transformation can be thought of as a matrix.
+
+      $(\Leftarrow)$ Since matrix multiplication distributes over
+      vector addition,
+      \[
+      M(\vec{u}+\vec{v})  = M\cdot \vec{u} + M\cdot \vec{v}.
+      \]
+      Also, we know that with matrix multiplication,
+      \[
+      s M \vec{v} = M(s\vec{v}).
+      \]
+      Hence any $m\times n$ matrix is a linear transformation.
+  \end{proof}
+\end{lemma}
+
+
+
+\begin{definition}
+  A matrix $M:\R^n\to \R^n$ satisfying
+  \[
+  M\cdot M^\transpose=I
+  \]
+  is called an \dfn{orthogonal} matrix. We denote the set of $n\times
+  n$ orthogonal matrices by $O(n)$.
+\end{definition}
+
+
+\begin{exercise}
+  Prove that if $M\in O(n)$, then $\det(M) = \pm 1$.
+\end{exercise}
+
+
+\begin{exercise}
+  Prove that $O(n)$ is a group under matrix multiplication.
+\end{exercise}
+
+
+
+
+\begin{exercise}
+  Prove that a matrix $ M$ defines a rigid motion (a congruence)
+  via
+  \[
+  \begin{bmatrix}
+    \underline{x} & \underline{y} & \underline{z}%
+  \end{bmatrix}^\transpose
+  = M \begin{bmatrix} x & y & z\end{bmatrix}^\transpose
+  \]
+  if and only if it is orthogonal.
+
+  \begin{hint}
+    Note that the square of the distance between $x_{1}$ and
+    $x_{2}$ is the dot product of the vector%
+    \[
+    {\mathbf v}=x_{2}-x_{1}%
+    \]
+    with itself.  Also recall the identity $(AB)^\transpose=B^\transpose A^\transpose$.
+  \end{hint}
+  \begin{hint}
+    If $ M$ is orthogonal, write
+    \[
+    ( M{\mathbf v}) \bullet ( M{\mathbf v})
+    \]
+    and deduce that this equals ${\mathbf v}\bullet{\mathbf v}$. 
+  \end{hint}
+  \begin{hint}
+    Now suppose that $ M$ defines a rigid motion. Explain why this means
+    that
+    \[
+    ( M{\mathbf v}) \bullet ( M{\mathbf v})=
+    {\mathbf v} \bullet {\mathbf v}
+    \]
+    for every ${\mathbf v}$.  Now rewrite as:
+    \[
+    {\mathbf v}^\transpose \cdot{\mathbf v}
+    =( M{\mathbf v})^\transpose \cdot ( M{\mathbf v}).
+    \]
+    Write
+    \[
+    {\mathbf v} =
+    \begin{bmatrix}
+      a \\ b \\ c
+    \end{bmatrix}
+    \]
+     and view the equation 
+    \[
+    {\mathbf v}^\transpose \cdot{\mathbf v}
+    =( M{\mathbf v})^\transpose \bullet ( M{\mathbf v})
+    \]
+    as a polynomial equation in the variables $a$, $b$, and $c$. 
+  \end{hint}
+  \begin{hint}
+    Polynomials are equal if and only if their coefficients are equal. 
+  \end{hint}
+\end{exercise}
+
+
+\begin{theorem}[Classification of \textit{O}(2)]
+  If $M\in O(2)$, then $M$ is a rotation about the origin or a
+  reflection across a line through the origin.
+  \begin{proof}
+  \end{proof}
+\end{theorem}
+
+
+
+
+\end{document}

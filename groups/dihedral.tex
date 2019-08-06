@@ -1,0 +1,212 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Dihedral groups}
+
+\begin{document}
+\begin{abstract}
+  We introduce dihedral groups.
+\end{abstract}
+\maketitle
+
+So here's my proposal for an eaiser problem. Let's study a subset of
+$\aut(T)$. Let's roll it way back to middle school. We'll study the
+\textit{symmetries} of $T$. There are six symmetries of the
+equilateral triangle. Let's list them. There are $3$ flips
+(reflections across lines) $f_1$, $f_2$, $f_3$:
+\[
+\begin{tikzpicture}
+  \tikzmath{\rrr=1.7;}
+  \pic {tikzngon={3}};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$A$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$C$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$B$};
+
+  \pic at (-4,-4) {tikzngon={3}};
+  \draw[dashed] ({-4+sqrt(3)*\rrr/4},{\rrr/4-4}) --  ({-\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4});
+  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$C$};
+  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$A$};
+  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$B$};
+  
+  \pic at (0,-4) {tikzngon={3}};
+  \draw[dashed] (0,{\rrr-4}) -- (0,{\rrr*cos(360/3)-4});
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)-4}) circle (1mm) node[right] {$A$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$B$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$C$};
+
+  \pic at (4,-4) {tikzngon={3}};
+  \draw[dashed] ({4-sqrt(3)*\rrr/4},{\rrr/4-4}) --  ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4});
+  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$B$};
+  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$C$};
+  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$A$};
+
+  
+  \draw[->] (0,-1.3) -- (0,-1.9); 
+  \draw[->] (-2,-1.5) -- (-3,-2.5);
+  \draw[->] (2,-1.5) -- (3,-2.5);
+
+  \node[left] at (0,-1.6) {$f_2$};
+  \node[above left] at (-2.5,-2) {$f_1$};
+  \node[above right] at (2.5,-2) {$f_3$};
+\end{tikzpicture}
+\]
+
+
+There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
+\[
+\begin{tikzpicture}
+  \tikzmath{\rrr=1.7;}
+  \pic at (0,0) {tikzngon={3}};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$A$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$C$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$B$};
+
+
+  \node[above] at (-2,.5) {$r_{120}$};
+  \node[above] at (2,.5) {$r_{240}$};
+
+  \pic at (-4,0) {tikzngon={3}};
+  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)}) circle (1mm) node[right] {$C$};
+  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$B$};
+  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$A$};
+  \draw[dashed,->] (-3.5,0) arc (0:120:.5);
+  
+  \pic at (4,0) {tikzngon={3}};
+  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)}) circle (1mm) node[right] {$B$};
+  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$A$};
+  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$C$};
+  \draw[dashed,->] (4.5,0) arc (0:240:.5);
+  
+  \draw[->] (-1,.5) -- (-3,.5);
+  \draw[->] (1,.5) -- (3,.5);  
+
+  
+\end{tikzpicture}
+\]
+and an identity symmetry, the ``do nothing'' symmetry. Let's call it
+$e$.
+
+\begin{theorem}[The Dihedral group of order six]
+  The six symmetries
+  \[
+  \{e,r_{120},r_{240},f_1,f_2,f_3\}
+  \]
+  of the equilateral triangle form a group under function
+  composition. This group is known as the \dfn{dihedral group}\textbf{
+    of order six}, the \dfn{symmetries of the equilateral triangle},
+  and is also called (and denoted) $D_3$.
+  \begin{proof}
+    Let's check the conditions for this to be a group. We know that
+    the operation is associative, since functional composition is
+    associative, Lemma~\ref{L:funCompAss}.
+
+    There is an identity element, $e$. Every element we've seen so far
+    has an inverse, namely the rotations are inverses of each other,
+    and the flips are their own inverse.
+    
+    We must show that this set is closed under function composition.
+    To see this we will make a Cayley table, also known as a
+    \dfn{group table}. We will express all the symmetries in terms of
+    $e$, $r=r_{120}$, $f=f_2$, with the stipulation that when the
+    rotation and flip are applied, we always apply the rotation
+    first. Hence
+    \[
+    r_{240} = r^2, \quad  f_1 = f\circ r, \quad  f_3 = f\circ r^2.
+    \]
+    In our complete multiplication below, let's ommit the $\circ$, so
+    we will write something like $f\circ r$ as simply $fr$.
+    \[
+    \renewcommand{\arraystretch}{1.6}
+    \begin{array}{|c||c|c|c|c|c|c|}\hline
+      (D_3,\circ)& e     & r     & r^2   & f     & f r   & f r^2 \\  \hline\hline
+      e          & e     & r     & r^2   & f     & f r   & f r^2 \\  \hline
+      r          & r     & r^2   & e     & f r^2 & f     & f r   \\  \hline
+      r^2        & r^2   & e     & r     & f r   & f r^2 & f     \\  \hline
+      f          & f     & f r   & f r^2 & e     & r     & r^2   \\  \hline
+      f r        & f r   & f r^2 & f     & r^2   & e     & r     \\  \hline
+      f r^2      & f r^2 & f     & f r   & r     & r^2   & e     \\  \hline
+    \end{array}
+    \]
+  \end{proof}
+\end{theorem}
+
+
+
+Roughly speaking, \textit{symmetry} breaks down as \textit{sym}
+meaning \textit{with} and \textit{metry} meaning
+\textit{measure}. Symmetries are automorphisms that maintain the
+distance between points---also known as
+\textit{isometries}\index{isometries}. To illustrate by example in
+$\R^2$, we have a distance function
+\[
+d((x,y),(a,b)) = \sqrt{(x-a)^2+(y-b)^2}.
+\]
+So suppose you have an symmetry of the equilateral triangle above. Let
+$(x,y)$ and $(a,b)$ be a points on the triangle.
+\[
+\begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.5] (0,0) -- (3,0) -- (1.5,2.6) -- cycle;
+  \draw[fill] (1,1.72) circle (1mm) node[above left] {$(x,y)$};
+  \draw[fill] (2.5,0.87) circle (1mm) node[right] {$(a,b)$};
+\end{tikzpicture}
+\]
+suppose that $s$ is a symmetry on $T$, meaning $s:T\to T$
+bijectively, and that 
+\[
+d((x,y),(a,b)) = d((s(x),s(y)),(s(a),s(b))).
+\]
+This means that if $s$ is a symmetry on $T$ we could have
+\[
+\begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.5] (0,0) -- (3,0) -- (1.5,2.6) -- cycle;
+  \draw[fill] (1,1.72) circle (1mm) node[above left] {$(x,y)$};
+  \draw[fill] (2.5,0.87) circle (1mm) node[right] {$(a,b)$};
+
+  \draw[dashed] (1,1.72) -- (2.5,0.87);
+  
+  \draw[fill] (2,0) circle (1mm) node[below] {$(s(a),s(b))$};
+  \draw[fill] (.5,0.87) circle (1mm) node[left] {$(s(x),s(y))$};
+
+  \draw[dashed] (2,0) -- (.5,0.87);
+\end{tikzpicture}
+\]
+as the distance as measured by the dashed lines in the diagram above
+is the same. The function mapping $(x,y)$ and $(a,b)$ to different
+verticies of the triangle would \textbf{not} be an symmetry, the
+distance between the points in the image is greater than the distance
+between the points $(x,y)$ and $(a,b)$. In fact, 
+
+
+Now call the distance between these two points
+
+
+Let me tell you what these are.
+
+\begin{definition}
+  Consider a set $X$ with a notion of distance. 
+\end{definition}
+
+
+Let's make it our short-term goal to understand a subset of
+$\aut(T)$. Why a subset?
+
+
+We'll start with an subgroup of
+$\aut(X)$. Speaking of subgroups, 
+
+\begin{exercise}
+Here is a problem related to electronics. Given two resistors, one of
+resistance $r$ and another of resistance $s$, the resistance of these
+two resistors wired in parallel is given by:
+\[
+r \star s = \frac{1}{\frac{1}{r} + \frac{1}{s}}
+\]
+Prove that this operation is an associative operation on $\R-\{0\}$. 
+\end{exercise}
+
+
+Do subgroups? NO!
+\end{document}

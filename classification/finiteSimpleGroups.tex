@@ -1,0 +1,228 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Finite simple groups}
+
+\begin{document}
+\begin{abstract}
+  We give a historical overview of the classification of the finite
+  simple groups. 
+\end{abstract}
+\maketitle
+
+
+\begin{definition}
+  A group $G$ is called \dfn{simple}, if the only normal subgroups of
+  $G$ are $\{e\}$ and $G$.
+\end{definition}
+
+
+
+
+
+\section{Timeline of the proof}
+
+
+Now, to give you an idea of how much work went into this
+classification, we will copy (almost directly) from this
+\link[wikipedia]{https://en.wikipedia.org/wiki/Classification\_of\_finite\_simple\_groups\#Timeline\_of\_the\_proof}
+article. Many of the items in the list below are taken from Solomon
+(2001). The date given is usually the publication date of the complete
+proof of a result, which is sometimes several years later than the
+proof or first announcement of the result, so some of the items appear
+in the ``wrong'' order.
+
+\begin{description}
+\item[1832] Galois introduces normal subgroups and finds the simple
+  groups $A_n$ for $n\ge 5$ and $PSL_2(\Z_p)$ for $p\ge 5$.
+\item[1854]	Cayley defines abstract groups.
+\item[1861] Mathieu describes the first two Mathieu groups $M_{11}$,
+  $M_{12}$, the first sporadic simple groups, and announces the
+  existence of $M_{24}$.
+\item[1870] Jordan lists some simple groups: the alternating and
+  projective special linear ones, and emphasizes the importance of the
+  simple groups.
+\item[1872] Sylow proves the Sylow theorems.
+\item[1873] Mathieu introduces three more Mathieu groups $M_{22}$,
+  $M_{23}$, $M_{24}$.
+\item[1892] Otto H\"older proves that the order of any nonabelian
+  finite simple group must be a product of at least four (not
+  necessarily distinct) primes, and asks for a classification of
+  finite simple groups.
+\item[1893] Cole classifies simple groups of order up to $660$.
+\item[1896]	Frobenius and Burnside begin the study of character theory of finite groups.
+\item[1899] Burnside classifies the simple groups such that the
+  centralizer of every involution is a non-trivial elementary Abelian
+  $2$-group.
+\item[1901] Frobenius proves that a Frobenius group has a Frobenius
+  kernel, so in particular is not simple.
+\item[1901] Dickson defines classical groups over arbitrary finite
+  fields, and exceptional groups of type $G_2$ over fields of odd
+  characteristic.
+\item[1901] Dickson introduces the exceptional finite simple groups of
+  type $E_6$.
+\item[1904] Burnside uses character theory to prove Burnside's theorem
+  that the order of any non-Abelian finite simple group must be
+  divisible by at least $3$ distinct primes.
+\item[1905] Dickson introduces simple groups of type $G_2$ over fields
+  of even characteristic.
+\item[1911] Burnside conjectures that every non-Abelian finite simple
+  group has even order.
+\item[1928] Philip Hall proves the existence of Hall subgroups of
+  solvable groups.
+\item[1933] Hall begins his study of $p$-groups.
+\item[1935] Brauer begins the study of modular characters.
+\item[1936] Zassenhaus classifies finite sharply $3$-transitive
+  permutation groups.
+\item[1938] Fitting introduces the Fitting subgroup and proves
+  Fitting's theorem that for solvable groups the Fitting subgroup
+  contains its centralizer.
+\item[1942] Brauer describes the modular characters of a group
+  divisible by a prime to the first power.
+\item[1954]	Brauer classifies simple groups with $GL_2(\Z_p)$ as the centralizer of an involution. %% was
+                                                                                                       %% \F_q,
+                                                                                                       %% does
+                                                                                                       %% q
+                                                                                                       %% =
+                                                                                                       %% p^n?
+\item[1955] The Brauer-Fowler theorem implies that the number of
+  finite simple groups with given centralizer of involution is finite,
+  suggesting an attack on the classification using centralizers of
+  involutions.
+\item[1955] Chevalley introduces the Chevalley groups, in particular
+  introducing exceptional simple groups of types $F_4$, $E_7$, and
+  $E_8$.
+\item[1956] Hall-Higman theorem.
+\item[1957] Suzuki shows that all finite simple (CA)-groups of odd
+  order are cyclic.
+\item[1958] The Brauer-Suzuki-Wall theorem characterizes the
+  projective special linear groups of rank $1$, and classifies the
+  simple (CA)-groups.
+\item[1959] Steinberg introduces the Steinberg groups, giving some new
+  finite simple groups, of types $^3D_4$ and $^2E_6$ (the latter were
+  independently found at about the same time by Jacques Tits).
+\item[1959] The Brauer-Suzuki theorem about groups with generalized
+  quaternion Sylow $2$-subgroups shows in particular that none of them
+  are simple.
+\item[1960] Thompson proves that a group with a fixed-point-free
+  automorphism of prime order is nilpotent.
+\item[1960] Feit, Marshall Hall, and Thompson show that all finite
+  simple (CN)-groups of odd order are cyclic.
+\item[1960] Suzuki introduces the Suzuki groups, with types $^2B_2$.
+\item[1961] Ree introduces the Ree groups, with types $^2F_4$ and
+  $^2G_2$.
+\item[1963]	Feit and Thompson prove the odd order theorem.
+\item[1964] Tits introduces (BN) pairs for groups of Lie type and
+  finds the Tits group.
+\item[1965] The Gorenstein-Walter theorem classifies groups with a
+  dihedral Sylow $2$-subgroup.
+\item[1966] Glauberman proves the $Z^*$ theorem.
+\item[1966] Janko introduces the Janko group $J_1$, the first new
+  sporadic group for about a century.
+\item[1968] Glauberman proves the $ZJ$ theorem.
+\item[1968] Higman and Sims introduce the Higman-Sims group.
+\item[1968] Conway introduces the Conway groups.
+\item[1969] Walter's theorem classifies groups with Abelian Sylow
+  $2$-subgroups.
+\item[1969] Introduction of the Suzuki sporadic group, the Janko group
+  $J_2$, the Janko group $J_3$, the McLaughlin group, and the Held
+  group.
+\item[1969] Gorenstein introduces signalizer functors based on
+  Thompson's ideas.
+\item[1970] MacWilliams shows that the $2$-groups with no normal
+  Abelian subgroup of rank $3$ have sectional $2$-rank at most
+  $4$. The simple groups with Sylow subgroups satisfying the latter
+  condition were later classified by Gorenstein and Harada.
+\item[1970] Bender introduced the generalized Fitting subgroup.
+\item[1970] The Alperin-Brauer-Gorenstein theorem classifies groups
+  with quasi-dihedral or wreathed Sylow $2$-subgroups, completing the
+  classification of the simple groups of $2$-rank at most $2$.
+\item[1971] Fischer introduces the three Fischer groups.
+\item[1971] Thompson classifies quadratic pairs.
+\item[1971] Bender classifies group with a strongly embedded subgroup.
+\item[1972] Gorenstein proposes a $16$-step program for classifying
+  finite simple groups; the final classification follows his outline
+  quite closely.
+\item[1972] Lyons introduces the Lyons group.
+\item[1973] Rudvalis introduces the Rudvalis group.
+\item[1973] Fischer discovers the baby monster group (unpublished),
+  which Fischer and Griess use to discover the monster group, which in
+  turn leads Thompson to the Thompson sporadic group and Norton to the
+  Harada-Norton group (also found in a different way by Harada).
+\item[1974] Thompson classifies $N$-groups, groups all of whose local
+  subgroups are solvable.
+\item[1974] The Gorenstein-Harada theorem classifies the simple groups
+  of sectional $2$-rank at most $4$, dividing the remaining finite
+  simple groups into those of component type and those of
+  characteristic $2$ type.
+\item[1974] Tits shows that groups with (BN) pairs of rank at least $3$
+  are groups of Lie type.
+\item[1974] Aschbacher classifies the groups with a proper $2$-generated
+  core.
+\item[1975] Gorenstein and Walter prove the $L$-balance theorem.
+\item[1976] Glauberman proves the solvable signalizer functor theorem.
+\item[1976] Aschbacher proves the component theorem, showing roughly
+  that groups of odd type satisfying some conditions have a component
+  in standard form. The groups with a component of standard form were
+  classified in a large collection of papers by many authors.
+\item[1976] O'Nan introduces the O'Nan group.
+\item[1976]	Janko introduces the Janko group $J_4$, the last sporadic group to be discovered.
+\item[1977] Aschbacher characterizes the groups of Lie type of odd
+  characteristic in his classical involution theorem. After this
+  theorem, which in some sense deals with ``most'' of the simple groups,
+  it was generally felt that the end of the classification was in
+  sight.
+\item[1978] Timmesfeld proves the $O_2$ extraspecial theorem, breaking
+  the classification of groups of $GF(2)$-type into several smaller
+  problems.
+\item[1978] Aschbacher classifies the thin finite groups, which are
+  mostly rank $1$ groups of Lie type over fields of even
+  characteristic.
+\item[1981] Bombieri uses elimination theory to complete Thompson's
+  work on the characterization of Ree groups, one of the hardest steps
+  of the classification.
+\item[1982] McBride proves the signalizer functor theorem for all
+  finite groups.
+\item[1982] Griess constructs the monster group by hand.
+\item[1983] The Gilman-Griess theorem classifies groups of
+  characteristic $2$ type and rank at least $4$ with standard
+  components, one of the three cases of the trichotomy theorem.
+\item[1983] Aschbacher proves that no finite group satisfies the
+  hypothesis of the uniqueness case, one of the three cases given by
+  the trichotomy theorem for groups of characteristic $2$ type.
+\item[1983] Gorenstein and Lyons prove the trichotomy theorem for
+  groups of characteristic $2$ type and rank at least $4$, while
+  Aschbacher does the case of rank $3$. This divides these groups into
+  3 subcases: the uniqueness case, groups of GF(2) type, and groups
+  with a standard component.
+\item[1983] Gorenstein announces the proof of the classification is
+  complete, somewhat prematurely as the proof of the quasithin case
+  was incomplete.
+\item[1994] Gorenstein, Lyons, and Solomon begin publication of the
+  revised classification.
+\item[2004] Aschbacher and Smith publish their work on quasithin
+  groups (which are mostly groups of Lie type of rank at most $2$ over
+  fields of even characteristic), filling the last gap in the
+  classification known at that time.
+\item[2008] Harada and Solomon fill a minor gap in the classification
+  by describing groups with a standard component that is a cover of
+  the Mathieu group $M_{22}$, a case that was accidentally omitted
+  from the proof of the classification due to an error in the
+  calculation of the Schur multiplier of $M_{22}$.
+\item[2012] Georges Gonthier and collaborators announce a
+  computer-checked version of the Feit-Thompson theorem using the \texttt{Coq}
+  proof assistant.
+\end{description}
+
+For some interesting extra reading check out:
+\begin{itemize}
+\item \link[\textit{A brief history of the classification of the finite simple groups}, R.\ Solomon, Bulletin of the American Mathematical Society, Volume 38, Number 1, Pages 315--352]{https://www.ams.org/journals/bull/2001-38-03/S0273-0979-01-00909-0/S0273-0979-01-00909-0.pdf}.
+
+
+\end{itemize}
+
+
+\end{document}

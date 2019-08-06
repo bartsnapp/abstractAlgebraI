@@ -1,0 +1,64 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Subgroups}
+
+\begin{document}
+\begin{abstract}
+  Subgroups are subsets of groups that are also groups. 
+\end{abstract}
+\maketitle
+
+
+\begin{definition}
+  Let $G$ be a group, a subset $S\subset G$ is a \dfn{subgroup} if
+  \begin{enumerate}
+  \item $S \ne \emptyset$,
+  \item $a,b\in S \Rightarrow ab\in S$,
+  \item $a\in S \Rightarrow a^{-1}\in S$.
+  \end{enumerate}
+  We denote subgroups by writing $S\subgp G$.
+\end{definition}
+
+
+
+\begin{theorem}[Subgroup criterion]
+  Let $G$ be a group, a nonempty $S\subset G$ is a subrgroup if and
+  only if
+  \[
+  a,b\in S \quad \Rightarrow \quad ab^{-1}\in S.
+  \]
+  \begin{proof}
+    $(\Rightarrow)$ Follows from the definition of a subgroup.
+
+    $(\Leftarrow)$ Suppose for all $a,b\in S$, we know that
+    $ab^{-1}\in S$. We must show that $ab\in S$ and that every element
+    has an inverse.
+
+    Suppose that $a\in S$. This means $aa^{-1} = e\in S$.  Now since
+    $e,b\in S$, $eb^{-1}\in S$, so $b^{-1}\in S$.  Finally, since
+    $a,b^{-1}\in S$, $ab\in S$. We see that $S\subgp G$.
+  \end{proof}
+\end{theorem}
+
+
+
+\section{Subgroups of cyclic groups}
+
+
+\begin{theorem}[Subgroups of cyclic groups are cyclic]
+  Every subgroup of a cyclic group is cyclic.
+\end{theorem}
+
+
+\begin{corollary}
+  The subgroups of $(\Z,+)$ are exactly $n\Z$ where $n = 0,1,\dots,$.
+\end{corollary}
+
+
+
+
+\end{document}

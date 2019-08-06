@@ -1,0 +1,80 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Noether's isomorphism theorem}
+
+\begin{document}
+\begin{abstract}
+  We prove a fundamental theorem about homomorphisms.
+\end{abstract}
+\maketitle
+
+\begin{theorem}[Noether]\label{T:NI}\index{Noether's isomorphism theorem}\index{First isomorphism theorem}
+  If $\phi:G\to H$ is a homomorphism of groups, then
+  \[
+  \frac{G}{\ker(\phi)} \iso \im(\phi).
+  \]
+  \begin{proof}
+    Let $a,b\in G$. Define
+    \begin{align*}
+      \eta: \frac{G}{\ker(\phi)} &\to \im(\phi)\\
+      a\ker(\phi) &\mapsto \phi(a).
+    \end{align*}
+    We must check this map is
+    \index{well-definied}well-defined. Suppose
+    \[
+    a \ker(\phi) = b\ker(\phi).
+    \]
+    We must show that $\phi(a) = \phi(b)$. First note that if $a
+    \ker(\phi) = b\ker(\phi)$, this means that $b\in
+    a\ker(\phi)$. Hence $b = ak$ for some $k\in\ker(\phi)$. Now write
+    with me
+    \begin{align*}
+      \phi(b) &=\phi(ak)\\
+      &=\phi(a)\phi(k)\\
+      &=\phi(a) e_H\\
+      &=\phi(a).
+    \end{align*}
+    Since $\phi(a) = \phi(b)$, we see that $\eta$ is well-defined.
+
+
+    
+    Now we must show that $\eta$ is a homomorphism. First recall that
+    $\ker(\phi)$ is a normal subgroup of $G$, Lemma~\ref{L:kerN}, and
+    that
+    \[
+    a\ker(\phi) b\ker(\phi)  =  ab\ker(\phi).
+    \]
+    Now write with me, 
+    \begin{align*}
+    \eta(a\ker(\phi) b\ker(\phi)) &= \eta(ab\ker(\phi))\\
+    &= \phi(a)\phi(b)\\
+    &= \eta(a\ker(\phi)) \eta(b\ker(\phi)).
+    \end{align*}
+
+
+
+    Finally, we must show that $\eta$ is bijective. Note it is onto by
+    the defintion of $\im(\phi)$.  To see that $\eta$ is injective,
+    note that if $\eta(a) = e_H$, then $a\in \ker(\phi)$, meaning
+    \[
+    a\equiv e_G \pmod{\ker(\phi)},
+    \]
+    hence $\eta$ is injective. 
+  \end{proof}
+\end{theorem}
+
+\begin{corollary}
+  If $\pi:G\onto H$, is a surjective homomorphism of groups, then
+  \[
+  \frac{G}{\ker(\pi)} \iso H.
+  \]
+\end{corollary}
+
+
+
+
+\end{document}

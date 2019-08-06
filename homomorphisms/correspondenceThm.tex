@@ -1,0 +1,94 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{The correspondence theorem}
+
+\begin{document}
+\begin{abstract}
+  We now inverstigate the subgroup structure of quotient groups.
+\end{abstract}
+\maketitle
+
+This next theorem says that subgroups of a quotient group $G/N$ have
+the same relative structure as subgroups of $G$ that contain $N$.
+
+\begin{theorem}[Correspondence theorem]
+  If $G$ is a group, $N$ is a normal subgroup of $G$, and
+  \begin{itemize}
+  \item $\mathcal{G} = \{S:N\subgp S\subgp G\}$
+  \item $\mathcal{\bar{G}} = \{\bar{T}:\{\bar{e}\}\subgp \bar{T}\subgp G/N\}$,
+  \end{itemize}
+  then there is a bijective order-preserving map of sets
+  $\mathcal{G}\leftrightarrow\mathcal{\bar{G}}$.
+  \[
+  \begin{tikzcd}
+    N \ar[r,-,"\subgp"] \ar[d,<->]& S\ar[r,-,"\subgp"] \ar[d,<->]& G \ar[d,<->]\\
+    \{\bar{e}\} \ar[r,-,"\subgp"] & \bar{T} \ar[r,-,"\subgp"] & G/N
+  \end{tikzcd}
+  \]
+  \begin{proof}
+    Let $\pi:G\to G/N$ be the canonical surjection.  By
+    Lemma~\ref{L:hps}, define
+    \begin{align*}
+    \pi_*:\mathcal{G} &\to \bar{\mathcal{G}}\\
+    S &\mapsto \pi(S).
+    \end{align*}
+    By Lemma~\ref{L:pps}, define
+    \begin{align*}
+    \pi^*:\bar{\mathcal{G}} &\to \mathcal G\\
+    \bar{T} &\mapsto \pi^{-1}(\bar{T}).
+    \end{align*}
+    From this construction we see that if
+    \[
+    N \subset S'\subset S \subset G,
+    \]
+    then
+    \[
+    \{\bar{e}\}\subset \pi_*(S') \subset \pi_*(S)\subset G/N.
+    \]
+    We also see that if
+    \[
+    \{\bar{e}\} \subset \bar{T}\hspace{0em}' \subset \bar{T} \subset G/N,
+    \]
+    then
+    \[
+    N \subset \pi^*(\bar{T}\hspace{0em}')\subset \pi^*(\bar{T}) \subset G.
+    \]
+    Finally, we must show that $\pi^*(\pi_*(S)) = S$ and
+    $\pi_*(\pi^*(\bar T)) = \bar{T}$. Both of these follow from the
+    definition.
+  \end{proof}
+\end{theorem}
+
+
+\begin{corollary}
+  If in the theorem above, $S$ is normal then $\pi_*(S)$ is normal; if
+  $\bar{T}$ is normal, then $\pi^*(\bar{T})$ is normal.
+\end{corollary}
+
+
+\begin{corollary}
+  Let $\phi:G\to H$ be a homomorphism of groups. Set
+  \begin{itemize}
+  \item $\mathcal{G} = \{S:\ker(\phi)\subgp S\subgp G\}$
+  \item $\mathcal{H} = \{T:\{e_H\}\subgp T\subgp \im(\phi)\subset H\}$,
+  \end{itemize}
+  then there is a bijective order-preserving map of sets
+  $\mathcal{G}\leftrightarrow\mathcal{H}$.
+  \[
+  \begin{tikzcd}
+    \ker(\phi) \ar[r,-,"\subgp"] \ar[d,<->]& S\ar[r,-,"\subgp"] \ar[d,<->]& G \ar[d,<->]\\
+    \{e\} \ar[r,-,"\subgp"] & T \ar[r,-,"\subgp"] & \im(\phi)
+  \end{tikzcd}
+  \]
+  \begin{proof}
+    By Lemma~\ref{L:kerN}, $\ker(\phi)$ is a normal subgroup of $G$,
+    and by Noether's isomorphism theorem, Theorem~\ref{T:NI},
+    $\im(\phi)\iso G/\ker(\phi)$.
+  \end{proof}
+\end{corollary}
+
+\end{document}

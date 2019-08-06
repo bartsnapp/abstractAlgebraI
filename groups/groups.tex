@@ -1,0 +1,393 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Groups}
+
+\begin{document}
+\begin{abstract}
+  We introduce the notion of a group.
+\end{abstract}
+\maketitle
+
+Let us not mince words:
+
+\begin{definition}
+  A \dfn{group} is a set $G$ with an operation $\star$ such that the
+  following properties hold:
+  \begin{description}
+  \item[Closure] If $a,b\in G$, then $a\star b\in G$.
+  \item[Associativity] If $a,b,c\in G$, then
+    \[
+    a\star(b\star c)  = (a\star b)\star c.
+    \]
+  \item[Identity] There exists $e\in G$ such that for all $a\in G$, 
+    \[
+    e\star a = a \star e  = a.
+    \]
+  \item[Inverse] For all $a\in G$, there exists $a^{-1}$ such that
+    \[
+    a\star a^{-1} = a^{-1}\star a = e.
+    \]
+  \end{description}
+  We will often write a group as $G$, or $(G,\star)$ when the
+  operation is not clear.
+\end{definition}
+
+\begin{exercise} %% suppose to test closure
+  Which of the following are groups? Select all that apply.
+  \begin{selectAll}
+    \choice[correct]{$(\Z,+)$ you may assume addition is associative.}
+    \choice{$(\{1,2,\dots,n\},+)$.}
+    \choice{$(\N,\cdot)$ where $\N = \{1,2,3,\dots\}$, you may assume multiplication is associative.}
+    \choice[correct]{$(\Z\times\Z,+)$ where
+      \[
+      \Z\times \Z := \{(a,b): a,b\in \Z\}
+      \]
+      and
+      \[
+      (a_1,b_1) + (a_2,b_2) := (a_1+a_2,b_1+b_2).
+      \]}
+    \choice[correct]{$(\Q-\{0\},\cdot)$}
+  \end{selectAll}
+\end{exercise}
+
+\begin{exercise} %% supposed to test associativity
+  Which of the following are groups? Select all that apply.
+  \begin{selectAll}
+    \choice{$(\{x^n:n\in \N\},\div)$}
+    \choice{$(\{x^n:n\in \Z\},\cdot)$}
+    \choice[correct]{$(\{x^n:n\in \Z\},\circ)$}
+    \choice[correct]{$(\{x^n:n\in\Q\},\cdot)$}
+    \choice{$(\{x^n:n\in\Q\},\circ)$}
+  \end{selectAll}
+\end{exercise}
+
+
+\begin{exercise} %% harder constructions
+  Which of the following are groups? Select all that apply.
+  \begin{selectAll}
+    \choice[correct]{$(2\Z,+)$ where $2\Z$ is the set of even integers.}
+    \choice{$(\Z_{\mathrm{odd}},\cdot)$ where $\Z_{\mathrm{odd}}$ is
+      the set of odd integers.}
+    \choice[correct]{$(I(\x),+)$ where $\x$ is a set of points in $\R^2$ and
+        \[
+        I(\x) = \{F:\text{where $F:\R^2\to\R$ and $F(\x) = 0$}\}.
+        \]}
+    \choice{$(\Q[x],\cdot)$ where $\Q[x]$ is the set of polynomials in
+      the variable $x$ with coefficients in $\Q$.}
+    \choice[correct]{$(C^\infty(\R,\R), +)$ where $C^\infty(\R,\R)$ is
+      the set of continuous functions mapping $\R\to\R$ such that
+      every derivative of the function is also continuous.}
+  \end{selectAll}
+\end{exercise}
+
+\begin{exercise}
+  Let $(G,\star)$ and $(H,\diamond)$ be groups. Prove that
+  \[
+  G\times H := \{(g,h): \text{$g\in G$ and $h\in H$}\}
+  \]
+  is a group under
+  \[
+  (g_1,h_1) \circledast (g_2,h_2) := (g_1\star g_2, h_1\diamond h_2).
+  \]
+\end{exercise}
+
+
+\section{Finite groups}
+
+
+So far, every group we've seen has had an infinite number of
+elements. Groups can be finite too.
+
+\begin{definition}
+  If $G$ is a group, the \dfn{order} of $G$, denoted $|G|$ is equal to
+  the number of distinct elements in $G$.
+\end{definition}
+
+
+\begin{example}
+  Let $C = \{1,i,-1,-i\}$ where $i =\sqrt{-1}$. We claim that $C$ is a
+  group under multiplication.
+  \begin{proof}
+    First note that $C$ is closed under multiplication. Now also note
+    that we know that multiplication is a associative. The identity
+    element is $1$, and each element has an inverse, behold:
+    \[
+    i\cdot (-i) = 1, \quad\text{and}\quad (-1)\cdot(-1) = 1.
+    \]
+  \end{proof}
+\end{example}
+
+
+\begin{definition}
+  Given a finite group $(G,\star)$, a \dfn{group table}, or
+  \dfn{Cayley table}, is a complete $\star$-``multiplication'' table
+  for $G$.
+\end{definition}
+
+\begin{example}
+  Let's consider the group $C =\{1,i,-1,-i\}$ under multiplication once more.
+  Write with me:
+  \[
+  \renewcommand{\arraystretch}{1.6}
+  \begin{array}{|c||c|c|c|c|c|c|}\hline
+    (C,\cdot)& 1     & i     & -1    & -i  \\  \hline\hline
+    1        & 1     & i     & -1    & -i  \\  \hline
+    i        & i     & -1    & -i    & 1   \\  \hline
+    -1       & -1    & -i    & 1     & i   \\  \hline
+    -i       & -i    & 1     & i     & -1  \\  \hline
+  \end{array}
+  \]
+  Sometimes, it is best to write a Cayley table using fewer symbols.
+  Noting that
+  \[
+  i^2 = -1 \quad\text{and}\quad i^3 = -i,
+  \]
+  we can also write:
+  \[
+  \renewcommand{\arraystretch}{1.6}
+  \begin{array}{|c||c|c|c|c|c|c|}\hline
+    (C,\cdot)& 1     & i     & i^2   & i^3 \\  \hline\hline
+    1        & 1     & i     & i^2   & i^3 \\  \hline
+    i        & i     & i^2   & i^3   & 1   \\  \hline
+    i^2      & i^2   & i^3   & 1     & i   \\  \hline
+    i^3      & i^3   & 1     & i     & i^2 \\  \hline
+  \end{array}
+  \]
+  You must write the entires of the Cayley table using elements from
+  the top-most row; those same elements should also appear in the
+  left-most column.
+\end{example}
+
+
+
+
+Groups are absolutely fundamental to all of modern mathematics; their
+importance cannot be overstated. I remember reading a similar line to
+the one that preceeds this one as an undergraduate. I didn't believe
+it. However, make no mistake. Group theory permieates all of modern
+mathematics. Let me explain.
+
+One of the most powerful insights of 20th-Centuary mathematics is that
+to understand an object in mathematics, you should understand the
+functions on the object.
+
+At this point, you may be wondering, ``First I'm told groups are
+important, then I'm told that functions are important, well\dots which
+is it?''
+
+And the answer is, ``Both.'' This is because if you have a set $X$
+then the set of all bijections from $X$ to $X$ is a group under
+composition, see Exercise~\ref{E:aut0}. Now we will prove a
+fundamental lemma.
+
+
+
+\begin{lemma}[Function composition is associative]\label{L:funCompAss}
+  Suppose that $A$, $B$, $C$, and $D$ are sets and that
+  \begin{align*}
+    \alpha:A &\to B\\
+    \beta:B &\to C\\
+    \gamma:C &\to D
+  \end{align*}
+  are functions. Then,
+  \[
+  \gamma\circ(\beta\circ\alpha) = (\gamma\circ\beta)\circ\alpha.
+  \]
+  \begin{proof}
+    Let's put our maps in a row and represent the functions as arrows
+    between the sets:
+    \[
+    \begin{tikzcd}[row sep=-1ex]%, column sep=-5ex]
+      A \ar[r,"\alpha"] & B \ar[r,"\beta"] & C \ar[r,"\gamma"] & D\\
+      a \ar[mapsto,r] & \alpha(a) = b  \ar[mapsto,r] & \beta(b) = c  \ar[mapsto,r] & \gamma(c)=d 
+    \end{tikzcd}
+    \]
+    The second row above shows where the elements of these sets map
+    to. The funny arrow with a base, ``$\mapsto$,'' is how we show
+    where elements map. The diagram above represents
+    $\gamma\circ\beta\circ\alpha$. In particular, with our diagram, we have set
+    \[
+    \gamma\circ\beta\circ\alpha(a) = d.
+    \]
+    Now let's make a similar diagram to
+    represent $\gamma\circ(\beta\circ\alpha)$:
+    \[
+    \begin{tikzcd}[row sep=-1ex]%, column sep=-5ex]
+      A \ar[r,"\alpha"] & B \ar[r,"\beta"] & C \ar[r,"\gamma"] & D\\
+      a \ar[mapsto,rr,"\beta\circ\alpha",swap] &  & c  \ar[mapsto,r] & d 
+    \end{tikzcd}
+    \]
+    We see that
+    \[
+    \gamma\circ(\beta\circ\alpha)(a) = d.
+    \]
+    Finally, let's make a similar diagram to
+    represent $(\gamma\circ\beta)\circ\alpha$:
+    \[
+    \begin{tikzcd}[row sep=-1ex]%, column sep=-5ex]
+      A \ar[r,"\alpha"] & B \ar[r,"\beta"] & C \ar[r,"\gamma"] & D\\
+      a \ar[mapsto,r] & b \ar[rr,mapsto,"\gamma\circ\beta",swap] &   & d 
+    \end{tikzcd}
+    \]
+    Again, we see
+    \[
+    (\gamma\circ\beta)\circ\alpha(a) = d.
+    \]
+    Since $a$ is an arbitrary label, and $d$ is simply a label for
+    $\gamma\circ\beta\circ\alpha(a)$, we have shown:
+    \[
+    \gamma\circ(\beta\circ\alpha)(a) = \gamma\circ\beta\circ\alpha(a) = (\gamma\circ\beta)\circ\alpha(a).
+    \]
+    We conclude that functional composition is always associative.
+  \end{proof}
+\end{lemma}
+
+
+\begin{exercise}
+  Prove that addition is an associative operation  over $\Z$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that multiplication is an associative operation  over $\Z$.
+\end{exercise}
+
+
+
+\begin{exercise}
+  We write functions on the left, $f(x)$, meaning that the ``$f$'' is
+  left of the ``$(x)$.''  Some authors write functions on the right,
+  so $(x)f$. Why would an author do this? Hint: Rephrase the lemma
+  above, writing the functions on the right, and see if you notice
+  anything nice.
+  \begin{hint}
+    Think about this:
+    \[
+    \underbrace{\gamma\circ\beta\circ\alpha}_{\text{left}}(a) = (a)\underbrace{\alpha\circ\beta\circ\gamma}_{\text{right}}
+    \]
+  \end{hint}
+\end{exercise}
+
+
+
+\begin{exercise}
+  Prove that matrix multiplication is associative.
+  \begin{hint}
+    An $n\times m$ matrix is a function mapping $\R^m\to \R^n$ when
+    you write your vectors vertically and functions on the left.
+  \end{hint}
+\end{exercise}
+
+
+
+\begin{exercise}
+  Let
+  \begin{align*}
+    f(x) &= \frac{1}{x},  &  m(x) &= \frac{1}{1-x}, \\
+    g(x) &= 1-x,          &  n(x) &= \frac{x-1}{x}, \\
+    h(x) &= \frac{x}{x-1}, &  i(x) &= x.
+  \end{align*}
+  Prove that $\{i,f,g,h,m,n\}$ forms a group under function
+  composition.
+
+  ORDER OF FXNS AND GROUP TABLE?
+\end{exercise}
+
+
+\begin{exercise}
+  Pick up a sock. Now choose one:
+  \begin{enumerate}
+  \item[$(n)$] Do nothing to the sock.
+  \item[$(i)$] Pull the toe of the sock out the inside of the foot
+    opening. Hence if the sock was rightside out, it is now inside
+    out, and vice versa.
+  \end{enumerate}
+  Someone says,
+  \begin{quote}
+    Ah! The sock group! The set $\{n,i\}$ is a group with
+    \begin{align*}
+      r\circ r &= r\\
+  r\circ i &= i\\
+  i\circ i &= r.
+  \end{align*}
+  \end{quote}
+  Explain what this ``groupie'' is taking about. Be very
+  detailed. Make a Cayley table with entries $n$ and $r$.
+\end{exercise}
+
+\begin{exercise}
+  In the Ohio State University Marching Band, there is a fundamental
+  movement called a ``270-spin-turn.'' With this turn, the band-member
+  spins to the left, $270^\circ$, thus ends up facing right. Denote a
+  $270$-spin-turn by $T$. Explain how
+  \[
+  \{T^0,T^1,T^2,T^3\}
+  \]
+  form a group. Make a Cayley table for $T$ where the entires are
+  $\{T^0,T^1,T^2,T^3\}$.
+\end{exercise}
+
+
+
+
+
+
+
+\begin{exercise}[Automorphisms form a group]\label{E:aut0}
+  Given a set $X$, prove that the collection of all bijections from
+  $X$ to itself is a group under function composition.  This group is
+  called the \dfn{automorphism group} of $X$, and is denoted
+  \[
+  \aut(X).
+  \]
+  \begin{hint}
+    Just check the definition of a group. First show $\aut(X)$ is
+    closed under $\circ$. Next explain why the group operation is
+    associative. Next find the identity element. Finally, explain why
+    every element has an inverse.
+  \end{hint}
+\end{exercise}
+
+
+If you find $\aut(X)$ difficult to think about, don't worry. We'll
+take small steps to understand this. To start, imagine an equilateral
+triangle sitting on an empty $2$D-plane:
+\[
+\begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.5] (0,0) -- (3,0) -- (1.5,2.6) -- cycle;
+\end{tikzpicture}
+\]
+We are thinking about the points that lie on the lines that contain
+the edges of the triangle.  Call this set of points, this
+\dfn{geometric set}, $T$. In symbols we could write
+\[
+T = \{(x,y):\text{the point $(x,y)$ is on the triangle}\}
+\]
+Unfortunatly the group $\aut(T)$ seems much to hard (at least at this
+point, to this author) to tackle. Instead, let me tell you something I
+tell myself in hard times:
+
+\begin{quote}
+  For every problem I cannot solve, there's an easier problem that I
+  cannot solve.
+\end{quote}
+
+
+
+\section{Solving equations}
+\[
+Mx = y
+\]
+
+
+
+
+
+
+
+
+
+\end{document}
