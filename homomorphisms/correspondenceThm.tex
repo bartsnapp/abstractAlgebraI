@@ -21,14 +21,14 @@ the same relative structure as subgroups of $G$ that contain $N$.
   \item $\mathcal{G} = \{S:N\subgp S\subgp G\}$
   \item $\mathcal{\bar{G}} = \{\bar{T}:\{\bar{e}\}\subgp \bar{T}\subgp G/N\}$,
   \end{itemize}
-  then there is a bijective order-preserving map of sets
-  $\mathcal{G}\leftrightarrow\mathcal{\bar{G}}$.
   \[
   \begin{tikzcd}
-    N \ar[r,-,"\subgp"] \ar[d,<->]& S\ar[r,-,"\subgp"] \ar[d,<->]& G \ar[d,<->]\\
+    N \ar[r,-,"\subgp"] \ar[d,<->,dotted]& S\ar[r,-,"\subgp"] \ar[d,<->,dotted]& G \ar[d,<->,dotted]\\
     \{\bar{e}\} \ar[r,-,"\subgp"] & \bar{T} \ar[r,-,"\subgp"] & G/N
   \end{tikzcd}
   \]
+  then there is a bijective order-preserving map of sets
+  $\mathcal{G}\leftrightarrow\mathcal{\bar{G}}$.
   \begin{proof}
     Let $\pi:G\to G/N$ be the canonical surjection.  By
     Lemma~\ref{L:hps}, define
@@ -76,14 +76,14 @@ the same relative structure as subgroups of $G$ that contain $N$.
   \item $\mathcal{G} = \{S:\ker(\phi)\subgp S\subgp G\}$
   \item $\mathcal{H} = \{T:\{e_H\}\subgp T\subgp \im(\phi)\subset H\}$,
   \end{itemize}
-  then there is a bijective order-preserving map of sets
-  $\mathcal{G}\leftrightarrow\mathcal{H}$.
   \[
   \begin{tikzcd}
-    \ker(\phi) \ar[r,-,"\subgp"] \ar[d,<->]& S\ar[r,-,"\subgp"] \ar[d,<->]& G \ar[d,<->]\\
+    \ker(\phi) \ar[r,-,"\subgp"] \ar[d,<->,dotted]& S\ar[r,-,"\subgp"] \ar[d,<->,dotted]& G \ar[d,<->,dotted]\\
     \{e\} \ar[r,-,"\subgp"] & T \ar[r,-,"\subgp"] & \im(\phi)
   \end{tikzcd}
   \]
+  then there is a bijective order-preserving map of sets
+  $\mathcal{G}\leftrightarrow\mathcal{H}$.
   \begin{proof}
     By Lemma~\ref{L:kerN}, $\ker(\phi)$ is a normal subgroup of $G$,
     and by Noether's isomorphism theorem, Theorem~\ref{T:NI},

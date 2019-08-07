@@ -1,6 +1,6 @@
 \usepackage[T1]{fontenc}
 \usepackage{stix2}
-
+\usepackage{gillius}
  
 \usepackage{tikz-cd}
 \tikzset{>=stealth}
@@ -17,6 +17,7 @@
   \oldbibliography{#1}%
   \setlength{\itemsep}{0pt}%
 }
+\renewcommand\refname{} %% no name needed!
 
 
 \DefineVerbatimEnvironment{macaulay2}{Verbatim}{numbers=left,frame=lines,label=Macaulay2,labelposition=topline}
@@ -27,6 +28,7 @@
 \makeatletter
 \let\c@theorem\relax
 \let\c@corollary\relax
+\let\c@example\relax
 \makeatother
 
 \let\definition\relax
@@ -74,7 +76,7 @@
 		{\thmname{#1}\thmnumber{ #2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
 \theoremstyle{SlantTheorem}
 \newtheorem{theorem}{Theorem}
-\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{definition}[theorem]{Definition}
 \newtheorem{proposition}[theorem]{Proposition}
 %% \newtheorem*{dfnn}{Definition}
 %% \newtheorem{ques}{Question}[theorem]
@@ -85,8 +87,21 @@
 \newtheorem*{remark}{Remark}
 \newtheorem*{touchstone}{Touchstone}
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem*{example}{Example}
 \newtheorem*{warning}{WARNING}
+\newtheorem{example}{Example}[theorem]
+
+
+\newtheoremstyle{Definition}{\topsep}{\topsep}%%% space between body and thm
+		{}                              %%% Thm body font
+		{}                              %%% Indent amount (empty = no indent)
+		{\bfseries\sffamily}            %%% Thm head font
+		{}                              %%% Punctuation after thm head
+		{3ex}                           %%% Space after thm head
+		{\thmname{#1}\thmnumber{ #2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
+\theoremstyle{Definition}
+\newtheorem{definition}[theorem]{Definition}
+
+
 
 \let\algorithm\relax
 \let\endalgorithm\relax
@@ -268,7 +283,7 @@
 
 
 
-\NewEnviron{annotate}{\small \itshape \BODY \vspace{.5cm}}
+\NewEnviron{annotate}{\small \itshape \BODY \vspace{0cm}}
 
 
 %%%% TIKZ STUFF
@@ -345,7 +360,7 @@
   \foreach \x in {0,1,...,\xx-1}
            {
              \node[circle,fill=black,inner sep=0pt, minimum size=13pt,text=white]
-             at ({(\rr-\dd)*sin(\x*360/\xx)},{(\rr-\dd)*cos(\x*360/\xx}) {\bfseries\sffamily\small \x};
+             at ({(\rr-\dd)*sin(\x*360/\xx)},{(\rr-\dd)*cos(\x*360/\xx}) {\normalfont\bfseries\sffamily\small \x};
            }
   \draw[thick] (0,0) circle (\rr);
   }}}

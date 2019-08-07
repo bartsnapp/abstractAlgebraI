@@ -95,6 +95,45 @@ Let us not mince words:
   \]
 \end{exercise}
 
+\begin{exercise}
+  Consider the set $\Z\times \Z$ under the operation
+  \[
+  (a,b) \star(c,d) := (ad+bc,bd).
+  \]
+  Is this a group? If so, give a proof. If not, explain why not.
+\end{exercise}
+
+
+\begin{exercise}
+  Find the largest subset $S\subset \Q$ such that $(S,\star)$ is a
+  group where
+  \[
+  x\star y = x\cdot y + x + y
+  \]
+  and prove your answer is correct.
+\end{exercise}
+
+
+
+
+\begin{lemma}[Identity is unique]
+  Let $G$ be a group. There is a unique identity element $e\in G$.
+  \begin{sketch}
+    Suppose there are two identities.
+  \end{sketch}
+\end{lemma}
+
+
+\begin{lemma}[Inverses are unique]
+  Let $G$ be a group. Every element in $G$ has a unique inverse.
+  \begin{sketch}
+    Suppose that an element has two inverses.
+  \end{sketch}
+\end{lemma}
+
+
+
+
 
 \section{Finite groups}
 
@@ -108,7 +147,7 @@ elements. Groups can be finite too.
 \end{definition}
 
 
-\begin{example}
+\begin{example}\label{E:C}
   Let $C = \{1,i,-1,-i\}$ where $i =\sqrt{-1}$. We claim that $C$ is a
   group under multiplication.
   \begin{proof}
@@ -118,6 +157,7 @@ elements. Groups can be finite too.
     \[
     i\cdot (-i) = 1, \quad\text{and}\quad (-1)\cdot(-1) = 1.
     \]
+    So $C$ is a group of order $4$.
   \end{proof}
 \end{example}
 
@@ -157,21 +197,40 @@ elements. Groups can be finite too.
     i^3      & i^3   & 1     & i     & i^2 \\  \hline
   \end{array}
   \]
-  You must write the entires of the Cayley table using elements from
+  You must write the entries of the Cayley table using elements from
   the top-most row; those same elements should also appear in the
   left-most column.
 \end{example}
 
 
 
+\begin{exercise}
+  The following operation table is \textbf{not} a Cayley table for a
+  group:
+  \[
+  \renewcommand{\arraystretch}{1.6}
+  \begin{array}{|c||c|c|c|c|c|c|}\hline
+     * & a & b & c & d & e & f  \\  \hline\hline
+    a  & a & b & c & d & e & f  \\  \hline
+    b  & b & c & d & e & f & a  \\  \hline
+    c  & c & d & a & f & b & e  \\  \hline
+    d  & d & e & f & a & c & b  \\  \hline
+    e  & e & f & b & c & a & d  \\  \hline
+    f  & f & a & e & b & d & c  \\  \hline
+    \end{array}
+  \]
+  Which properties of a group fail?
+\end{exercise}
+
+\section{Groups of functions}
 
 Groups are absolutely fundamental to all of modern mathematics; their
 importance cannot be overstated. I remember reading a similar line to
-the one that preceeds this one as an undergraduate. I didn't believe
-it. However, make no mistake. Group theory permieates all of modern
+the one that precedes this one as an undergraduate. I didn't believe
+it. However, make no mistake. Group theory permeates all of modern
 mathematics. Let me explain.
 
-One of the most powerful insights of 20th-Centuary mathematics is that
+One of the most powerful insights of 20th-Century mathematics is that
 to understand an object in mathematics, you should understand the
 functions on the object.
 
@@ -238,7 +297,7 @@ fundamental lemma.
     (\gamma\circ\beta)\circ\alpha(a) = d.
     \]
     Since $a$ is an arbitrary label, and $d$ is simply a label for
-    $\gamma\circ\beta\circ\alpha(a)$, we have shown:
+    $\gamma\circ\beta\circ\alpha(a)$, we have shown
     \[
     \gamma\circ(\beta\circ\alpha)(a) = \gamma\circ\beta\circ\alpha(a) = (\gamma\circ\beta)\circ\alpha(a).
     \]
@@ -260,9 +319,9 @@ fundamental lemma.
 \begin{exercise}
   We write functions on the left, $f(x)$, meaning that the ``$f$'' is
   left of the ``$(x)$.''  Some authors write functions on the right,
-  so $(x)f$. Why would an author do this? Hint: Rephrase the lemma
-  above, writing the functions on the right, and see if you notice
-  anything nice.
+  meaning they would write ``$(x)f$.'' Why would an author do this? Hint:
+  Rephrase the lemma above, writing the functions on the right, and
+  see if you notice anything nice.
   \begin{hint}
     Think about this:
     \[
@@ -283,19 +342,6 @@ fundamental lemma.
 
 
 
-\begin{exercise}
-  Let
-  \begin{align*}
-    f(x) &= \frac{1}{x},  &  m(x) &= \frac{1}{1-x}, \\
-    g(x) &= 1-x,          &  n(x) &= \frac{x-1}{x}, \\
-    h(x) &= \frac{x}{x-1}, &  i(x) &= x.
-  \end{align*}
-  Prove that $\{i,f,g,h,m,n\}$ forms a group under function
-  composition.
-
-  ORDER OF FXNS AND GROUP TABLE?
-\end{exercise}
-
 
 \begin{exercise}
   Pick up a sock. Now choose one:
@@ -307,7 +353,7 @@ fundamental lemma.
   \end{enumerate}
   Someone says,
   \begin{quote}
-    Ah! The sock group! The set $\{n,i\}$ is a group with
+    Ah! The sock group! The set $\{n,i\}$ is a group of order $2$ with
     \begin{align*}
       r\circ r &= r\\
   r\circ i &= i\\
@@ -315,7 +361,19 @@ fundamental lemma.
   \end{align*}
   \end{quote}
   Explain what this ``groupie'' is taking about. Be very
-  detailed. Make a Cayley table with entries $n$ and $r$.
+  detailed. Make a Cayley table with entries $n$ and $r$. 
+\end{exercise}
+
+\begin{exercise}
+  In the Ohio State University Marching Band, there is a fundamental
+  movement called a ``right-face.'' With this turn, the band-member
+  spins to the right, $90^\circ$, ending up facing right. Denote a
+  right-face by $R$. Explain how
+  \[
+  \{R^0,R^1,R^2,R^3\}
+  \]
+  forms a group of order $4$. Make a Cayley table for this group where the entries
+  are $R^0$, $R^1$, $R^2$, and $R^3$.
 \end{exercise}
 
 \begin{exercise}
@@ -326,61 +384,125 @@ fundamental lemma.
   \[
   \{T^0,T^1,T^2,T^3\}
   \]
-  form a group. Make a Cayley table for $T$ where the entires are
-  $\{T^0,T^1,T^2,T^3\}$.
+  forms a group of order $4$. Make a Cayley table for this group where
+  the entries are $T^0$, $T^1$, $T^2$, and $T^3$.
 \end{exercise}
 
 
 
+\begin{exercise}\label{E:invg}
+  Let
+  \begin{align*}
+    i(x) &= x,             & \l(x) &= \frac{1}{x}, \\
+    f(x) &= \frac{1}{1-x}, &  m(x) &= 1-x, \\
+    g(x) &= \frac{x-1}{x}, &  n(x) &= \frac{x}{x-1}.
+  \end{align*}
+  be functions from $\R-{0,1}\to\R$.  Prove that $\{i,f,g,\l,m,n\}$
+  forms a group under function composition.
+\end{exercise}
 
 
-
-
-\begin{exercise}[Automorphisms form a group]\label{E:aut0}
-  Given a set $X$, prove that the collection of all bijections from
-  $X$ to itself is a group under function composition.  This group is
-  called the \dfn{automorphism group} of $X$, and is denoted
+\begin{definition}
+  Let $G$ be group, a subset $\{g_1,\dots, g_n,\dots\}\subset G$ is a
+  set of \dfn{generators} for $G$ if for all $a\in G$
   \[
-  \aut(X).
+  a = \prod_{\mathrm{finite}} g_i^{\alpha_i}
   \]
-  \begin{hint}
-    Just check the definition of a group. First show $\aut(X)$ is
-    closed under $\circ$. Next explain why the group operation is
-    associative. Next find the identity element. Finally, explain why
-    every element has an inverse.
-  \end{hint}
+  where $\alpha_i\in \Z$ and the $g_i$'s are not necessarily distinct.
+\end{definition}
+
+
+\begin{exercise}
+  Prove that $C =\{1,i,-1,-i\}$ is generated by $i$. See Example~\ref{E:C}
+\end{exercise}
+
+\begin{exercise}
+  Prove that $(\Z,+)$ is generated by $1$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that $(\Z,+)$ is generated by $3$ and $5$.
+\end{exercise}
+
+\begin{exercise}
+  If $G$ is a group, and $g\in G$, prove that
+  \[
+  g^m\cdot g^n = g^{m+n}.
+  \]
 \end{exercise}
 
 
-If you find $\aut(X)$ difficult to think about, don't worry. We'll
-take small steps to understand this. To start, imagine an equilateral
-triangle sitting on an empty $2$D-plane:
-\[
-\begin{tikzpicture}
-  \draw[ultra thick,rounded corners=.5] (0,0) -- (3,0) -- (1.5,2.6) -- cycle;
-\end{tikzpicture}
-\]
-We are thinking about the points that lie on the lines that contain
-the edges of the triangle.  Call this set of points, this
-\dfn{geometric set}, $T$. In symbols we could write
-\[
-T = \{(x,y):\text{the point $(x,y)$ is on the triangle}\}
-\]
-Unfortunatly the group $\aut(T)$ seems much to hard (at least at this
-point, to this author) to tackle. Instead, let me tell you something I
-tell myself in hard times:
 
-\begin{quote}
-  For every problem I cannot solve, there's an easier problem that I
-  cannot solve.
-\end{quote}
+\begin{exercise}
+  Prove that the group $\{i,f,g,\l,m,n\}$, as defined in
+  Exercise~\ref{E:invg}, is generated by $f$ and $\l$. Make a Cayley
+  table with entries
+  \[
+  e, f, f\circ f, \l, \l\circ f,\l \circ f^2
+  \]
+  where $e$ is the identity function.
+\end{exercise}
 
 
+\section{Abelian groups}
 
-\section{Solving equations}
-\[
-Mx = y
-\]
+
+Finally, note that the group operation need not be commutative.
+
+\begin{definition}
+  A group $(G,\star)$ is called \dfn{Abelian} if
+  \[
+  a\star b = b\star a
+  \]
+  for all $a,b\in G$.
+\end{definition}
+
+\begin{exercise}
+  Give examples of Abelian groups. Can you give an example of a group
+  that is not Abelian? Hint: Think matrix multiplication.
+\end{exercise}
+
+\begin{exercise}
+  Prove that a group $G$ is Abelian if and only if
+  \[
+  aba^{-1}b^{-1} = e
+  \]
+  for all $a,b\in G$.
+\end{exercise}
+
+
+\begin{exercise}
+  Suppose that $G$ is a group where for all $x\in G$, $x^2 =e$. Prove
+  that $G$ is Abelian.
+\end{exercise}
+
+
+%% \section{Solving equations}
+
+%% When you ask the pros what algebra is ``about,'' a common answer is:
+%% \begin{quote}
+%%   Algebra is about solving equations.
+%% \end{quote}
+
+%% Let me see if I can convince you of this. Suppose you have a group $G$
+%% with elements $a,b\in G$. If you wish to solve this equation
+%% \[
+%% ax = b
+%% \]
+%% the definition of a group allows you \textit{always} solve this
+%% equation by multiplying by $a^{-1}$ on the left, obtaining
+%% \[
+%% x = a^{-1}b.
+%% \]
+%% The definition of a group allows you to always solve linear equations
+%% consisting of group elements.
+
+%% On the other hand,
+
+
+
+
+
 
 
 

@@ -27,32 +27,89 @@
 \end{example}
 
 
-\[
-\begin{tikzpicture}
- \pic {tikznclock={3}};
-\end{tikzpicture}
-\]
-
-\[
-\begin{tikzpicture} %% N-GON
- \pic {tikznclock={12}};
-\end{tikzpicture}
-\]
-
-\[
-\begin{tikzpicture} %% N-GON
- \pic {tikzngon={8}};
-\end{tikzpicture}
-\]
-\[
-\begin{tikzpicture} %% N-GON
- \pic {tikzegon={8}};
-\end{tikzpicture}
-\]
+\begin{example}
+  The group $(C,\cdot)$ where $C=\{1,i,-1,-i\}$ is a cyclic group.
+\end{example}
 
 
-\section{Cyclic groups are Abelian}
+\begin{exercise}
+  Prove that every cyclic group is Abelian.
+\end{exercise}
 
+
+\begin{example}[Modular arithmetic]
+  Let $\Z_{12}$ be arithmetic on a clock:
+  \[
+  \begin{tikzpicture} 
+    \pic {tikznclock={12}};
+  \end{tikzpicture}
+  \]
+  On this clock, if it is $3$ o'clock, and $13$ hours pass, is is now
+  $4$ o'clock. In this case, we write
+  \[
+  3 + 13 \equiv 4 \pmod{12}.
+  \]
+  The group $(\Z_{12},+)$ is cyclic with generator $1$.
+\end{example}
+
+\begin{exercise} Consider a clock with $2$ numbers:
+  \[
+  \begin{tikzpicture} 
+    \pic {tikznclock={2}};
+  \end{tikzpicture}
+  \]
+  Arithmetic on this clock is given by the group $(\Z_2,+)$. Make a
+  Cayley table for $(\Z_2,+)$.
+\end{exercise}
+
+\begin{exercise} Consider a clock with $3$ numbers:
+  \[
+  \begin{tikzpicture} 
+    \pic {tikznclock={3}};
+  \end{tikzpicture}
+  \]
+  Arithmetic on this clock is given by the group $(\Z_3,+)$. Make a
+  Cayley table for $(\Z_3,+)$.
+\end{exercise}
+
+\begin{exercise} Consider a clock with $4$ numbers:
+  \[
+  \begin{tikzpicture} 
+    \pic {tikznclock={4}};
+  \end{tikzpicture}
+  \]
+  Arithmetic on this clock is given by the group $(\Z_4,+)$. Make a
+  Cayley table for $(\Z_4,+)$.
+\end{exercise}
+
+
+\begin{exercise} Consider a clock with $5$ numbers:
+  \[
+  \begin{tikzpicture} 
+    \pic {tikznclock={5}};
+  \end{tikzpicture}
+  \]
+  Arithmetic on this clock is given by the group $(\Z_5,+)$. Make a
+  Cayley table for $(\Z_5,+)$.
+\end{exercise}
+
+\begin{exercise} Consider a clock with $6$ numbers:
+  \[
+  \begin{tikzpicture} 
+    \pic {tikznclock={6}};
+  \end{tikzpicture}
+  \]
+  Arithmetic on this clock is given by the group $(\Z_6,+)$. Make a
+  Cayley table for $(\Z_6,+)$.
+\end{exercise}
+
+
+\begin{lemma}[Cyclic groups are Abelian]
+  If $G$ is a cyclic group, then $G$ is Abelian.
+  \begin{proof}
+    
+  \end{proof}
+\end{lemma}
 
 
 

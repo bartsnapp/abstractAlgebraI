@@ -26,14 +26,14 @@
 \section{Homomorphisms}
 
 \begin{definition}\index{homomorphism!of groups}\index{group homomorphism}
-  Let $G$ and $H$ be groups, a function $\phi:G\to H$ is a
-  \dfn{homomorphism} of groups if
+  Let $(G,\star)$ and $(H,\diamond)$ be groups, a function $\phi:G\to
+  H$ is a \dfn{homomorphism} of groups if
   \[
   \phi(a\star b) = \phi(a)\diamond\phi(b).
   \]
 \end{definition}
 
-\begin{exercise}[Homomorphisms preserve identity]
+\begin{exercise}[Homomorphisms preserve identity]\label{L:HPId}
   Let $\phi:G\to H$ be a homomorphism of groups. Prove that
   \[
   \phi(e_G) = e_H,
@@ -44,7 +44,7 @@
 
 
 
-\begin{lemma}[Homomorphisms preserve inverses]
+\begin{lemma}[Homomorphisms preserve inverses]\label{L:HPI}
   If $\phi:G\to H$ is a group homomorphism, then $\phi(g^{-1}) =
   \phi(g)^{-1}$.
 \end{lemma}
@@ -107,6 +107,7 @@ C^\infty(\R,\R^2) \lto^{\grad} C^\infty(\R^2,\R^2)
 \end{lemma}
 
 
+
 \begin{lemma}[Preimages preserve subgroups]\label{L:pps}
   Consider a homomorphism of groups $\phi:G\to H$, and let $T\subgp
   G$. Define
@@ -122,8 +123,9 @@ C^\infty(\R,\R^2) \lto^{\grad} C^\infty(\R^2,\R^2)
   A homomorphism of rings $\phi:G\to H$ is injective if and only if
   $\ker(\phi) = \{e_G\}$.
   \begin{proof}
-    $(\Rightarrow)$ If $\phi$ is injective, only $e_G$ can map to
-    $e_H$. Hence $\ker(\phi) = \{e_G\}$.
+    $(\Rightarrow)$ By Lemma~\ref{L:HPId}, $\phi(e_G) = e_H$. If
+    $\phi$ is injective, only $e_G$ can map to $e_H$. Hence
+    $\ker(\phi) = \{e_G\}$.
 
 
     $(\Leftarrow)$ Suppose that $\ker(\phi) = \{e_G\}$. We must show
@@ -135,7 +137,7 @@ C^\infty(\R,\R^2) \lto^{\grad} C^\infty(\R^2,\R^2)
     Write with me
     \begin{align*}
       \phi(ab^{-1}) &=\phi(a)\phi(b^{-1})\\
-      &= \phi(a) \phi(b)^{-1}\\
+      &= \phi(a) \phi(b)^{-1} & \text{(By Lemma~\ref{L:HPI})}\\
       &= e_H.
     \end{align*}
     Hence $ab^{-1}\in\ker(\phi)$ but $ab^{-1}\ne e_G$, a
@@ -167,7 +169,8 @@ C^\infty(\R,\R^2) \lto^{\grad} C^\infty(\R^2,\R^2)
   g &\mapsto gN
   \end{align*}
   is a surjective homomorphism. This surjection is called the
-  \dfn{canonical surjection} from $G$ to $G/N$.
+  \dfn{canonical surjection} or \dfn{natural surjection} from $G$ to
+  $G/N$.
 \end{exercise}
 
 

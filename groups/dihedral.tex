@@ -12,11 +12,58 @@
 \end{abstract}
 \maketitle
 
+\begin{theorem}[Automorphisms form a group]\label{E:aut0}
+  Given a set $X$, prove that the collection of all bijections from
+  $X$ to itself is a group under function composition.  This group is
+  called the \dfn{automorphism group} of $X$, and is denoted
+  \[
+  \aut(X).
+  \]
+  \begin{sketch}
+    Just check the definition of a group. First show $\aut(X)$ is
+    closed under $\circ$. Next explain why the group operation is
+    associative. Next find the identity element. Finally, explain why
+    every element has an inverse.
+  \end{sketch}
+\end{theorem}
+
+
+If you find $\aut(X)$ difficult to think about, don't worry. We'll
+take small steps to understand this. 
+
+To start, imagine an equilateral triangle sitting
+on an empty $2$D-plane:
+\[
+\begin{tikzpicture}
+  \pic {tikzngon={3}};
+\end{tikzpicture}
+\]
+We are thinking about the points that lie on the lines that contain
+the edges of the triangle.  Call this set of points, this
+\dfn{geometric set}, $T$. In symbols we could write
+\[
+T = \{(x,y):\text{the point $(x,y)$ is on the triangle}\}
+\]
+Unfortunatly the group $\aut(T)$ seems much to hard (at least at this
+point, to this author) to tackle. Instead, let me tell you something I
+tell myself in hard times:
+
+\begin{quote}
+  For every problem I cannot solve, there's an easier problem that I
+  cannot solve.
+\end{quote}
+
+
+
 So here's my proposal for an eaiser problem. Let's study a subset of
 $\aut(T)$. Let's roll it way back to middle school. We'll study the
-\textit{symmetries} of $T$. There are six symmetries of the
-equilateral triangle. Let's list them. There are $3$ flips
-(reflections across lines) $f_1$, $f_2$, $f_3$:
+\textit{symmetries} of $T$. An informal definition of symmetry might be:
+\begin{quote}
+  Symmetry is immunity to a possible change.
+\end{quote}
+There are six symmetries of the equilateral triangle. Let's list
+them. There are $3$ flips (reflections across lines) $f_1$, $f_2$,
+$f_3$:
 \[
 \begin{tikzpicture}
   \tikzmath{\rrr=1.7;}
@@ -89,7 +136,7 @@ There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
 and an identity symmetry, the ``do nothing'' symmetry. Let's call it
 $e$.
 
-\begin{theorem}[The Dihedral group of order six]
+\begin{example}[The Dihedral group of order six]
   The six symmetries
   \[
   \{e,r_{120},r_{240},f_1,f_2,f_3\}
@@ -108,16 +155,16 @@ $e$.
     and the flips are their own inverse.
     
     We must show that this set is closed under function composition.
-    To see this we will make a Cayley table, also known as a
-    \dfn{group table}. We will express all the symmetries in terms of
-    $e$, $r=r_{120}$, $f=f_2$, with the stipulation that when the
-    rotation and flip are applied, we always apply the rotation
-    first. Hence
+    To see this we will make a Cayley table. We will express all the
+    symmetries in terms of $e$, $r=r_{120}$, $f=f_2$, with the
+    stipulation that when the rotation and flip are applied, we always
+    apply the rotation first. Hence
     \[
     r_{240} = r^2, \quad  f_1 = f\circ r, \quad  f_3 = f\circ r^2.
     \]
-    In our complete multiplication below, let's ommit the $\circ$, so
-    we will write something like $f\circ r$ as simply $fr$.
+    In other words, $\{r,f\}$ generate $D_3$.  In our Cayley table
+    below, let's ommit the $\circ$, so we will write something like
+    $f\circ r$ as simply $fr$.
     \[
     \renewcommand{\arraystretch}{1.6}
     \begin{array}{|c||c|c|c|c|c|c|}\hline
@@ -130,83 +177,92 @@ $e$.
       f r^2      & f r^2 & f     & f r   & r     & r^2   & e     \\  \hline
     \end{array}
     \]
+    Note, from the table above we can see that $D_3$ is not Abelian.
   \end{proof}
-\end{theorem}
+\end{example}
 
 
+If a set has symmetry, then that symmetry is a function that doesn't
+change the set. In our case, the symmetries map $T$ to itself, and
+they maintain the distance between points.  Automorphisms that
+maintain the distance between points are called
+\index{isometries}\textit{isometries}.
 
-Roughly speaking, \textit{symmetry} breaks down as \textit{sym}
-meaning \textit{with} and \textit{metry} meaning
-\textit{measure}. Symmetries are automorphisms that maintain the
-distance between points---also known as
-\textit{isometries}\index{isometries}. To illustrate by example in
-$\R^2$, we have a distance function
-\[
-d((x,y),(a,b)) = \sqrt{(x-a)^2+(y-b)^2}.
-\]
-So suppose you have an symmetry of the equilateral triangle above. Let
-$(x,y)$ and $(a,b)$ be a points on the triangle.
-\[
-\begin{tikzpicture}
-  \draw[ultra thick,rounded corners=.5] (0,0) -- (3,0) -- (1.5,2.6) -- cycle;
-  \draw[fill] (1,1.72) circle (1mm) node[above left] {$(x,y)$};
-  \draw[fill] (2.5,0.87) circle (1mm) node[right] {$(a,b)$};
-\end{tikzpicture}
-\]
-suppose that $s$ is a symmetry on $T$, meaning $s:T\to T$
-bijectively, and that 
-\[
-d((x,y),(a,b)) = d((s(x),s(y)),(s(a),s(b))).
-\]
-This means that if $s$ is a symmetry on $T$ we could have
-\[
-\begin{tikzpicture}
-  \draw[ultra thick,rounded corners=.5] (0,0) -- (3,0) -- (1.5,2.6) -- cycle;
-  \draw[fill] (1,1.72) circle (1mm) node[above left] {$(x,y)$};
-  \draw[fill] (2.5,0.87) circle (1mm) node[right] {$(a,b)$};
-
-  \draw[dashed] (1,1.72) -- (2.5,0.87);
-  
-  \draw[fill] (2,0) circle (1mm) node[below] {$(s(a),s(b))$};
-  \draw[fill] (.5,0.87) circle (1mm) node[left] {$(s(x),s(y))$};
-
-  \draw[dashed] (2,0) -- (.5,0.87);
-\end{tikzpicture}
-\]
-as the distance as measured by the dashed lines in the diagram above
-is the same. The function mapping $(x,y)$ and $(a,b)$ to different
-verticies of the triangle would \textbf{not} be an symmetry, the
-distance between the points in the image is greater than the distance
-between the points $(x,y)$ and $(a,b)$. In fact, 
-
-
-Now call the distance between these two points
-
-
-Let me tell you what these are.
+We can define a dihedral group for any regular $n$-gon.
 
 \begin{definition}
-  Consider a set $X$ with a notion of distance. 
+  A \dfn{dihedral group} a group of symmetries of the regular
+  $n$-gon. We denote this group as $D_n$.
 \end{definition}
 
 
-Let's make it our short-term goal to understand a subset of
-$\aut(T)$. Why a subset?
-
-
-We'll start with an subgroup of
-$\aut(X)$. Speaking of subgroups, 
 
 \begin{exercise}
-Here is a problem related to electronics. Given two resistors, one of
-resistance $r$ and another of resistance $s$, the resistance of these
-two resistors wired in parallel is given by:
-\[
-r \star s = \frac{1}{\frac{1}{r} + \frac{1}{s}}
-\]
-Prove that this operation is an associative operation on $\R-\{0\}$. 
+  Make a Cayley table for $D_4$, the symmetries of the regular $4$-gon:
+  \[
+  \begin{tikzpicture} %% N-GON
+    \pic {tikzegon={4}};
+  \end{tikzpicture}
+  \]
 \end{exercise}
 
 
-Do subgroups? NO!
+\begin{exercise}
+  Make a Cayley table for $D_5$, the symmetries of the regular $5$-gon:
+  \[
+  \begin{tikzpicture} %% N-GON
+    \pic {tikzngon={5}};
+  \end{tikzpicture}
+  \]
+\end{exercise}
+
+
+\begin{exercise}
+  Make a Cayley table for $D_6$, the symmetries of the regular $6$-gon:
+  \[
+  \begin{tikzpicture} %% N-GON
+    \pic {tikzegon={6}};
+  \end{tikzpicture}
+  \]
+\end{exercise}
+
+\begin{exercise}\label{E:D2n}
+  Let $S$ be a geometric set for a regular $n$-gon.
+  \begin{enumerate}
+  \item How many rotations are there in $\aut(S)$? 
+  \item How many flips (reflections across lines) are there in
+    $\aut(S)$?
+  \item Find the order of $D_n$. 
+  \end{enumerate}
+  In each case, prove your answer is correct.
+\end{exercise}
+
+
+\begin{exercise}
+  Prove that $D_n$ is never Abelian.
+\end{exercise}
+
+\begin{exercise}
+  Prove that $D_n$ is always generated by two elements, a rotation and
+  a flip.
+  \begin{hint}
+    Explain why there is an element $r$ such that $n$ is the smallest
+    natural number such that $r^n =e$ and there is an $f$ such that
+    $f^2 = e$.
+
+    Next explain why every element of
+    \[
+    \{e, r, r^2,\dots,r^{n-1}, f, fr, fr^2 \dots, fr^{n-1}\}
+    \]
+    is distinct. Finally use Exercise~\ref{E:D2n}.
+  \end{hint}
+\end{exercise}
+
+
+\begin{exercise}
+  What do you think dihedral group for the circle is?
+\end{exercise}
+
+
+
 \end{document}
