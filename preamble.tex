@@ -288,31 +288,6 @@
 
 %%%% TIKZ STUFF
 
-
-
-\def\IsEven#1{%
-  %TT\fi
-  \pgfmathparse{int(mod(#1,2))}%
-  \ifnum\pgfmathresult=0
-}
-\newcommand{\parity}[2]{%
-  \if\IsEven{#1}%
-    \if\IsEven{#2}%
-      #1 and #2 are even.%
-    \else%
-      #1 is even and #2 is odd.%
-    \fi
-  \else
-    \if\IsEven{#2}%
-      #1 is odd and #2 is even.%
-    \else
-      #1 and #2 are odd.%
-    \fi
-  \fi
-}
-
-
-
 %% N-GON code
 \tikzset{
     pics/tikzngon/.style={
@@ -338,17 +313,7 @@
            }
            -- cycle;
   }}}
-%% \tikzset{
-%%     pics/tikzngon/.style={
-%%         code={
-%%         \tikzmath{\xx = #1;\rr=1.7;}
-%%         \draw[ultra thick] ({\rr*sin(0*360/\xx)},{\rr*cos(0*360/\xx)})
-%%         \foreach \x in {0,1,...,\xx}
-%%            {
-%%            -- ({\rr*sin(\x*360/\xx + \pgfextra{\if\IsEven{\xx}180/\xx\else 0\fi} )},{\rr*cos(\x*360/\xx)}) 
-%%            }
-%%            -- cycle;
-%%   }}}
+
 
 
 
