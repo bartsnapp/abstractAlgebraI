@@ -48,6 +48,16 @@ the numbers of a clock, where we replace $12$ with $0$.
 \]
 We can add numbers on this clock, for example on this clock $3+4 = 7$
 (what else would it be?) as we start at $3$ and then count clockwise
+\[
+\begin{tikzpicture} 
+  \pic {tikznclock={12}};
+  \foreach \x in {1,2,...,4}
+           {
+             \node[]
+             at ({2*sin(\x*360/12+3*360/12)},{2*cos(\x*360/12 + 3*360/12}) {\small \x};
+           }
+\end{tikzpicture}
+\]
 $4$ more spaces to land on $7$. However, if we want to compute $7+9$,
 we need start at $7$ and count clockwise 
 \[
@@ -133,6 +143,8 @@ of integers $\{0,1,2,\dots,11\}$ under modular addition as $\Z_{12}$.
   \end{proof}
 \end{lemma}
 
+
+\section{Generators of cyclic groups}
 
 
 \section{Direct products of cyclic groups}
