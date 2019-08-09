@@ -6,6 +6,8 @@
 \tikzset{>=stealth}
 \tikzcdset{arrow style=tikz}
 \usetikzlibrary{math} %% for assigning variables
+\usetikzlibrary{fadings}
+
 
 \usepackage[sans]{dsfont}
 
@@ -322,7 +324,7 @@
     pics/tikznclock/.style={
         code={
         \tikzmath{\xx = #1;\rr=1.7;\dd=.4;}
-  \foreach \x in {0,1,...,\xx-1}
+        \foreach \x in {0,1,...,\xx-1}
            {
              \node[circle,fill=black,inner sep=0pt, minimum size=13pt,text=white]
              at ({(\rr-\dd)*sin(\x*360/\xx)},{(\rr-\dd)*cos(\x*360/\xx}) {\normalfont\bfseries\sffamily\small \x};

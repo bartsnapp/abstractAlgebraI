@@ -78,10 +78,68 @@ $7+9\ne 4$ in the integers, we usually write
 and say $7+9$ is \dfn{congruent} to $4$ mod $12$. We denote the group
 of integers $\{0,1,2,\dots,11\}$ under modular addition as $\Z_{12}$.
 
+
+Modular arithmetic is closely related to division. Recall the division theorem.
+
+\begin{theorem}[Division theorem]
+  Given any integer $n$ and a nonzero integer $d$, there exist unique
+  integers $q$ and $r$ such that
+  \[
+  n = d\cdot q+r\quad\text{where $0\le r< |d|$.}
+  \]
+  \begin{sketch}
+    To establish existance, use the well-ordering principle to find a
+    least remainder.
+
+    
+    To establish uniqueness, seeking a contradiction, suppose there
+    are two remainders. Contradict the fact that the remainder is
+    least.
+  \end{sketch}
+\end{theorem}
+
 \begin{exercise}
-  Prove that $\Z_{12}$ is a cyclic group, find all of its generators,
-  make wild conjectures.
+  Explain why we can always find an $0\le r<|d|$, such that
+  \[
+  n \equiv r\pmod{d}.
+  \]
 \end{exercise}
+
+
+\begin{exercise}
+  Consider the following picture:
+  \[
+  \begin{tikzpicture}
+    \foreach \i in {0,...,2}
+    {
+      \draw (\i,0) rectangle (1+\i,.5);
+      \node at (.5+\i,.25) {$d$};
+    }
+
+    \foreach \i in {4,...,6}
+    {
+      \draw (\i,0) rectangle (1+\i,.5);
+      \node at (.5+\i,.25) {$d$};
+    }
+
+    \node at(.5+3, .25) {$\cdots$};
+
+    \draw[fill=white!50!gray] (7,0) rectangle (7.4,.5);
+
+    \node at(7.2, .25) {$r$};
+    
+    \draw[dotted] (7,0) rectangle (8,.5);
+
+    \draw [thick,decoration={brace,mirror,raise=0.2cm},decorate] (0,0) -- (7.4,0)
+    node [pos=0.5,anchor=north,yshift=-0.3cm] {$n$};
+
+    \draw [thick,decoration={brace,raise=0.2cm},decorate] (0,.5) -- (7,.5)
+    node [pos=0.5,anchor=south,yshift=0.3cm] {$q~d$'s}; 
+  \end{tikzpicture}
+  \]
+  Give a proof of the division theorem based on this picture.
+\end{exercise}
+
 
 
 \begin{exercise} Consider a clock with $2$ numbers:
@@ -134,6 +192,14 @@ of integers $\{0,1,2,\dots,11\}$ under modular addition as $\Z_{12}$.
   Arithmetic on this clock is given by the group $(\Z_6,+)$. Make a
   Cayley table for $(\Z_6,+)$.
 \end{exercise}
+
+
+\begin{exercise}
+  Prove that $\Z_{12}$ is a cyclic group, find all of its generators,
+  make wild conjectures.
+\end{exercise}
+
+
 
 
 \begin{lemma}[Cyclic groups are Abelian]
