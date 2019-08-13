@@ -54,11 +54,58 @@
 \end{theorem}
 
 
-\begin{corollary}
+\begin{corollary}[Classification of subgroups of the integers]
   The subgroups of $(\Z,+)$ are exactly $n\Z$ where $n = 0,1,\dots,$.
 \end{corollary}
 
 
+\section{Lattice diagrams}
 
+\[
+\begin{tikzcd}
+       & D_3 \ar[rd,-]  \ar[ldd,-] &       \\
+       &       & \<r\> \ar[ldd,-]\\
+\< f\> \ar[rd,-]&       &       \\   
+       & \<e\> &
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}
+       & \Z_6 \ar[rd,-]  \ar[ldd,-] &       \\
+       &       & \<3\> \ar[ldd,-]\\
+\< 2\> \ar[rd,-]&       &       \\   
+       & \<0\> &
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}
+       & \Z_8 \ar[rd,-]  \ar[ldd,-] &       \\
+       &       & \<4\> \ar[ldd,-]\\
+\< 2\> \ar[rd,-]&       &       \\   
+       & \<0\> &
+\end{tikzcd}
+\]
+
+
+\[
+\begin{tikzcd}
+       & Q_8 \ar[rd,-] \ar[d,-] \ar[ld,-] &       \\
+\<i\>  \ar[rd,-] & \<j\>  \ar[d,-]     & \<k\> \ar[ld,-]\\
+&\< -1\> \ar[d,-]&        \\   
+       & \<1\> &
+\end{tikzcd}
+\]
+
+
+\[
+\begin{tikzcd}
+   &    & D_4 \ar[rd,-] \ar[d,-] \ar[ld,-] &       \\
+&\<r^2,f\>  \ar[rd,-] \ar[d,-] \ar[ld,-]& \<r \>  \ar[d,-]     & \<r^2,fr\> \ar[ld,-] \ar[d,-] \ar[rd,-]\\
+\<f\>\ar[rrd,-]& \<fr^2\> \ar[rd,-]&\< r^2\> \ar[d,-]  &   \<fr\> \ar[ld,-]& \<fr^3\>\ar[lld,-]     \\   
+  &     & \<1\> &  &
+\end{tikzcd}
+\]
 
 \end{document}

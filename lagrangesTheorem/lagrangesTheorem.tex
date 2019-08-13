@@ -12,17 +12,17 @@
 \end{abstract}
 \maketitle
 
-\begin{definition}
-  Let $S$ be a subrgoup of a finite group $G$. The \dfn{index} of $S$ in $G$, denoted
+\begin{definition}\index{index@$[G:S]$}
+  Let $S$ be a subrgoup of a finite group $G$, the number of left
+  cosets of $S$ is called the \dfn{index} of $S$ in $G$, denoted
   \[
-  [G:S] = \text{(number of left cosets)}
+  [G:S] = \text{(number of left cosets)}.
   \]
-  is number of left cosets of $S$.\index{index@$[G:S]$}
 \end{definition}
 
 
 
-\begin{theorem}[Lagrange]
+\begin{theorem}[Lagrange's Theorem]
   If $G$ is a finite group with subgroup $S$, then 
   \[
   |G| = [G:S]\cdot |S|.
@@ -38,17 +38,22 @@
   \end{proof}
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}[Subgroup's order divides the group's order]
+  If $G$ is a finite group with subgroup $S$, then the order of $S$
+  divides the order of $G$.
+\end{corollary}
+
+\begin{corollary}[Element's order divides the group's order]
   Let $G$ be a finite group with $g\in G$. In this case, the order of
   $g$ divides the order of $G$.
 \end{corollary}
 
-\begin{corollary}
+\begin{corollary}[Prime order group implies trivial subgroups]
   Let $G$ be a group where $|G|= p$, a prime number. Then $G$ is
   cyclic and any element $g\in G$, $g\ne e$, can act as a generator.
 \end{corollary}
 
-\begin{corollary}
+\begin{corollary}[Index is multiplicative]
   Let $S \subgp T \subgp G$ be subgroups of a finite group
   $G$. Then
   \[

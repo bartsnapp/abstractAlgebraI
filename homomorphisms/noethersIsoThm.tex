@@ -12,7 +12,7 @@
 \end{abstract}
 \maketitle
 
-\begin{theorem}[Noether]\label{T:NI}\index{Noether's isomorphism theorem}\index{First isomorphism theorem}
+\begin{theorem}[Noether's isomorphism theorem]\label{T:NI}\index{Noether's isomorphism theorem}\index{First isomorphism theorem}
   If $\phi:G\to H$ is a homomorphism of groups, then
   \[
   \frac{G}{\ker(\phi)} \iso \im(\phi).
@@ -24,8 +24,8 @@
       \eta: \frac{G}{\ker(\phi)} &\to \im(\phi)\\
       a\ker(\phi) &\mapsto \phi(a).
     \end{align*}
-    We must check this map is
-    \index{well-definied}well-defined. Suppose
+    \textbf{We must check this map is
+      well-defined.}\index{well-definied} Suppose
     \[
     a \ker(\phi) = b\ker(\phi).
     \]
@@ -43,9 +43,9 @@
 
 
     
-    Now we must show that $\eta$ is a homomorphism. First recall that
-    $\ker(\phi)$ is a normal subgroup of $G$, Lemma~\ref{L:kerN}, and
-    that
+    \textbf{Now we must show that $\boldsymbol\eta$ is a
+      homomorphism.} First recall that $\ker(\phi)$ is a normal
+    subgroup of $G$, Lemma~\ref{L:kerN}, and that
     \[
     a\ker(\phi) b\ker(\phi)  =  ab\ker(\phi).
     \]
@@ -58,23 +58,29 @@
 
 
 
-    Finally, we must show that $\eta$ is bijective. Note it is onto by
-    the defintion of $\im(\phi)$.  To see that $\eta$ is injective,
-    note that if $\eta(a) = e_H$, then $a\in \ker(\phi)$, meaning
+    \textbf{We must show that $\boldsymbol\eta$ is bijective.} Note
+    $\eta$ is surjective by the defintion of $\im(\phi)$.  To see that
+    $\eta$ is injective, note that if $\eta(a) = e_H$, then $a\in
+    \ker(\phi)$, meaning
     \[
     a\equiv e_G \pmod{\ker(\phi)},
     \]
-    hence $\eta$ is injective. 
+    hence $\eta$ is injective, and so $\eta$ is bijective. We have
+    shown $\frac{G}{\ker(\phi)} \iso \im(\phi)$.
   \end{proof}
 \end{theorem}
 
-\begin{corollary}
+Noether's theorem above is saying something powerful about group
+homomorphisms. It's saying that the \textbf{image of any homomorphism}
+from a group $G$ to any group $H$ is 
+
+
+\begin{corollary}[Canonical isomorphism]
   If $\pi:G\onto H$, is a surjective homomorphism of groups, then
   \[
   \frac{G}{\ker(\pi)} \iso H.
   \]
 \end{corollary}
-
 
 
 

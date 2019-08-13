@@ -79,66 +79,6 @@ and say $7+9$ is \dfn{congruent} to $4$ mod $12$. We denote the group
 of integers $\{0,1,2,\dots,11\}$ under modular addition as $\Z_{12}$.
 
 
-Modular arithmetic is closely related to division. Recall the division theorem.
-
-\begin{theorem}[Division theorem]
-  Given any integer $n$ and a nonzero integer $d$, there exist unique
-  integers $q$ and $r$ such that
-  \[
-  n = d\cdot q+r\quad\text{where $0\le r< |d|$.}
-  \]
-  \begin{sketch}
-    To establish existance, use the well-ordering principle to find a
-    least remainder.
-
-    
-    To establish uniqueness, seeking a contradiction, suppose there
-    are two remainders. Contradict the fact that the remainder is
-    least.
-  \end{sketch}
-\end{theorem}
-
-\begin{exercise}
-  Explain why we can always find an $0\le r<|d|$, such that
-  \[
-  n \equiv r\pmod{d}.
-  \]
-\end{exercise}
-
-
-\begin{exercise}
-  Consider the following picture:
-  \[
-  \begin{tikzpicture}
-    \foreach \i in {0,...,2}
-    {
-      \draw (\i,0) rectangle (1+\i,.5);
-      \node at (.5+\i,.25) {$d$};
-    }
-
-    \foreach \i in {4,...,6}
-    {
-      \draw (\i,0) rectangle (1+\i,.5);
-      \node at (.5+\i,.25) {$d$};
-    }
-
-    \node at(.5+3, .25) {$\cdots$};
-
-    \draw[fill=white!50!gray] (7,0) rectangle (7.4,.5);
-
-    \node at(7.2, .25) {$r$};
-    
-    \draw[dotted] (7,0) rectangle (8,.5);
-
-    \draw [thick,decoration={brace,mirror,raise=0.2cm},decorate] (0,0) -- (7.4,0)
-    node [pos=0.5,anchor=north,yshift=-0.3cm] {$n$};
-
-    \draw [thick,decoration={brace,raise=0.2cm},decorate] (0,.5) -- (7,.5)
-    node [pos=0.5,anchor=south,yshift=0.3cm] {$q~d$'s}; 
-  \end{tikzpicture}
-  \]
-  Give a proof of the division theorem based on this picture.
-\end{exercise}
 
 
 
@@ -194,11 +134,122 @@ Modular arithmetic is closely related to division. Recall the division theorem.
 \end{exercise}
 
 
+
+Modular arithmetic is closely related to division. Recall the division theorem.
+
+\begin{theorem}[Division theorem]
+  Given any integer $n$ and a nonzero integer $d$, there exist unique
+  integers $q$ and $r$ such that
+  \[
+  n = d\cdot q+r\quad\text{where $0\le r< |d|$.}
+  \]
+  \begin{sketch}
+    To establish existence, use the well-ordering principle to find a
+    least remainder.
+
+    
+    To establish uniqueness, seeking a contradiction, suppose there
+    are two remainders. Contradict the fact that the remainder is
+    least.
+  \end{sketch}
+\end{theorem}
+
+
 \begin{exercise}
-  Prove that $\Z_{12}$ is a cyclic group, find all of its generators,
-  make wild conjectures.
+  Consider the following picture:
+  \[
+  \begin{tikzpicture}
+    \foreach \i in {0,...,2}
+    {
+      \draw (\i,0) rectangle (1+\i,.5);
+      \node at (.5+\i,.25) {$d$};
+    }
+
+    \foreach \i in {4,...,6}
+    {
+      \draw (\i,0) rectangle (1+\i,.5);
+      \node at (.5+\i,.25) {$d$};
+    }
+
+    \node at(.5+3, .25) {$\cdots$};
+
+    \draw[fill=white!50!gray] (7,0) rectangle (7.4,.5);
+
+    \node at(7.2, .25) {$r$};
+    
+    \draw[dotted] (7,0) rectangle (8,.5);
+
+    \draw [thick,decoration={brace,mirror,raise=0.2cm},decorate] (0,0) -- (7.4,0)
+    node [pos=0.5,anchor=north,yshift=-0.3cm] {$n$};
+
+    \draw [thick,decoration={brace,raise=0.2cm},decorate] (0,.5) -- (7,.5)
+    node [pos=0.5,anchor=south,yshift=0.3cm] {$q~d$'s}; 
+  \end{tikzpicture}
+  \]
+  Give a proof of the division theorem when $n\ge 0$ based on this
+  picture.
 \end{exercise}
 
+
+\begin{exercise}
+  Explain why we can always find an $0\le r<|d|$, such that
+  \[
+  n \equiv r\pmod{d}.
+  \]
+\end{exercise}
+
+
+\begin{definition}
+  An \dfn{equivalence relation} is a binary relation $\sim$ on a set
+  $X$ with the following properties:
+  \begin{description}
+  \item[Reflexive] Meaning that for all $a\in X$, $a\sim a$.
+  \item[Symmetric] Meaning that for all $a,b\in X$ if $a\sim b$, then
+    $b\sim a$.
+  \item[Transitive] Meaning that for all $a,b,c\in X$ if $a\sim b$ and
+    $b \sim c$, then $a\sim c$.
+  \end{description}
+\end{definition}
+
+
+\begin{exercise}
+  Which of the following are equivalence relations:
+  \begin{selectAll}
+    \choice{``$\le$'' on $\Z$.}
+    \choice[correct]{$a\sim b$ if and only if $|a| = |b|$, on $\R$.}
+    \choice[correct]{$(a,b) \sim (c,d)$ if and only if $ad = bc$, on $\Z\times \Z$.}
+    \choice[correct]{$\alpha \sim\beta$ if and only if $\sin(\alpha) = \sin(\beta)$.}
+    \choice{$a/b \sim c/d$ if and only if $a+d=b+c$, on $\Q$.}
+  \end{selectAll}
+\end{exercise}
+
+
+\begin{exercise}
+  Prove that congruence modulo $n$ is an equivalence relation on $\Z$.
+\end{exercise}
+
+
+\begin{exercise}
+  Consider the equation $x^2+1 = 0$. What are the solutions to this
+  equation modulo $n$, $n=2,3,4,5,6$?
+\end{exercise}
+
+
+\begin{definition}
+  Let $G$ be a group, the \dfn{order} of $g\in G$ is
+  \[
+  \o(g) := \min\{n>0: g^n = e\}.
+  \]
+\end{definition}
+
+
+
+
+\begin{exercise}
+  Prove that $\Z_{12}$ is a cyclic group, find all of its generators,
+  find the order of every element. Organize this information into a
+  table, make wild conjectures.
+\end{exercise}
 
 
 
@@ -212,8 +263,16 @@ Modular arithmetic is closely related to division. Recall the division theorem.
 
 \section{Generators of cyclic groups}
 
+Generators of cyclic groups must be relatively prime to the order of
+the group.
+
+
+
+
 
 \section{Direct products of cyclic groups}
+
+The group defined by $(a,b)$ has order $\gcd(a,b)$.
 
 
 \end{document}
