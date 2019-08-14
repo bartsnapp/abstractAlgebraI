@@ -14,14 +14,19 @@
 
 
 \begin{definition}
-  Let $G$ be a group, a subset $S\subset G$ is a \dfn{subgroup} if
+  Let $(G,\star)$ be a group, a subset $S\subset G$ is a \dfn{subgroup} if
   \begin{enumerate}
   \item $S \ne \emptyset$,
-  \item $a,b\in S \Rightarrow ab\in S$,
+  \item $a,b\in S \Rightarrow a\star b\in S$,
   \item $a\in S \Rightarrow a^{-1}\in S$.
   \end{enumerate}
   We denote subgroups by writing $S\subgp G$.
 \end{definition}
+
+\begin{exercise}
+  Let $(G,\star)$ be a group and $S$ be a subgroup of $G$. Prove that
+  $(S,\star)$ is a group.
+\end{exercise}
 
 
 
@@ -43,6 +48,7 @@
     $a,b^{-1}\in S$, $ab\in S$. We see that $S\subgp G$.
   \end{proof}
 \end{theorem}
+
 
 
 
@@ -73,18 +79,18 @@
 \[
 \begin{tikzcd}
        & \Z_6 \ar[rd,-]  \ar[ldd,-] &       \\
-       &       & \<3\> \ar[ldd,-]\\
-\< 2\> \ar[rd,-]&       &       \\   
+       &       & \<2\> \ar[ldd,-]\\
+\< 3\> \ar[rd,-]&       &       \\   
        & \<0\> &
 \end{tikzcd}
 \]
 
 \[
 \begin{tikzcd}
-       & \Z_8 \ar[rd,-]  \ar[ldd,-] &       \\
-       &       & \<4\> \ar[ldd,-]\\
-\< 2\> \ar[rd,-]&       &       \\   
-       & \<0\> &
+  \Z_8  \ar[d,-] \\
+  \<2\> \ar[d,-] \\
+  \<4\> \ar[d,-] \\   
+  \<0\> 
 \end{tikzcd}
 \]
 

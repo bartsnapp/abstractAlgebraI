@@ -8,7 +8,7 @@
 
 \begin{document}
 \begin{abstract}
-  We prove Lagranges theorem.
+  We prove Lagrange's theorem.
 \end{abstract}
 \maketitle
 
@@ -22,7 +22,7 @@
 
 
 
-\begin{theorem}[Lagrange's Theorem]
+\begin{theorem}[Lagrange's theorem]\index{Lagrange's theorem}
   If $G$ is a finite group with subgroup $S$, then 
   \[
   |G| = [G:S]\cdot |S|.
@@ -31,10 +31,7 @@
     First note that by Proposition~\ref{P:CSG}, $|S| = |gS|$. By
     Theorem~\ref{T:CPG}, $G$ is partitoned by the left cosets of
     $S$. This means that every element of $G$ is in exactly one left
-    coset. Hence
-    \[
-    |G| = [G:S]\cdot |S|.
-    \]
+    coset. Hence $|G| = [G:S]\cdot |S|$.
   \end{proof}
 \end{theorem}
 
@@ -60,6 +57,51 @@
   [G:S] = [G:T]\cdot [T:S].
   \]
 \end{corollary}
+
+
+
+\section{Indexes and lattice diagrams}
+
+
+\[
+\begin{tikzcd}
+  \Z_8  \ar[d,-,"2"] \\
+  \<2\> \ar[d,-,"2"] \\
+  \<4\> \ar[d,-,"2"] \\   
+  \<0\> 
+\end{tikzcd}
+\]
+
+\[
+\begin{tikzcd}
+       & Q_8 \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap] &       \\
+\<i\>  \ar[rd,-,"2",swap] & \<j\>  \ar[d,-,"2"]     & \<k\> \ar[ld,-,"2"]\\
+&\< -1\> \ar[d,-,"2"]&        \\   
+       & \<1\> &
+\end{tikzcd}
+\]
+
+
+\[
+\begin{tikzcd}
+   &    & D_4 \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap] &       \\
+&\<r^2,f\>  \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap]& \<r \>  \ar[d,-,"2"]     & \<r^2,fr\> \ar[ld,-,"2",swap] \ar[d,-,"2"] \ar[rd,-,"2"]\\
+\<f\>\ar[rrd,-,"2",swap]& \<fr^2\> \ar[rd,-,"2"]&\< r^2\> \ar[d,-,"2"]  &   \<fr\> \ar[ld,-,"2",swap]& \<fr^3\>\ar[lld,-,"2"]     \\   
+  &     & \<e\> &  &
+\end{tikzcd}
+\]
+
+
+
+
+
+
+
+
+
+
+
+
 
 You may wonder, is the converse of Lagrange's theorem true?
 
