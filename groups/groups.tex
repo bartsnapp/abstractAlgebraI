@@ -170,31 +170,32 @@ elements. Groups can be finite too.
 
 \begin{example}
   Let's consider the group $C =\{1,i,-1,-i\}$ under multiplication once more.
-  Write with me:
+  Write with me  
   \[
   \renewcommand{\arraystretch}{1.6}
-  \begin{array}{|c||c|c|c|c|c|c|}\hline
-    (C,\cdot)& 1     & i     & -1    & -i  \\  \hline\hline
-    1        & 1     & i     & -1    & -i  \\  \hline
-    i        & i     & -1    & -i    & 1   \\  \hline
-    -1       & -1    & -i    & 1     & i   \\  \hline
-    -i       & -i    & 1     & i     & -1  \\  \hline
+  \begin{array}{c!{\vline width 2pt}cccccc}
+    (C,\cdot)& 1     & i\cellcolor{blue!36!white}     & -1\cellcolor{blue!24!white}    & -i\cellcolor{blue!12!white}  \\  \Xhline{2pt}
+    1        & 1     & i\cellcolor{blue!36!white}     & -1\cellcolor{blue!24!white}    & -i\cellcolor{blue!12!white}  \\  
+    i\cellcolor{blue!36!white}        & i\cellcolor{blue!36!white}     & -1\cellcolor{blue!24!white}    & -i\cellcolor{blue!12!white}    & 1   \\  
+    -1\cellcolor{blue!24!white}       & -1\cellcolor{blue!24!white}    & -i\cellcolor{blue!12!white}    & 1     & i\cellcolor{blue!36!white}   \\  
+    -i\cellcolor{blue!12!white}       & -i\cellcolor{blue!12!white}    & 1     & i\cellcolor{blue!36!white}     & -1\cellcolor{blue!24!white}  
   \end{array}
   \]
-  Sometimes, it is best to write a Cayley table using fewer symbols.
-  Noting that
+  We colored in the cells of the table for dramatic effect. You don't
+  need to do that, but it might help to see symmetry.  Sometimes, it
+  is best to write a Cayley table using fewer symbols.  Noting that
   \[
   i^2 = -1 \quad\text{and}\quad i^3 = -i,
   \]
   we can also write:
   \[
   \renewcommand{\arraystretch}{1.6}
-  \begin{array}{|c||c|c|c|c|c|c|}\hline
-    (C,\cdot)& 1     & i     & i^2   & i^3 \\  \hline\hline
-    1        & 1     & i     & i^2   & i^3 \\  \hline
-    i        & i     & i^2   & i^3   & 1   \\  \hline
-    i^2      & i^2   & i^3   & 1     & i   \\  \hline
-    i^3      & i^3   & 1     & i     & i^2 \\  \hline
+  \begin{array}{c!{\vline width 2pt}cccccc}
+    (C,\cdot)& 1     & i\cellcolor{blue!36!white}     & i^2\cellcolor{blue!24!white}    & i^3\cellcolor{blue!12!white}  \\  \Xhline{2pt}
+    1        & 1     & i\cellcolor{blue!36!white}     & i^2\cellcolor{blue!24!white}    & i^3\cellcolor{blue!12!white}  \\  
+    i\cellcolor{blue!36!white}        & i\cellcolor{blue!36!white}     & i^2\cellcolor{blue!24!white}    & i^3\cellcolor{blue!12!white}    & 1   \\  
+    i^2\cellcolor{blue!24!white}       & i^2\cellcolor{blue!24!white}    & i^3\cellcolor{blue!12!white}    & 1     & i\cellcolor{blue!36!white}   \\  
+    i^3\cellcolor{blue!12!white}       & i^3\cellcolor{blue!12!white}    & 1     & i\cellcolor{blue!36!white}     & i^2\cellcolor{blue!24!white}  
   \end{array}
   \]
   You must write the entries of the Cayley table using elements from
