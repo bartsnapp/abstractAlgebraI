@@ -158,12 +158,13 @@ $r$ is the remainder.
 \]
 
 
-\begin{theorem}[Division theorem]
+\begin{theorem}[Division theorem]\index{division theorem}
   Given any integer $n$ and a nonzero integer $d$, there exist unique
   integers $q$ and $r$ such that
   \[
   n = d\cdot q+r\quad\text{where $0\le r< |d|$.}
   \]
+  If $r=0$, then we say $d$ \dfn{divides} $n$ and write $d|n$.
   \begin{sketch}
     To establish existence, consider the set
     \[
@@ -300,39 +301,6 @@ school algorithm is built into the proof by picture below.
 
 
 
-
-
-\section{Generators of cyclic groups}
-
-
-MV TO numberTheory.tex
-
-
-
-
-In this section we will show that an $g\in \Z_n$ generates $\Z_n$ if
-and only if $\gcd(g,n) = 1$.
-
-
-
-
-\begin{theorem}
-  An element $g\in \Z_n$ generates $\Z_n$ if and only if $\gcd(g,n) =
-  1$.
-\end{theorem}
-
-
-
-
-
-
-
-
-
-
-\section{Direct products of cyclic groups}
-
-The group defined by $(a,b)$ has order $\gcd(a,b)$.
 
 
 \end{document}

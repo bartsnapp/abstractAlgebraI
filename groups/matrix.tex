@@ -85,7 +85,7 @@ will be general enough that one could change the set of scalars.
 \begin{definition}
   A matrix $M:\R^n\to \R^n$ satisfying
   \[
-  M\cdot M^\transpose=I
+  M^\transpose \cdot M=I
   \]
   is called an \dfn{orthogonal} matrix. We denote the set of $n\times
   n$ orthogonal matrices by $O(n)$.
@@ -166,6 +166,56 @@ will be general enough that one could change the set of scalars.
   If $M\in O(2)$, then $M$ is a rotation about the origin or a
   reflection across a line through the origin.
   \begin{proof}
+    Set
+    \[
+    M= \begin{bmatrix}
+      a & b \\
+      c & d
+    \end{bmatrix}.
+    \]
+    \[
+    M^\transpose M =
+    \begin{bmatrix}
+      a^2+c^2 & ab+cd\\
+      ab + cd & b^2+d^2
+    \end{bmatrix}
+    \]
+    This means that
+    \[
+    \begin{bmatrix}
+      a\\
+      c
+    \end{bmatrix}
+    \quad\text{and}\quad
+    \begin{bmatrix}
+      b\\
+      d
+    \end{bmatrix}
+    \]
+    are unit vectors where
+    \[
+    \begin{bmatrix}
+      b & d
+    \end{bmatrix}
+    \begin{bmatrix}
+      a\\
+      c
+    \end{bmatrix}=0.    
+    \]
+    This means that $b= \pm c$ and $d = \mp a$. Hence
+    \[
+    M = \begin{bmatrix}
+      a & c \\
+      c & -a
+    \end{bmatrix}
+    \quad\text{or}\quad
+    M = \begin{bmatrix}
+      a & -c \\
+      c & a
+    \end{bmatrix}
+    \]
+    The first is a reflection composed with a rotation, and the second
+    is a rotation.
   \end{proof}
 \end{theorem}
 
