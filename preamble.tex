@@ -221,7 +221,11 @@
 \newcommand{\hs}{H\!S}
 \newcommand{\hp}{H\!P}
 \renewcommand{\vec}{\mathbf}
-\renewcommand{\phi}{\varphi}
+\let\temp\phi
+\let\phi\varphi
+\let\eulerphi\temp
+
+
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\subset}{\subseteq}
 \renewcommand{\supset}{\supseteq}
@@ -301,7 +305,7 @@
     pics/tikzngon/.style={
         code={
         \tikzmath{\xx = #1;\rr=1.7;}
-        \draw[ultra thick] ({\rr*sin(0*360/\xx)},{\rr*cos(0*360/\xx)})
+        \draw[ultra thick,rounded corners=.05mm] ({\rr*sin(0*360/\xx)},{\rr*cos(0*360/\xx)})
         \foreach \x in {0,1,...,\xx}
            {
            -- ({\rr*sin(\x*360/\xx)},{\rr*cos(\x*360/\xx)}) 
@@ -314,7 +318,7 @@
     pics/tikzegon/.style={
         code={
         \tikzmath{\xx = #1;\rr=1.7;}
-        \draw[ultra thick] ({\rr*sin(0*360/\xx+180/\xx)},{\rr*cos(0*360/\xx+180/\xx)})
+        \draw[ultra thick,rounded corners=.05mm] ({\rr*sin(0*360/\xx+180/\xx)},{\rr*cos(0*360/\xx+180/\xx)})
         \foreach \x in {0,1,...,\xx}
            {
            -- ({\rr*sin(\x*360/\xx+180/\xx)},{\rr*cos(\x*360/\xx+180/\xx)}) 

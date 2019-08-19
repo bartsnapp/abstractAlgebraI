@@ -80,7 +80,7 @@ $7+9\ne 4$ in the integers, we usually write
 \[
 7+9 \equiv 4 \pmod{12}
 \]
-and say $7+9$ is \dfn{congruent} to $4$ mod $12$. We denote the group
+and say $7+9$ is \dfn{congruent} to $4$ modulo $12$. We denote the group
 of integers $\{0,1,2,\dots,11\}$ under modular addition as $\Z_{12}$.
 
 
@@ -192,9 +192,11 @@ $r$ is the remainder.
 \end{theorem}
 
 
-The actual algorithm used the solve the problem, can be a
-proof. In fact, the essence of the grade
-school algorithm is built into the proof by picture below.
+The proof above basically establishes the existance of a smallest
+remainder, and finds the quotient from there. This is not how anyone
+really divides.  The actual algorithm used to solve a division problem
+can also be a proof. In fact, the essence of the grade school
+algorithm is built into the proof by picture below.
 
 \begin{exercise}
   Consider the following picture:
@@ -238,6 +240,30 @@ school algorithm is built into the proof by picture below.
   n \equiv r\pmod{d}.
   \]
 \end{exercise}
+
+
+To be more rigorious with modular arithmetic, we should show that
+addition modulo $n$ is well defined. This will be our next lemma.
+
+
+\begin{lemma}[Modular addition is well defined]
+  Addition on $\Z_n$ is well defined. This means that if
+  \begin{align*}
+    a &\equiv a' \pmod{n}\\
+    b &\equiv b' \pmod{n},
+  \end{align*}
+  then
+  \[
+  a+b \equiv a'+b' \pmod{n}.
+  \]
+  \begin{sketch}
+    Use the fact that
+    \[
+    x \equiv x'\pmod{n} \quad \Leftrightarrow \quad x -x' = n\cdot q
+    \]
+    for some number $q$.
+  \end{sketch}
+\end{lemma}
 
 
 \begin{definition}
@@ -301,6 +327,36 @@ school algorithm is built into the proof by picture below.
 
 
 
+\section{Multiplicative groups}
+
+
+The cyclic groups $\Z_n$ are groups under addition. However, we also
+can multiply elements in $\Z_n$. We now show that modular
+multiplication is well defined.
+
+\begin{lemma}[Modular multiplication is well defined]
+  Addition on $\Z_n$ is well defined. This means that if
+  \begin{align*}
+    a &\equiv a' \pmod{n}\\
+    b &\equiv b' \pmod{n},
+  \end{align*}
+  then
+  \[
+  a\cdot b \equiv a'\cdot b' \pmod{n}.
+  \]
+  \begin{sketch}
+    Use the fact that
+    \[
+    x \equiv x'\pmod{n} \quad \Leftrightarrow \quad x -x' = n\cdot q
+    \]
+    for some number $q$.
+  \end{sketch}
+\end{lemma}
+
+
+\[
+\Z_n^*
+\]
 
 
 \end{document}

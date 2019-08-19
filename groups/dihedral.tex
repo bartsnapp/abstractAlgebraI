@@ -279,5 +279,22 @@ We can define a dihedral group for any regular $n$-gon.
 \end{exercise}
 
 
+\section{Symmetries of the tetrahedron}
+
+
+
+\[
+\begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.05mm] (0,0) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (3,1) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (0,0) -- (3,1);
+  \draw[fill] (3,1) circle (1mm) node[above right] {$A$};
+  \draw[fill] (0,0) circle (1mm) node[left] {$B$};
+  \draw[fill] (3,0) circle (1mm) node[right] {$C$};
+  \draw[fill] (1.5,2.8) circle (1mm) node[above] {$D$};
+\end{tikzpicture}
+\]
+
+
 
 \end{document}
