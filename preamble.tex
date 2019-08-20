@@ -1,7 +1,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{stix2}
 \usepackage{gillius}
-
+\usepackage{resizegather}
 
 
 
@@ -144,10 +144,10 @@
 %% 		{\thmnumber{#2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
 \newtheoremstyle{Question}{3em}{3em} %%% space between body and thm
 		{\large\bfseries}                           %%% Thm body font
-		{3ex}                           %%% Indent amount (empty = no indent)
-		{\bfseries}                  %%% Thm head font
+		{}                           %%% Indent amount (empty = no indent)
+		{}                         %%% Thm head font
 		{}                          %%% Punctuation after thm head
-		{ }                          %%% Space after thm head
+		{0em}                          %%% Space after thm head
 		{}%%% Thm head spec
 \theoremstyle{Question}
 \newtheorem*{question}{}

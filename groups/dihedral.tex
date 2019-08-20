@@ -68,27 +68,27 @@ $f_3$:
 \begin{tikzpicture}
   \tikzmath{\rrr=1.7;}
   \pic {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$A$};
-  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$C$};
-  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$B$};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$2$};
 
   \pic at (-4,-4) {tikzngon={3}};
   \draw[dashed] ({-4+sqrt(3)*\rrr/4},{\rrr/4-4}) --  ({-\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4});
-  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$C$};
-  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$A$};
-  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$B$};
+  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$2$};
   
   \pic at (0,-4) {tikzngon={3}};
   \draw[dashed] (0,{\rrr-4}) -- (0,{\rrr*cos(360/3)-4});
-  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)-4}) circle (1mm) node[right] {$A$};
-  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$B$};
-  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$C$};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)-4}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$3$};
 
   \pic at (4,-4) {tikzngon={3}};
   \draw[dashed] ({4-sqrt(3)*\rrr/4},{\rrr/4-4}) --  ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4});
-  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$B$};
-  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$C$};
-  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$A$};
+  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$1$};
 
   
   \draw[->] (0,-1.3) -- (0,-1.9); 
@@ -107,24 +107,24 @@ There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
 \begin{tikzpicture}
   \tikzmath{\rrr=1.7;}
   \pic at (0,0) {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$A$};
-  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$C$};
-  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$B$};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$2$};
 
 
   \node[above] at (-2,.5) {$r_{120}$};
   \node[above] at (2,.5) {$r_{240}$};
 
   \pic at (-4,0) {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)}) circle (1mm) node[right] {$C$};
-  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$B$};
-  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$A$};
+  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$1$};
   \draw[dashed,->] (-3.5,0) arc (0:120:.5);
   
   \pic at (4,0) {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)}) circle (1mm) node[right] {$B$};
-  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$A$};
-  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$C$};
+  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$3$};
   \draw[dashed,->] (4.5,0) arc (0:240:.5);
   
   \draw[->] (-1,.5) -- (-3,.5);
@@ -136,7 +136,7 @@ There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
 and an identity symmetry, the ``do nothing'' symmetry. Let's call it
 $e$.
 
-\begin{example}[The Dihedral group of order six]
+\begin{example}[The dihedral group of order six]
   The six symmetries
   \[
   \{e,r_{120},r_{240},f_1,f_2,f_3\}
@@ -257,43 +257,139 @@ We can define a dihedral group for any regular $n$-gon.
 \end{exercise}
 
 
-\begin{exercise}
-  Prove that $D_n$ is always generated by two elements, a rotation and
-  a flip.
-  \begin{hint}
-    Explain why there is an element $r$ such that $n$ is the smallest
-    natural number such that $r^n =e$ and there is an $f$ such that
-    $f^2 = e$.
 
-    Next explain why every element of
-    \[
-    \{e, r, r^2,\dots,r^{n-1}, f, rf, r^2f \dots, r^{n-1}f\}
-    \]
-    is distinct. Finally use Exercise~\ref{E:D2n}.
-  \end{hint}
-\end{exercise}
-
-
-\begin{exercise}
-  What do you think dihedral group for the circle is?
-\end{exercise}
 
 
 \section{Symmetries of the tetrahedron}
 
+Now let's study the symmetries of the tetrahedron in $3$ dimensions.
+As it turns out, these symmetries will form a group (though not a
+dihedral group). This group will have some interesting properties.
 
+
+A regular \dfn{tetrahedron} is a triangular based pyramid where each
+side is an equilateral triangle.
 
 \[
 \begin{tikzpicture}
   \draw[ultra thick,rounded corners=.05mm] (0,0) -- (3,0) -- (1.5,2.8) -- cycle;
   \draw[ultra thick,rounded corners=.05mm] (3,1) -- (3,0) -- (1.5,2.8) -- cycle;
   \draw[ultra thick,dashed] (0,0) -- (3,1);
-  \draw[fill] (3,1) circle (1mm) node[above right] {$A$};
-  \draw[fill] (0,0) circle (1mm) node[left] {$B$};
-  \draw[fill] (3,0) circle (1mm) node[right] {$C$};
-  \draw[fill] (1.5,2.8) circle (1mm) node[above] {$D$};
+  %% \draw[fill] (3,1) circle (1mm) node[above right] {$1$};
+  %% \draw[fill] (0,0) circle (1mm) node[left] {$2$};
+  %% \draw[fill] (3,0) circle (1mm) node[right] {$3$};
+  %% \draw[fill] (1.5,2.8) circle (1mm) node[above] {$4$};
 \end{tikzpicture}
 \]
+Let's think about the symmetries of this tetrahedron. The first one
+will be a counterclockwise rotation of the base:
+\[
+\begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.05mm] (0,0) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (3,1) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (0,0) -- (3,1);
+  \draw[fill] (3,1) circle (1mm) node[above right] {$1$};
+  \draw[fill] (0,0) circle (1mm) node[left] {$2$};
+  \draw[fill] (3,0) circle (1mm) node[right] {$3$};
+  \draw[fill] (1.5,2.8) circle (1mm) node[above] {$4$};
+
+  \draw[->] (3,2) -- (5,2);
+  \node[above] at (4,2) {$r$};
+  
+  \draw[ultra thick,rounded corners=.05mm] (5,0) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (8,1) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (5,0) -- (8,1);
+  \draw[fill] (8,1) circle (1mm) node[above right] {$3$};
+  \draw[fill] (5,0) circle (1mm) node[left] {$1$};
+  \draw[fill] (8,0) circle (1mm) node[right] {$2$};
+  \draw[fill] (6.5,2.8) circle (1mm) node[above] {$4$};
+\end{tikzpicture}
+\]
+The next one will be a counterclockwise piviot around the far vertex. 
+\[
+\begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.05mm] (0,0) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (3,1) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (0,0) -- (3,1);
+  \draw[fill] (3,1) circle (1mm) node[above right] {$1$};
+  \draw[fill] (0,0) circle (1mm) node[left] {$2$};
+  \draw[fill] (3,0) circle (1mm) node[right] {$3$};
+  \draw[fill] (1.5,2.8) circle (1mm) node[above] {$4$};
+
+  \draw[->] (3,2) -- (5,2);
+  \node[above] at (4,2) {$p$};
+  
+  \draw[ultra thick,rounded corners=.05mm] (5,0) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (8,1) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (5,0) -- (8,1);
+  \draw[fill] (8,1) circle (1mm) node[above right] {$1$};
+  \draw[fill] (5,0) circle (1mm) node[left] {$4$};
+  \draw[fill] (8,0) circle (1mm) node[right] {$2$};
+  \draw[fill] (6.5,2.8) circle (1mm) node[above] {$3$};
+\end{tikzpicture}
+\]
+From these two functions, we can write all the (orientation
+preserving) symmetries of the tetrahedron:
+\[
+\{\underbrace{e,r,r^2}_{\text{$4$ on top}}, \underbrace{p,rp,r^2p}_{\text{$3$ on top}}, \underbrace{p^2,rp^2,r^2p^2}_{\text{$2$ on top}},\underbrace{pr^2,rpr^2,r^2pr^2}_{\text{$1$ on top}}\}
+\]
+Thus there are $12$ orientation preserving symmetries of the
+tetrahedron.
+
+\begin{example}[The tetrahedral group]
+  The twelve symmetries
+  \[
+  \{e,r,r^2,p,rp,r^2p,p^2,rp^2,r^2p^2,pr^2,rpr^2,r^2pr^2\}
+  \]
+  of the regular tetrahedron form a group under function
+  composition. This group is known as the \dfn{tetrahedral group}, the
+  \dfn{symmetries of the regular tetrahedron}, and is also called (and
+  denoted) $T_{12}$.
+  \begin{proof}
+    Let's check the conditions for this to be a group. We know that
+    the operation is associative, since functional composition is
+    associative, Lemma~\ref{L:funCompAss}.
+
+    There is an identity element, $e$. Every element we've seen so far
+    has an inverse, namely $r^3 = e$ and $p^3= e$. Any composition of
+    $r$ and $p$ will have an inverse.
+    
+    We must show that this set is closed under function composition.
+    To see this we will make a Cayley table. We will express all the
+    symmetries in terms of
+    \[
+    \{e,r,r^2,p,rp,r^2p,p^2,rp^2,r^2p^2,pr^2,rpr^2,r^2pr^2\}
+    \]
+    In other words, $\{r,p\}$ generate $T_{12}$.  
+    \begin{gather*}
+    \renewcommand{\arraystretch}{1.6}
+      \begin{array}{c!{\vline width 2pt}cccccccccccc}
+      (T_{12},\circ)& e\cellcolor{red!6!white}     & r\cellcolor{red!12!white}     & r^2\cellcolor{red!24!white}   & p \cellcolor{yellow!6!white}    & rp \cellcolor{yellow!12!white}  & r^2 p\cellcolor{yellow!24!white} & p^2\cellcolor{green!6!white}    &  r p^2\cellcolor{green!12!white}  &  r^2 p^2\cellcolor{green!24!white} & pr^2 \cellcolor{blue!6!white} & rpr^2 \cellcolor{blue!12!white}& r^2 p r^2\cellcolor{blue!24!white}\\  \Xhline{2pt}
+      e \cellcolor{red!6!white}         & e\cellcolor{red!6!white}         & r\cellcolor{red!12!white}           & r^2\cellcolor{red!24!white}   & p \cellcolor{yellow!6!white}    & rp \cellcolor{yellow!12!white}  & r^2 p\cellcolor{yellow!24!white} & p^2\cellcolor{green!6!white}    &  r p^2\cellcolor{green!12!white}  &  r^2 p^2\cellcolor{green!24!white} & pr^2 \cellcolor{blue!6!white} & rpr^2 \cellcolor{blue!12!white}& r^2 p r^2\cellcolor{blue!24!white}\\ 
+      r\cellcolor{red!12!white}         & r\cellcolor{red!12!white}        & r^2\cellcolor{red!24!white}            & e\cellcolor{red!6!white}     & rp\cellcolor{yellow!12!white} & r^2p \cellcolor{yellow!24!white}    & p \cellcolor{yellow!6!white}   & rp^2 \cellcolor{green!12!white}  & r^2p^2 \cellcolor{green!24!white} & p^2 \cellcolor{green!6!white} & r pr^2 \cellcolor{blue!12!white} & r^2 pr^2 \cellcolor{blue!24!white} & pr^2 \cellcolor{blue!6!white}\\  
+      r^2\cellcolor{red!24!white}       & r^2\cellcolor{red!24!white}      & e\cellcolor{red!6!white}           & r\cellcolor{red!12!white}    & r^2 p \cellcolor{yellow!24!white}   & p \cellcolor{yellow!6!white} & rp \cellcolor{yellow!12!white}   &  r^2p^2 \cellcolor{green!24!white}  & p^2 \cellcolor{green!6!white} & rp^2\cellcolor{green!12!white}  & r^2pr^2\cellcolor{blue!24!white} & pr^2\cellcolor{blue!6!white} & rpr^2\cellcolor{blue!12!white}\\  
+      p \cellcolor{yellow!6!white}      & p \cellcolor{yellow!6!white}     & r^2p^2 \cellcolor{green!24!white}   & pr^2 \cellcolor{blue!6!white} & p^2\cellcolor{green!6!white}    & r^2\cellcolor{red!24!white}    & ??\cellcolor{white}  & e \cellcolor{red!6!white} & r^2p \cellcolor{yellow!24!white} &  ?? \cellcolor{white}  &  ?? \cellcolor{white}  &  ?? \cellcolor{white}  &  ?? \cellcolor{white}   \\
+      r p \cellcolor{yellow!12!white}   & rp \cellcolor{yellow!12!white}   & ?? \cellcolor{white}   & rpr^2 \cellcolor{blue!12!white}    & rp^2\cellcolor{green!12!white}   & ??\cellcolor{white}     & ??\cellcolor{white}  & r\cellcolor{red!12!white}  &  ?? \cellcolor{white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}  \\  
+      r^2 p\cellcolor{yellow!24!white}  & r^2 p\cellcolor{yellow!24!white} & ?? \cellcolor{white}    & r^2 pr^2\cellcolor{blue!24!white}   & r^2p^2\cellcolor{green!24!white}    & ??\cellcolor{white}   & ??\cellcolor{white} & r^2\cellcolor{red!24!white} &  ?? \cellcolor{white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}    \\
+      p^2\cellcolor{green!6!white}      & p^2\cellcolor{green!6!white} & ?? \cellcolor{white} & ?? \cellcolor{white} & e\cellcolor{red!6!white} &  ?? \cellcolor{white}  &  ?? \cellcolor{white} &  p \cellcolor{yellow!6!white}  & ?? \cellcolor{white}  & ?? \cellcolor{white}   & r^2\cellcolor{red!24!white} &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
+      rp^2\cellcolor{green!12!white}    & rp^2\cellcolor{green!12!white} & ?? \cellcolor{white} & ?? \cellcolor{white} & r\cellcolor{red!12!white}&  ?? \cellcolor{white}  &  ?? \cellcolor{white} &  rp \cellcolor{yellow!12!white}  & ?? \cellcolor{white}  & ?? \cellcolor{white}   & e\cellcolor{red!6!white} &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
+      r^2p^2\cellcolor{green!24!white}  & r^2p^2\cellcolor{green!24!white}& ?? \cellcolor{white} & ?? \cellcolor{white} & r^2\cellcolor{red!24!white}&  ?? \cellcolor{white}  &  ?? \cellcolor{white} &  r^2p \cellcolor{yellow!24!white}  & ?? \cellcolor{white}  & ?? \cellcolor{white}   & r\cellcolor{red!12!white} &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
+      pr^2\cellcolor{blue!6!white}      & pr^2\cellcolor{blue!6!white} & p\cellcolor{yellow!6!white} & ??\cellcolor{white} & ??\cellcolor{white} & p^2\cellcolor{green!6!white}& ??\cellcolor{white} & ??\cellcolor{white} & e\cellcolor{red!6!white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
+      rpr^2\cellcolor{blue!12!white}    & rpr^2\cellcolor{blue!12!white} & rp\cellcolor{yellow!12!white} & ??\cellcolor{white} & ??\cellcolor{white} & rp^2\cellcolor{green!12!white}& ??\cellcolor{white} & ??\cellcolor{white} & r\cellcolor{red!12!white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
+      r^2pr^2\cellcolor{blue!24!white}  & r^2pr^2\cellcolor{blue!24!white}& r^2p\cellcolor{yellow!24!white} & ??\cellcolor{white} & ??\cellcolor{white} & r^2p^2\cellcolor{green!24!white}& ??\cellcolor{white} & ??\cellcolor{white} & r^2\cellcolor{red!24!white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
+    \end{array}
+    \end{gather*}
+    Note, from the table above we can see that $T_{12}$ is not Abelian.
+  \end{proof}
+\end{example}
+
+
+
+
+
+\begin{question}
+  This seems hard. What happens if we only study rotations in 2D?
+\end{question}
 
 
 

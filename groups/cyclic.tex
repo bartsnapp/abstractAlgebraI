@@ -168,7 +168,7 @@ $r$ is the remainder.
   \begin{sketch}
     To establish existence, consider the set
     \[
-    \mathcal{S} = \{n -  dx : x\in \Z\}\cap \N
+    \mathcal{S} = \{n -  dx : x\in \Z\}\cap \N.
     \]
     \begin{enumerate}
     \item Explain why $\mathcal S$ is not empty.
@@ -310,6 +310,25 @@ addition modulo $n$ is well defined. This will be our next lemma.
 \end{definition}
 
 
+\begin{exercise}
+  Prove that $\Z_{6}$ is a cyclic group, find all of its generators,
+  find the order of every element. Organize this information into a
+  table, \textbf{make wild conjectures.}
+\end{exercise}
+
+\begin{exercise}
+  Prove that $\Z_{7}$ is a cyclic group, find all of its generators,
+  find the order of every element. Organize this information into a
+  table, \textbf{make wild conjectures.}
+\end{exercise}
+
+
+\begin{exercise}
+  Prove that $\Z_{11}$ is a cyclic group, find all of its generators,
+  find the order of every element. Organize this information into a
+  table, \textbf{make wild conjectures.}
+\end{exercise}
+
 
 
 \begin{exercise}
@@ -326,37 +345,14 @@ addition modulo $n$ is well defined. This will be our next lemma.
 \end{exercise}
 
 
-
-\section{Multiplicative groups}
-
-
-The cyclic groups $\Z_n$ are groups under addition. However, we also
-can multiply elements in $\Z_n$. We now show that modular
-multiplication is well defined.
-
-\begin{lemma}[Modular multiplication is well defined]
-  Addition on $\Z_n$ is well defined. This means that if
-  \begin{align*}
-    a &\equiv a' \pmod{n}\\
-    b &\equiv b' \pmod{n},
-  \end{align*}
-  then
-  \[
-  a\cdot b \equiv a'\cdot b' \pmod{n}.
-  \]
-  \begin{sketch}
-    Use the fact that
-    \[
-    x \equiv x'\pmod{n} \quad \Leftrightarrow \quad x -x' = n\cdot q
-    \]
-    for some number $q$.
-  \end{sketch}
-\end{lemma}
+At this point, we should be thinking that the structure of a cyclic
+group is determined by number theoritic properties based on the order
+of the group.
 
 
-\[
-\Z_n^*
-\]
+\begin{question}
+  What does the order of a cyclic group tell us?
+\end{question}
 
 
 \end{document}
