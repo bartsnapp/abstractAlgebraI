@@ -44,7 +44,7 @@ the edges of the triangle.  Call this set of points, this
 \[
 T = \{(x,y):\text{the point $(x,y)$ is on the triangle}\}
 \]
-Unfortunatly the group $\aut(T)$ seems much to hard (at least at this
+Unfortunately the group $\aut(T)$ seems much to hard (at least at this
 point, to this author) to tackle. Instead, let me tell you something I
 tell myself in hard times:
 
@@ -55,7 +55,7 @@ tell myself in hard times:
 
 
 
-So here's my proposal for an eaiser problem. Let's study a subset of
+So here's my proposal for an easier problem. Let's study a subset of
 $\aut(T)$. Let's roll it way back to middle school. We'll study the
 \textit{symmetries} of $T$. An informal definition of symmetry might be:
 \begin{quote}
@@ -91,9 +91,9 @@ $f_3$:
   \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$1$};
 
   
-  \draw[->] (0,-1.3) -- (0,-1.9); 
-  \draw[->] (-2,-1.5) -- (-3,-2.5);
-  \draw[->] (2,-1.5) -- (3,-2.5);
+  \draw[|->] (0,-1.3) -- (0,-1.9); 
+  \draw[|->] (-2,-1.5) -- (-3,-2.5);
+  \draw[|->] (2,-1.5) -- (3,-2.5);
 
   \node[left] at (0,-1.6) {$f_2$};
   \node[above left] at (-2.5,-2) {$f_1$};
@@ -127,8 +127,8 @@ There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
   \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$3$};
   \draw[dashed,->] (4.5,0) arc (0:240:.5);
   
-  \draw[->] (-1,.5) -- (-3,.5);
-  \draw[->] (1,.5) -- (3,.5);  
+  \draw[|->] (-1,.5) -- (-3,.5);
+  \draw[|->] (1,.5) -- (3,.5);  
 
   
 \end{tikzpicture}
@@ -163,7 +163,7 @@ $e$.
     r_{240} = r^2, \quad  f_1 = r^2\circ f, \quad  f_3 = r\circ f.
     \]
     In other words, $\{r,f\}$ generate $D_3$.  In our Cayley table
-    below, let's ommit the $\circ$, so we will write something like
+    below, let's omit the $\circ$, so we will write something like
     $f\circ r$ as simply $fr$.
     \[
     \renewcommand{\arraystretch}{1.6}
@@ -234,7 +234,7 @@ We can define a dihedral group for any regular $n$-gon.
 
 \begin{exercise}
   Give an argument explaining why in $2$D, every flip or rotation can
-  be written in terms of one flip, and compostions of rotations.
+  be written in terms of one flip, and compositions of rotations.
   \begin{hint}
     Apply the flip first. 
   \end{hint}
@@ -255,6 +255,28 @@ We can define a dihedral group for any regular $n$-gon.
   \end{enumerate}
   In each case, prove your answer is correct.
 \end{exercise}
+
+
+
+\begin{definition}
+  Let $G$ be a group, the \dfn{order} of $g\in G$ is
+  \[
+  \o(g) := \min\{n>0: g^n = e\}.
+  \]
+\end{definition}
+
+\begin{exercise}
+   Find the order of every element of $D_3$. Organize this information
+   into a table, \textbf{make wild conjectures.}
+\end{exercise}
+
+
+
+\begin{exercise}
+   Find the order of every element of $D_4$. Organize this information
+   into a table, \textbf{make wild conjectures.}
+\end{exercise}
+
 
 
 
@@ -293,7 +315,7 @@ will be a counterclockwise rotation of the base:
   \draw[fill] (3,0) circle (1mm) node[right] {$3$};
   \draw[fill] (1.5,2.8) circle (1mm) node[above] {$4$};
 
-  \draw[->] (3,2) -- (5,2);
+  \draw[|->] (3,2) -- (5,2);
   \node[above] at (4,2) {$r$};
   
   \draw[ultra thick,rounded corners=.05mm] (5,0) -- (8,0) -- (6.5,2.8) -- cycle;
@@ -305,7 +327,7 @@ will be a counterclockwise rotation of the base:
   \draw[fill] (6.5,2.8) circle (1mm) node[above] {$4$};
 \end{tikzpicture}
 \]
-The next one will be a counterclockwise piviot around the far vertex. 
+The next one will be a counterclockwise pivot around the far vertex. 
 \[
 \begin{tikzpicture}
   \draw[ultra thick,rounded corners=.05mm] (0,0) -- (3,0) -- (1.5,2.8) -- cycle;
@@ -316,7 +338,7 @@ The next one will be a counterclockwise piviot around the far vertex.
   \draw[fill] (3,0) circle (1mm) node[right] {$3$};
   \draw[fill] (1.5,2.8) circle (1mm) node[above] {$4$};
 
-  \draw[->] (3,2) -- (5,2);
+  \draw[|->] (3,2) -- (5,2);
   \node[above] at (4,2) {$p$};
   
   \draw[ultra thick,rounded corners=.05mm] (5,0) -- (8,0) -- (6.5,2.8) -- cycle;
@@ -369,11 +391,11 @@ tetrahedron.
       r\cellcolor{red!12!white}         & r\cellcolor{red!12!white}        & r^2\cellcolor{red!24!white}            & e\cellcolor{red!6!white}     & rp\cellcolor{yellow!12!white} & r^2p \cellcolor{yellow!24!white}    & p \cellcolor{yellow!6!white}   & rp^2 \cellcolor{green!12!white}  & r^2p^2 \cellcolor{green!24!white} & p^2 \cellcolor{green!6!white} & r pr^2 \cellcolor{blue!12!white} & r^2 pr^2 \cellcolor{blue!24!white} & pr^2 \cellcolor{blue!6!white}\\  
       r^2\cellcolor{red!24!white}       & r^2\cellcolor{red!24!white}      & e\cellcolor{red!6!white}           & r\cellcolor{red!12!white}    & r^2 p \cellcolor{yellow!24!white}   & p \cellcolor{yellow!6!white} & rp \cellcolor{yellow!12!white}   &  r^2p^2 \cellcolor{green!24!white}  & p^2 \cellcolor{green!6!white} & rp^2\cellcolor{green!12!white}  & r^2pr^2\cellcolor{blue!24!white} & pr^2\cellcolor{blue!6!white} & rpr^2\cellcolor{blue!12!white}\\  
       p \cellcolor{yellow!6!white}      & p \cellcolor{yellow!6!white}     & r^2p^2 \cellcolor{green!24!white}   & pr^2 \cellcolor{blue!6!white} & p^2\cellcolor{green!6!white}    & r^2\cellcolor{red!24!white}    & r^2pr^2\cellcolor{blue!24!white}  & e \cellcolor{red!6!white} & r^2p \cellcolor{yellow!24!white} &  rpr^2\cellcolor{blue!12!white}  &  rp \cellcolor{yellow!12!white}  &  r \cellcolor{red!12!white}  &  rp^2 \cellcolor{green!12!white}   \\
-      r p \cellcolor{yellow!12!white}   & rp \cellcolor{yellow!12!white}   & p^2 \cellcolor{green!6!white}   & rpr^2 \cellcolor{blue!12!white}    & rp^2\cellcolor{green!12!white}   & e\cellcolor{red!6!white}     & pr^2\cellcolor{blue!6!white}  & r\cellcolor{red!12!white}  &  p \cellcolor{yellow!6!white}  & r^2pr^2\cellcolor{blue!24!white} & r^2p \cellcolor{yellow!24!white}  &  ??\cellcolor{white}  & ?? \cellcolor{white}  \\  
-      r^2 p\cellcolor{yellow!24!white}  & r^2 p\cellcolor{yellow!24!white} & rp^2 \cellcolor{green!12!white}    & r^2 pr^2\cellcolor{blue!24!white}   & r^2p^2\cellcolor{green!24!white}    & r\cellcolor{red!12!white}   & rpr^2\cellcolor{blue!12!white} & r^2\cellcolor{red!24!white} &  rp \cellcolor{yellow!12!white}  &  pr^2 \cellcolor{blue!6!white}  & p \cellcolor{yellow!6!white}  &  ?? \cellcolor{white}  & ?? \cellcolor{white}    \\
-      p^2\cellcolor{green!6!white}      & p^2\cellcolor{green!6!white} & rpr^2 \cellcolor{blue!12!white} & rp \cellcolor{yellow!12!white} & e\cellcolor{red!6!white} &  ?? \cellcolor{white}  &  ?? \cellcolor{white} &  p \cellcolor{yellow!6!white}  & ?? \cellcolor{white}  & r \cellcolor{red!12!white}   & r^2\cellcolor{red!24!white} &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
-      rp^2\cellcolor{green!12!white}    & rp^2\cellcolor{green!12!white} & r^2pr^2\cellcolor{blue!24!white} & r^2p \cellcolor{yellow!24!white} & r\cellcolor{red!12!white}&  ?? \cellcolor{white}  &  ?? \cellcolor{white} &  rp \cellcolor{yellow!12!white}  & ?? \cellcolor{white}  & r^2 \cellcolor{red!24!white}   & e\cellcolor{red!6!white} &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
-      r^2p^2\cellcolor{green!24!white}  & r^2p^2\cellcolor{green!24!white}& pr^2 \cellcolor{blue!6!white} & p\cellcolor{yellow!6!white} & r^2\cellcolor{red!24!white}&  ?? \cellcolor{white}  &  ?? \cellcolor{white} &  r^2p \cellcolor{yellow!24!white}  & ?? \cellcolor{white}  & e \cellcolor{red!6!white}   & r\cellcolor{red!12!white} &  ?? \cellcolor{white}  & ?? \cellcolor{white}\\
+      r p \cellcolor{yellow!12!white}   & rp \cellcolor{yellow!12!white}   & p^2 \cellcolor{green!6!white}   & rpr^2 \cellcolor{blue!12!white}    & rp^2\cellcolor{green!12!white}   & e\cellcolor{red!6!white}     & pr^2\cellcolor{blue!6!white}  & r\cellcolor{red!12!white}  &  p \cellcolor{yellow!6!white}  & r^2pr^2\cellcolor{blue!24!white} & r^2p \cellcolor{yellow!24!white}  &  r^2 \cellcolor{red!24!white}  & r^2p^2 \cellcolor{green!24!white}  \\  
+      r^2 p\cellcolor{yellow!24!white}  & r^2 p\cellcolor{yellow!24!white} & rp^2 \cellcolor{green!12!white}    & r^2 pr^2\cellcolor{blue!24!white}   & r^2p^2\cellcolor{green!24!white}    & r\cellcolor{red!12!white}   & rpr^2\cellcolor{blue!12!white} & r^2\cellcolor{red!24!white} &  rp \cellcolor{yellow!12!white}  &  pr^2 \cellcolor{blue!6!white}  & p \cellcolor{yellow!6!white}  &  e \cellcolor{red!6!white}  & p^2 \cellcolor{green!6!white}    \\
+      p^2\cellcolor{green!6!white}      & p^2\cellcolor{green!6!white} & rpr^2 \cellcolor{blue!12!white} & rp \cellcolor{yellow!12!white} & e\cellcolor{red!6!white} &  pr^2 \cellcolor{blue!6!white}  &  rp^2 \cellcolor{green!12!white} &  p \cellcolor{yellow!6!white}  & r^2pr^2 \cellcolor{blue!24!white}  & r \cellcolor{red!12!white}   & r^2\cellcolor{red!24!white} &  r^2p^2 \cellcolor{green!24!white}  & r^2p \cellcolor{yellow!24!white}\\
+      rp^2\cellcolor{green!12!white}    & rp^2\cellcolor{green!12!white} & r^2pr^2\cellcolor{blue!24!white} & r^2p \cellcolor{yellow!24!white} & r\cellcolor{red!12!white}& rpr^2 \cellcolor{blue!12!white}  & r^2p^2 \cellcolor{green!24!white} &  rp \cellcolor{yellow!12!white}  & pr^2 \cellcolor{blue!6!white}  & r^2 \cellcolor{red!24!white}   & e\cellcolor{red!6!white} &  p^2 \cellcolor{green!6!white}  & p \cellcolor{yellow!6!white}\\
+      r^2p^2\cellcolor{green!24!white}  & r^2p^2\cellcolor{green!24!white}& pr^2 \cellcolor{blue!6!white} & p\cellcolor{yellow!6!white} & r^2\cellcolor{red!24!white}&  r^2pr^2 \cellcolor{blue!24!white}  &  p^2 \cellcolor{green!6!white} &  r^2p \cellcolor{yellow!24!white}  & rpr^2 \cellcolor{blue!12!white}  & e \cellcolor{red!6!white}   & r\cellcolor{red!12!white} &  rp^2 \cellcolor{green!12!white}  & rp \cellcolor{yellow!12!white}\\
       pr^2\cellcolor{blue!6!white}      & pr^2\cellcolor{blue!6!white} & p\cellcolor{yellow!6!white} & r^2p^2 \cellcolor{green!24!white} & r^2pr^2\cellcolor{blue!24!white}& p^2\cellcolor{green!6!white}& r^2\cellcolor{red!24!white} & rpr^2\cellcolor{blue!12!white} & e\cellcolor{red!6!white}  &  r^2p \cellcolor{yellow!24!white}  & rp^2 \cellcolor{green!12!white}  & rp \cellcolor{yellow!12!white}  & r \cellcolor{red!12!white}\\
       rpr^2\cellcolor{blue!12!white}    & rpr^2\cellcolor{blue!12!white} & rp\cellcolor{yellow!12!white} & p^2\cellcolor{green!6!white} & pr^2\cellcolor{blue!6!white} & rp^2\cellcolor{green!12!white}& e\cellcolor{red!6!white} & r^2pr^2\cellcolor{blue!24!white} & r\cellcolor{red!12!white}  &  p \cellcolor{yellow!6!white}  & r^2p^2 \cellcolor{green!24!white}  &  r^2p \cellcolor{yellow!24!white}  & r^2 \cellcolor{red!24!white}\\
       r^2pr^2\cellcolor{blue!24!white}  & r^2pr^2\cellcolor{blue!24!white}& r^2p\cellcolor{yellow!24!white} & rp^2\cellcolor{green!12!white} & rpr^2\cellcolor{blue!12!white} & r^2p^2\cellcolor{green!24!white}& r\cellcolor{red!12!white} & pr^2\cellcolor{blue!6!white} & r^2\cellcolor{red!24!white}  &  rp \cellcolor{yellow!12!white}  & p^2 \cellcolor{green!6!white}  &  p \cellcolor{yellow!6!white}  & e \cellcolor{red!6!white}\\
@@ -385,21 +407,123 @@ tetrahedron.
 
 
 
-MAYBE DEFINE ORDER HERE
-
 \begin{exercise}
-  Find the order of each element of $T_{12}$.
+  Find the order of each element of $T_{12}$. Organize this
+  information into a table, \textbf{make wild conjectures.}
 \end{exercise}
 
 
 \begin{exercise}
-  NON ORIENTATION PRESERVING 
+  Consider the map:
+  \[
+  \begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.05mm] (0,0) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (3,1) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (0,0) -- (3,1);
+  \draw[fill] (3,1) circle (1mm) node[above right] {$1$};
+  \draw[fill] (0,0) circle (1mm) node[left] {$2$};
+  \draw[fill] (3,0) circle (1mm) node[right] {$3$};
+  \draw[fill] (1.5,2.8) circle (1mm) node[above] {$4$};
+
+  \draw[|->] (3,2) -- (5,2);
+  \node[above] at (4,2) {$f$};
+  
+  \draw[ultra thick,rounded corners=.05mm] (5,0) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (8,1) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (5,0) -- (8,1);
+  \draw[fill] (8,1) circle (1mm) node[above right] {$4$};
+  \draw[fill] (5,0) circle (1mm) node[left] {$1$};
+  \draw[fill] (8,0) circle (1mm) node[right] {$3$};
+  \draw[fill] (6.5,2.8) circle (1mm) node[above] {$2$};
+  \end{tikzpicture}
+  \]
+  Is this map in $T_{12}$? If so find the element. If not, explain why
+  not.
 \end{exercise}
+
+
+\begin{exercise}
+  Consider the map:
+  \[
+  \begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.05mm] (0,0) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (3,1) -- (3,0) -- (1.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (0,0) -- (3,1);
+  \draw[fill] (3,1) circle (1mm) node[above right] {$1$};
+  \draw[fill] (0,0) circle (1mm) node[left] {$2$};
+  \draw[fill] (3,0) circle (1mm) node[right] {$3$};
+  \draw[fill] (1.5,2.8) circle (1mm) node[above] {$4$};
+
+  \draw[|->] (3,2) -- (5,2);
+  \node[above] at (4,2) {$f$};
+  
+  \draw[ultra thick,rounded corners=.05mm] (5,0) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,rounded corners=.05mm] (8,1) -- (8,0) -- (6.5,2.8) -- cycle;
+  \draw[ultra thick,dashed] (5,0) -- (8,1);
+  \draw[fill] (8,1) circle (1mm) node[above right] {$1$};
+  \draw[fill] (5,0) circle (1mm) node[left] {$3$};
+  \draw[fill] (8,0) circle (1mm) node[right] {$2$};
+  \draw[fill] (6.5,2.8) circle (1mm) node[above] {$4$};
+  \end{tikzpicture}
+  \]
+  Is this map in $T_{12}$? If so find the element. If not, explain why
+  not.
+\end{exercise}
+
+\begin{exercise}
+  List all elements of $T_{12}$ that leave vertex $4$ fixed. Show that these
+  form a group.
+\end{exercise}
+
+\begin{exercise}
+  List all elements of $T_{12}$ that leave vertex $3$ fixed. Show that these
+  form a group.
+\end{exercise}
+
+\begin{exercise}\label{E:symcube}
+  Let $C$ be the group of order preserving rigid motions of the
+  cube. Compute $|C|$ and prove that your answer is correct.
+\end{exercise}
+
+\begin{exercise}\label{E:symoct}
+  Let $O$ be the group of order preserving rigid motions of the
+  octahedron. Compute $|O|$ and prove that your answer is correct.
+\end{exercise}
+
+\begin{exercise}
+  What do you notice about your answers to Exercise~\ref{E:symcube}
+  and Exercise~\ref{E:symoct}? Explain why this happens.
+\end{exercise}
+
+
+\begin{exercise}\label{E:symdoe}
+  Let $D$ be the group of order preserving rigid motions of the
+  doedecahedron. Compute $|D|$ and prove that your answer is correct.
+\end{exercise}
+
+\begin{exercise}\label{E:symicos}
+  Let $I$ be the group of order preserving rigid motions of the
+  icosahedron. Compute $|I|$ and prove that your answer is correct.
+\end{exercise}
+
+\begin{exercise}
+  What do you notice about your answers to Exercise~\ref{E:symdoe}
+  and Exercise~\ref{E:symicos}? Explain why this happens.
+\end{exercise}
+
+
+
+
+
+
+
 
 
 \begin{question}
-  This seems hard. What happens if we only study rotations in 2D?
+  Symmetries of shapes can be complicated. What happens if we only
+  study rotations in 2D?
 \end{question}
+
 
 
 
