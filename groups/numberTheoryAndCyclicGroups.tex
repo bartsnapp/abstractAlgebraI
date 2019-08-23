@@ -43,8 +43,8 @@ Prove that if $n$ is any integer, then $\gcd(a + n\cdot b, b) = \gcd(a, b)$.
 
 
 
-\begin{theorem}[Euclid's lemma, version 1]\label{E:EL1}
-  Given nonzero $a,b\in\Z$, we will prove that $g=(a,b)$ is the
+\begin{theorem}[Euclid's lemma, version 1]\label{T:EL1}\index{Euclid's lemma}
+  Given nonzero $a,b\in\Z$, we will prove that $g=\gcd(a,b)$ is the
   \textit{smallest} positive integer such that
   \[
   g = a\cdot m +b\cdot n
@@ -54,7 +54,7 @@ Prove that if $n$ is any integer, then $\gcd(a + n\cdot b, b) = \gcd(a, b)$.
   \item Let $\mathcal S = \{x\in \N: x = a\cdot m +b\cdot n\text{ for } m,n\in
     \Z\}$. Prove that $\mathcal S$ has a least element, call it $d$.
   \item Prove that $d| x$ for all $x\in \mathcal S$.
-  \item Prove that $d| a$ and $d| b$, explain why $1 \le d \le g$.
+  \item Prove that $d| a$ and $d| b$. Explain why $1 \le d \le g$.
   \item Recall that $d = a\cdot m +b\cdot n$, and prove that $g |
     d$. Explain why we must conclude that $d = g$.
   \end{enumerate}
@@ -62,31 +62,37 @@ Prove that if $n$ is any integer, then $\gcd(a + n\cdot b, b) = \gcd(a, b)$.
 
 
 
-\begin{corollary}[Euclid's lemma, version 2]\label{E:EL2} 
+\begin{corollary}[Euclid's lemma, version 2]\label{C:EL2}\index{Euclid's lemma}
   Let $a$, $b$, and $c$ be nonzero integers. Suppose that 
   \[
-  a |bc\qquad\text{and}\qquad (a,b)=1.
+  a |bc\qquad\text{and}\qquad \gcd(a,b)=1.
   \]
   Prove that $a|c$. 
 \end{corollary}
 
 
+The statements of Theorem~\ref{T:EL1} and Corollary~\ref{C:EL2} are
+each sometimes referred to as \textbf{Euclid's lemma}.\index{Euclid's lemma}
 
-\begin{corollary}[Irreducible elements are prime]\label{E:EL}\index{prime element}\index{irreducible element} 
-  We will prove that in the integers, all irreducible elements are
-  prime, see (\ref{E:IRP}). Let $p$ be irreducible and let $a,b\in \Z$
-  such that $p|ab$.
+
+
+\begin{corollary}[A characterization of prime numbers]\label{E:EL}\index{prime number}
+  A natural number $p\in \N$ has exactly two factors, $1$ and $p$ if
+  and only if for all $a,b\in\N$
+  \[
+  p|ab \quad \Rightarrow \quad p|a \text{ or } p|b.
+  \]
+  \begin{sketch}
   \begin{enumerate}
-  \item Suppose that $p\nmid a$, explain why $(a,p) =1$.
+  \item Suppose that $p\nmid a$, explain why $\gcd(a,p) =1$.
   \item Write $1 = am + pn$, multiply both sides by $b$.
   \item Can you finish it from here?
   \end{enumerate}
+  \end{sketch}
 \end{corollary}
 
 
 
-The statements of (\ref{E:EL1}), (\ref{E:EL2}), and (\ref{E:EL}) are
-all sometimes referred to as \textbf{Euclid's Lemma}.
 
 
 
@@ -122,11 +128,11 @@ in \equiv jn \pmod m \qquad \Rightarrow\qquad i\equiv j\pmod m.
 \end{align*}
 
 Explain how the above algorithm works and write it under the Euclidean
-Algorithm below.
+algorithm below.
 \end{exercise}
 
 
-\begin{theorem}[Euclidean Algorithm] 
+\begin{theorem}[Euclidean algorithm] 
 We can easily compute the GCD of two numbers using the following
 algorithm:
 \vspace{2in}
@@ -136,10 +142,10 @@ algorithm:
 fill in.
 
 \begin{exercise} 
-We will prove that when working with integers, the Euclidean Algorithm
+We will prove that when working with integers, the Euclidean algorithm
 will always produce the GCD of two numbers.
 \begin{enumerate}
-\item Prove that the remainders found in the Euclidean Algorithm form a
+\item Prove that the remainders found in the Euclidean algorithm form a
   decreasing sequence.
 \item Prove that this sequence must terminate with a final remainder
   of zero.
@@ -150,7 +156,7 @@ a &= b\cdot q_1 + g \\
 b &= g\cdot q_2 +0
 \end{align*}
 Prove that any divisor of both $a$ and $b$ is necessarily a divisor
-of $g$. Explain why this proves that $g = (a,b)$.
+of $g$. Explain why this proves that $g = \gcd(a,b)$.
 \item Now suppose that any time we have $n+1$ equations:
 \begin{align*}
 a &= b\cdot q_1 + r_1 \\
@@ -159,10 +165,10 @@ b &= r_1\cdot q_2 + r_2 \\
 r_{n-2} &= r_{n-1}\cdot q_{n} + r_n\\
 r_{n-1} &= r_{n}\cdot q_{n+1} + 0
 \end{align*}
-that $r_n = (a,b)$. Prove that when we have $n+2$ equations, $r_{n+1}
-= (a,b)$.
+that $r_n = \gcd(a,b)$. Prove that when we have $n+2$ equations, $r_{n+1}
+= \gcd(a,b)$.
 \item Explain how we have proved that when working with integers, the
-  Euclidean Algorithm will always produce the GCD of two numbers.
+  Euclidean algorithm will always produce the GCD of two numbers.
 \end{enumerate}
 \end{exercise}
 
@@ -174,37 +180,24 @@ then $d|x$. What does this say about the GCD of $a$ and $b$?
 
 
 
-\section{Generators of cyclic groups}
-
-
-MV TO numberTheory.tex
-
-
-
-
-In this section we will show that an $g\in \Z_n$ generates $\Z_n$ if
-and only if $\gcd(g,n) = 1$.
-
-
-
-
-\begin{theorem}
+\begin{corollary}[Generators of cyclic groups]
   An element $g\in \Z_n$ generates $\Z_n$ if and only if $\gcd(g,n) =
   1$.
-\end{theorem}
-
-
-
-
-
-
-
+\end{corollary}
 
 
 
 \section{Direct products of cyclic groups}
 
-The group defined by $(a,b)$ has order $\gcd(a,b)$.
+\[
+|G\times H| = |G|\cdot |H|
+\]
+When is $\Z_m\times\Z_n$ cyclic?
+
+
+
+
+
 
 \subsection{The Klein four-group}
 
@@ -252,8 +245,9 @@ not have an inverse. We should state this as a lemma.
 \begin{lemma}[Multiplicative inverses]
   An element $a\in\Z_n$ has a multiplicative inverse if and only if
   $\gcd(a,n) = 1$.
-  \begin{proof}
-  \end{proof}
+  \begin{sketch}
+    Use Euclid's lemma, Theorem~\ref{T:EL1}.
+  \end{sketch}
 \end{lemma}
 
 \begin{definition}
@@ -269,8 +263,9 @@ not have an inverse. We should state this as a lemma.
 \end{exercise}
 
 
-
-
+\begin{exercise}
+  Make a Cayley table for $\Z_n^\times$ for $n = 3,4,5,6,7,8,9$.
+\end{exercise}
 
 
 

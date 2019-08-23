@@ -12,6 +12,10 @@
 \end{abstract}
 \maketitle
 
+Earlier we mentioned that the set of all bijections from a set $X$ to
+$X$ is a group under composition. We will now prove this.
+
+
 \begin{theorem}[Automorphisms form a group]\label{E:aut0}
   Given a set $X$, prove that the collection of all bijections from
   $X$ to itself is a group under function composition.  This group is
@@ -188,7 +192,25 @@ they maintain the distance between points.  Automorphisms that
 maintain the distance between points are called
 \index{isometries}\textit{isometries}.
 
-We can define a dihedral group for any regular $n$-gon.
+\begin{definition}
+  Let $X\subset \R^n$. An \dfn{isometry} of $X$ is a function $f:X\to X$ such
+  that the distance between points on $X$ is preserved by $f$. This means
+  that if $a,b\in X$, and $\vec{v}$ is the vector from $a$ to $b$ then
+  \[
+  |\vec{v}| = |f(\vec{v})|.
+  \]
+\end{definition}
+
+\begin{exercise}
+  Prove that if $X$ is a geometric set, an isometry $f:X\to X$ will
+  always be a bijection.
+\end{exercise}
+
+
+Isometries of an $n$-gon are exactly the symmetries of the
+$n$-gon. These symmetries (functions that are isometries on the
+$n$-gon that map the $n$-gon to itself) will always form a group. This
+type of a group is called a \textit{dihedral} group.
 
 \begin{definition}
   A \dfn{dihedral group} a group of symmetries of the regular
@@ -366,7 +388,7 @@ tetrahedron.
   of the regular tetrahedron form a group under function
   composition. This group is known as the \dfn{tetrahedral group}, the
   \dfn{symmetries of the regular tetrahedron}, and is also called (and
-  denoted) $T_{12}$.
+  denoted) $\mathcal{T}_{12}$.
   \begin{proof}
     Let's check the conditions for this to be a group. We know that
     the operation is associative, since functional composition is
@@ -382,11 +404,11 @@ tetrahedron.
     \[
     \{e,r,r^2,p,rp,r^2p,p^2,rp^2,r^2p^2,pr^2,rpr^2,r^2pr^2\}
     \]
-    In other words, $\{r,p\}$ generate $T_{12}$.  
+    In other words, $\{r,p\}$ generate $\mathcal{T}_{12}$.  
     \begin{gather*}
     \renewcommand{\arraystretch}{1.6}
       \begin{array}{c!{\vline width 2pt}cccccccccccc}
-      (T_{12},\circ)& e\cellcolor{red!6!white}     & r\cellcolor{red!12!white}     & r^2\cellcolor{red!24!white}   & p \cellcolor{yellow!6!white}    & rp \cellcolor{yellow!12!white}  & r^2 p\cellcolor{yellow!24!white} & p^2\cellcolor{green!6!white}    &  r p^2\cellcolor{green!12!white}  &  r^2 p^2\cellcolor{green!24!white} & pr^2 \cellcolor{blue!6!white} & rpr^2 \cellcolor{blue!12!white}& r^2 p r^2\cellcolor{blue!24!white}\\  \Xhline{2pt}
+      (\mathcal{T}_{12},\circ)& e\cellcolor{red!6!white}     & r\cellcolor{red!12!white}     & r^2\cellcolor{red!24!white}   & p \cellcolor{yellow!6!white}    & rp \cellcolor{yellow!12!white}  & r^2 p\cellcolor{yellow!24!white} & p^2\cellcolor{green!6!white}    &  r p^2\cellcolor{green!12!white}  &  r^2 p^2\cellcolor{green!24!white} & pr^2 \cellcolor{blue!6!white} & rpr^2 \cellcolor{blue!12!white}& r^2 p r^2\cellcolor{blue!24!white}\\  \Xhline{2pt}
       e \cellcolor{red!6!white}         & e\cellcolor{red!6!white}         & r\cellcolor{red!12!white}           & r^2\cellcolor{red!24!white}   & p \cellcolor{yellow!6!white}    & rp \cellcolor{yellow!12!white}  & r^2 p\cellcolor{yellow!24!white} & p^2\cellcolor{green!6!white}    &  r p^2\cellcolor{green!12!white}  &  r^2 p^2\cellcolor{green!24!white} & pr^2 \cellcolor{blue!6!white} & rpr^2 \cellcolor{blue!12!white}& r^2 p r^2\cellcolor{blue!24!white}\\ 
       r\cellcolor{red!12!white}         & r\cellcolor{red!12!white}        & r^2\cellcolor{red!24!white}            & e\cellcolor{red!6!white}     & rp\cellcolor{yellow!12!white} & r^2p \cellcolor{yellow!24!white}    & p \cellcolor{yellow!6!white}   & rp^2 \cellcolor{green!12!white}  & r^2p^2 \cellcolor{green!24!white} & p^2 \cellcolor{green!6!white} & r pr^2 \cellcolor{blue!12!white} & r^2 pr^2 \cellcolor{blue!24!white} & pr^2 \cellcolor{blue!6!white}\\  
       r^2\cellcolor{red!24!white}       & r^2\cellcolor{red!24!white}      & e\cellcolor{red!6!white}           & r\cellcolor{red!12!white}    & r^2 p \cellcolor{yellow!24!white}   & p \cellcolor{yellow!6!white} & rp \cellcolor{yellow!12!white}   &  r^2p^2 \cellcolor{green!24!white}  & p^2 \cellcolor{green!6!white} & rp^2\cellcolor{green!12!white}  & r^2pr^2\cellcolor{blue!24!white} & pr^2\cellcolor{blue!6!white} & rpr^2\cellcolor{blue!12!white}\\  
@@ -401,14 +423,14 @@ tetrahedron.
       r^2pr^2\cellcolor{blue!24!white}  & r^2pr^2\cellcolor{blue!24!white}& r^2p\cellcolor{yellow!24!white} & rp^2\cellcolor{green!12!white} & rpr^2\cellcolor{blue!12!white} & r^2p^2\cellcolor{green!24!white}& r\cellcolor{red!12!white} & pr^2\cellcolor{blue!6!white} & r^2\cellcolor{red!24!white}  &  rp \cellcolor{yellow!12!white}  & p^2 \cellcolor{green!6!white}  &  p \cellcolor{yellow!6!white}  & e \cellcolor{red!6!white}\\
     \end{array}
     \end{gather*}
-    Note, from the table above we can see that $T_{12}$ is not Abelian.
+    Note, from the table above we can see that $\mathcal{T}_{12}$ is not Abelian.
   \end{proof}
 \end{example}
 
 
 
 \begin{exercise}
-  Find the order of each element of $T_{12}$. Organize this
+  Find the order of each element of $\mathcal{T}_{12}$. Organize this
   information into a table, \textbf{make wild conjectures.}
 \end{exercise}
 
@@ -437,7 +459,7 @@ tetrahedron.
   \draw[fill] (6.5,2.8) circle (1mm) node[above] {$2$};
   \end{tikzpicture}
   \]
-  Is this map in $T_{12}$? If so find the element. If not, explain why
+  Is this map in $\mathcal{T}_{12}$? If so find the element. If not, explain why
   not.
 \end{exercise}
 
@@ -466,49 +488,48 @@ tetrahedron.
   \draw[fill] (6.5,2.8) circle (1mm) node[above] {$4$};
   \end{tikzpicture}
   \]
-  Is this map in $T_{12}$? If so find the element. If not, explain why
+  Is this map in $\mathcal{T}_{12}$? If so find the element. If not, explain why
   not.
 \end{exercise}
 
 \begin{exercise}
-  List all elements of $T_{12}$ that leave vertex $4$ fixed. Show that these
+  List all elements of $\mathcal{T}_{12}$ that leave vertex $4$ fixed. Show that these
   form a group.
 \end{exercise}
 
 \begin{exercise}
-  List all elements of $T_{12}$ that leave vertex $3$ fixed. Show that these
+  List all elements of $\mathcal{T}_{12}$ that leave vertex $3$ fixed. Show that these
   form a group.
 \end{exercise}
 
 \begin{exercise}\label{E:symcube}
-  Let $C$ be the group of order preserving rigid motions of the
-  cube. Compute $|C|$ and prove that your answer is correct.
+  Let $\mathcal{C}_{24}$ be the group of order preserving symmetries of the
+  cube. Prove that $|\mathcal{C}_{24}| = 24$.
 \end{exercise}
 
 \begin{exercise}\label{E:symoct}
-  Let $O$ be the group of order preserving rigid motions of the
-  octahedron. Compute $|O|$ and prove that your answer is correct.
+  Let $\mathcal{O}_{24}$ be the group of order preserving symmetries of the
+  octahedron. Prove that $|\mathcal{O}_{24}|= 24$.
 \end{exercise}
-
-\begin{exercise}
-  What do you notice about your answers to Exercise~\ref{E:symcube}
-  and Exercise~\ref{E:symoct}? Explain why this happens.
-\end{exercise}
-
 
 \begin{exercise}\label{E:symdoe}
-  Let $D$ be the group of order preserving rigid motions of the
-  doedecahedron. Compute $|D|$ and prove that your answer is correct.
+  Let $\mathcal{D}_{60}$ be the group of order preserving symmetries of the
+  doedecahedron. Prove that $|\mathcal{D}_{60}|=60$.
 \end{exercise}
 
 \begin{exercise}\label{E:symicos}
-  Let $I$ be the group of order preserving rigid motions of the
-  icosahedron. Compute $|I|$ and prove that your answer is correct.
+  Let $\mathcal{I}_{60}$ be the group of order preserving symmetries of the
+  icosahedron. Prove that $|\mathcal{I}_{60}|=60$.
 \end{exercise}
 
 \begin{exercise}
-  What do you notice about your answers to Exercise~\ref{E:symdoe}
-  and Exercise~\ref{E:symicos}? Explain why this happens.
+  Give a geometric argument explaining \textbf{why}
+  \begin{align*}
+    |\mathcal{C}_{24}| &= |\mathcal{O}_{24}|\\
+    |\mathcal{D}_{60}| &= |\mathcal{I}_{60}|
+  \end{align*}
+  Further, explain why $|\mathcal{T}_{12}|$ has no ``partner'' solid,
+  like the others do.
 \end{exercise}
 
 

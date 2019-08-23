@@ -2,7 +2,8 @@
 \usepackage{stix2}
 \usepackage{gillius}
 \usepackage{resizegather}
-
+%\usepackage{rsfso} fancy cal
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n} %less fancy cal
 
 
 \usepackage{tikz-cd}
@@ -306,7 +307,7 @@
         code={
         \tikzmath{\xx = #1;\rr=1.7;}
         \draw[ultra thick,rounded corners=.05mm] ({\rr*sin(0*360/\xx)},{\rr*cos(0*360/\xx)})
-        \foreach \x in {0,1,...,\xx}
+        \foreach \x in {0,1,...,\xx+1}
            {
            -- ({\rr*sin(\x*360/\xx)},{\rr*cos(\x*360/\xx)}) 
            }
@@ -319,7 +320,7 @@
         code={
         \tikzmath{\xx = #1;\rr=1.7;}
         \draw[ultra thick,rounded corners=.05mm] ({\rr*sin(0*360/\xx+180/\xx)},{\rr*cos(0*360/\xx+180/\xx)})
-        \foreach \x in {0,1,...,\xx}
+        \foreach \x in {0,1,...,\xx+1}
            {
            -- ({\rr*sin(\x*360/\xx+180/\xx)},{\rr*cos(\x*360/\xx+180/\xx)}) 
            }
@@ -346,6 +347,8 @@
 
 %% barcode from
 %% https://tex.stackexchange.com/questions/6895/is-there-a-good-latex-package-for-generating-barcodes
+%% NOT CURRENTLY USED!
+
 
 \def\barcode#1#2#3#4#5#6#7{\begingroup%
   \dimen0=0.1em
