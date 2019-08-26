@@ -10,27 +10,18 @@
 \end{abstract}
 \maketitle
 
-In this section, we will investigate when an element is a generator of
-a cyclic group, and groups of the form $\Z_m\times \Z_n$ where
-\[
-\Z_m\times \Z_n :=\{(a,b):\text{$a\in\Z_m$ and $b\in\Z_n$}\}
-\]
-and addition is done componentwise. This construction is called the
-\dfn{direct sum} of $\Z_m$ and $\Z_n$.
-
-
-
-
-\section{Number theory background}
 
 \begin{definition} \index{greatest common divisor}\index{GCD}
 An integer $g$ is called a \textbf{greatest common divisor} of two
 integer $a$ and $b$ provided that
 \begin{enumerate}
 \item $g| a$ and $g | b$.
-\item If $d$ is an element where $d| a$ and $d | b$, then $d| g$.
+\item If $d$ is an element where $d| a$ and $d | b$, then $d\le g$.
 \end{enumerate}
+We denote the GCD of $a$ and $b$ as $\gcd(a,b)$. If $\gcd(a,b) = 1$ we
+say that $a$ and $b$ are \dfn{coprime} or \dfn{relatively prime}.
 \end{definition}
+
 
 \begin{exercise} 
 Given $n\in \Z$, what is $\gcd(n,0)$? Prove your conclusion.
@@ -187,6 +178,9 @@ then $d|x$. What does this say about the GCD of $a$ and $b$?
 
 
 
+
+
+
 \section{Direct products of cyclic groups}
 
 \[
@@ -196,14 +190,21 @@ When is $\Z_m\times\Z_n$ cyclic?
 
 
 
+Here's another famous group you might run into. The \textit{Klein
+  four-group}.
 
+\begin{definition}
+  The Klein four-group is $V_4 = \Z_2\times\Z_2$ with modular addition
+  being the operation.
+\end{definition}
 
+\begin{exercise}
+  Make a Cayley table for $V_4$.
+\end{exercise}
 
-\subsection{The Klein four-group}
-
-
-
-
+\begin{exercise}
+  What are the generators of $V_4$?
+\end{exercise}
 
 
 
