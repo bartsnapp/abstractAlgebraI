@@ -13,13 +13,13 @@
 
 \begin{definition} \index{greatest common divisor}\index{GCD}
 An integer $g$ is called a \textbf{greatest common divisor} of two
-integer $a$ and $b$ provided that
+integers $m$ and $n$ provided that
 \begin{enumerate}
-\item $g| a$ and $g | b$.
-\item If $d$ is an element where $d| a$ and $d | b$, then $d\le g$.
+\item $g| m$ and $g | n$.
+\item If $d$ is an element where $d| m$ and $d | n$, then $d\le g$.
 \end{enumerate}
-We denote the GCD of $a$ and $b$ as $\gcd(a,b)$. If $\gcd(a,b) = 1$ we
-say that $a$ and $b$ are \dfn{coprime} or \dfn{relatively prime}.
+We denote the GCD of $m$ and $n$ as $\gcd(m,n)$. If $\gcd(m,n) = 1$ we
+say that $m$ and $n$ are \dfn{coprime} or \dfn{relatively prime}.
 \end{definition}
 
 
@@ -28,24 +28,25 @@ Given $n\in \Z$, what is $\gcd(n,0)$? Prove your conclusion.
 \end{exercise}
 
 \begin{exercise} 
-Prove that if $n$ is any integer, then $\gcd(a + n\cdot b, b) = \gcd(a, b)$.
+Prove that if $a$ is any integer, then $\gcd(m + a\cdot n, n) =
+\gcd(m, n)$.
 \end{exercise}
 
 
 
 
 \begin{theorem}[Euclid's lemma, version 1]\label{T:EL1}\index{Euclid's lemma}
-  Given nonzero $a,b\in\Z$, we will prove that $g=\gcd(a,b)$ is the
+  Given nonzero $m,n\in\Z$, we will prove that $g=\gcd(m,n)$ is the
   \textit{smallest} positive integer such that
   \[
   g = a\cdot m +b\cdot n
   \]
-  for some integers $m$ and $n$.
+  for some integers $a$ and $b$.
   \begin{enumerate}
-  \item Let $\mathcal S = \{x\in \N: x = a\cdot m +b\cdot n\text{ for } m,n\in
+  \item Let $\mathcal S = \{x\in \N: x = a\cdot m +b\cdot n\text{ for } a,b\in
     \Z\}$. Prove that $\mathcal S$ has a least element, call it $d$.
   \item Prove that $d| x$ for all $x\in \mathcal S$.
-  \item Prove that $d| a$ and $d| b$. Explain why $1 \le d \le g$.
+  \item Prove that $d| m$ and $d| n$. Explain why $1 \le d \le g$.
   \item Recall that $d = a\cdot m +b\cdot n$, and prove that $g |
     d$. Explain why we must conclude that $d = g$.
   \end{enumerate}
@@ -54,11 +55,11 @@ Prove that if $n$ is any integer, then $\gcd(a + n\cdot b, b) = \gcd(a, b)$.
 
 
 \begin{corollary}[Euclid's lemma, version 2]\label{C:EL2}\index{Euclid's lemma}
-  Let $a$, $b$, and $c$ be nonzero integers. Suppose that 
+  Let $\l$, $m$, and $n$ be nonzero integers. Suppose that 
   \[
-  a |bc\qquad\text{and}\qquad \gcd(a,b)=1.
+  \l|mn\qquad\text{and}\qquad \gcd(\l,m)=1.
   \]
-  Prove that $a|c$. 
+  Prove that $\l|n$. 
 \end{corollary}
 
 
@@ -67,18 +68,50 @@ each sometimes referred to as \textbf{Euclid's lemma}.\index{Euclid's lemma}
 
 
 
+
+\begin{corollary}[Generators of cyclic groups]
+  An element $g\in \Z_n$ generates $\Z_n$ if and only if $\gcd(g,n) =
+  1$.
+  \begin{sketch}
+    $(\Rightarrow)$ If $g\in\Z_n$ generates $\Z_n$, then there is
+    $a\in\N$ such that
+    \[
+    ag \equiv 1\pmod{n}.
+    \]
+    Work from here to show that $\gcd(g,n) = 1$.
+    
+
+    $(\Leftarrow)$ If $\gcd(g,n) = 1$, use Euclid's lemma,
+    Theorem~\ref{T:EL1}.
+  \end{sketch}
+\end{corollary}
+
+\begin{exercise}
+  Find all the generators of $\Z_{12}$. Explain why your solution is correct.
+\end{exercise}
+
+
+\begin{exercise}
+  Find all the generators of $\Z_{24}$. Explain why your solution is correct.
+\end{exercise}
+
+
+
+
+
 \begin{corollary}[A characterization of prime numbers]\label{E:EL}\index{prime number}
   A natural number $p\in \N$ has exactly two factors, $1$ and $p$ if
-  and only if for all $a,b\in\N$
+  and only if for all $m,n\in\N$
   \[
-  p|ab \quad \Rightarrow \quad p|a \text{ or } p|b.
+  p|mn \quad \Rightarrow \quad p|m \text{ or } p|n.
   \]
   \begin{sketch}
-  \begin{enumerate}
-  \item Suppose that $p\nmid a$, explain why $\gcd(a,p) =1$.
-  \item Write $1 = am + pn$, multiply both sides by $b$.
-  \item Can you finish it from here?
-  \end{enumerate}
+    The proof is basically three steps:
+    \begin{enumerate}
+    \item Suppose that $p\nmid m$, explain why $\gcd(m,p) =1$.
+    \item Write $1 = am + bp$, multiply both sides by $n$.
+    \item Can you finish it from here?
+    \end{enumerate}
   \end{sketch}
 \end{corollary}
 
@@ -124,8 +157,8 @@ algorithm below.
 
 
 \begin{theorem}[Euclidean algorithm] 
-We can easily compute the GCD of two numbers using the following
-algorithm:
+We can easily compute the GCD of two numbers $m,n\in\Z$ using the
+following algorithm:
 \vspace{2in}
 
 \end{theorem}
@@ -143,21 +176,21 @@ will always produce the GCD of two numbers.
 \item Proceed by induction on the number of steps in the Euclidean
   Algorithm. If there are two steps:
 \begin{align*}
-a &= b\cdot q_1 + g \\
-b &= g\cdot q_2 +0
+m &= n\cdot q_1 + g \\
+n &= g\cdot q_2 +0
 \end{align*}
 Prove that any divisor of both $a$ and $b$ is necessarily a divisor
-of $g$. Explain why this proves that $g = \gcd(a,b)$.
-\item Now suppose that any time we have $n+1$ equations:
+of $g$. Explain why this proves that $g = \gcd(m,n)$.
+\item Now suppose that any time we have $i+1$ equations:
 \begin{align*}
 a &= b\cdot q_1 + r_1 \\
 b &= r_1\cdot q_2 + r_2 \\
   &\hspace{.5em}\vdots\\
-r_{n-2} &= r_{n-1}\cdot q_{n} + r_n\\
-r_{n-1} &= r_{n}\cdot q_{n+1} + 0
+r_{i-2} &= r_{i-1}\cdot q_{i} + r_i\\
+r_{i-1} &= r_{i}\cdot q_{i+1} + 0
 \end{align*}
-that $r_n = \gcd(a,b)$. Prove that when we have $n+2$ equations, $r_{n+1}
-= \gcd(a,b)$.
+that $r_i = \gcd(m,n)$. Prove that when we have $i+2$ equations, $r_{i+1}
+= \gcd(m,n)$.
 \item Explain how we have proved that when working with integers, the
   Euclidean algorithm will always produce the GCD of two numbers.
 \end{enumerate}
@@ -165,16 +198,11 @@ that $r_n = \gcd(a,b)$. Prove that when we have $n+2$ equations, $r_{n+1}
 
 
 \begin{exercise} 
-Prove that if $x = am +bn$ and $d$ is a common divisor of $a$ and $b$,
-then $d|x$. What does this say about the GCD of $a$ and $b$?
+Prove that if $x = am +bn$ and $d$ is a common divisor of $m$ and $n$,
+then $d|x$. Explain how this shows that every common divisor of $m$
+and $n$ also divides $\gcd(m,n)$.
 \end{exercise}
 
-
-
-\begin{corollary}[Generators of cyclic groups]
-  An element $g\in \Z_n$ generates $\Z_n$ if and only if $\gcd(g,n) =
-  1$.
-\end{corollary}
 
 
 
@@ -183,10 +211,56 @@ then $d|x$. What does this say about the GCD of $a$ and $b$?
 
 \section{Direct products of cyclic groups}
 
-\[
-|G\times H| = |G|\cdot |H|
-\]
-When is $\Z_m\times\Z_n$ cyclic?
+
+\begin{lemma}[Order of direct product groups]
+  Let $G$ and $H$ be finite groups. In this case,
+  \[
+  |G\times H| = |G|\cdot |H|.
+  \]
+  \begin{sketch}
+    Recall that
+    \[
+    G\times H := \{(g,h): \text{$g\in G$ and $h\in H$}\}.
+    \]
+  \end{sketch}
+\end{lemma}
+
+\begin{theorem}[Criterion for cyclic direct sum]
+  The group $\Z_p\times \Z_q$ is cyclic if and only if $\gcd(p,q) =
+  1$.
+  \begin{proof}
+    $(\Rightarrow)$ We will prove this direction by way of
+    contrapositon. Suppose that $\gcd(p,q) = g>1$. We must show that
+    $\Z_p\times \Z_q$ is not cyclic. Consider $(a,b)\in\Z_p\times\Z_q$
+    and note that $\frac{p}{g}\in\N$ and $\frac{q}{g}\in\N$. Write
+    with me:
+    \begin{align*}
+      (a,b) \cdot \frac{pq}{g} &= \left(ap\left(\frac{q}{g}\right),bq\left(\frac{p}{g}\right)\right)\\
+      &\equiv (0,0).
+    \end{align*}
+    Hence $\o((a,b)) \le \frac{pq}{g} < |\Z_p\times\Z_q|$, and so
+    $\Z_p\times\Z_q$ cannot be cyclic.
+
+    $(\Leftarrow)$ Suppose that $\gcd(p,q) = 1$ and that
+    \[
+    (1,1)\cdot n = (n,n) \equiv (0,0).
+    \]
+    This means that $p|n$ and $q|n$, so
+    \[
+    n = pa = qb.
+    \]
+    Since $\gcd(p,q) = 1$, and $p|qb$, we see by Euclid's lemma,
+    Corollary~\ref{C:EL2}, that $p|b$. The smallest $b$ can be with
+    this property is $p$. A similar argument shows that $a = q$, hence
+    $\o((1,1)) = pq$, and so $\Z_p\times\Z_q$ is cyclic.
+  \end{proof}
+\end{theorem}
+
+
+\begin{exercise}
+  Make a Cayley table for $\Z_2\times\Z_3$. Compare your table to a
+  Cayley table for $\Z_6$.
+\end{exercise}
 
 
 
@@ -205,12 +279,6 @@ Here's another famous group you might run into. The \textit{Klein
 \begin{exercise}
   What are the generators of $V_4$?
 \end{exercise}
-
-
-
-
-
-
 
 
 \section{Multiplicative groups}
@@ -269,6 +337,11 @@ not have an inverse. We should state this as a lemma.
 \end{exercise}
 
 
+\begin{exercise}
+  Compute $\eulerphi(n)$ for $n = 2,3,6$. Now compute $\eulerphi(n)$
+  for $n = 2,5,10$. Finally compute $\eulerphi(n)$ for $n=
+  3,5,15$. \textbf{Make wild conjectures.}
+\end{exercise}
 
 
 \end{document}
