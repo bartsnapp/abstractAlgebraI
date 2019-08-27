@@ -230,7 +230,7 @@ and $n$ also divides $\gcd(m,n)$.
   1$.
   \begin{proof}
     $(\Rightarrow)$ We will prove this direction by way of
-    contrapositon. Suppose that $\gcd(p,q) = g>1$. We must show that
+    contraposition. Suppose that $\gcd(p,q) = g>1$. We must show that
     $\Z_p\times \Z_q$ is not cyclic. Consider $(a,b)\in\Z_p\times\Z_q$
     and note that $\frac{p}{g}\in\N$ and $\frac{q}{g}\in\N$. Write
     with me:
@@ -320,6 +320,16 @@ not have an inverse. We should state this as a lemma.
 \end{lemma}
 
 \begin{definition}
+  The \dfn{multiplicative group} of $\Z_n$ is the set of elements that
+  have multiplicative inverses modulo $n$. It is denoted
+  $\Z_n^\times$.
+\end{definition}
+
+\begin{exercise}
+  Make a Cayley table for $\Z_n^\times$ for $n = 3,4,5,6,7,8,9$.
+\end{exercise}
+
+\begin{definition}
   The \dfn{Euler totient function}, $\eulerphi:\N\to\N$, is defined as
   follows:
   \[
@@ -327,14 +337,12 @@ not have an inverse. We should state this as a lemma.
   \]
 \end{definition}
 
+
 \begin{exercise}
   Compute $\eulerphi(n)$ for $n = 1,2,\dots, 10$.
 \end{exercise}
 
 
-\begin{exercise}
-  Make a Cayley table for $\Z_n^\times$ for $n = 3,4,5,6,7,8,9$.
-\end{exercise}
 
 
 \begin{exercise}

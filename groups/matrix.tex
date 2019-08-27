@@ -84,6 +84,18 @@ will be general enough that one could change the set of scalars.
 
 
 \begin{definition}
+  The set $GL(n)$ is the set of invertible $n\times n$ matrices with
+  entries in $\R$. This group is called the \dfn{general linear
+    group}.
+\end{definition}
+
+\begin{exercise}
+  Prove that $GL(n)$ is a group under matrix multiplication.
+\end{exercise}
+
+
+
+\begin{definition}
   A matrix $M:\R^n\to \R^n$ satisfying
   \[
   M^\transpose \cdot M=I
@@ -163,6 +175,28 @@ will be general enough that one could change the set of scalars.
 \end{exercise}
 
 
+
+
+
+\begin{definition}
+  The set $SO(n)$ is the set of $n\times n$ matrices with entries in
+  $\R$ and determinant equal to $1$. This is called the \dfn{special
+    orthogonal group}.
+\end{definition}
+
+\begin{exercise}
+  Prove that $SO(n)$ is a group under matrix multiplication.
+\end{exercise}
+
+
+\begin{exercise}
+  Prove that:
+  \[
+  SO(n) \subset O(n) \subset GL(n)
+  \]
+\end{exercise}
+
+
 \begin{theorem}[Classification of \textit{O}(2)]
   If $M\in O(2)$, then $M$ is a rotation about the origin or a
   reflection across a line through the origin.
@@ -223,6 +257,39 @@ will be general enough that one could change the set of scalars.
 
 \section{The quaternions}
 
+
+\begin{align*}
+  1 &=
+  \begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+  \end{bmatrix}
+  &
+i &=
+\begin{bmatrix}
+  0 & -1 & 0 &  0 \\
+  1 &  0 & 0 &  0 \\
+  0 &  0 & 0 & -1 \\
+  0 &  0 & 1 &  0
+\end{bmatrix} \\
+j &=
+\begin{bmatrix}
+  0 &  0 & -1 &  0 \\
+  0 &  0 &  0 &  1 \\
+  1 &  0 &  0 &  0 \\
+  0 & -1 &  0 &  0 
+\end{bmatrix}
+&
+k &=
+\begin{bmatrix}
+  0 &  0 &  0 & -1 \\
+  0 &  0 & -1 &  0 \\
+  0 &  1 &  0 &  0 \\
+  1 &  0 &  0 &  0 
+\end{bmatrix}
+\end{align*}
 
 
 
