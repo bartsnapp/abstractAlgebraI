@@ -186,6 +186,13 @@ $e$.
 \end{example}
 
 
+\begin{exercise}
+  Use Cayley tables to show that the group $F$ (Exercise~\ref{E:invg})
+  is isomorphic to the group $D_3$.
+\end{exercise}
+
+
+
 If a set has symmetry, then that symmetry is a function that doesn't
 change the set. In our case, the symmetries map $T$ to itself, and
 they maintain the distance between points.  Automorphisms that
@@ -197,13 +204,15 @@ maintain the distance between points are called
   that the distance between points on $X$ is preserved by $f$. This means
   that if $a,b\in X$, and $\vec{v}$ is the vector from $a$ to $b$ then
   \[
-  |\vec{v}| = |f(\vec{v})|.
+  |\vec{v}| = |f(\vec{v})|,
   \]
+  where $|\vec{v}|$ is the magnitude of vector $\vec{v}$ and
+  $|f(\vec{v})|$ is the magnitude of vector $f(\vec{v})$.
 \end{definition}
 
 \begin{exercise}
-  Prove that if $X$ is a geometric set, an isometry $f:X\to X$ will
-  always be a bijection.
+  Prove that if $X$ is a geometric set, a surjective isometry $f:X\to
+  X$ will always be bijective.
 \end{exercise}
 
 
@@ -281,7 +290,7 @@ type of a group is called a \textit{dihedral} group.
 
 
 \begin{definition}
-  Let $G$ be a group, the \dfn{order} of $g\in G$ is
+  Let $G$ be a group, the \dfn{order of an element} $g\in G$ is
   \[
   \o(g) := \min\{n>0: g^n = e\}.
   \]
@@ -491,6 +500,13 @@ tetrahedron.
   Is this map in $\mathcal{T}_{12}$? If so find the element. If not, explain why
   not.
 \end{exercise}
+
+\begin{exercise}
+  Both the groups $D_6$ and $\mathcal{T}_{12}$ have $12$ elements. Is
+  $D_6$ isomorphic to $\mathcal{T}_{12}$?
+\end{exercise}
+
+
 
 \begin{exercise}
   List all elements of $\mathcal{T}_{12}$ that leave vertex $4$ fixed. Show that these

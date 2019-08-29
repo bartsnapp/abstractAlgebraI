@@ -117,62 +117,57 @@ will be general enough that one could change the set of scalars.
 
 
 
-\begin{exercise}
-  Prove that a matrix $ M$ defines a rigid motion (a congruence)
-  via
+\begin{lemma}
+  A matrix $M$ is orthogonal if and only if it defines an isometry via
   \[
   \begin{bmatrix}
-    \underline{x} & \underline{y} & \underline{z}%
-  \end{bmatrix}^\transpose
-  = M \begin{bmatrix} x & y & z\end{bmatrix}^\transpose
+    \underline{x} \\ \underline{y} \\ \underline{z}%
+  \end{bmatrix}
+  = M \begin{bmatrix} x \\ y \\ z\end{bmatrix}.
   \]
-  if and only if it is orthogonal.
+  \begin{sketch}
+    Note that the square of the distance between $x_{1}$ and $x_{2}$
+    is the dot product of the vector%
+    \[
+    \vec{v}=x_{2}-x_{1}%
+    \]
+    with itself.  Also recall the identity
+    $(AB)^\transpose=B^\transpose A^\transpose$.
+    
+    $(\Rightarrow)$ If $M$ is orthogonal, write
+    \[
+    (M\vec{v}) \bullet (M\vec{v})
+    \]
+    and deduce that this equals ${\vec v}\bullet{\vec v}$.
 
-  \begin{hint}
-    Note that the square of the distance between $x_{1}$ and
-    $x_{2}$ is the dot product of the vector%
+    $(\Leftarrow)$ Suppose that $M$ defines an isometry. Explain why
+    this means that
     \[
-    {\mathbf v}=x_{2}-x_{1}%
+    ( M{\vec v}) \bullet ( M{\vec v})=
+    {\vec v} \bullet {\vec v}
     \]
-    with itself.  Also recall the identity $(AB)^\transpose=B^\transpose A^\transpose$.
-  \end{hint}
-  \begin{hint}
-    If $ M$ is orthogonal, write
+    for every ${\vec v}$.  Now rewrite as:
     \[
-    ( M{\mathbf v}) \bullet ( M{\mathbf v})
-    \]
-    and deduce that this equals ${\mathbf v}\bullet{\mathbf v}$. 
-  \end{hint}
-  \begin{hint}
-    Now suppose that $ M$ defines a rigid motion. Explain why this means
-    that
-    \[
-    ( M{\mathbf v}) \bullet ( M{\mathbf v})=
-    {\mathbf v} \bullet {\mathbf v}
-    \]
-    for every ${\mathbf v}$.  Now rewrite as:
-    \[
-    {\mathbf v}^\transpose \cdot{\mathbf v}
-    =( M{\mathbf v})^\transpose \cdot ( M{\mathbf v}).
+    \vec{v}^\transpose M^\transpose \cdot M\vec{v}=\vec{v}^\transpose
+    \cdot{\vec v}.
     \]
     Write
     \[
-    {\mathbf v} =
+    {\vec v} =
     \begin{bmatrix}
-      a \\ b \\ c
+      a_1 \\ a_2 \\ \vdots \\ a_n
     \end{bmatrix}
     \]
      and view the equation 
     \[
-    {\mathbf v}^\transpose \cdot{\mathbf v}
-    =( M{\mathbf v})^\transpose \bullet ( M{\mathbf v})
+    \vec{v}^\transpose M^\transpose \cdot M\vec{v}=\vec{v}^\transpose
+    \cdot{\vec v}
     \]
-    as a polynomial equation in the variables $a$, $b$, and $c$. 
-  \end{hint}
-  \begin{hint}
-    Polynomials are equal if and only if their coefficients are equal. 
-  \end{hint}
-\end{exercise}
+    as a polynomial equation in the variables $a_1,\dots,a_n$. Since
+    polynomials are equal if and only if their coefficients are equal
+    this should finish the proof.
+  \end{sketch}
+\end{lemma}
 
 
 
@@ -196,18 +191,26 @@ will be general enough that one could change the set of scalars.
   \]
 \end{exercise}
 
-
-\begin{theorem}[Classification of \textit{O}(2)]
-  If $M\in O(2)$, then $M$ is a rotation about the origin or a
-  reflection across a line through the origin.
+\begin{lemma}[Classification of \textit{SO}(2)]
+  If $M\in SO(2)$, then
+  \[
+  M =
+  \begin{bmatrix}
+    \cos(\theta) & -\sin(\theta) \\
+    \sin(\theta) & \cos(\theta)
+  \end{bmatrix}
+  \]
+  and $M$ is a rotation about the origin.
   \begin{proof}
-    Set
+    Let
     \[
-    M= \begin{bmatrix}
+    M=
+    \begin{bmatrix}
       a & b \\
       c & d
     \end{bmatrix}.
     \]
+    Since $SO(2) \subset O(2)$, we have that
     \[
     M^\transpose M =
     \begin{bmatrix}
@@ -227,36 +230,84 @@ will be general enough that one could change the set of scalars.
       d
     \end{bmatrix}
     \]
-    are unit vectors where
-    \[
-    \begin{bmatrix}
-      b & d
-    \end{bmatrix}
-    \begin{bmatrix}
-      a\\
-      c
-    \end{bmatrix}=0.    
-    \]
     This means that $b= \pm c$ and $d = \mp a$. Hence
     \[
-    M = \begin{bmatrix}
-      a & c \\
-      c & -a
-    \end{bmatrix}
-    \quad\text{or}\quad
     M = \begin{bmatrix}
       a & -c \\
       c & a
     \end{bmatrix}
+    \quad\text{or}\quad
+    M = \begin{bmatrix}
+      a & c \\
+      c & -a
+    \end{bmatrix}
     \]
-    The first is a reflection composed with a rotation, and the second
-    is a rotation.
+    However, we also know that
+    \[
+    \det(M)  = ad-bc = 1.
+    \]
+    Thus, 
+    \[
+     M = \begin{bmatrix}
+      a & -c \\
+      c & a
+    \end{bmatrix}
+     \]
+     where $a^2 + c^2 = 1$. This means that
+     \[
+     M =
+     \begin{bmatrix}
+       \cos(\theta) & -\sin(\theta) \\
+       \sin(\theta) & \cos(\theta)
+     \end{bmatrix}
+     \]
+     and is a rotation. Note that we could have switch sine and
+     cosine, but this would have just changed the direction of the
+     rotation.
+  \end{proof}
+\end{lemma}
+
+
+
+
+
+\begin{theorem}[Classification of \textit{O}(2)]
+  If $M\in O(2)$, then $M$ is a rotation about the origin or a
+  reflection across a line through the origin.
+  \begin{proof}
+    Working exactly as in the proof of the classification of $SO(n)$,
+    Lemma~\ref{L:SO}, we find
+    \[
+    M = \begin{bmatrix}
+      a & -c \\
+      c & a
+    \end{bmatrix} \quad\text{or}\quad
+    M = \begin{bmatrix}
+      a & c \\
+      c & -a
+    \end{bmatrix}
+    \]
+    The first is a rotation. The second can be viewed as the product
+    \[
+    \begin{bmatrix}
+      \cos(\theta) & -\sin(\theta) \\
+      \sin(\theta) & \cos(\theta)
+    \end{bmatrix}
+    \underbrace{\begin{bmatrix}
+      1 & 0 \\
+      0 & -1
+    \end{bmatrix}}_{\text{reflection across $x$-axis}}.
+    \]
+    Thus every matrix in $O(2)$ is a rotation about the origin or a
+    reflection across a line through the origin.
   \end{proof}
 \end{theorem}
 
 
 \section{The quaternions}
 
+Now we introduce a group that is fundamental for physics and computer
+graphics called the \textit{quaternions}. If we set
 
 \begin{align*}
   1 &=
@@ -290,7 +341,75 @@ k &=
   1 &  0 &  0 &  0 
 \end{bmatrix}
 \end{align*}
+then the quaternions follow the rules:
+\[
+i^2 = j^2 = k^2 = -1,
+\]
+and
+\begin{align*}
+  ij &= k,  & jk &= i, & ki &= j, \\
+  ji &= -k, & kj &= -i, & ik &= -j. \\
+\end{align*}
+As you go around counterclockwise in the picture below
+\[
+\begin{tikzpicture}
+  \draw[ultra thick,->] (.94,-.34) arc (-20:80:1cm);
+  \draw[ultra thick,->] (-.17,.98) arc (100:200:1cm);
+  \draw[ultra thick,->] (-.77,-.64) arc (220:320:1cm);
+  \node at (0,1) {$i$};
+  \node at (-.87,-.5) {$j$};
+  \node at (.87,-.5) {$k$};
+\end{tikzpicture}
+\]
+the products are positive.
 
+\begin{example}[The quaternion group]
+  The eight elements
+  \[
+  \{e,1,-1,i,-i,j,-j,k,-k\}
+  \]
+  form a group under (matrix) multiplication. This group is known as
+  the \dfn{quaternion group}, and is also called (and denoted)
+  $Q_{8}$.
+  \begin{proof}
+    Let's check the conditions for this to be a group. We know that
+    the operation is associative, since functional composition is
+    associative (and matrix multiplication is function composition),
+    Lemma~\ref{L:funCompAss}.
+
+    There is an identity element, $1$.
+    
+    We must show that this set is closed under function composition.
+    To see this we will make a Cayley table. Write with me:
+    \begin{gather*}
+    \renewcommand{\arraystretch}{1.6}
+    \begin{array}{c!{\vline width 2pt}cccccccc}
+      (Q_8,\cdot) & 1 & -1 \cellcolor{black!6!white} & i \cellcolor{red!6!white} & -i \cellcolor{red!12!white} & j \cellcolor{blue!6!white} & -j \cellcolor{blue!12!white} & k \cellcolor{yellow!6!white} & -k \cellcolor{yellow!12!white} \\ \Xhline{2pt}
+      1 & 1 & -1 \cellcolor{black!6!white} & i \cellcolor{red!6!white} & -i \cellcolor{red!12!white} & j \cellcolor{blue!6!white} & -j \cellcolor{blue!12!white} & k \cellcolor{yellow!6!white} & -k \cellcolor{yellow!12!white} \\
+      -1 \cellcolor{black!6!white}& -1 \cellcolor{black!6!white} & 1 & -i \cellcolor{red!12!white} & i \cellcolor{red!6!white} & -j \cellcolor{blue!12!white} & j \cellcolor{blue!6!white} & -k \cellcolor{yellow!12!white} & k \cellcolor{yellow!6!white} \\
+      i \cellcolor{red!6!white}& i \cellcolor{red!6!white} & -i \cellcolor{red!12!white} & -1 \cellcolor{black!6!white}  & 1 & k \cellcolor{yellow!6!white} & -k \cellcolor{yellow!12!white} & -j \cellcolor{blue!12!white} & j \cellcolor{blue!6!white} \\
+      -i \cellcolor{red!12!white}& -i \cellcolor{red!12!white} & i \cellcolor{red!6!white} & 1  & -1  \cellcolor{black!6!white}& -k \cellcolor{yellow!12!white} & k \cellcolor{yellow!6!white} & j \cellcolor{blue!6!white} & -j \cellcolor{blue!12!white} \\
+      j \cellcolor{blue!6!white}& j \cellcolor{blue!6!white} & -j \cellcolor{blue!12!white} & -k \cellcolor{yellow!12!white}  & k\cellcolor{yellow!6!white} & -1 \cellcolor{black!6!white} & 1  & i \cellcolor{red!6!white} & -i \cellcolor{red!12!white} \\
+      -j \cellcolor{blue!12!white}& -j \cellcolor{blue!12!white} & j \cellcolor{blue!6!white} & k \cellcolor{yellow!6!white}  & -k\cellcolor{yellow!12!white} & 1  & -1 \cellcolor{black!6!white} & -i \cellcolor{red!12!white} & i \cellcolor{red!6!white} \\
+      k \cellcolor{yellow!6!white}& k \cellcolor{yellow!6!white} & -k \cellcolor{yellow!12!white} & j \cellcolor{blue!6!white}  & -j\cellcolor{blue!12!white} & -i \cellcolor{red!12!white} & i\cellcolor{red!6!white}  & -1 \cellcolor{black!6!white} & 1  \\
+      -k \cellcolor{yellow!12!white}& -k \cellcolor{yellow!12!white} & k \cellcolor{yellow!6!white} & -j \cellcolor{blue!12!white}  & j\cellcolor{blue!6!white} & i \cellcolor{red!6!white} & -i\cellcolor{red!12!white}  & 1 & -1 \cellcolor{black!6!white}
+    \end{array}
+    \end{gather*}
+  \end{proof}
+\end{example}
+
+\begin{exercise}
+   Show that the quaternion group $Q_8$ is not isomorphic to the
+   dihedral group $D_4$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that $Q_8$ is generated by $\{i, j\}$ and make a Cayley table
+  for $Q_8$ with entries
+  \[
+  e, i, i^2, i^3, j, ij, i^2j, i^3j.
+  \]
+\end{exercise}
 
 
 \end{document}

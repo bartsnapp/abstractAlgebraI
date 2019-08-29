@@ -136,6 +136,16 @@ Let us not mince words:
 \end{lemma}
 
 
+\begin{exercise}
+  If $g_1,g_2,\dots, g_n$ are elements of a group, prove that
+  \[
+  (g_1g_2\cdots g_n)^{-1} = g_n^{-1}\cdots g_2^{-1}g_1^{-1}.
+  \]
+\end{exercise}
+
+
+
+
 
 
 
@@ -146,8 +156,8 @@ So far, every group we've seen has had an infinite number of
 elements. Groups can be finite too.
 
 \begin{definition}
-  If $G$ is a group, the \dfn{order} of $G$, denoted $|G|$ is equal to
-  the number of distinct elements in $G$.
+  If $G$ is a group, the \dfn{order of a group} $G$, denoted $|G|$ is
+  equal to the number of distinct elements in $G$.
 \end{definition}
 
 
@@ -226,6 +236,23 @@ elements. Groups can be finite too.
 %%   \]
 %%   Which properties of a group fail?
 %% \end{exercise}
+
+
+Sometimes, Cayley tables for two groups $G$ and $H$ look essentially
+``the same'' except for the symbols used. In this case, we say the
+group $G$ is isomorphic to the group $H$.
+
+\begin{definition}
+  Two finite groups $G$ and $H$ are called \dfn{isomorphic} if they
+  have the ``same'' Cayley table, with possibly some reordering of the
+  elements. When a group $G$ is isomorphic to a group $H$, we write
+  $G\iso H$.
+\end{definition}
+
+We will formalize this idea of ``rearranging group tables and see if
+they look the same'' later. The idea will be to use special type of
+function that respects the group structure to bijectively identify
+elements in the one group to elements in the other group.
 
 \section{Groups of functions}
 
@@ -348,7 +375,7 @@ theorem. We must start with a fundamental lemma.
 
 
 
-\begin{exercise}
+\begin{exercise}\label{E:SG}
   Pick up a sock. Now choose one:
   \begin{enumerate}
   \item[$(n)$] Do nothing to the sock.
@@ -358,7 +385,7 @@ theorem. We must start with a fundamental lemma.
   \end{enumerate}
   Someone says,
   \begin{quote}
-    Ah! The sock group! The set $\{r,i\}$ is a group of order $2$ with
+    Ah! The sock group! The set $S =\{r,i\}$ is a group of order $2$ with
     \begin{align*}
       r\circ r &= r\\
   r\circ i &= i\\
@@ -369,28 +396,34 @@ theorem. We must start with a fundamental lemma.
   detailed. Make a Cayley table with entries $n$ and $r$. 
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{E:rf}
   In the Ohio State University Marching Band, there is a fundamental
   movement called a ``right-face.'' With this turn, the band-member
   spins to the right, $90^\circ$, ending up facing right. Denote a
   right-face by $R$. Explain how
   \[
-  \{R^0,R^1,R^2,R^3\}
+  RF=\{R^0,R^1,R^2,R^3\}
   \]
   forms a group of order $4$. Make a Cayley table for this group where the entries
   are $R^0$, $R^1$, $R^2$, and $R^3$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{E:st}
   In the Ohio State University Marching Band, there is a fundamental
   movement called a ``270-spin-turn.'' With this turn, the band-member
   spins to the left, $270^\circ$, thus ends up facing right. Denote a
   $270$-spin-turn by $T$. Explain how
   \[
-  \{T^0,T^1,T^2,T^3\}
+  ST=\{T^0,T^1,T^2,T^3\}
   \]
   forms a group of order $4$. Make a Cayley table for this group where
   the entries are $T^0$, $T^1$, $T^2$, and $T^3$.
+\end{exercise}
+
+\begin{exercise}
+  Use Cayley tables to show that the group $RF$ (Exercise~\ref{E:rf}),
+  the group $ST$ (Exercise~\ref{E:st}), and the group $C$
+  (Exercise~\ref{E:C}) are isomorphic to each other.
 \end{exercise}
 
 
@@ -402,7 +435,7 @@ theorem. We must start with a fundamental lemma.
     f(x) &= \frac{1}{1-x}, &  m(x) &= 1-x, \\
     g(x) &= \frac{x-1}{x}, &  n(x) &= \frac{x}{x-1},
   \end{align*}
-  be functions from $\R-\{0,1\}\to\R$.  Prove that $\{i,f,g,\l,m,n\}$
+  be functions from $\R-\{0,1\}\to\R$.  Prove that $F = \{i,f,g,\l,m,n\}$
   forms a group under function composition.
 \end{exercise}
 
@@ -435,15 +468,6 @@ theorem. We must start with a fundamental lemma.
   g^m\cdot g^n = g^{m+n}.
   \]
 \end{exercise}
-
-
-\begin{exercise}
-  If $g_1,g_2,\dots, g_n$ are elements of a group, prove that
-  \[
-  (g_1g_2\cdots g_n)^{-1} = g_n^{-1}\cdots g_2^{-1}g_1^{-1}.
-  \]
-\end{exercise}
-
 
 \begin{exercise}
   Prove that the group $\{i,f,g,\l,m,n\}$, as defined in

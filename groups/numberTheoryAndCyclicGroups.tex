@@ -36,12 +36,13 @@ Prove that if $a$ is any integer, then $\gcd(m + a\cdot n, n) =
 
 
 \begin{theorem}[Euclid's lemma, version 1]\label{T:EL1}\index{Euclid's lemma}
-  Given nonzero $m,n\in\Z$, we will prove that $g=\gcd(m,n)$ is the
-  \textit{smallest} positive integer such that
+  Given nonzero $m,n\in\Z$, $g=\gcd(m,n)$ is the \textit{smallest}
+  positive integer such that
   \[
   g = a\cdot m +b\cdot n
   \]
   for some integers $a$ and $b$.
+  \begin{sketch} We will prove this in several steps.
   \begin{enumerate}
   \item Let $\mathcal S = \{x\in \N: x = a\cdot m +b\cdot n\text{ for } a,b\in
     \Z\}$. Prove that $\mathcal S$ has a least element, call it $d$.
@@ -50,6 +51,7 @@ Prove that if $a$ is any integer, then $\gcd(m + a\cdot n, n) =
   \item Recall that $d = a\cdot m +b\cdot n$, and prove that $g |
     d$. Explain why we must conclude that $d = g$.
   \end{enumerate}
+  \end{sketch}
 \end{theorem}
 
 
@@ -57,15 +59,15 @@ Prove that if $a$ is any integer, then $\gcd(m + a\cdot n, n) =
 \begin{corollary}[Euclid's lemma, version 2]\label{C:EL2}\index{Euclid's lemma}
   Let $\l$, $m$, and $n$ be nonzero integers. Suppose that 
   \[
-  \l|mn\qquad\text{and}\qquad \gcd(\l,m)=1.
+  \l|mn\qquad\text{and}\qquad \gcd(\l,m)=1,
   \]
-  Prove that $\l|n$. 
+  prove that $\l|n$. 
 \end{corollary}
 
 
 The statements of Theorem~\ref{T:EL1} and Corollary~\ref{C:EL2} are
-each sometimes referred to as \textbf{Euclid's lemma}.\index{Euclid's lemma}
-
+each sometimes referred to as \dfn{Euclid's lemma}. This fact appears as \link[Proposition 30 in Book VII]{https://mathcs.clarku.edu/~djoyce/java/elements/bookVII/propVII30.html} of
+\textit{Euclid's elements}.
 
 
 
@@ -225,7 +227,14 @@ and $n$ also divides $\gcd(m,n)$.
   \end{sketch}
 \end{lemma}
 
-\begin{theorem}[Criterion for cyclic direct sum]
+\begin{exercise}
+  What is the order of $\Z_6\times\Z_7$. Is this the
+  ``\link[ultimate question]{https://en.wikipedia.org/wiki/42\_(number)}?''
+\end{exercise}
+
+
+
+\begin{theorem}[Criterion for cyclic direct product]
   The group $\Z_p\times \Z_q$ is cyclic if and only if $\gcd(p,q) =
   1$.
   \begin{proof}
@@ -258,8 +267,7 @@ and $n$ also divides $\gcd(m,n)$.
 
 
 \begin{exercise}
-  Make a Cayley table for $\Z_2\times\Z_3$. Compare your table to a
-  Cayley table for $\Z_6$.
+  Use a Cayley table to show that $\Z_2\times\Z_3 \iso \Z_6$.
 \end{exercise}
 
 
@@ -279,6 +287,11 @@ Here's another famous group you might run into. The \textit{Klein
 \begin{exercise}
   What are the generators of $V_4$?
 \end{exercise}
+
+\begin{exercise}
+  Is the group $V_4$ isomorphic to the group $\Z_4$?
+\end{exercise}
+
 
 
 \section{Multiplicative groups}
@@ -325,9 +338,29 @@ not have an inverse. We should state this as a lemma.
   $\Z_n^\times$.
 \end{definition}
 
+
+\begin{exercise}
+  Let $p$ be a prime number. Prove that $|\Z_p^\times| = p-1$.
+\end{exercise}
+
+
 \begin{exercise}
   Make a Cayley table for $\Z_n^\times$ for $n = 3,4,5,6,7,8,9$.
 \end{exercise}
+
+\begin{exercise}
+  Is $\Z_2$ isomorphic to $\Z_3^\times$?
+\end{exercise}
+
+
+\begin{exercise}
+  Is $\Z_4$ isomorphic to $\Z_5^\times$?
+\end{exercise}
+
+\begin{exercise}
+  Is $\Z_6$ isomorphic to $\Z_7^\times$?
+\end{exercise}
+
 
 \begin{definition}
   The \dfn{Euler totient function}, $\eulerphi:\N\to\N$, is defined as
@@ -350,6 +383,137 @@ not have an inverse. We should state this as a lemma.
   for $n = 2,5,10$. Finally compute $\eulerphi(n)$ for $n=
   3,5,15$. \textbf{Make wild conjectures.}
 \end{exercise}
+
+
+
+\subsection{Finding inverses with the Euclidean algorithm}
+
+
+
+Now, suppose you have an element in $\Z_n^\times$. How do you find the
+multiplicative inverse of this element? We use the Euclidean
+algorithm.\index{Euclidean algorithm} Working by example, let's find
+the multiplicative inverse of $16$ in $\Z_{21}^\times$. Study
+the following calculations:
+\begin{align*}
+  21 &= 16\cdot 1 + 5 &\Leftrightarrow & &                21-16\cdot 1 &= \boldsymbol{5}\\ 
+  16 &= 5\cdot 3 + 1 &\Leftrightarrow  & &   16 - \boldsymbol{5}\cdot 3 &= 1\\ 
+  5 &= 1 \cdot 5 + 0 &  & & &
+\end{align*}
+
+Now, using back substitution, write:
+
+\begin{align*}
+16 - 5\cdot 3 &= 1 \\
+16 - (21-16\cdot 1)\cdot 3 &= 1 \\
+16(4) + 21(-3) &= 1
+\end{align*}
+
+This tells me that in $\Z_{21}^\times$,
+\[
+16\cdot 4 \equiv 1 \pmod{21}.
+\]
+
+
+Now let's do it again. This time we will find the multiplicative
+inverse of $49$ in $\Z_{96}^\times$.
+%% https://www.calculatorsoup.com/calculators/math/gcf-euclids-algorithm.php
+\begin{align*}
+  96 &= 49\cdot 1 + 47 &\Leftrightarrow  & &                96 - 49\cdot 1 &= \boldsymbol{47}\\ 
+  49 &= 47\cdot 1 + 2  &\Leftrightarrow  & &   49 - \boldsymbol{47}\cdot 1 &= \boldsymbol{2}\\ 
+  47 &= 2 \cdot 23 + 1 &\Leftrightarrow  & &   47 - \boldsymbol{2}\cdot 23 &= 1 \\
+  2 &= 1\cdot  2+ 0 & & & & 
+\end{align*}
+
+Now, using back substitution, write:
+
+\begin{align*}
+47 - 2\cdot 23 &= 1 \\
+47 - (49-47\cdot 1)\cdot 23 &= 1 \\
+96-49 - (49- (96-49))\cdot 23 &=1 \\
+96(24) +49(-47) &=1
+\end{align*}
+
+This tells me that in $\Z_{96}^\times$,
+\[
+49\cdot (-47) \equiv 49\cdot 49 \equiv 1 \pmod{96}.
+\]
+
+\begin{exercise} %% 4 steps
+  Quick! Find the inverse of $98$ in $\Z_{99}^\times$.
+  \begin{hint}
+    Note that $98 \equiv -1 \pmod{99}$.
+  \end{hint}
+\end{exercise}
+
+\begin{exercise}
+  Find the inverse of $13$ in $\Z_{56}^\times$.
+\end{exercise}
+
+\begin{exercise}
+  Find the inverse of $21$ in $\Z_{73}^\times$.
+\end{exercise}
+
+\begin{exercise} %% 4 steps
+  Find the inverse of $37$ in $\Z_{62}^\times$.
+\end{exercise}
+
+\begin{exercise} %% 4 steps
+  Find the inverse of $41$ in $\Z_{88}^\times$.
+\end{exercise}
+
+
+\begin{exercise}
+  An abstract algebra teacher intended to list the nine integers that
+  form a group under multiplication modulo $91$. Instead, one of the
+  nine integers was inadvertently left out, so that the list appeared
+  as $1$, $9$, $16$, $22$, $53$, $74$, $79$, $81$. Which integer was
+  left out? Explain how you reached your conclusion.
+\end{exercise}
+
+
+
+\section{A nod toward Lagrange}
+
+We will end with statements that will follow from Lagrange's
+celebrated theorem. Until then, we will make due with these more
+specilized theorems that follow from the division theorem,
+Theorem~\ref{T:DT}.
+
+\begin{lemma}[Element's order is at most the group's order]
+  Prove that if $G$ is a group and $a\in G$, then $\o(a)\le |G|$.
+  \begin{sketch}
+    Use the pigeon-hole principle.
+  \end{sketch}
+\end{lemma}
+
+
+\begin{theorem}[Element's order divides the cyclic group's order]
+  Let $G$ be a finite cyclic group with $a\in G$. In this case, the
+  order of $a$ divides the order of $G$.
+  \begin{sketch}
+    Use the division theorem.
+  \end{sketch}
+\end{theorem}
+
+
+%% \begin{corollary}[Fermat's little theorem]\index{Fermat's little theorem}
+%%   Let $p\in \N$ be a prime number. Given $a\in\Z_p$,
+%%   \[
+%%   a^{p-1}\equiv 1 \pmod{p}.
+%%   \]
+%% \end{corollary}
+
+
+%% \begin{corollary}[Euler's little theorem]\index{Euler's little theorem}
+%%   Let $n\in \N$. Given $a\in\Z_n$,
+%%   \[
+%%   a^{\eulerphi(n)}\equiv 1 \pmod{n}.
+%%   \]
+%% \end{corollary}
+
+
+
 
 
 \end{document}
