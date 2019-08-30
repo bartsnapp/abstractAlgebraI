@@ -57,11 +57,11 @@ Prove that if $a$ is any integer, then $\gcd(m + a\cdot n, n) =
 
 
 \begin{corollary}[Euclid's lemma, version 2]\label{C:EL2}\index{Euclid's lemma}
-  Let $\l$, $m$, and $n$ be nonzero integers. Suppose that 
+  Let $\l$, $m$, and $n$ be nonzero integers. If 
   \[
   \l|mn\qquad\text{and}\qquad \gcd(\l,m)=1,
   \]
-  prove that $\l|n$. 
+  then $\l|n$. 
 \end{corollary}
 
 
@@ -404,7 +404,7 @@ the following calculations:
 Now, using back substitution, write:
 
 \begin{align*}
-16 - 5\cdot 3 &= 1 \\
+16 - \boldsymbol{5}\cdot 3 &= 1 \\
 16 - (21-16\cdot 1)\cdot 3 &= 1 \\
 16(4) + 21(-3) &= 1
 \end{align*}
@@ -428,8 +428,8 @@ inverse of $49$ in $\Z_{96}^\times$.
 Now, using back substitution, write:
 
 \begin{align*}
-47 - 2\cdot 23 &= 1 \\
-47 - (49-47\cdot 1)\cdot 23 &= 1 \\
+47 - \boldsymbol{2}\cdot 23 &= 1 \\
+\boldsymbol{47} - (49-\boldsymbol{47}\cdot 1)\cdot 23 &= 1 \\
 96-49 - (49- (96-49))\cdot 23 &=1 \\
 96(24) +49(-47) &=1
 \end{align*}
@@ -488,9 +488,9 @@ Theorem~\ref{T:DT}.
 \end{lemma}
 
 
-\begin{theorem}[Element's order divides the cyclic group's order]
-  Let $G$ be a finite cyclic group with $a\in G$. In this case, the
-  order of $a$ divides the order of $G$.
+\begin{theorem}[Element's order divides cyclic group's order]
+  Let $G$ be a finite cyclic group with $a\in G$. In this case,
+  $\o(a)$ divides $|G|$.
   \begin{sketch}
     Use the division theorem.
   \end{sketch}
