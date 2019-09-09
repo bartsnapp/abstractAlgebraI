@@ -11,6 +11,12 @@
 \maketitle
 
 
+\section{Euclid's lemma}
+
+We start by introducing the GCD of two numbers and by proving
+fundamental theorems about the GCD.
+
+
 \begin{definition} \index{greatest common divisor}\index{GCD}
 An integer $g$ is called a \textbf{greatest common divisor} of two
 integers $m$ and $n$ provided that
@@ -47,9 +53,9 @@ Prove that if $a$ is any integer, then $\gcd(m + a\cdot n, n) =
   \item Let $\mathcal S = \{x\in \N: x = a\cdot m +b\cdot n\text{ for } a,b\in
     \Z\}$. Prove that $\mathcal S$ has a least element, call it $d$.
   \item Prove that $d| x$ for all $x\in \mathcal S$.
-  \item Prove that $d| m$ and $d| n$. Explain why $1 \le d \le g$.
-  \item Recall that $d = a\cdot m +b\cdot n$, and prove that $g |
-    d$. Explain why we must conclude that $d = g$.
+  \item Prove that $d| m$ and $d| n$. Explain why $1 \le d \le \gcd(m,n)$.
+  \item Recall that $d = a\cdot m +b\cdot n$, and prove that $\gcd(m,n) |
+    d$. Explain why we must conclude that $d = \gcd(m,n)$.
   \end{enumerate}
   \end{sketch}
 \end{theorem}
@@ -130,7 +136,11 @@ in \equiv jn \pmod m \qquad \Rightarrow\qquad i\equiv j\pmod m.
 
 
 
-\begin{exercise} Study the following calculations:
+\section{The Euclidean algorithm}
+
+Now we introduce a fantastic algorithm, called the \textit{Euclidean
+  algorithm}. We do this by example, so study the following
+calculations:
 \begin{align*}
   22 &= \boldsymbol{6}\cdot 3 + \boldsymbol{4}\\
   \boldsymbol{6} &= \boldsymbol{4} \cdot 1 + \fbox{$\boldsymbol{2}$}\\
@@ -155,7 +165,6 @@ in \equiv jn \pmod m \qquad \Rightarrow\qquad i\equiv j\pmod m.
 
 Explain how the above algorithm works and write it under the Euclidean
 algorithm below.
-\end{exercise}
 
 
 \begin{theorem}[Euclidean algorithm] 
@@ -181,12 +190,12 @@ will always produce the GCD of two numbers.
 m &= n\cdot q_1 + g \\
 n &= g\cdot q_2 +0
 \end{align*}
-Prove that any divisor of both $a$ and $b$ is necessarily a divisor
+Prove that any divisor of both $m$ and $n$ is necessarily a divisor
 of $g$. Explain why this proves that $g = \gcd(m,n)$.
 \item Now suppose that any time we have $i+1$ equations:
 \begin{align*}
-a &= b\cdot q_1 + r_1 \\
-b &= r_1\cdot q_2 + r_2 \\
+m &= n\cdot q_1 + r_1 \\
+n &= r_1\cdot q_2 + r_2 \\
   &\hspace{.5em}\vdots\\
 r_{i-2} &= r_{i-1}\cdot q_{i} + r_i\\
 r_{i-1} &= r_{i}\cdot q_{i+1} + 0
@@ -259,8 +268,8 @@ and $n$ also divides $\gcd(m,n)$.
     n = pa = qb.
     \]
     Since $\gcd(p,q) = 1$, and $p|qb$, we see by Euclid's lemma,
-    Corollary~\ref{C:EL2}, that $p|b$. The smallest $b$ can be with
-    this property is $p$. A similar argument shows that $a = q$, hence
+    Corollary~\ref{C:EL2}, that $p|b$. The smallest $b$ with this
+    property is $p$. A similar argument shows that $a = q$, hence
     $\o((1,1)) = pq$, and so $\Z_p\times\Z_q$ is cyclic.
   \end{proof}
 \end{theorem}
@@ -477,7 +486,7 @@ This tells me that in $\Z_{96}^\times$,
 
 We will end with statements that will follow from Lagrange's
 celebrated theorem. Until then, we will make due with these more
-specilized theorems that follow from the division theorem,
+specialized theorems that follow from the division theorem,
 Theorem~\ref{T:DT}.
 
 \begin{lemma}[Element's order is at most the group's order]
@@ -511,6 +520,89 @@ Theorem~\ref{T:DT}.
 %%   a^{\eulerphi(n)}\equiv 1 \pmod{n}.
 %%   \]
 %% \end{corollary}
+
+
+
+\section{Solving equations}
+
+Our final section serves to explicitly remind us that: \textbf{Algebra
+  is about solving equations}. The equation we continually solved was
+the following,
+\[
+ax + by = c
+\]
+where $a,b,c\in\N$ and $x,y\in\Z$. The key point here is that the
+solutions, $x$ and $y$, must be \textbf{integers}.
+
+\begin{definition}
+  A \textbf{linear} \dfn{Diophantine equation} is an equation of the
+  form
+  \[
+  ax + by = c
+  \]
+  where $a,b,c,x,y\in\Z$.
+\end{definition}
+
+Diophantine equations are named after the Greek mathematician who
+studied them, \index{Diophantus of Alexandria}\link[Diophantus of Alexandria]{https://en.wikipedia.org/wiki/Diophantus}.
+
+\begin{exercise}
+  Prove that the diophantine equation $ax + by = c$ has solutions if
+  and only if $\gcd(a,b)|c$.
+\end{exercise}
+
+\begin{exercise}
+  Find integers $x$ and $y$ satisfying the following Diophantine
+  equations:
+  \begin{enumerate}
+  \item $671x + 715 y = 11$ 
+  \item $667x + 713 y = 69$ 
+  \item $671x + 713 y = 1$
+  \item $682x + 715 y = 55$
+  \item $601x + 735 y = 4$
+  \item $701x + 835 y = 15$
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Consider the Diophantine equation
+  \[
+  15x + 4y = 1.
+  \]
+  \begin{enumerate}
+  \item Use the Euclidean algorithm to find a solution to this
+    equation. Explain your reasoning.
+  \item Plot the line $15x + 4y = 1$, adding points at the solutions
+    to the equation.
+  \item Explain why a Diophantine equation 
+    \[
+    ax + by = c
+    \]
+  has either an infinite number of solutions or zero solutions.
+\item Using your plot and the slope of the line, parameterize the
+  solutions, meaning, give a formula in terms of $t$, that outputs all
+  of the solutions as $t$ runs through the integers.
+  \end{enumerate}
+\end{exercise}
+
+
+So we've seen that this algebra is about solving equations. On the
+other hand, \textbf{algebra is geometry}. We've seen this a little bit
+with the dihedral groups.
+
+
+\begin{question}
+  So what is another connection to geometry?
+\end{question}
+
+
+For some interesting extra reading check out:
+\begin{itemize}
+\item \link[\textit{Automotive repair by number theory},
+  B.\ Snapp and C.\ Snapp, Math Horizons. September (2009), 26--27.]{https://people.math.osu.edu/snapp.14/SnappFiat.pdf}.
+\end{itemize}
+
+
 
 
 

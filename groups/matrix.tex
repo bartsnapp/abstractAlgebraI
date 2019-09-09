@@ -121,13 +121,13 @@ will be general enough that one could change the set of scalars.
   A matrix $M$ is orthogonal if and only if it defines an isometry via
   \[
   \begin{bmatrix}
-    \underline{x} \\ \underline{y} \\ \underline{z}%
+    x' \\ y' \\ z'
   \end{bmatrix}
   = M \begin{bmatrix} x \\ y \\ z\end{bmatrix}.
   \]
   \begin{sketch}
-    Note that the square of the distance between $x_{1}$ and $x_{2}$
-    is the dot product of the vector%
+    Note that the square of the distance between the points $x_{1}$
+    and $x_{2}$ is the dot product of the vector%
     \[
     \vec{v}=x_{2}-x_{1}%
     \]
@@ -191,7 +191,7 @@ will be general enough that one could change the set of scalars.
   \]
 \end{exercise}
 
-\begin{lemma}[Classification of \textit{SO}(2)]
+\begin{lemma}[Classification of \textit{SO}(2)]\label{L:SO}
   If $M\in SO(2)$, then
   \[
   M =
@@ -228,7 +228,7 @@ will be general enough that one could change the set of scalars.
     \begin{bmatrix}
       b\\
       d
-    \end{bmatrix}
+    \end{bmatrix}.
     \]
     This means that $b= \pm c$ and $d = \mp a$. Hence
     \[
@@ -240,7 +240,7 @@ will be general enough that one could change the set of scalars.
     M = \begin{bmatrix}
       a & c \\
       c & -a
-    \end{bmatrix}
+    \end{bmatrix}.
     \]
     However, we also know that
     \[
@@ -261,9 +261,8 @@ will be general enough that one could change the set of scalars.
        \sin(\theta) & \cos(\theta)
      \end{bmatrix}
      \]
-     and is a rotation. Note that we could have switch sine and
-     cosine, but this would have just changed the direction of the
-     rotation.
+     and is a rotation. Note that we could have switched sine and
+     cosine, changing the direction of the rotation.
   \end{proof}
 \end{lemma}
 
@@ -285,7 +284,7 @@ will be general enough that one could change the set of scalars.
     M = \begin{bmatrix}
       a & c \\
       c & -a
-    \end{bmatrix}
+    \end{bmatrix}.
     \]
     The first is a rotation. The second can be viewed as the product
     \[
@@ -296,10 +295,11 @@ will be general enough that one could change the set of scalars.
     \underbrace{\begin{bmatrix}
       1 & 0 \\
       0 & -1
-    \end{bmatrix}}_{\text{reflection across $x$-axis}}.
+    \end{bmatrix}}_{\text{reflection across $x$-axis}}
     \]
-    Thus every matrix in $O(2)$ is a rotation about the origin or a
-    reflection across a line through the origin.
+    for some value of $\theta$. Thus every matrix in $O(2)$ is a
+    rotation about the origin or a reflection across a line through
+    the origin.
   \end{proof}
 \end{theorem}
 
@@ -307,44 +307,48 @@ will be general enough that one could change the set of scalars.
 \section{The quaternions}
 
 Now we introduce a group that is fundamental for physics and computer
-graphics called the \textit{quaternions}. If we set
+graphics called the \textit{quaternions}.
 
-\begin{align*}
-  1 &=
-  \begin{bmatrix}
-    1 & 0 & 0 & 0 \\
-    0 & 1 & 0 & 0 \\
-    0 & 0 & 1 & 0 \\
-    0 & 0 & 0 & 1
-  \end{bmatrix}
-  &
-i &=
-\begin{bmatrix}
-  0 & -1 & 0 &  0 \\
-  1 &  0 & 0 &  0 \\
-  0 &  0 & 0 & -1 \\
-  0 &  0 & 1 &  0
-\end{bmatrix} \\
-j &=
-\begin{bmatrix}
-  0 &  0 & -1 &  0 \\
-  0 &  0 &  0 &  1 \\
-  1 &  0 &  0 &  0 \\
-  0 & -1 &  0 &  0 
-\end{bmatrix}
-&
-k &=
-\begin{bmatrix}
-  0 &  0 &  0 & -1 \\
-  0 &  0 & -1 &  0 \\
-  0 &  1 &  0 &  0 \\
-  1 &  0 &  0 &  0 
-\end{bmatrix}
-\end{align*}
-then the quaternions follow the rules:
-\[
-i^2 = j^2 = k^2 = -1,
-\]
+\begin{definition}
+  The \dfn{quaternions} are elements in $GL(4)$:
+  \begin{align*}
+    1 &:=
+    \begin{bmatrix}
+      1 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 \\
+      0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 1
+    \end{bmatrix}
+    &
+    i &:=
+    \begin{bmatrix}
+      0 & -1 & 0 &  0 \\
+      1 &  0 & 0 &  0 \\
+      0 &  0 & 0 & -1 \\
+      0 &  0 & 1 &  0
+    \end{bmatrix} \\
+    j &:=
+    \begin{bmatrix}
+      0 &  0 & -1 &  0 \\
+      0 &  0 &  0 &  1 \\
+      1 &  0 &  0 &  0 \\
+      0 & -1 &  0 &  0 
+    \end{bmatrix}
+    &
+    k &:=
+    \begin{bmatrix}
+      0 &  0 &  0 & -1 \\
+      0 &  0 & -1 &  0 \\
+      0 &  1 &  0 &  0 \\
+      1 &  0 &  0 &  0 
+    \end{bmatrix}
+  \end{align*}
+\end{definition}
+
+  With this set up, the quaternions follow the rules:
+  \[
+  i^2 = j^2 = k^2 = -1,
+  \]
 and
 \begin{align*}
   ij &= k,  & jk &= i, & ki &= j, \\
@@ -395,8 +399,15 @@ the products are positive.
       -k \cellcolor{yellow!12!white}& -k \cellcolor{yellow!12!white} & k \cellcolor{yellow!6!white} & -j \cellcolor{blue!12!white}  & j\cellcolor{blue!6!white} & i \cellcolor{red!6!white} & -i\cellcolor{red!12!white}  & 1 & -1 \cellcolor{black!6!white}
     \end{array}
     \end{gather*}
+    From this, we see that $Q_8$ is closed under function composition,
+    and that every element has an inverse. Hence $Q_8$ is a group.
   \end{proof}
 \end{example}
+
+\begin{exercise}
+  Find the order of every element of $Q_8$.
+\end{exercise}
+
 
 \begin{exercise}
    Show that the quaternion group $Q_8$ is not isomorphic to the
@@ -410,6 +421,16 @@ the products are positive.
   e, i, i^2, i^3, j, ij, i^2j, i^3j.
   \]
 \end{exercise}
+
+
+For some interesting extra reading check out:
+\begin{itemize}
+\item \link[\textit{Finite groups of $2\times 2$ integers matrices}, G.\ Mackiw Mathematics Magazine, December, 1996]{https://www.maa.org/sites/default/files/George_Mackiw20823.pdf}.
+\item \link[\textit{The origin of quaternions}, T.\ Bannon, The
+  College Mathematics Journal Volume 46, 2015]{https://doi-org.proxy.lib.ohio-state.edu/10.4169/college.math.j.46.1.43}.
+\end{itemize}
+
+
 
 
 \end{document}

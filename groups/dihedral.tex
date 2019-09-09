@@ -33,7 +33,10 @@ $X$ is a group under composition. We will now prove this.
 
 
 If you find $\aut(X)$ difficult to think about, don't worry. We'll
-take small steps to understand this. 
+take small steps to understand this.
+
+
+
 
 To start, imagine an equilateral triangle sitting
 on an empty $2$D-plane:
@@ -65,9 +68,21 @@ $\aut(T)$. Let's roll it way back to middle school. We'll study the
 \begin{quote}
   Symmetry is immunity to a possible change.
 \end{quote}
-There are six symmetries of the equilateral triangle. Let's list
-them. There are $3$ flips (reflections across lines) $f_1$, $f_2$,
-$f_3$:
+
+With this in mind we will think of a special class of groups.
+
+\begin{definition}
+  Consider the symmetries of the regular $n$-gon. This set of
+  symmetries forms a group under functional composition called a
+  \dfn{dihedral group}. We denote the set of symmetries of the regular
+  $n$-gon as $D_n$.
+\end{definition}
+
+
+The easiest $n$-gon in two-dimensional space is the triangle. Hence,
+let's try to understand $D_3$.  There are six symmetries of the
+equilateral triangle. Let's list them. There are $3$ flips
+(reflections across lines) $f_1$, $f_2$, $f_3$:
 \[
 \begin{tikzpicture}
   \tikzmath{\rrr=1.7;}
@@ -197,7 +212,7 @@ If a set has symmetry, then that symmetry is a function that doesn't
 change the set. In our case, the symmetries map $T$ to itself, and
 they maintain the distance between points.  Automorphisms that
 maintain the distance between points are called
-\index{isometries}\textit{isometries}.
+\textit{isometries}.
 
 \begin{definition}
   Let $X\subset \R^n$. An \dfn{isometry} of $X$ is a function $f:X\to X$ such
@@ -314,6 +329,29 @@ type of a group is called a \textit{dihedral} group.
 
 
 \section{Symmetries of the tetrahedron}
+
+
+We can also study the symmetries of objects in higher
+dimensions. Working in $3$D should prove challenging enough, so let's
+do that. It's a fact, there are exactly five regular solids, called
+\link[\textit{Platonic solids}]{https://en.wikipedia.org/wiki/Platonic\_solid}.
+
+\begin{definition}
+  The \textbf{symmetries of the five Platonic solids} will be denoted
+  by:
+  \begin{enumerate}
+  \item $\mathcal{T}_{12}$ for the tetrahedron.
+  \item $\mathcal{C}_{24}$ for the cube.
+  \item $\mathcal{O}_{24}$ for the octahedron.
+  \item $\mathcal{D}_{60}$ for the dodecahedron.
+  \item $\mathcal{I}_{60}$ for the icosahedron.
+  \end{enumerate}
+\end{definition}
+
+\begin{exercise}
+  How many faces do each of the regular polyhedra have?
+\end{exercise}
+
 
 Now let's study the symmetries of the tetrahedron in $3$ dimensions.
 As it turns out, these symmetries will form a group (though not a
