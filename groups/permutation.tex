@@ -12,10 +12,9 @@
 \end{abstract}
 \maketitle
 
-In mathematics, there a special functions called
-\textit{permutations}. These are functions that take a list of symbols
-(usually the symbols are numbers) and put them in a different order.
-We have two types of special notation for permuations.
+In mathematics, there are special types of functions called
+\textit{permutations}. These functions take a list of symbols (usually
+the symbols are numbers) and rearrange the symbols.  
 
 \begin{definition}
   A \dfn{permutation} is a bijection $\sigma$ from a set $X$ to
@@ -31,10 +30,89 @@ We have two types of special notation for permuations.
   \]
   or in \dfn{cycle notation}
   \[
-  \sigma = (x\ \sigma(x)\ \sigma^2(x)\ \sigma^3(x)\ \cdots\ \sigma^n(x))
+  \sigma = (x_1\ \sigma(x_1)\ \sigma^2(x_1)\ \cdots\ \sigma^{n_1}(x_1)) \cdots (x_m \ \sigma(x_m)\ \sigma^2(x_m)\ \cdots\ \sigma^{n_m}(x_m))
   \]
-  where $x\in X$ is usually a natural number.
+  where $x_i\in X$ is usually a natural number.
 \end{definition}
+
+
+It helps to see an example of permutations in action.
+
+\begin{example}
+  Let $\sigma$ be a permutation on the set $\{1,2,3\}$ represented by
+  \[
+  \sigma = \left(\begin{smallmatrix}
+    1 & 2 & 3 \\
+    3 & 1 & 2
+  \end{smallmatrix}\right)
+  \quad\text{or}\quad \sigma = (1 \ 3 \ 2).
+  \]
+  These two representations tell us how $\sigma$ acts on $\{1,2,3\}$
+  in the following ways. In permutation notation, you look for the
+  number \textit{below} the number from the argument. So
+  \begin{align*}
+    \left(\begin{smallmatrix}
+    \textcolor{blue!60!black}1 & 2 & 3 \\
+    \textcolor{red!60!black}{3} & 1 & 2
+    \end{smallmatrix}\right) (\textcolor{blue!60!black}1) &= \textcolor{red!60!black}{3}, \\
+    \left(\begin{smallmatrix}
+    1 & \textcolor{blue!60!black}2 & 3 \\
+    3 & \textcolor{red!60!black}{1} & 2
+    \end{smallmatrix}\right) (\textcolor{blue!60!black}2) &= \textcolor{red!60!black}{1}, \\
+    \left(\begin{smallmatrix}
+    1 & 2 & \textcolor{blue!60!black}3 \\
+    3 & 1 & \textcolor{red!60!black}{2}
+    \end{smallmatrix}\right) (\textcolor{blue!60!black}3) &= \textcolor{red!60!black}{2}.
+  \end{align*}
+
+  In cycle notation we look to the right of the number in the
+  argument, or if there is none to the right, to the furthest left,
+  \begin{align*}
+    ( \textcolor{blue!60!black}1\  \textcolor{red!60!black}{3}\  2) (\textcolor{blue!60!black}1) &= \textcolor{red!60!black}{3}, \\
+    ( 1\  \textcolor{blue!60!black}{3}\   \textcolor{red!60!black}2) (\textcolor{blue!60!black}3) &= \textcolor{red!60!black}{2}, \\
+    ( \textcolor{red!60!black}1\  3\   \textcolor{blue!60!black}2) (\textcolor{blue!60!black}2)   &= \textcolor{red!60!black}{1}.
+  \end{align*}
+\end{example}
+
+If one example is good, two are better.
+
+\begin{example}
+  Let $\sigma$ be a permutation on the set $\{1,2,3,4,5\}$ represented by
+  \[
+  \sigma = \left(\begin{smallmatrix}
+    1 & 2 & 3 & 4 & 5\\
+    4 & 3 & 5 & 1 & 2
+  \end{smallmatrix}\right)
+  \quad\text{or}\quad \sigma = (1 \ 4) (2 \ 3 \ 5).
+  \]
+  These two representations tell us how $\sigma$ acts on $\{1,2,3,4,5\}$
+  in the following ways. In permutation notation, you look for the
+  number \textit{below} the number from the argument. So
+  \begin{align*}
+    \left(\begin{smallmatrix}
+    \textcolor{blue!60!black}1 & 2 & 3 \\
+    \textcolor{red!60!black}{3} & 1 & 2
+    \end{smallmatrix}\right) (\textcolor{blue!60!black}1) &= \textcolor{red!60!black}{3}, \\
+    \left(\begin{smallmatrix}
+    1 & \textcolor{blue!60!black}2 & 3 \\
+    3 & \textcolor{red!60!black}{1} & 2
+    \end{smallmatrix}\right) (\textcolor{blue!60!black}2) &= \textcolor{red!60!black}{1}, \\
+    \left(\begin{smallmatrix}
+    1 & 2 & \textcolor{blue!60!black}3 \\
+    3 & 1 & \textcolor{red!60!black}{2}
+    \end{smallmatrix}\right) (\textcolor{blue!60!black}3) &= \textcolor{red!60!black}{2}.
+  \end{align*}
+
+  In cycle notation we look to the right of the number in the
+  argument, or if there is none to the right, to the furthest left,
+  \begin{align*}
+    ( \textcolor{blue!60!black}1\  \textcolor{red!60!black}{3}\  2) (\textcolor{blue!60!black}1) &= \textcolor{red!60!black}{3}, \\
+    ( 1\  \textcolor{blue!60!black}{3}\   \textcolor{red!60!black}2) (\textcolor{blue!60!black}3) &= \textcolor{red!60!black}{2}, \\
+    ( \textcolor{red!60!black}1\  3\   \textcolor{blue!60!black}2) (\textcolor{blue!60!black}2)   &= \textcolor{red!60!black}{1}.
+  \end{align*}
+\end{example}
+
+
 
 \begin{exercise}
   Consider the set $\{1,2,3\}$ and let $\sigma$ map
@@ -43,6 +121,7 @@ We have two types of special notation for permuations.
   \]
   Express $\sigma$ in both permutation and cycle notation.
 \end{exercise}
+
 
 
 \begin{exercise}
@@ -96,7 +175,13 @@ We have two types of special notation for permuations.
   function composition. This group is known as the \dfn{symmetric
     group on three symbols} and is also called (and denoted) $S_3$.
   \begin{proof}
-    Note, $S_3$ is generated by $(1\ 2\ 3)$ and $(2\ 3)$
+    Note, $S_3$ is generated by $(1\ 2\ 3)$ and $(2\ 3)$, you can show
+    this by composing these permutations and finding all of $S_3$,
+    \[
+    S_3 = \{e,(1\ 2),(1\ 3), (2\ 3), (1 \ 2 \ 3), (1 \ 3 \ 2)\}. 
+    \]
+    Since function composition, this is associative. The identity
+    exists, it's $e$. Now we'll make a Cayley table for $S_3$.
     \begin{gather*}
       \renewcommand{\arraystretch}{1.6}
       \begin{array}{c!{\vline width 2pt}cccccc}
@@ -109,6 +194,8 @@ We have two types of special notation for permuations.
         (1\ 2\ 3)^2 (2\ 3)\cellcolor{blue!66!red!24!white}      & (1\ 2\ 3)^2 (2\ 3)\cellcolor{blue!66!red!24!white} & (1\ 2\ 3)(2\ 3) \cellcolor{blue!33!red!24!white}    & (2\ 3) \cellcolor{red!12!white}   & (1\ 2\ 3)^2\cellcolor{blue!24!white}    & (1\ 2\ 3)\cellcolor{blue!12!white}   & e     \\  
       \end{array}
     \end{gather*}
+    From the table we see that every element of $S_3$ has an inverse
+    and that $S_3$ is closed under composition.
   \end{proof}
 \end{example}
 
@@ -116,16 +203,40 @@ We have two types of special notation for permuations.
   Is $S_4$ isomorphic to $D_4$?
 \end{exercise}
 
-examples, composition, gap.
+
+
+\begin{lemma}[Express as products of cycles]
+  Every permutation can be expressed as a product of disjoint cycles.
+  \begin{sketch}
+    
+  \end{sketch}
+\end{lemma}
+
+\begin{lemma}[Disjoint cycles commute]
+  If the cycle representation of $\sigma,\tau\in S_n$ are disjoint,
+  meaning none of the entries of the cycle representation of $\sigma$
+  are in the cycle representation of $\tau$, and vice versa, then
+  \[
+  \sigma \circ \tau = \tau \circ \sigma.
+  \]
+\end{lemma}
+
+\begin{lemma}[Transposition decomposition]
+  Every permutation is a product of $2$-cycles.
+\end{lemma}
+
 
 \section{Alternating groups}
+
+
+
 
 \begin{lemma}
   Every permutation may be written as a composition of $2$-cycles.
   \begin{proof}
     Proof by induction on the length of the permutation in cycle
-    notation. If the permuation has length $1$, then it is the
-    identity permuation, and is the composition of zero $2$-cycles.
+    notation. If the permutation has length $1$, then it is the
+    identity permutation, and is the composition of zero $2$-cycles.
     \[
     (a_1 \ a_2 \ a_3 \ a_4 \ \cdots\ a_n) =   (a_1 \ a_2) (a_3 \ a_4 \ \cdots\ a_n)
     \]
@@ -133,7 +244,7 @@ examples, composition, gap.
 \end{lemma}
 
 \begin{definition}
-  A permutation is called an \dfn{even permuation} if it is the
+  A permutation is called an \dfn{even permutation} if it is the
   composition of an even number of $2$-cycles. A permutation is called
   an \dfn{odd permutation} if it is the composition of an odd number
   of $2$-cycles.
