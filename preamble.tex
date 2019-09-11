@@ -39,7 +39,7 @@
 \makeatletter
 \let\c@theorem\relax
 \let\c@corollary\relax
-\let\c@example\relax
+%\let\c@example\relax
 \makeatother
 
 \let\definition\relax
@@ -98,7 +98,7 @@
 \newtheorem*{touchstone}{Touchstone}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem*{warning}{WARNING}
-\newtheorem{example}{Example}[theorem]
+\newtheorem{example}[corollary]{Example}
 \newtheorem{lemma}[theorem]{Lemma}
 
 
@@ -139,7 +139,7 @@
 		{ }                          %%% Space after thm head
 		{\thmnumber{#2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
 \theoremstyle{Exercise}
-\newtheorem{exercise}{}[theorem]
+\newtheorem{exercise}[corollary]{}%[theorem]
 
 %% \newtheoremstyle{Question}{\topsep}{\topsep} %%% space between body and thm
 %% 		{\bfseries}                  %%% Thm body font
