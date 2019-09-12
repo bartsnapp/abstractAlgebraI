@@ -19,7 +19,7 @@ will be general enough that one could change the set of scalars.
 \begin{lemma}[Matricies are linear transformations]
   The function $\vec{L}: V \to W$ from an $m$-dimensional vector space
   $V$ to a $n$-dimensional vector space $W$ is a linear transformation
-  if and only if can be represented by a $m\times n$ matrix.
+  if and only if can be represented by a $n\times m$ matrix.
   \begin{proof}
     $(\Rightarrow)$ Recall the definition of a linear transformation,
     for $\vec{u},\vec{v}\in V$ and $s\in \R$:
@@ -66,7 +66,8 @@ will be general enough that one could change the set of scalars.
         a_m
         \end{bmatrix}.
     \]
-    We have now shown that every linear transformation can be thought of as a matrix.
+    We have now shown that every linear transformation can be thought
+    of as an $n\times m$ matrix.
 
       $(\Leftarrow)$ Since matrix multiplication distributes over
       vector addition,
@@ -77,7 +78,9 @@ will be general enough that one could change the set of scalars.
       \[
       s M \vec{v} = M(s\vec{v}).
       \]
-      Hence any $m\times n$ matrix is a linear transformation.
+      Hence any $n\times m$ matrix is a linear transformation from an
+      $m$-dimensional vector space to an $n$-dimensional vector
+      space.
   \end{proof}
 \end{lemma}
 
