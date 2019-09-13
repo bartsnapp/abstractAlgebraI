@@ -271,10 +271,6 @@ If one example is good, two are better.
 \end{example}
 
 
-\begin{exercise}
-  Prove that an $n$-cycle has order $n$.
-\end{exercise}
-
 
 
 \begin{exercise}
@@ -285,6 +281,38 @@ If one example is good, two are better.
   Write down the elements of $S_4$ that are are not single cycles, but
   can only be represented as a composition of cycles.
 \end{exercise}
+
+
+
+\begin{exercise}
+  Prove that an $n$-cycle has order $n$.
+\end{exercise}
+
+\begin{exercise}
+  Find the order of an element of maximal order in $S_3$, $S_4$,
+  $S_5$, $S_6$, $S_7$, and $S_8$.
+\end{exercise}
+
+
+\begin{exercise}
+  Consider the $5$-cycle $\sigma=(1 \ 2\ 3\ 4\ 5 )$. For which $n$ is
+  $\sigma^n$ also a $5$-cycle?
+\end{exercise}
+
+
+\begin{exercise}
+  Consider the $6$-cycle $\sigma=(1 \ 2\ 3\ 4\ 5 \ 6)$. For which $n$ is
+  $\sigma^n$ also a $6$-cycle?
+\end{exercise}
+
+
+\begin{exercise}
+  Consider the $8$-cycle $\sigma=(1 \ 2\ 3\ 4\ 5 \ 6 \ 7 \ 8)$. For which $n$ is
+  $\sigma^n$ also a $8$-cycle?
+\end{exercise}
+
+
+
 
 
 \begin{exercise}
@@ -319,6 +347,12 @@ If one example is good, two are better.
 \end{lemma}
 
 
+\begin{exercise}
+  Prove that a permutation $\sigma$ has order $2$ if and only if it
+  can be represented by a composition of disjoint $2$-cycles.
+\end{exercise}
+
+
 
 \section{Permutation matrices}
 
@@ -345,7 +379,10 @@ If one example is good, two are better.
 
 
 \begin{example}
-  If $\sigma = (1\ 3\ 2)$, then
+  If $\sigma =\left(\begin{smallmatrix}
+    1 & 2 & 3 \\
+    3 & 1 & 2
+  \end{smallmatrix}\right)$, then
   \[
   P_\sigma =
   \begin{bmatrix}
@@ -385,7 +422,7 @@ If one example is good, two are better.
 
 
 \begin{exercise}
-  Given a permuatation $\sigma = \left(\begin{smallmatrix}
+  Given a permutation $\sigma = \left(\begin{smallmatrix}
     1 & 2 & 3 & \cdots & n\\
     a_1 & a_2 & a_3 & \cdots & a_n
   \end{smallmatrix}\right)$, devise an algorithm for producing the permutation matrix $P_{\sigma}$.
@@ -421,10 +458,22 @@ If one example is good, two are better.
   \end{sketch}
 \end{lemma}
 
+
+
+
 \begin{corollary}[Matrix decomposition]
   Every permutation matrix can be written as a product of matrices
   that swap basis elements. 
 \end{corollary}
+
+
+\begin{exercise}
+  Write each element of $S_3$ as a composition of $2$-cycles.
+\end{exercise}
+
+\begin{exercise}
+  Write each element of $S_4$ as a composition of $2$-cycles.
+\end{exercise}
 
 
 
@@ -468,15 +517,15 @@ even number of $2$-cycles.
 \end{lemma}
 
 \begin{lemma}[Even or odd]
-  If a permutation $\sigma$ can be expresed as an even number of
+  If a permutation $\sigma$ can be represented as an even number of
   $2$-cycles, then every $2$-cycle representation of $\sigma$ will
   have an even number of $2$-cycles.
 
-  If a permutation $\sigma$ can be expresed as an odd number of
+  If a permutation $\sigma$ can be represented as an odd number of
   $2$-cycles, then every $2$-cycle representation of $\sigma$ will
   have an odd number of $2$-cycles.
   \begin{proof}
-    Consider two different $2$-cycle represenations of $\sigma\in S_n$,
+    Consider two different $2$-cycle representations of $\sigma\in S_n$,
     \[
     \sigma = \alpha_1\alpha_2\cdots\alpha_m \quad\text{and}\quad \sigma = \beta_1\beta_2\cdots\beta_n 
     \]

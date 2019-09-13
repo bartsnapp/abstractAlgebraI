@@ -1,0 +1,25 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{The fifteen puzzle}
+
+\begin{document}
+\begin{abstract}
+  We use group theory to analyze the fifteen puzzle.
+\end{abstract}
+\maketitle
+\[
+\arraycolsep=10pt\def\arraystretch{2}
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & 15 & \cellcolor{black}\textcolor{white}{16} \\
+    \Xhline{2pt}
+\end{array}
+\]
+\end{document}
