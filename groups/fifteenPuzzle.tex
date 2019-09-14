@@ -11,15 +11,164 @@
   We use group theory to analyze the fifteen puzzle.
 \end{abstract}
 \maketitle
+
+
+\section{The puzzle}
+
+The so-called \textit{fifteen-puzzle} is a toy that experienced great
+populatrity in the late $1800$'s. The idea of the toy is this: You
+have a square frame with $15$ smaller squares and one empty square:
 \[
-\arraycolsep=10pt\def\arraystretch{2}
+\arraycolsep=6pt\def\arraystretch{1.6}
 \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
     \Xhline{2pt}
     1  & 2  & 3  & 4 \\ \hline
     5  & 6  & 7  & 8 \\ \hline
     9  & 10 & 11 & 12 \\ \hline
-    13 & 14 & 15 & \cellcolor{black}\textcolor{white}{16} \\
+    13 & 14 & 15 & \cellcolor{black}\\%\textcolor{white}{16} \\
     \Xhline{2pt}
 \end{array}
 \]
+One can rearrange the squares by ``sliding'' them into the empty
+space:
+
+\[
+\arraycolsep=6pt\def\arraystretch{1.6}
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & 15 & \cellcolor{black}\\%\textcolor{white}{16} \\
+    \Xhline{2pt}
+\end{array}\quad\lto^{\text{sliding}}\quad
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & \cellcolor{black} & 15 \\
+    \Xhline{2pt}
+\end{array}
+\]
+Any number-square can be moved into the empty space, so as our next
+move we could do:
+\[
+\arraycolsep=6pt\def\arraystretch{1.6}
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & \cellcolor{black} & 15 \\
+    \Xhline{2pt}
+\end{array}\quad\lto^{\text{sliding}}\quad
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & \cellcolor{black} & 12 \\ \hline
+    13 & 14 & 11 & 15 \\
+    \Xhline{2pt}
+\end{array}
+\]
+Continuing on in this fashion, many there are many possible
+arrangements of the number-squares in this puzzle.
+
+While the orginal puzzle had the numbers $1$--$15$ on the tiles, it is
+now common to have a picture. Typically one starts with a scrabled
+puzzle, and by sliding squares, they try to return the squares to the
+orginal ordered arrangement:
+\[
+\arraycolsep=6pt\def\arraystretch{1.6}
+\underbrace{\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    2 & 7  & 11 & 15\\ \hline
+    14 & 4  & 5  & 9 \\ \hline
+    3  & 1  & 13 & 6  \\ \hline
+    8  & 12 & 10 & \cellcolor{black}\\%\textcolor{white}{16} \\
+    \Xhline{2pt}
+\end{array}}_{\text{scrambled}}
+\quad\lto^{\text{sliding}}\quad
+\underbrace{\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & 15 & \cellcolor{black}\\%\textcolor{white}{16} \\
+    \Xhline{2pt}
+\end{array}}_{\text{solved}}
+\]
+However, this wasn't the only way the game was played. Sam Loyd offerd
+$\$1000$ for anyone who could transform the ordered squares as
+follows:
+\[
+\arraycolsep=6pt\def\arraystretch{1.6}
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & 15 & \cellcolor{black} \\
+    \Xhline{2pt}
+\end{array}\quad\lto^{\text{sliding}}\quad
+\underbrace{\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 15 & 14 & \cellcolor{black} \\
+    \Xhline{2pt}
+\end{array}}_{\$1000}
+\]
+In today's money Sam Loyd was offering around $\$30000$ for anyone who
+could just swap the squares $14$ and $15$. The prize was never
+claimed. Let's use group theory to analyize this game and Sam Loyd's
+challenge.
+
+
+
+
+\section{Using group theory}
+
+Our basic strategy is to encode the puzzle using elements of $S_{16}$.
+To start, let's number the empty square as $16$:
+\[
+\arraycolsep=6pt\def\arraystretch{1.6}
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & 15 & \cellcolor{black}\textcolor{white}{\textbf{16}} \\
+    \Xhline{2pt}
+\end{array}
+\]
+This arrangement of the tiles will correspond to
+\[
+e = \left(\begin{smallmatrix}
+  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16
+\end{smallmatrix}\right)\in S_{16}.
+\]
+On the other hand, a scambled arrangement 
+\[
+\arraycolsep=6pt\def\arraystretch{1.6}
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    2 & 7  & 11 & 15\\ \hline
+    14 & 4  & 5  & 9 \\ \hline
+    3  & 1  & 13 & 6  \\ \hline
+    8  & 12 & 10 & \cellcolor{black}\textcolor{white}{\textbf{16}} \\
+    \Xhline{2pt}
+\end{array}
+\]
+will correspond to
+\[
+\left(\begin{smallmatrix}
+  1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+  2 & 7 & 11& 15& 14& 4 & 5 & 9 & 3 & 1  & 13 &  6 &  8 & 12 & 10 & 16
+\end{smallmatrix}\right)\in S_{16}.
+\]
+
 \end{document}
