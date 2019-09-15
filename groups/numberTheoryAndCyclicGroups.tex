@@ -60,10 +60,33 @@ Prove that if $a$ is any integer, then $\gcd(m + a\cdot n, n) =
   \end{sketch}
 \end{theorem}
 
+At this point let's pause to catch our breath. It might seem strange
+that the $\gcd(m,n)$ is simultaneously the \textbf{largest divisor} and
+\textbf{smallest positive value} of $a\cdot m + b\cdot n$. However
+consider this
+\[
+\gcd(m,n) \in \{\text{common divisors of $m$ and $n$}\}\cap \mathcal{S}
+\]
+where $\mathcal{S}$ is the set from the proof of Euclid's
+lemma. Here is a picture that attempts to convey the situation:
+\[
+\begin{tikzpicture}
+  \draw[white,thin,shading = axis, top color = white, bottom color = gray] (-2,2) -- (0,0)-- (2,2) -- (-2,2) -- cycle;
+  \draw[white,thin,shading = axis, bottom color = white, top color = gray] (-2,-2) -- (0,0)-- (2,-2) -- (-2,-2) -- cycle;
+  \filldraw (0,0) circle (3pt);
+  \node[right] at (0,0) {$\scriptstyle\gcd(m,n)$};
+  \node at (0,1.5) {$\scriptstyle a\cdot m + b\cdot n\in\mathcal{S}$};
+  \node at (0,-1.5) {\text{\tiny common divisors of $m$ and $n$}};
+\end{tikzpicture}
+\]
+The cone above $\gcd(m,n)$ is $\mathcal{S}$. The cone below
+$\gcd(m,n)$ is the set of common divisors of $m$ and $n$.
+
+
 
 
 \begin{corollary}[Euclid's lemma, version 2]\label{C:EL2}\index{Euclid's lemma}
-  Let $\l$, $m$, and $n$ be nonzero integers. If 
+  Let $\l$, $m$, and $n$ be nonzero integers. If
   \[
   \l|mn\qquad\text{and}\qquad \gcd(\l,m)=1,
   \]
