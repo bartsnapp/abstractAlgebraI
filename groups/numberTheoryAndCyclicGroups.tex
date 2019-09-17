@@ -398,6 +398,10 @@ not have an inverse. We should state this as a lemma.
   Prove that $\Z_{12}^\times$ is not cyclic.
 \end{exercise}
 
+\begin{exercise}
+  Use a Cayley table to show that $\Z^\times_{12}\iso V_4$.
+\end{exercise}
+
 
 \begin{definition}
   The \dfn{Euler totient function}, $\eulerphi:\N\to\N$, is defined as
@@ -423,9 +427,11 @@ not have an inverse. We should state this as a lemma.
 
 
 \begin{exercise}
-  Prove that $|\Z^\times_{12}| = 4$. Use a Cayley table to show that
-  either $\Z^\times_{12}\iso \Z_4$ or that $\Z^\times_{12}\iso V_4$.
+  Prove that $|\Z^\times_{12}| = 4$ and that $\Z^\times_{12}$ is not
+  cyclic.
 \end{exercise}
+
+
 
 
 
@@ -541,6 +547,18 @@ Theorem~\ref{T:DT}.
     Use the division theorem.
   \end{sketch}
 \end{theorem}
+
+\begin{corollary}[An element for each divisor]
+  Let $G$ be a finite cyclic group of order $n$. Then for all $d|n$,
+  there exists $a_d\in G$ such that $\o(a_d) = d$.
+  \begin{sketch}
+    Let $g\in G$ be a generator for $G$. Set $a_d = g^{n/d}$. Now
+    explain why the order of $a_d$ must be $d$.
+  \end{sketch}
+\end{corollary}
+
+
+
 
 
 %% \begin{corollary}[Fermat's little theorem]\index{Fermat's little theorem}

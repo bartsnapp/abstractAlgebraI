@@ -13,35 +13,11 @@
 \end{abstract}
 \maketitle
 
-Let's start by reviewing the groups we know. Here is a
-\textbf{noncomprehensive} list of the groups we know:
-\[
-\renewcommand{\arraystretch}{1.6}
-\begin{array}{c!{\vline width 2pt}cccccc}
-  (G,\star)                & |G|           & \text{Abelian}        & \text{cyclic}        \\  \Xhline{2pt}
-  (\Z,+)                   & \infty        & \text{\ding{51}}      & \text{\ding{51}}     \\
-  (\Q^\times,\cdot)        & \infty        & \text{\ding{51}}      & \text{\ding{54}}     \\
-  (\R^n,+)                 & \infty        & \text{\ding{51}}      & \text{\ding{54}}     \\
-  (D_n,\circ)              & 2n            & \text{\ding{54}}      & \text{\ding{54}}     \\
-  (\mathcal{T}_{12},\circ) & 12            & \text{\ding{54}}      & \text{\ding{54}}     \\
-  (\Z_n,+)                 & n             & \text{\ding{51}}      & \text{\ding{51}}     \\
-  (\Z_n^\times,\cdot)      & \eulerphi(n)  & \text{\ding{51}}      & \text{\ding{54}}     \\    
-  (\Z_m\times \Z_n,+)      & m\cdot n      & \text{\ding{51}}      & \gcd(m,n) = 1        \\
-  (V_4,+)                  & 4             & \text{\ding{51}}      & \text{\ding{54}}     \\
-  (GL(n),\cdot)            & \infty        & n = 1                 & \text{\ding{54}}     \\
-  (O(n),\cdot)             & \infty        & n = 1                 & n=1                  \\
-  (SO(n),\cdot)            & \infty        & n\le 2                & n=1                  \\
-  (Q_8,\cdot)              & 8             & \text{\ding{54}}      & \text{\ding{54}}     \\
-  (S_n,\circ)              & n!            & n\le 2                & n\le 2               \\
-  (A_n,\circ)              & n!/2          & n\le 3                & n\le 3               \\
-\end{array}
-\]
-
-Groups of permutations are very expressive. Infact, every finite group
+Groups of permutations are very expressive. In fact, every finite group
 is isomorphic to a permutation group! To see this we'll need a lemma.
 
 \begin{lemma}[One element per row/column]
-  In a Cayley table, each row and each column have eactly one copy of
+  In a Cayley table, each row and each column have exactly one copy of
   each group element.
   \begin{proof}
     Seeking a contradiction, suppose there was a row (or column) of a
@@ -77,16 +53,16 @@ is isomorphic to a permutation group! To see this we'll need a lemma.
 \end{theorem}
 
 \begin{corollary}[Every finite group is a matrix group]
-  Every finite group is isomorphic to a matrix group.
+  Every finite group is isomorphic to a group of orthogonal matrices.
   \begin{proof}
-    Every permuation can be represented by a matrix.
+    Every permutation can be represented by an orthogonal matrix.
   \end{proof}
 \end{corollary}
 
 
 \begin{example}
   We'll find a permutation group and a matrix group isomorphic to
-  $\Z_4$ by explicitly listing a bijective correspondance between the
+  $\Z_4$ by explicitly listing a bijective correspondence between the
   elements of the permutation group, the matrix group, and $\Z_4$.
 
   Write with me:
@@ -106,21 +82,21 @@ is isomorphic to a permutation group! To see this we'll need a lemma.
 
 \begin{exercise}
   Find a permutation group and a matrix group isomorphic to $\Z_2$ by
-  explicitly listing a bijective correspondance between the elements
+  explicitly listing a bijective correspondence between the elements
   of the permutation group, the matrix group, and $\Z_2$.
 \end{exercise}
 
 
 \begin{exercise}
   Find a permutation group and a matrix group isomorphic to $\Z_3$ by
-  explicitly listing a bijective correspondance between the elements
+  explicitly listing a bijective correspondence between the elements
   of the permutation group, the matrix group, and $\Z_3$.
 \end{exercise}
 
 
 \begin{exercise}
   Find a permutation group and a matrix group isomorphic to $\Z_5$ by
-  explicitly listing a bijective correspondance between the elements
+  explicitly listing a bijective correspondence between the elements
   of the permutation group, the matrix group, and $\Z_5$.
 \end{exercise}
 
@@ -128,14 +104,14 @@ is isomorphic to a permutation group! To see this we'll need a lemma.
 
 \begin{exercise}
   Find a permutation group and a matrix group isomorphic to $D_3$ by
-  explicitly listing a bijective correspondance between the elements
+  explicitly listing a bijective correspondence between the elements
   of the permutation group, the matrix group, and $D_3$.
 \end{exercise}
 
 
 \begin{exercise}
   Find a permutation group and a matrix group isomorphic to $D_4$ by
-  explicitly listing a bijective correspondance between the elements
+  explicitly listing a bijective correspondence between the elements
   of the permutation group, the matrix group, and $D_4$.
 \end{exercise}
 
@@ -143,35 +119,59 @@ is isomorphic to a permutation group! To see this we'll need a lemma.
 
 \begin{exercise}
   Find a permutation group and a matrix group isomorphic to $V_4$ by
-  explicitly listing a bijective correspondance between the elements
+  explicitly listing a bijective correspondence between the elements
   of the permutation group, the matrix group, and $V_4$.
 \end{exercise}
 
 
 \begin{exercise}
   Find a permutation group and a matrix group isomorphic to $Q_8$ by
-  explicitly listing a bijective correspondance between the elements
+  explicitly listing a bijective correspondence between the elements
   of the permutation group, the matrix group, and $Q_8$.
 \end{exercise}
 
 
 
+Finally let's review the groups we know. Here is a
+\textbf{noncomprehensive} list of the groups we know:
+\[
+\renewcommand{\arraystretch}{1.6}
+\begin{array}{c!{\vline width 2pt}cccccc}
+  (G,\star)                & |G|           & \text{Abelian}        & \text{cyclic}        \\  \Xhline{2pt}
+  (\Z,+)                   & \infty        & \text{\ding{51}}      & \text{\ding{51}}     \\
+  (\Q^\times,\cdot)        & \infty        & \text{\ding{51}}      & \text{\ding{54}}     \\
+  (\R^n,+)                 & \infty        & \text{\ding{51}}      & \text{\ding{54}}     \\
+  (D_n,\circ)              & 2n            & \text{\ding{54}}      & \text{\ding{54}}     \\
+  (\mathcal{T}_{12},\circ) & 12            & \text{\ding{54}}      & \text{\ding{54}}     \\
+  (\Z_n,+)                 & n             & \text{\ding{51}}      & \text{\ding{51}}     \\
+  (\Z_n^\times,\cdot)      & \eulerphi(n)  & \text{\ding{51}}      & \text{\ding{54}}     \\    
+  (\Z_m\times \Z_n,+)      & m\cdot n      & \text{\ding{51}}      & \gcd(m,n) = 1        \\
+  (V_4,+)                  & 4             & \text{\ding{51}}      & \text{\ding{54}}     \\
+  (GL(n),\cdot)            & \infty        & n = 1                 & \text{\ding{54}}     \\
+  (O(n),\cdot)             & \infty        & n = 1                 & n=1                  \\
+  (SO(n),\cdot)            & \infty        & n\le 2                & n=1                  \\
+  (Q_8,\cdot)              & 8             & \text{\ding{54}}      & \text{\ding{54}}     \\
+  (S_n,\circ)              & n!            & n\le 2                & n\le 2               \\
+  (A_n,\circ)              & n!/2          & n\le 3                & n\le 3               \\
+\end{array}
+\]
 
 
 
 
 
-\section{Probability and groups}
+
+%% \section{Probability and groups}
 
 
-Suppose you have a list of all isomorphism classes of groups up to
-order $1024$. This means exactly one group in your list isomorphic to
-$\{e\}$, $\Z_2$, $\Z_3$, and so on. What percentage of the groups in
-your list have order $1024$? Well, the answer is somewhat surprising, from the paper \link[\textit{A millennium project: constructing small groups}]{https://www.worldscientific.com/doi/abs/10.1142/S0218196702001115} by Besche, Eick, and O'Brien, we find that $99\%$ of all groups of order up to $1024$ have order $1024$! What a cool result!
+%% Suppose you have a list of all isomorphism classes of groups up to
+%% order $1024$. This means exactly one group in your list isomorphic to
+%% $\{e\}$, $\Z_2$, $\Z_3$, and so on. What percentage of the groups in
+%% your list have order $1024$? Well, the answer is somewhat surprising, from the paper \link[\textit{A millennium project: constructing small groups}]{https://www.worldscientific.com/doi/abs/10.1142/S0218196702001115} by Besche, Eick, and O'Brien, we find that $99\%$ of all groups of order up to $1024$ have order $1024$! What a cool result!
 
-Also, consider this problem:
+%% Also, consider this problem:
 
-PROB SYM GP
+%% PROB SYM GP
 
 
 

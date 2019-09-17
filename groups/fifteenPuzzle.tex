@@ -85,8 +85,8 @@ orginal ordered arrangement:
     \Xhline{2pt}
     2 & 7  & 11 & 15\\ \hline
     14 & 4  & 5  & 9 \\ \hline
-    3  & 1  & 13 & 6  \\ \hline
-    8  & 12 & 10 & \cellcolor{black}\\%\textcolor{white}{16} \\
+    3  &  \cellcolor{black}  & 13 & 10  \\ \hline
+    8  & 12 & 6 & 1 \\%\textcolor{white}{16} \\
     \Xhline{2pt}
 \end{array}}_{\text{scrambled}}
 \quad\lto^{\text{sliding}}\quad
@@ -140,7 +140,7 @@ To start, let's number the empty square as $16$:
     1  & 2  & 3  & 4 \\ \hline
     5  & 6  & 7  & 8 \\ \hline
     9  & 10 & 11 & 12 \\ \hline
-    13 & 14 & 15 & \cellcolor{black}\textcolor{white}{\textbf{16}} \\
+    13 & 14 & 15 & \cellcolor{black}\textcolor{white}{\boldsymbol{16}} \\
     \Xhline{2pt}
 \end{array}
 \]
@@ -158,8 +158,8 @@ On the other hand, a scambled arrangement
     \Xhline{2pt}
     2 & 7  & 11 & 15\\ \hline
     14 & 4  & 5  & 9 \\ \hline
-    3  & 1  & 13 & 6  \\ \hline
-    8  & 12 & 10 & \cellcolor{black}\textcolor{white}{\textbf{16}} \\
+    3  & \cellcolor{black}\textcolor{white}{\boldsymbol{16}}  & 13 & 10  \\ \hline
+    8  & 12 & 6 & 1 \\
     \Xhline{2pt}
 \end{array}
 \]
@@ -167,9 +167,100 @@ will correspond to
 \[
 \left(\begin{smallmatrix}
   1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
-  2 & 7 & 11& 15& 14& 4 & 5 & 9 & 3 & 1  & 13 &  6 &  8 & 12 & 10 & 16
+  2 & 7 & 11& 15& 14& 4 & 5 & 9 & 3 & 16  & 13 &  10 &  8 & 12 & 6 & 1
 \end{smallmatrix}\right)\in S_{16}.
 \]
+
+\begin{lemma}
+  There is a bijection between the set of configurations of the
+  fifteen puzzle and the set $S_{16}$.
+  \begin{proof}
+    Consider any permutation in $S_{16}$
+    \[
+    \left(\begin{smallmatrix}
+      1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+      a_1 & a_2 & a_3 & a_4 & a_5 & a_6 & a_7 & a_8 & a_9 & a_{10} & a_{11} & a_{12} & a_{13} & a_{14} & a_{15} & a_{16}.
+\end{smallmatrix}\right)\
+    \]
+    this corresponds exactly to the configuration:
+    \[
+    \arraycolsep=4pt\def\arraystretch{1.6}
+    \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+      \Xhline{2pt}
+      a_1  & a_2  & a_3  & a_4 \\ \hline
+      a_5  & a_6  & a_7  & a_8 \\ \hline
+      a_9  & a_{10} & a_{11} & a_{12} \\ \hline
+      a_{13} & a_{14} & a_{15} & \cellcolor{black}\textcolor{white}{\boldsymbol{a_{16}}} \\
+      \Xhline{2pt}
+    \end{array}
+    \]
+    We see that they encode the same information in essentially the
+    same way; hence this map is bijective.
+  \end{proof}
+\end{lemma}
+
+\begin{exercise}
+  Write out the configuration of the fifteen puzzle corresponding to
+  the permutation $\left(\begin{smallmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+    5 & 3 & 15& 12& 16& 7  & 6 & 8 & 11 & 13 &  1 & 4 & 2 & 10  & 9 & 14
+  \end{smallmatrix}\right)$.
+\end{exercise}
+
+\begin{exercise}
+  GIVE CONFIG WRITE PERM
+\end{exercise}
+
+
+\begin{corollary}[Configurations of the puzzle]
+  There are
+  \[
+  16! = 20922789888000
+  \]
+  configurations of the fifteen puzzle, with
+  \[
+  15!=1307674368000
+  \]
+  configurations for the solved-position, assuming square $16$ is in
+  the bottom-right corner.
+\end{corollary}
+
+
+\begin{theorem}[Descrition of solvable fifteen puzzles]
+  If we use our conventions as above, 
+\end{theorem}
+
+
+I feel that we would be remiss if our conversation on fifteen puzzles
+didn't include an algorithm for solving them.
+
+
+\begin{theorem}[Algorithm for solving fifteen puzzles]
+  Algorithm For solving 15 puzzle
+  %http://www.waynesthisandthat.com/15puzzle.htm
+
+  Basic moves
+  \[
+  \arraycolsep=7pt\def\arraystretch{1.6}
+  \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2 & 3  & X_4 \\ \hline
+    X_5  & X & X_7  & 4 \\ \hline
+    X_9  & X_10 & X_11  & \cellcolor{black} \\ \hline
+    X  & X & X  & X \\
+    \Xhline{2pt}
+  \end{array}
+  \]
+  \[
+  (7 \ 8)(8 \ 4)(4 \ 3)(3 \ 2) (2 \ 1)(1\ 5)(5\ 9)(9 \ 10)(10\ 11)(11 \ 12) 
+  \left(\begin{smallmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 14 & 16
+  \end{smallmatrix}\right)
+  \]
+  
+  Basic stragety
+\end{theorem}
 
 
 
