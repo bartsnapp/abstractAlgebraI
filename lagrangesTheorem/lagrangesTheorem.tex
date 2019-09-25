@@ -20,6 +20,110 @@
   \]
 \end{definition}
 
+\begin{exercise}
+  Prove that if $G$ is a group and $S\subgp G$, then $[S:\<e\>] = |S|$.
+\end{exercise}
+
+
+Now we can decorate our lattice diagrams with the index of the
+subgroup.
+
+\begin{example}[Index of subgroups for $\boldsymbol{\pmb\Z_6}$]
+   Here is the subgroup lattice diagram for $\Z_6$ along with the
+   index of each subgroup:   
+  \[
+  \begin{tikzcd}
+    & \Z_6 \ar[rd,-,"{2=[\Z_3:\<2\>]}"]  \ar[ldd,-,"{3=[\Z_3:\<3\>]}",swap] &       \\
+    &       & \<2\> \ar[ldd,-,"{3=[\<2\>:\<0\>]}"]\\
+    \< 3\> \ar[rd,-,"{2=[\<3\>:\<0\>]}",swap]&       &       \\   
+    & \<0\> &
+  \end{tikzcd}
+  \]
+\end{example}
+
+
+
+\begin{example}[Index of subgroups for $\boldsymbol{\pmb\Z_8}$]
+   Here is the subgroup lattice diagram for $\Z_8$ along with the
+   index of each subgroup:   
+   \[
+   \begin{tikzcd}
+     \Z_8  \ar[d,-,"{2 = [\Z_8:\<2\>]}"] \\
+     \<2\> \ar[d,-,"{2 = [\<2\>:\<4\>]}"] \\
+     \<4\> \ar[d,-,"{2 = [\<4\>:\<0\>]}"] \\   
+     \<0\> 
+\end{tikzcd}
+\]
+\end{example}
+
+
+\begin{example}[Index of subgroups for $\boldsymbol{D_3}$]\index{symmetries of the equilateral triangle}
+  Here is the subgroup lattice diagram for $D_3$ along with the
+   index of each subgroup:   
+  \[
+  \begin{tikzcd}
+    & D_3 \ar[rdd,-,"3"]\ar[rrdd,-,"3"]\ar[rrrdd,-,"3"]  \ar[ld,-,"2",swap] & & &      \\
+    \<r\> \ar[rdd,-,"3",swap]       &       &  & &  \\
+    &       &  \< f\> \ar[ld,-,"2",swap]   &  \< rf\> \ar[lld,-,"2",swap]       &  \< r^2f\> \ar[llld,-,"2"]        \\   
+    & \<e\> & & &
+  \end{tikzcd}
+  \]
+\end{example}
+
+
+\begin{example}[Index of subgroups for $\boldsymbol{D_4}$]
+  Here is the subgroup lattice diagram for $D_4$ along with the index
+  of each subgroup:
+  \[
+\begin{tikzcd}
+   &    & D_4 \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap] &       \\
+&\<r^2,f\>  \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap]& \<r \>  \ar[d,-,"2"]     & \<r^2,rf\> \ar[ld,-,"2",swap] \ar[d,-,"2"] \ar[rd,-,"2"]\\
+\<f\>\ar[rrd,-,"2",swap]& \<r^2f\> \ar[rd,-,"2"]&\< r^2\> \ar[d,-,"2"]  &   \<rf\> \ar[ld,-,"2",swap]& \<r^3f\>\ar[lld,-,"2"]     \\   
+  &     & \<e\> &  &
+\end{tikzcd}
+\]
+\end{example}
+
+
+
+
+\begin{example}[Index of subgroups for $\boldsymbol{Q_8}$]\index{quaternion group}
+  Here is the subgroup lattice diagram for $Q_8$ along with the index
+  of each subgroup:
+  \[
+  \begin{tikzcd}
+    & Q_8 \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap] &       \\
+    \<i\>  \ar[rd,-,"2",swap] & \<j\>  \ar[d,-,"2"]     & \<k\> \ar[ld,-,"2"]\\
+    &\< -1\> \ar[d,-,"2"]&        \\   
+    & \<1\> &
+  \end{tikzcd}
+  \]
+\end{example}
+
+
+
+
+%% \begin{example}[Index of subgroups for $\boldsymbol{A_4}$]\index{alternating group}
+%%   Setting $\sigma = (1 \ 2 \ 3)$ and $\tau = (2 \ 3 \ 4)$, here is the
+%%   subgroup lattice diagram for $A_4$ along with the index
+%%   of each subgroup:
+%%   \[
+%%   \begin{tikzpicture}
+%%   \node[scale=.6] at (0,0) {\begin{tikzcd}
+%%                    &   & & A_4   \ar[lld,-] \ar[rdd,-] \ar[rrdd,-]  \ar[rrrdd,-]  \ar[rrrrdd,-]   & &  & &        \\
+%%                    & \<\sigma\tau, \sigma^2\tau^2\> \ar[ldd,-] \ar[dd,-] \ar[rdd,-] &  &              & &  & &  \\
+%%                    &                                  &            &   & \<\sigma\> \ar[ldd,-]& \<\tau\> \ar[lldd,-] & \<\ \tau\sigma^2\> \ar[llldd,-]& \< \sigma \tau\sigma^2 \>\ar[lllldd,-]       \\
+%%    \<\sigma\tau\>\ar[drrr,-]  & \<\sigma^2\tau^2\> \ar[drr,-] & \<\sigma^2\tau\sigma^2\> \ar[dr,-]& & &  & &    \\
+%%                    &                               &   & \< e\>       & & & &  
+%%   \end{tikzcd}};
+%%   \end{tikzpicture}
+%%   \]
+%% \end{example}
+
+
+
+
+
 
 
 \begin{theorem}[Lagrange's theorem]\index{Lagrange's theorem}
@@ -82,49 +186,7 @@
 \end{corollary}
 
 
-
-\section{Indexes and lattice diagrams}
-
-
-\[
-\begin{tikzcd}
-  \Z_8  \ar[d,-,"2"] \\
-  \<2\> \ar[d,-,"2"] \\
-  \<4\> \ar[d,-,"2"] \\   
-  \<0\> 
-\end{tikzcd}
-\]
-
-\[
-\begin{tikzcd}
-       & Q_8 \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap] &       \\
-\<i\>  \ar[rd,-,"2",swap] & \<j\>  \ar[d,-,"2"]     & \<k\> \ar[ld,-,"2"]\\
-&\< -1\> \ar[d,-,"2"]&        \\   
-       & \<1\> &
-\end{tikzcd}
-\]
-
-
-\[
-\begin{tikzcd}
-   &    & D_4 \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap] &       \\
-&\<r^2,f\>  \ar[rd,-,"2"] \ar[d,-,"2"] \ar[ld,-,"2",swap]& \<r \>  \ar[d,-,"2"]     & \<r^2,rf\> \ar[ld,-,"2",swap] \ar[d,-,"2"] \ar[rd,-,"2"]\\
-\<f\>\ar[rrd,-,"2",swap]& \<r^2f\> \ar[rd,-,"2"]&\< r^2\> \ar[d,-,"2"]  &   \<rf\> \ar[ld,-,"2",swap]& \<r^3f\>\ar[lld,-,"2"]     \\   
-  &     & \<e\> &  &
-\end{tikzcd}
-\]
-
-
-
-
-
-
-
-
-
-
-
-
+\section{Converse to Lagrange?}
 
 You may wonder, is the converse of Lagrange's theorem true?
 
