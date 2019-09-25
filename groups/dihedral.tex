@@ -87,27 +87,27 @@ equilateral triangle. Let's list them. There are $3$ flips
 \begin{tikzpicture}
   \tikzmath{\rrr=1.7;}
   \pic {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$1$};
-  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$3$};
-  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$2$};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$1$};
 
   \pic at (-4,-4) {tikzngon={3}};
   \draw[dashed] ({-4+sqrt(3)*\rrr/4},{\rrr/4-4}) --  ({-\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4});
-  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$3$};
-  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$1$};
-  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$2$};
+  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$1$};
   
   \pic at (0,-4) {tikzngon={3}};
   \draw[dashed] (0,{\rrr-4}) -- (0,{\rrr*cos(360/3)-4});
-  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)-4}) circle (1mm) node[right] {$1$};
-  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$2$};
-  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$3$};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)-4}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$2$};
 
   \pic at (4,-4) {tikzngon={3}};
   \draw[dashed] ({4-sqrt(3)*\rrr/4},{\rrr/4-4}) --  ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4});
-  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$2$};
-  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$3$};
-  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$1$};
+  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)-4}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)-4}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)-4}) circle (1mm) node[left] {$3$};
 
   
   \draw[|->] (0,-1.3) -- (0,-1.9); 
@@ -126,24 +126,24 @@ There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
 \begin{tikzpicture}
   \tikzmath{\rrr=1.7;}
   \pic at (0,0) {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$1$};
-  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$3$};
-  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$2$};
+  \draw[fill] ({\rrr*sin(0)},{\rrr*cos(0)}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(360/3)},{\rrr*cos(360/3)}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(2*360/3)},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$1$};
 
 
   \node[above] at (-2,.5) {$r_{120}$};
   \node[above] at (2,.5) {$r_{240}$};
 
   \pic at (-4,0) {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)}) circle (1mm) node[right] {$3$};
-  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$2$};
-  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$1$};
+  \draw[fill] ({\rrr*sin(0)-4},{\rrr*cos(0)}) circle (1mm) node[right] {$2$};
+  \draw[fill] ({\rrr*sin(360/3)-4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(2*360/3)-4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$3$};
   \draw[dashed,->] (-3.5,0) arc (0:120:.5);
   
   \pic at (4,0) {tikzngon={3}};
-  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)}) circle (1mm) node[right] {$2$};
-  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$1$};
-  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$3$};
+  \draw[fill] ({\rrr*sin(0)+4},{\rrr*cos(0)}) circle (1mm) node[right] {$1$};
+  \draw[fill] ({\rrr*sin(360/3)+4},{\rrr*cos(360/3)}) circle (1mm) node[right] {$3$};
+  \draw[fill] ({\rrr*sin(2*360/3)+4},{\rrr*cos(2*360/3)}) circle (1mm) node[left] {$2$};
   \draw[dashed,->] (4.5,0) arc (0:240:.5);
   
   \draw[|->] (-1,.5) -- (-3,.5);
@@ -292,11 +292,11 @@ type of a group is called a \textit{dihedral} group.
 
 
 \begin{exercise}\label{E:D2n}
-  Let $S$ be a geometric set for a regular $n$-gon.
+  Let $\mathcal{S}$ be a geometric set for a regular $n$-gon.
   \begin{enumerate}
-  \item How many rotations are there in $\aut(S)$? 
+  \item How many rotations are there in $\aut(\mathcal{S})$? 
   \item How many flips (reflections across lines) are there in
-    $\aut(S)$?
+    $\aut(\mathcal{S})$?
   \item Find the order of $D_n$. 
   \end{enumerate}
   In each case, prove your answer is correct.

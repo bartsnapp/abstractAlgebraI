@@ -16,7 +16,7 @@
 \section{The puzzle}
 
 The so-called \textit{fifteen-puzzle} is a toy that experienced great
-populatrity in the late $1800$'s. The idea of the toy is this: You
+popularity in the late $1800$'s. The idea of the toy is this: You
 have a square frame with $15$ smaller squares and one empty square:
 \[
 \arraycolsep=6pt\def\arraystretch{1.6}
@@ -75,10 +75,10 @@ move we could do:
 Continuing on in this fashion, many there are many possible
 arrangements of the number-squares in this puzzle.
 
-While the orginal puzzle had the numbers $1$--$15$ on the tiles, it is
-now common to have a picture. Typically one starts with a scrabled
+While the original puzzle had the numbers $1$--$15$ on the tiles, it is
+now common to have a picture. Typically one starts with a scrambled
 puzzle, and by sliding squares, they try to return the squares to the
-orginal ordered arrangement:
+original ordered arrangement:
 \[
 \arraycolsep=6pt\def\arraystretch{1.6}
 \underbrace{\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
@@ -99,7 +99,7 @@ orginal ordered arrangement:
     \Xhline{2pt}
 \end{array}}_{\text{solved}}
 \]
-However, this wasn't the only way the game was played. Sam Loyd offerd
+However, this wasn't the only way the game was played. Sam Loyd offered
 $\$1000$ for anyone who could transform the ordered squares as
 follows:
 \[
@@ -123,7 +123,7 @@ follows:
 \]
 In today's money Sam Loyd was offering around $\$30000$ for anyone who
 could just swap the squares $14$ and $15$. The prize was never
-claimed. Let's use group theory to analyize this game and Sam Loyd's
+claimed. Let's use group theory to analyze this game and Sam Loyd's
 challenge.
 
 
@@ -151,7 +151,7 @@ e = \left(\begin{smallmatrix}
   1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16
 \end{smallmatrix}\right)\in S_{16}.
 \]
-On the other hand, a scambled arrangement 
+On the other hand, a scrambled arrangement 
 \[
 \arraycolsep=6pt\def\arraystretch{1.6}
 \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
@@ -207,9 +207,9 @@ will correspond to
   \end{smallmatrix}\right)$.
 \end{exercise}
 
-\begin{exercise}
-  GIVE CONFIG WRITE PERM
-\end{exercise}
+%% \begin{exercise}
+%%   GIVE CONFIG WRITE PERM
+%% \end{exercise}
 
 
 \begin{corollary}[Configurations of the puzzle]
@@ -226,59 +226,98 @@ will correspond to
 \end{corollary}
 
 
-\begin{theorem}[Descrition of solvable fifteen puzzles]
-  If we use our conventions as above, 
+\begin{theorem}[Description of solvable fifteen puzzles]
+  If we use our conventions as above, and assume that the empty square
+  is in square $16$ when the puzzle is scrambled and when the puzzle is
+  solved, then a fifteen puzzle is solvable if and only if the
+  scrambled puzzle is an even permutation.
+  \begin{proof}
+    First note, moving the empty square around is essentially two
+    moves. The first move places the empty square in a numbered
+    position. The second move allows the empty square to leave the
+    numbered position. Hence \textbf{every} move of the empty square
+    is in fact the composition of two $2$-cycles. If the puzzle is
+    solvable, it was arranged that way through a composition of two
+    $2$-cycles, and hence is an even permutation. If the puzzle was
+    scrambled via a composition of two $2$-cycles, then we simply undo
+    them (apply the inverse) to solve the puzzle.
+  \end{proof}
 \end{theorem}
 
-
-I feel that we would be remiss if our conversation on fifteen puzzles
-didn't include an algorithm for solving them.
-
-
-\begin{theorem}[Algorithm for solving fifteen puzzles]
-  Algorithm For solving 15 puzzle
-  %http://www.waynesthisandthat.com/15puzzle.htm
-
-  Basic moves
+\begin{corollary}[14-15 switch is impossible]
+  Transforming the puzzle from
   \[
-  \arraycolsep=7pt\def\arraystretch{1.6}
-  \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+\arraycolsep=6pt\def\arraystretch{1.6}
+\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
     \Xhline{2pt}
-    1  & 2 & 3  & X_4 \\ \hline
-    X_5  & X & X_7  & 4 \\ \hline
-    X_9  & X_10 & X_11  & \cellcolor{black} \\ \hline
-    X  & X & X  & X \\
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 14 & 15 & \cellcolor{black} \\
     \Xhline{2pt}
-  \end{array}
-  \]
-  \[
-  (7 \ 8)(8 \ 4)(4 \ 3)(3 \ 2) (2 \ 1)(1\ 5)(5\ 9)(9 \ 10)(10\ 11)(11 \ 12) 
-  \left(\begin{smallmatrix}
-    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
-    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 14 & 16
-  \end{smallmatrix}\right)
-  \]
+\end{array}\quad\lto^{\text{sliding}}\quad
+\underbrace{\begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+    \Xhline{2pt}
+    1  & 2  & 3  & 4 \\ \hline
+    5  & 6  & 7  & 8 \\ \hline
+    9  & 10 & 11 & 12 \\ \hline
+    13 & 15 & 14 & \cellcolor{black} \\
+    \Xhline{2pt}
+\end{array}}_{\$1000}
+\]
+is impossible.
+\end{corollary}
+
+
+
+%% I feel that we would be remiss if our conversation on fifteen puzzles
+%% didn't include an algorithm for solving them.
+
+
+%% \begin{theorem}[Algorithm for solving fifteen puzzles]
+%%   Algorithm For solving 15 puzzle
+%%   %http://www.waynesthisandthat.com/15puzzle.htm
+
+%%   Basic moves
+%%   \[
+%%   \arraycolsep=7pt\def\arraystretch{1.6}
+%%   \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+%%     \Xhline{2pt}
+%%     1  & 2 & 3  & X_4 \\ \hline
+%%     X_5  & X & X_7  & 4 \\ \hline
+%%     X_9  & X_10 & X_11  & \cellcolor{black} \\ \hline
+%%     X  & X & X  & X \\
+%%     \Xhline{2pt}
+%%   \end{array}
+%%   \]
+%%   \[
+%%   (7 \ 8)(8 \ 4)(4 \ 3)(3 \ 2) (2 \ 1)(1\ 5)(5\ 9)(9 \ 10)(10\ 11)(11 \ 12) 
+%%   \left(\begin{smallmatrix}
+%%     1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+%%     1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 14 & 16
+%%   \end{smallmatrix}\right)
+%%   \]
   
-  Basic stragety
-\end{theorem}
+%%   Basic strategy
+%% \end{theorem}
 
 
 
-\begin{exercise}
-  Here is a devilish arrangement of a fifteen puzzle that I found in
-  \textit{Selected topics in mathematics} by E.\ Spitznagel, Jr.
-  \[
-  \arraycolsep=7pt\def\arraystretch{1.6}
-  \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
-    \Xhline{2pt}
-    R  & A  & T  & E \\ \hline
-    Y  & O  & U  & R \\ \hline
-    M  & I & N & D \\ \hline
-    P & A & L & \cellcolor{black}\\
-    \Xhline{2pt}
-  \end{array}
-  \]
-\end{exercise}
+%% \begin{exercise}
+%%   Here is a devilish arrangement of a fifteen puzzle that I found in
+%%   \textit{Selected topics in mathematics} by E.\ Spitznagel, Jr.
+%%   \[
+%%   \arraycolsep=7pt\def\arraystretch{1.6}
+%%   \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+%%     \Xhline{2pt}
+%%     R  & A  & T  & E \\ \hline
+%%     Y  & O  & U  & R \\ \hline
+%%     M  & I & N & D \\ \hline
+%%     P & A & L & \cellcolor{black}\\
+%%     \Xhline{2pt}
+%%   \end{array}
+%%   \]
+%% \end{exercise}
 
 
 \end{document}

@@ -23,30 +23,150 @@
   We denote subgroups by writing $S\subgp G$.
 \end{definition}
 
+
+\begin{exercise}\index{nZ@$n\Z$}
+  Let $n\Z = \{n\cdot x : x\in \Z\}$. Prove that $n\Z\subgp \Z$.
+\end{exercise}
+
+
 \begin{exercise}
   Let $(G,\star)$ be a group and $S$ be a subgroup of $G$. Prove that
   $(S,\star)$ is a group.
 \end{exercise}
 
 \begin{exercise}
-  Use a Cayley table to find all the subgroups of $\Z_8$.
+  Prove that if $(G,\star)$ is a group and $S\subset G$ is a \textbf{finite}
+  subset of $G$ such that
+  \begin{enumerate}
+  \item $S \ne \emptyset$,
+  \item $a,b\in S \Rightarrow a\star b\in S$,
+  \end{enumerate}
+  then $S$ is a subgroup of $G$.
+\end{exercise}
+
+
+\begin{example}[Lattice diagram for $\boldsymbol{\pmb\Z_6}$]
+  We can visualize the subgroup structure of a group with a lattice
+  diagram. Here is the lattice diagram for $\Z_6$:
+  \[
+  \begin{tikzcd}
+    & \Z_6 \ar[rd,-]  \ar[ldd,-] &       \\
+    &       & \<2\> \ar[ldd,-]\\
+    \< 3\> \ar[rd,-]&       &       \\   
+    & \<0\> &
+  \end{tikzcd}
+  \]
+  Typically we draw a lattice diagram with the largest subgroups at
+  the top. The lines mean that there is containment between the groups.
+\end{example}
+
+\begin{exercise}
+  Find the order of each subgroup of $\Z_6$.
+\end{exercise}
+
+\begin{example}[Lattice diagram for $\boldsymbol{\pmb\Z_8}$]
+  Here is the subgroup lattice diagram for $\Z_8$:
+  \[
+  \begin{tikzcd}
+    \Z_8  \ar[d,-] \\
+    \<2\> \ar[d,-] \\
+    \<4\> \ar[d,-] \\   
+    \<0\> 
+  \end{tikzcd}
+  \]
+\end{example}
+
+\begin{exercise}
+  Find the order of each subgroup of $\Z_8$.
 \end{exercise}
 
 \begin{exercise}
-  Use a Cayley table to find all the subgroups of $D_3$.
+  Draw lattice diagrams for $\Z_n$ for $n=2,3\dots, 12$.
+\end{exercise}
+
+\begin{example}[Lattice diagram for $\boldsymbol{D_3}$]\index{symmetries of the equilateral triangle}
+  Here is the subgroup lattice diagram for $D_3$:
+  \[
+  \begin{tikzcd}
+    & D_3 \ar[rdd,-]\ar[rrdd,-]\ar[rrrdd,-]  \ar[ld,-] & & &      \\
+    \<r\> \ar[rdd,-]       &       &  & &  \\
+    &       &  \< f\> \ar[ld,-]   &  \< rf\> \ar[lld,-]       &  \< r^2f\> \ar[llld,-]        \\   
+    & \<e\> & & &
+  \end{tikzcd}
+  \]
+\end{example}
+
+\begin{exercise}
+  Find the order of each subgroup of $D_3$.
+\end{exercise}
+
+
+\begin{example}[Lattice diagram for $\boldsymbol{D_4}$]
+  Here is the subgroup lattice diagram for $D_4$:
+  \[
+  \begin{tikzcd}
+    &    & D_4 \ar[rd,-] \ar[d,-] \ar[ld,-] &       \\
+    &\<r^2,f\>  \ar[rd,-] \ar[d,-] \ar[ld,-]& \<r \>  \ar[d,-]     & \<r^2,rf\> \ar[ld,-] \ar[d,-] \ar[rd,-]\\
+    \<f\>\ar[rrd,-]& \<r^2f\> \ar[rd,-]&\< r^2\> \ar[d,-]  &   \<rf\> \ar[ld,-]& \<r^3f\>\ar[lld,-]     \\   
+&     & \<e\> &  &
+  \end{tikzcd}
+  \]  
+\end{example}
+
+\begin{exercise}
+  Find the order of each subgroup of $D_4$.
+\end{exercise}
+
+
+
+\begin{example}[Lattice diagram for $\boldsymbol{Q_8}$]\index{quaternion group}
+  Here is the subgroup lattice diagram for $Q_8$:
+  \[
+  \begin{tikzcd}
+    & Q_8 \ar[rd,-] \ar[d,-] \ar[ld,-] &       \\
+    \<i\>  \ar[rd,-] & \<j\>  \ar[d,-]     & \<k\> \ar[ld,-]\\
+    &\< -1\> \ar[d,-]&        \\   
+    & \<1\> &
+  \end{tikzcd}
+  \]
+\end{example}
+
+
+\begin{exercise}
+  Find the order of each subgroup of $Q_8$.
+\end{exercise}
+
+
+Let's show the lattice diagram for one more group.
+
+\begin{example}[Lattice diagram for $\boldsymbol{A_4}$]\index{alternating group}
+  Setting $\sigma = (1 \ 2 \ 3)$ and $\tau = (2 \ 3 \ 4)$, here is the
+  subgroup lattice diagram for $A_4$:
+  \[
+  \begin{tikzpicture}
+  \node[scale=.6] at (0,0) {\begin{tikzcd}
+                   &   & & A_4   \ar[lld,-] \ar[rdd,-] \ar[rrdd,-]  \ar[rrrdd,-]  \ar[rrrrdd,-]   & &  & &        \\
+                   & \<\sigma\tau, \sigma^2\tau^2\> \ar[ldd,-] \ar[dd,-] \ar[rdd,-] &  &              & &  & &  \\
+                   &                                  &            &   & \<\sigma\> \ar[ldd,-]& \<\tau\> \ar[lldd,-] & \<\ \tau\sigma^2\> \ar[llldd,-]& \< \sigma \tau\sigma^2 \>\ar[lllldd,-]       \\
+   \<\sigma\tau\>\ar[drrr,-]  & \<\sigma^2\tau^2\> \ar[drr,-] & \<\sigma^2\tau\sigma^2\> \ar[dr,-]& & &  & &    \\
+                   &                               &   & \< e\>       & & & &  
+  \end{tikzcd}};
+  \end{tikzpicture}
+  \]
+\end{example}
+
+
+\begin{exercise}
+  Find the order of each subgroup of $A_4$.
 \end{exercise}
 
 \begin{exercise}
-  Use a Cayely table to find all the subgroups of $Q_{8}$.
-\end{exercise}
-
-\begin{exercise}
-  Use a Cayely table to find all the subgroups of $T_{12}$.
+  Draw a subgroup lattice diagram for $\mathcal{T}_{12}$.
 \end{exercise}
 
 
 \begin{theorem}[Subgroup criterion]
-  Let $G$ be a group, a nonempty $S\subset G$ is a subrgroup if and
+  Let $G$ be a group, a nonempty $S\subset G$ is a subgroup if and
   only if
   \[
   a,b\in S \quad \Rightarrow \quad ab^{-1}\in S.
@@ -65,80 +185,159 @@
 \end{theorem}
 
 
+\begin{exercise}
+  Prove that $SO(n)$ is a subgroup of $O(n)$.
+\end{exercise}
+
+
+\begin{exercise}
+  Let $G$ be a group, define the \dfn{center} of $G$ as
+  \[
+  Z(G):=\{g\in G: \text{$gx=xg$ for all $g\in G$}\}.
+  \]
+  Prove that $Z(G)$ is a subgroup of $G$.
+\end{exercise}
+
+
+\begin{exercise}
+  Let $G$ be a group, define the \dfn{normalizer} of $S$ in $G$ as
+  \[
+  N_G(S):=\{g\in G: \text{$gSg^{-1} = S$}\},
+  \]
+  where $gSg^{-1}:=\{g sg^{-1}:s\in S\}$. Prove that $N_G(S)$ is a
+  subgroup of $G$.
+\end{exercise}
+
+\begin{exercise}
+  Let $H_1,H_2,\dots,H_n$ be subgroups of a group $G$. Prove that
+  \[
+  \bigcap_{i=1}^n H_i \subgp G.
+  \]
+\end{exercise}
+
+
+This last exercise helps us reformulate what a generator is.
+
+\begin{definition}
+  Let $S$ be a subset of $G$. The group \dfn{generated} by $S$ is the
+  smallest subgroup of $G$ that contains $S$. In particular
+  \[
+  \< S \> = \bigcap_{S\subset  H} \subgp G.
+  \]
+\end{definition}
+
+
+\begin{exercise}
+  Prove that $A_n\subgp S_n$ is generated by all $3$-cycles in $S_n$.
+\end{exercise}
+
 
 
 \section{Subgroups of cyclic groups}
 
-
-\begin{theorem}[Subgroups of cyclic groups are cyclic]
-  Every subgroup of a cyclic group is cyclic.
+\begin{theorem}[Classification of subgroups of the integers]
+  The subgroups of $(\Z,+)$ are exactly $n\Z$ where $n = 0,1,\dots$.
+  \begin{sketch}
+    Use the well ordering principle to show that any subgroup $H\subgp
+    G$ has a least positive element. Then use the division theorem.
+  \end{sketch}
 \end{theorem}
 
 \begin{exercise}
-  Find all subgroups of $\Z_5$, and identify each by a generator.
+  Describe the subgroup $n\Z\cap m\Z \subset \Z$ in terms of its
+  cyclic generator.
+\end{exercise}
+
+
+\begin{exercise}
+  Describe the subgroup of $\Z$ generated by $m$ and $n$ in terms of
+  its cyclic generator.
 \end{exercise}
 
 \begin{exercise}
-  Find all subgroups of $\Z_6$, and identify each by a generator.
+  Find a subgroup of $\Z\times\Z$ that is not of the form $n\Z \times
+  m\Z$.
+\end{exercise}
+
+
+\begin{exercise}
+  Find all subgroups of $\Z_9$, and identify each by a generator. Draw
+  a lattice diagram to show off your work.
+\end{exercise}
+
+
+\begin{exercise}
+  Find all subgroups of $\Z_{10}$, and identify each by a generator. Draw
+  a lattice diagram to show off your work.
 \end{exercise}
 
 \begin{exercise}
-  Find all subgroups of $\Z_8$, and identify each by a generator.
+  Find all subgroups of $\Z_{11}$, and identify each by a generator. Draw
+  a lattice diagram to show off your work.
+\end{exercise}
+
+\begin{exercise}
+  Find all subgroups of $\Z_{12}$, and identify each by a generator.  Draw
+  a lattice diagram to show off your work.
 \end{exercise}
 
   
-\begin{corollary}[Classification of subgroups of the integers]
-  The subgroups of $(\Z,+)$ are exactly $n\Z$ where $n = 0,1,\dots,$.
-\end{corollary}
+
+%% \section{Back to the fifteen puzzle}
 
 
-\section{Lattice diagrams}
 
-\[
-\begin{tikzcd}
-       & D_3 \ar[rdd,-]\ar[rrdd,-]\ar[rrrdd,-]  \ar[ld,-] & & &      \\
- \<r\> \ar[rdd,-]       &       &  & &  \\
-       &       &  \< f\> \ar[ld,-]   &  \< rf\> \ar[lld,-]       &  \< r^2f\> \ar[llld,-]        \\   
-       & \<e\> & & &
-\end{tikzcd}
-\]
-
-\[
-\begin{tikzcd}
-       & \Z_6 \ar[rd,-]  \ar[ldd,-] &       \\
-       &       & \<2\> \ar[ldd,-]\\
-\< 3\> \ar[rd,-]&       &       \\   
-       & \<0\> &
-\end{tikzcd}
-\]
-
-\[
-\begin{tikzcd}
-  \Z_8  \ar[d,-] \\
-  \<2\> \ar[d,-] \\
-  \<4\> \ar[d,-] \\   
-  \<0\> 
-\end{tikzcd}
-\]
+%% I feel that we would be remiss if our conversation on fifteen puzzles
+%% didn't include an algorithm for solving them.
 
 
-\[
-\begin{tikzcd}
-       & Q_8 \ar[rd,-] \ar[d,-] \ar[ld,-] &       \\
-\<i\>  \ar[rd,-] & \<j\>  \ar[d,-]     & \<k\> \ar[ld,-]\\
-&\< -1\> \ar[d,-]&        \\   
-       & \<1\> &
-\end{tikzcd}
-\]
+%% \begin{theorem}[Algorithm for solving fifteen puzzles]
+%%   Algorithm For solving 15 puzzle
+%%   %http://www.waynesthisandthat.com/15puzzle.htm
+
+%%   Basic moves
+%%   \[
+%%   \arraycolsep=7pt\def\arraystretch{1.6}
+%%   \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+%%     \Xhline{2pt}
+%%     1  & 2 & 3  & X_4 \\ \hline
+%%     X_5  & X & X_7  & 4 \\ \hline
+%%     X_9  & X_{10} & X_{11}  & \cellcolor{black} \\ \hline
+%%     X  & X & X  & X \\
+%%     \Xhline{2pt}
+%%   \end{array}
+%%   \]
+%%   \[
+%%   (7 \ 8)(8 \ 4)(4 \ 3)(3 \ 2) (2 \ 1)(1\ 5)(5\ 9)(9 \ 10)(10\ 11)(11 \ 12) 
+%%   \left(\begin{smallmatrix}
+%%     1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+%%     1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 14 & 16
+%%   \end{smallmatrix}\right)
+%%   \]
+  
+%%   Basic strategy
+%% \end{theorem}
 
 
-\[
-\begin{tikzcd}
-   &    & D_4 \ar[rd,-] \ar[d,-] \ar[ld,-] &       \\
-&\<r^2,f\>  \ar[rd,-] \ar[d,-] \ar[ld,-]& \<r \>  \ar[d,-]     & \<r^2,rf\> \ar[ld,-] \ar[d,-] \ar[rd,-]\\
-\<f\>\ar[rrd,-]& \<r^2f\> \ar[rd,-]&\< r^2\> \ar[d,-]  &   \<rf\> \ar[ld,-]& \<r^3f\>\ar[lld,-]     \\   
-  &     & \<e\> &  &
-\end{tikzcd}
-\]
+
+%% \begin{exercise}
+%%   Here is a devilish arrangement of a fifteen puzzle that I found in
+%%   \textit{Selected topics in mathematics} by E.\ Spitznagel, Jr.
+%%   \[
+%%   \arraycolsep=7pt\def\arraystretch{1.6}
+%%   \begin{array}{!{\vline width 2pt}c|c|c|c!{\vline width 2pt}}
+%%     \Xhline{2pt}
+%%     R  & A  & T  & E \\ \hline
+%%     Y  & O  & U  & R \\ \hline
+%%     M  & I & N & D \\ \hline
+%%     P & A & L & \cellcolor{black}\\
+%%     \Xhline{2pt}
+%%   \end{array}
+%%   \]
+%% \end{exercise}
+
+
+
+
 
 \end{document}
