@@ -15,14 +15,14 @@ group.
 
 
 \begin{definition}
-  Let $S$ be a subgroup of $G$. A \textbf{left }\dfn{coset} of $S$ is a set of
+  Let $S$ be a subgroup of $(G,\star)$. A \textbf{left }\dfn{coset} of $S$ is a set of
   the form
   \[
-  gS := \{g\cdot s : s\in S\}.
+  g\star S := \{g\star s : s\in S\}
   \]
   where $g\in G$. A \textbf{right }\dfn{coset} of $S$ is a set of the form
   \[
-  Sg := \{s\cdot g : s\in S\}.
+  S\star g := \{s\star g : s\in S\}.
   \]
 \end{definition}
 
@@ -38,7 +38,7 @@ group.
   The set $2\Z = \{2\cdot x: x\in \Z\}$ is a subgroup of $\Z$. The
   left cosets of $2\Z$ are
   \begin{align*}
-    0+2\Z &= \{\dots, -8,-6,-4,-2,0,2,4,6,8,\dots\}\\
+    0+2\Z &= \{\dots, -8,-6,-4,-2,0,2,4,6,8,\dots\},\\
     1+2\Z &= \{\dots, -7,-5,-3,-1,1,3,5,7,9,\dots\}.
   \end{align*}
 \end{example}
@@ -48,10 +48,10 @@ group.
   The set $2\Z = \{2\cdot x: x\in \Z\}$ is a subgroup of $\Z$. The
   left cosets of $2\Z$ are
   \begin{align*}
-    0+5\Z &= \{\dots, -20,-15,-10,-5,0,5,10,15,20,\dots\}\\
-    1+5\Z &= \{\dots, -19,-14,-9 ,-4,1,6,11,16,21,\dots\}\\
-    2+5\Z &= \{\dots, -18,-13,-8 ,-3,2,7,12,17,22,\dots\}\\
-    3+5\Z &= \{\dots, -17,-12,-7 ,-2,3,8,13,18,23,\dots\}\\
+    0+5\Z &= \{\dots, -20,-15,-10,-5,0,5,10,15,20,\dots\},\\
+    1+5\Z &= \{\dots, -19,-14,-9 ,-4,1,6,11,16,21,\dots\},\\
+    2+5\Z &= \{\dots, -18,-13,-8 ,-3,2,7,12,17,22,\dots\},\\
+    3+5\Z &= \{\dots, -17,-12,-7 ,-2,3,8,13,18,23,\dots\},\\
     4+5\Z &= \{\dots, -16,-11,-6 ,-1,4,9,14,19,24,\dots\}.
   \end{align*}
 \end{example}
@@ -90,12 +90,12 @@ group.
     \renewcommand{\arraystretch}{1.6}
     \begin{array}{c!{\vline width 2pt}cccccc}
       (D_3,\circ)& e                         & f                              & rf                            & r^2f                             & r                                    & r^2  \\  \Xhline{2pt}
-      e          & e\cellcolor{blue!12!white}     & f\cellcolor{blue!12!white}    & rf\cellcolor{red!12!white}   & f \cellcolor{blue!33!red!24!white}     & r f \cellcolor{blue!66!red!24!white}   & r^2f \cellcolor{blue!36!white} \\  
-      f                & f\cellcolor{blue!12!white}    & e\cellcolor{blue!12!white}   & r^2 \cellcolor{red!12!white}    & rf\cellcolor{blue!33!red!24!white} & r^2f \cellcolor{blue!66!red!24!white}    & f \cellcolor{blue!36!white}   \\  
+      e          & e\cellcolor{blue!12!white}     & f\cellcolor{blue!12!white}    & rf\cellcolor{red!12!white}   & r^2f \cellcolor{blue!33!red!24!white}     & r  \cellcolor{blue!66!red!24!white}   & r^2 \cellcolor{blue!36!white} \\  
+      f                & f\cellcolor{blue!12!white}    & e\cellcolor{blue!12!white}   & r^2 \cellcolor{red!12!white}    & f\cellcolor{blue!33!red!24!white} & r^2f \cellcolor{blue!66!red!24!white}    & rf \cellcolor{blue!36!white}   \\  
       rf                & rf\cellcolor{red!12!white}   & r\cellcolor{red!12!white}     &    &    &  &     \\  
       r^2f       & r^2f \cellcolor{blue!33!red!24!white}   & r^2 \cellcolor{blue!33!red!24!white}   &   &      &   &   \\  
-      r      & rf \cellcolor{blue!66!red!24!white}   & f \cellcolor{blue!66!red!24!white} &    &   &      &     \\  
-      r^2       & r^2 f\cellcolor{blue!36!white} & rf \cellcolor{blue!36!white}    &   &    &     &      \\  
+      r      & r \cellcolor{blue!66!red!24!white}   & rf \cellcolor{blue!66!red!24!white} &    &   &      &     \\  
+      r^2       & r^2 \cellcolor{blue!36!white} & r^2f \cellcolor{blue!36!white}    &   &    &     &      \\  
     \end{array}
     \]
     The left cosets of $\<f\>$ are below $\<f\>$ and the right cosets
@@ -105,6 +105,12 @@ group.
 
 
 
+\begin{exercise}
+  Let $S\subgp G$ and $a\in S$. Prove that the left coset $aS = S$.
+  \begin{hint}
+    Recall Lemma~\ref{L:oepr}.
+  \end{hint}
+\end{exercise}
 
 
 

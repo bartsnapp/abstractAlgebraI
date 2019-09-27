@@ -16,7 +16,7 @@
 Groups of permutations are very expressive. In fact, every finite group
 is isomorphic to a permutation group! To see this we'll need a lemma.
 
-\begin{lemma}[One element per row/column]
+\begin{lemma}[One element per row/column]\label{L:oepr}
   In a Cayley table, each row and each column have exactly one copy of
   each group element.
   \begin{proof}
@@ -64,15 +64,14 @@ is isomorphic to a permutation group! To see this we'll need a lemma.
   We'll find a permutation group and a matrix group isomorphic to
   $\Z_4$ by explicitly listing a bijective correspondence between the
   elements of the permutation group, the matrix group, and $\Z_4$.
-
   Write with me:
   \[
   \renewcommand{\arraystretch}{2.5}
   \begin{array}{ccccc}
-    0 & \leftrightarrow & e & \leftrightarrow & \left[\begin{smallmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right]\\
-    1 & \leftrightarrow & (1 \ 2 \ 3\ 4) & \leftrightarrow & \left[\begin{smallmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \end{smallmatrix}\right]\\
-    2 & \leftrightarrow & (1 \ 3)(2\ 4) & \leftrightarrow & \left[\begin{smallmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{smallmatrix}\right]\\
-    3 & \leftrightarrow & (1 \ 4 \ 3\ 2) & \leftrightarrow & \left[\begin{smallmatrix} 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{smallmatrix}\right]\\
+    0 & \leftrightarrow & \left(\begin{smallmatrix}1 & 2 & 3 & 4 \\ 1 & 2 & 3 & 4\end{smallmatrix}\right) & \leftrightarrow & \left[\begin{smallmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right]\\
+    1 & \leftrightarrow & \left(\begin{smallmatrix}1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 1\end{smallmatrix}\right) & \leftrightarrow & \left[\begin{smallmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \end{smallmatrix}\right]\\
+    2 & \leftrightarrow & \left(\begin{smallmatrix}1 & 2 & 3 & 4 \\ 3 & 4 & 1 & 2\end{smallmatrix}\right) & \leftrightarrow & \left[\begin{smallmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \end{smallmatrix}\right]\\
+    3 & \leftrightarrow & \left(\begin{smallmatrix}1 & 2 & 3 & 4 \\ 4 & 1 & 2 & 3\end{smallmatrix}\right) & \leftrightarrow & \left[\begin{smallmatrix} 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{smallmatrix}\right]\\
   \end{array}
   \]
 \end{example}
