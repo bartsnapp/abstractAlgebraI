@@ -13,15 +13,19 @@
 \maketitle
 
 \begin{definition}
-  A subgroup $N\subgp G$ is a \dfn{normal} subgroup if
+  Let $(G,\star)$ be a group. A subgroup $N\subgp G$ is a \dfn{normal subgroup}
+  if
   \[
-  aN = Na,
+  a\star N = N\star a,
   \]
   meaning every left coset is equal to the right coset involving the
   same group element. In this case we write $N\normal G$. \index{normal@$\normal$}
 \end{definition}
 
-Row of Cayley table has same elements as column (perhaps in different order).
+\begin{corollary}
+  If $G$ is an Abelian group and $N\subgp G$, then $N\normal G$.
+\end{corollary}
+
 
 
 
@@ -32,21 +36,106 @@ Row of Cayley table has same elements as column (perhaps in different order).
   gng^{-1}\in N.
   \]
   \begin{proof}
-    $(\Rightarrow)$
+    $(\Rightarrow)$ Suppose that $N\normal G$. In this case, for all
+    $g\in G$
+    \[
+    gN = Ng.
+    \]
+    This means that for all $n\in N$, there exist $n'\in N$ such
+    that
+    \[
+    g n = n'g.
+    \]
+    since $G$ is a group, we may multiply both sides by $g^{-1}$ on
+    the right to obtain
+    \[
+    g n g^{-1} = n'\in N.
+    \]
+    This completes this direction of the proof.
+
+    $(\Leftarrow)$ Now suppose for all $n\in N$ and $g\in G$ 
+    \[
+    gng^{-1} \in \N.
+    \]
+    This means there is a $n'\in N$ such that
+    \begin{align*}
+      gng^{-1}  &= n'\\
+      gn = n'g.
+    \end{align*}
+    Thus, $gN =Ng$, and we see $N$ is normal.
+  \end{proof}
+\end{lemma}
+
+\begin{exercise}
+  Prove that every subgroup of index two is normal.
+\end{exercise}
+
+\begin{exercise}
+  Prove that every subgroup of $Q_8$ is normal. Note, this is
+  interesting, as $Q_8$ is not Abelian.
+\end{exercise}
+
+
+
+\begin{exercise}
+  Let $G$ be a group with subgroups $L$, $M$, and $N$. If
+  \begin{align*}
+    L &\normal M,\\
+    N &\normal G,
+  \end{align*}
+  then, $NL\normal NM$.
+\end{exercise}
+
+\begin{exercise}
+  Show that if $G$ is a group, then the center (see
+  Exercise~\ref{E:center}) $Z(G)$ is always normal in $G$.
+
+  If you haven't already, you should also show that $Z(G)$ is subgroup
+  of $G$.
+\end{exercise}
+
+
+
+This next lemma is inspired by Lemma~\ref{L:mawd} and
+Lemma~\ref{mmwd}, and in fact, it proves both results.
+
+\begin{lemma}[Coset product is well defined]
+  Let $N$ be a subgroup of a group $(G,\star)$ withq $a,b\in G$.  The
+  product on cosets
+  \[
+  (a\star N) \star (b\star N ) := (a\star b) N.
+  \]
+  is well defined if and only if $N$ is a normal subgroup of $G$.
+  \begin{proof}
+    $(\Rightarrow)$ Suppose that $N\normal G$. We must show that if
+    \begin{align*}
+      a\star N &= a'\star N\\
+      b\star N &= b'\star N,
+    \end{align*}
+    then $(a\star b) \star N = (a'\star b')\star N$.
 
     $(\Leftarrow)$
   \end{proof}
+  
 \end{lemma}
+
+\begin{corollary}[Modular addition is well defined]
+  Addition on $\Z_n$ is well defined.
+\end{corollary}
+
+
+\begin{corollary}[Modular multiplication is well defined]
+  Multiplication on $\Z_n$ is well defined.
+\end{corollary}
+
+
+
 
 
 
 \[
 \int f(x) \d x + C
 \]
-
-
-\begin{theorem}[A subgroup of index two is normal]
-\end{theorem}
 
 
 \end{document}
