@@ -26,43 +26,84 @@
   If $G$ is an Abelian group and $N\subgp G$, then $N\normal G$.
 \end{corollary}
 
+\begin{example}[$\boldsymbol{\<r\>\normal D_3}$]\index{symmetries of the equilateral triangle}
+  If we arrange a Cayley table for $D_3$ appropriately, we can ``see''
+  the subgroup $\<r\>$ is normal in $D_3$.
+    \[
+    \renewcommand{\arraystretch}{1.6}
+    \begin{array}{c!{\vline width 2pt}cccccc}
+      (D_3,\circ)& e                              & r                              & r^2                            & f                             & r f                                   & r^2 f  \\  \Xhline{2pt}
+      e          & e\cellcolor{blue!12!white}     & r\cellcolor{blue!12!white}    & r^2\cellcolor{blue!12!white}   & f \cellcolor{red!12!white}    & r f \cellcolor{blue!33!red!24!white}   & r^2f \cellcolor{blue!66!red!24!white} \\  
+      r                                  & r\cellcolor{blue!12!white}    & r^2\cellcolor{blue!12!white}   & e \cellcolor{blue!12!white}    & rf\cellcolor{red!12!white} & r^2f \cellcolor{blue!33!red!24!white}    & f \cellcolor{blue!66!red!24!white}   \\  
+      r^2                                 & r^2\cellcolor{blue!12!white}   & e\cellcolor{blue!12!white}     & r\cellcolor{blue!12!white}    & r^2 f \cellcolor{red!12!white}   & f \cellcolor{blue!33!red!24!white} & rf \cellcolor{blue!66!red!24!white}   \\  
+      f        & f \cellcolor{red!12!white}    & r^2f \cellcolor{red!12!white}   & r f \cellcolor{red!12!white} &     &   &   \\  
+      r f       & rf \cellcolor{blue!33!red!24!white}   & f \cellcolor{blue!33!red!24!white} & r^2f \cellcolor{blue!33!red!24!white}   &    &      &     \\  
+      r^2 f       & r^2 f\cellcolor{blue!66!red!24!white} & rf \cellcolor{blue!66!red!24!white}    & f \cellcolor{blue!66!red!24!white}  &     &     &      \\  
+    \end{array}
+    \]
+    The left cosets of $\<r\>$ are below $\<r\>$ and the right cosets
+    of $\<r\>$ are to the right of $\<r\>$. In particular, for $x\in
+    D_3$ we see that $x\<r\> = \<r\> x$.
+\end{example}
+
+\begin{example}[$\boldsymbol{\<f\>\not\normal D_3}$]\index{symmetries of the equilateral triangle}
+  If we arrange a Cayley table for $D_3$ appropriately, we can ``see''
+  the subgroup $\<f\>$ is \textbf{not} normal in $D_3$.
+    \[
+    \renewcommand{\arraystretch}{1.6}
+    \begin{array}{c!{\vline width 2pt}cccccc}
+      (D_3,\circ)& e                         & f                              & rf                            & r^2f                             & r                                    & r^2  \\  \Xhline{2pt}
+      e          & e\cellcolor{blue!12!white}     & f\cellcolor{blue!12!white}    & rf\cellcolor{red!12!white}   & r^2f \cellcolor{blue!33!red!24!white}     & r  \cellcolor{blue!66!red!24!white}   & r^2 \cellcolor{blue!36!white} \\  
+      f                & f\cellcolor{blue!12!white}    & e\cellcolor{blue!12!white}   & r^2 \cellcolor{red!12!white}    & f\cellcolor{blue!33!red!24!white} & r^2f \cellcolor{blue!66!red!24!white}    & rf \cellcolor{blue!36!white}   \\  
+      rf                & rf\cellcolor{red!12!white}   & r\cellcolor{red!12!white}     &    &    &  &     \\  
+      r^2f       & r^2f \cellcolor{blue!33!red!24!white}   & r^2 \cellcolor{blue!33!red!24!white}   &   &      &   &   \\  
+      r      & r \cellcolor{blue!66!red!24!white}   & rf \cellcolor{blue!66!red!24!white} &    &   &      &     \\  
+      r^2       & r^2 \cellcolor{blue!36!white} & r^2f \cellcolor{blue!36!white}    &   &    &     &      \\  
+    \end{array}
+    \]
+    The left cosets of $\<f\>$ are below $\<f\>$ and the right cosets
+    of $\<f\>$ are to the right of $\<f\>$. In particular, for $x\in
+    D_3$ we see that $x\<f\> \ne \<f\> x$.
+\end{example}
 
 
 
-\begin{lemma}[Normal subgroup criterion]
-  A subgroup $N\subgp G$ is normal if and only if for all $n\in N$ and
-  all $g\in G$,
+
+\begin{lemma}[Normal subgroup criterion]\label{L:nsc}
+  A subgroup $N$ of a group $(G,\star)$ is normal if and only if for
+  all $n\in N$ and all $g\in G$,
   \[
-  gng^{-1}\in N.
+  g^{-1}\star n\star g\in N.
   \]
   \begin{proof}
     $(\Rightarrow)$ Suppose that $N\normal G$. In this case, for all
     $g\in G$
     \[
-    gN = Ng.
+    g\star N = N\star g.
     \]
     This means that for all $n\in N$, there exist $n'\in N$ such
     that
     \[
-    g n = n'g.
+    g\star n = n'\star g.
     \]
     since $G$ is a group, we may multiply both sides by $g^{-1}$ on
-    the right to obtain
+    the left to obtain
     \[
-    g n g^{-1} = n'\in N.
+    g^{-1} \star n' \star g = n\in N.
     \]
     This completes this direction of the proof.
 
     $(\Leftarrow)$ Now suppose for all $n\in N$ and $g\in G$ 
     \[
-    gng^{-1} \in \N.
+    g^{-1}\star n\star g \in N.
     \]
     This means there is a $n'\in N$ such that
     \begin{align*}
-      gng^{-1}  &= n'\\
-      gn = n'g.
+      g^{-1}\star n\star g  &= n'\\
+      n \star g &= g\star n'.
     \end{align*}
-    Thus, $gN =Ng$, and we see $N$ is normal.
+    Thus, $g\star N =N\star g$ for all $g\in G$, and we see $N$ is
+    normal.
   \end{proof}
 \end{lemma}
 
@@ -97,26 +138,77 @@
 
 
 This next lemma is inspired by Lemma~\ref{L:mawd} and
-Lemma~\ref{mmwd}, and in fact, it proves both results.
+Lemma~\ref{L:mmwd}, and in fact, it proves both results.
 
 \begin{lemma}[Coset product is well defined]
-  Let $N$ be a subgroup of a group $(G,\star)$ withq $a,b\in G$.  The
+  Let $N$ be a subgroup of a group $(G,\star)$ with $a,b\in G$.  The
   product on cosets
   \[
-  (a\star N) \star (b\star N ) := (a\star b) N.
+  (a\star N) \star (b\star N ) := (a\star b)\star N.
   \]
   is well defined if and only if $N$ is a normal subgroup of $G$.
   \begin{proof}
-    $(\Rightarrow)$ Suppose that $N\normal G$. We must show that if
+        $(\Rightarrow)$ Suppose that if
+    \begin{align*}
+      a\star N &= a'\star N\\
+      b\star N &= b'\star N,
+    \end{align*}
+    then $(a\star b) \star N = (a'\star b')\star N$. We must show that
+    $N$ is a normal subgroup of $G$. We claim that if $n\in N$,
+    \[
+    g \star N = (n\star g)\star N.
+    \]
+    To see this, first note
+    \[
+    e \star N = n \star N.
+    \]
+    By our assumption,
+    \begin{align*}
+    (e\star N) \star (g\star N) &= (e\star g)\star N \\
+    &= g\star N
+    \end{align*}
+    and
+    \[
+    (n\star N) \star (g\star N) = (n\star g)\star N.
+    \]
+    Hence
+    \[
+    g\star N = (n\star g)\star N.
+    \]
+    Now multiplying both sides by $g^{-1}$ on the left, we have
+    \begin{align*}
+      (g^{-1}\star g)\star N &= (g^{-1} \star n\star g)\star N,\\
+      N &= (g^{-1} \star n\star g)\star N.
+    \end{align*}
+    but this means that
+    \[
+    g^{-1} \star n\star g \in N
+    \]
+    for all $n\in N$ and $g\in G$. By the normal subgroup criterion,
+    Lemma~\ref{L:nsc}, $N$ is normal in $G$.
+
+    
+    $(\Leftarrow)$ Suppose that $N\normal G$. We must show that if
     \begin{align*}
       a\star N &= a'\star N\\
       b\star N &= b'\star N,
     \end{align*}
     then $(a\star b) \star N = (a'\star b')\star N$.
 
-    $(\Leftarrow)$
+
+    Since $N$ is normal, we may write
+    \begin{align*}
+    (a\star b) \star N &= a\star(b\star N) & &\text{(associativity)}\\
+    &= a\star ( b'\star N ) & &\text{($b\star N = b'\star N$)} \\
+    &= a\star (N\star b') & &\text{($N\normal G$)}\\
+    &= (a\star N) \star b' & &\text{(associativity)}\\
+    &= (a'\star N) \star b' & &\text{($a\star N = a'\star N$)} \\
+    &= a' \star (N\star b') & &\text{(associativity)}\\
+    &= a'\star (b'\star N) & &\text{($N\normal G$)}\\
+    &= (a'\star b')\star N & &\text{(associativity)}.
+    \end{align*}
+    This is our desired result.
   \end{proof}
-  
 \end{lemma}
 
 \begin{corollary}[Modular addition is well defined]
@@ -127,6 +219,62 @@ Lemma~\ref{mmwd}, and in fact, it proves both results.
 \begin{corollary}[Modular multiplication is well defined]
   Multiplication on $\Z_n$ is well defined.
 \end{corollary}
+
+
+\begin{theorem}[Quotient groups]\index{quotient group}
+  Given a group $(G,\star)$ and a normal subgroup $N$, the set of left
+  cosets of $N$ form a group under coset product. This group is
+  denoted by $G/N$, and is pronounced ``$G$ modulo $N$.''
+  \begin{proof}
+    To start, note that the set of left cosets of $N$ is closed under
+    the coset product. Next, note that the coset product is
+    associative. Finally, the identity element is the coset $N$, and
+    given $a\star N$, $a^{-1}\star N$ is the inverse. Hence $G/N$ is a
+    group.
+  \end{proof}
+\end{theorem}
+
+\begin{exercise}
+  Write out the elements of $\Z/2\Z$ and use a Cayley table to show
+  that this quotient group is isomorphic to the cyclic group $\Z_2$.
+\end{exercise}
+
+
+\begin{exercise}
+  Write out the elements of $D_3/\<r\>$ and use a Cayley table to show
+  that this quotient group is isomorphic to the cyclic group $\Z_2$.
+\end{exercise}
+
+
+\begin{exercise}
+  Write out the elements of $\Z/3\Z$ and use a Cayley table to show
+  that this quotient group is isomorphic to the cyclic group $\Z_3$.
+\end{exercise}
+
+
+\begin{exercise}
+  Write out the elements of $\Z/5\Z$ and use a Cayley table to show
+  that this quotient group is isomorphic to the cyclic group $\Z_5$.
+\end{exercise}
+
+
+\begin{example}[Solutions to trigonometric equations]
+  Suppose you want to solve $\sin(\theta) = 1/2$. In this case,
+  $\theta \in \R/2\pi\Z$.
+\end{example}
+
+\begin{exercise}
+  Describe the quotient group $\Q/\Z$.
+\end{exercise}
+
+\begin{example}[Antiderivatives]
+  Given a function $f\in C^\infty(\R,\R)$ (a function whose
+  derivatives are continuous), the function
+  \[
+  \int f(x) \d x + C
+  \]
+  is an element of the quotient group $C^\infty(\R,\R)/\R$.
+\end{example}
 
 
 
