@@ -12,6 +12,20 @@
 \end{abstract}
 \maketitle
 
+
+
+We are now going to give a construction that will allow us to make new
+groups from old groups. As a first step, we must look at a special set
+of subgroups called \textit{normal subgroups}.
+
+
+
+
+\section{Normal subgroups}
+
+
+
+
 \begin{definition}
   Let $(G,\star)$ be a group. A subgroup $N\subgp G$ is a \dfn{normal subgroup}
   if
@@ -42,8 +56,17 @@
     \end{array}
     \]
     The left cosets of $\<r\>$ are below $\<r\>$ and the right cosets
-    of $\<r\>$ are to the right of $\<r\>$. In particular, for $x\in
-    D_3$ we see that $x\<r\> = \<r\> x$.
+    of $\<r\>$ are to the right of $\<r\>$. Here we explicitly list the left cosets
+    \begin{align*}
+      \<r\> &= \{e, r, r^2\},\\
+      f\<r\> &= \{f, rf, r^2f\}.
+    \end{align*}
+    These are equal to the right cosets,
+     \begin{align*}
+      \<r\> &= \{e, r, r^2\},\\
+      \<r\>f &= \{f, rf, r^2f\}.
+    \end{align*}
+    Hence $\<r\>\normal D_3$.
 \end{example}
 
 \begin{example}[$\boldsymbol{\<f\>\not\normal D_3}$]\index{symmetries of the equilateral triangle}
@@ -62,8 +85,20 @@
     \end{array}
     \]
     The left cosets of $\<f\>$ are below $\<f\>$ and the right cosets
-    of $\<f\>$ are to the right of $\<f\>$. In particular, for $x\in
-    D_3$ we see that $x\<f\> \ne \<f\> x$.
+    of $\<f\>$ are to the right of $\<f\>$. Explicitly, the left
+    cosets are
+    \begin{align*}
+      \<f\> &= \{e, f\},\\
+      r\<f\> &= \{r, rf\},\\
+      r^2\<f\> &= \{r^2, r^2f\},
+    \end{align*}
+    and the right cosets are
+    \begin{align*}
+      \<f\> &= \{e, f\},\\
+      \<f\>r &= \{r, r^2f\},\\
+      \<f\> r^2&= \{r^2, rf\}.
+    \end{align*}
+    Hence $\<f\>\not\normal D_3$.
 \end{example}
 
 
@@ -137,14 +172,18 @@
 
 
 
-This next lemma is inspired by Lemma~\ref{L:mawd} and
+\section{Quotient groups}
+
+A quotient group is a group where the elements are left cosets of a
+normal subgroup. Of course to make a group, we need an associative
+operation.  This next lemma is inspired by Lemma~\ref{L:mawd} and
 Lemma~\ref{L:mmwd}, and in fact, it proves both results.
 
 \begin{lemma}[Coset product is well defined]
   Let $N$ be a subgroup of a group $(G,\star)$ with $a,b\in G$.  The
   product on cosets
   \[
-  (a\star N) \star (b\star N ) := (a\star b)\star N.
+  (a\star N) \star (b\star N ) := (a\star b)\star N
   \]
   is well defined if and only if $N$ is a normal subgroup of $G$.
   \begin{proof}
@@ -268,22 +307,12 @@ Lemma~\ref{L:mmwd}, and in fact, it proves both results.
 \end{exercise}
 
 \begin{example}[Antiderivatives]
-  Given a function $f\in C^\infty(\R,\R)$ (a function whose
-  derivatives are continuous), the function
+  Let $G= C^\infty(\R,\R)$ the set of continuous functions from $\R$
+  to $\R$ whose derivatives are continuous. This set is a group under
+  addition. Given a function $f\in C^\infty(\R,\R)$, the function
   \[
   \int f(x) \d x + C
   \]
   is an element of the quotient group $C^\infty(\R,\R)/\R$.
 \end{example}
-
-
-
-
-
-
-\[
-\int f(x) \d x + C
-\]
-
-
 \end{document}

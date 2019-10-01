@@ -12,34 +12,115 @@
 \end{abstract}
 \maketitle
 
-\begin{exercise}
-  Prove that addition is an associative operation  over $\Z$.
-\end{exercise}
-
-\begin{exercise}
-  Prove that multiplication is an associative operation  over $\Z$.
-\end{exercise}
-
+We've remarked before that if you want to understand an object, then
+you should try to understand the functions on an object. So now we
+turn our study to the functions on groups.
 
 
 \section{Homomorphisms}
 
 \begin{definition}\index{homomorphism!of groups}\index{group homomorphism}
-  Let $(G,\star)$ and $(H,\diamond)$ be groups, a function $\phi:G\to
-  H$ is a \dfn{homomorphism} of groups if
+  Let $(G,\star)$ and $(H,\diamond)$ be groups. A function
+  \[
+  \phi:G\to H
+  \]
+  is a \dfn{homomorphism} of groups if
   \[
   \phi(a\star b) = \phi(a)\diamond\phi(b).
   \]
 \end{definition}
 
-\begin{exercise}[Homomorphisms preserve identity]\label{L:HPId}
+Believe it or not, you already know some homomorphisms!
+
+\begin{example}[Exponential functions]
+  Consider the following:
+  \begin{align*}
+    \exp:(\R,+) &\to (\R_{> 0},\cdot) \\
+    x &\mapsto e^x.
+  \end{align*}
+  The function $\exp$ is a homorphism from the group $(\R,+)$ to
+  $(\R_{> 0},\cdot)$ as
+  \begin{align*}
+    \exp(x+y) &= e^{x+y} \\
+    &= e^x \cdot e^y\\
+    &= \exp(x)\cdot \exp(y).
+  \end{align*}
+\end{example}
+
+
+
+\begin{example}[Logarithmic functions]
+  Consider the following:
+  \begin{align*}
+    \log:(\R_{> 0},\cdot) &\to (\R,+)\\
+    x &\mapsto \log(x).
+  \end{align*}
+  The function $\log$ is a homorphism from the group $(\R_{> 0},\cdot)$ to $(\R,+)$ as
+  \[
+  \log(x\cdot y) = \log(x) + \log(y).
+  \]
+\end{example}
+
+
+\begin{example}[Derivatives]
+  Recall that $C^\infty(\R,\R)$ is the additive group of functions
+  from $\R$ to $\R$ whose derivatives are all continuous. Consider the
+  following:
+  \begin{align*}
+    \frac{d}{dx}:C^\infty(\R,\R) &\to C^\infty(\R,\R) \\
+      f &\mapsto f'.
+  \end{align*}
+  The function $\frac{d}{dx}$ is a homorphism as
+  \begin{align*}
+    \frac{d}{dx}(f+ g) &= f' + g' \\
+    &= \frac{d}{dx}f + \frac{d}{dx}g.
+  \end{align*}
+\end{example}
+
+
+\begin{example}[The gradient]
+  \begin{align*}
+    \grad:C^\infty(\R,\R^n) &\to C^\infty(\R^n,\R^n)\\
+    F &\mapsto \grad F.
+  \end{align*}
+\end{example}
+
+
+
+\begin{example}[Linear transformations]
+\end{example}
+
+
+\begin{exercise}
+  Complex conjugation
+\end{exercise}
+
+
+
+
+\begin{example}[Determinants]
+  Consider the set of invertible linear transformations from $\R^n\to \R^n$:
+  \begin{align*}
+    \det: GL(n) &\to \R^\times \\
+             M  &\mapsto  \det(M)
+  \end{align*}
+  The function $\det$ is a homomorphism as
+  \[
+  \det(M \cdot N) = \det(M) \cdot \det(N).
+  \]
+\end{example}
+
+
+
+
+\begin{lemma}[Homomorphisms preserve identity]\label{L:HPId}
   Let $\phi:G\to H$ be a homomorphism of groups. Prove that
   \[
   \phi(e_G) = e_H,
   \]
   where $e_G$ is the identity of $G$ and $e_H$ is the identity of
   $H$.
-\end{exercise}
+\end{lemma}
 
 
 
@@ -47,33 +128,6 @@
   If $\phi:G\to H$ is a group homomorphism, then $\phi(g^{-1}) =
   \phi(g)^{-1}$.
 \end{lemma}
-
-
-
-
-Believe it or not, you alredy know some homomorphisms from calculus
-class!
-
-\[
-\exp:(\R,+) \to (\R_{\ge 0},\cdot)
-\]
-
-\[
-\log:(\R_{\ge 0},\cdot) \to (\R,+)
-\]
-
-\[
-C^\infty(\R^2,\R^2) \lto^{\curl} C^\infty(\R,\R^2)
-\]
-
-
-\[
-C^\infty(\R,\R^2) \lto^{\grad} C^\infty(\R^2,\R^2)
-\]
-
-\[
-GL(n) \lto^{\det} \R^\times
-\]
 
 
 
@@ -86,8 +140,7 @@ GL(n) \lto^{\det} \R^\times
 \end{definition}
 
 
-
-\subsection{Kernels and images}
+\section{Kernels and images}
 
 
 
@@ -128,7 +181,7 @@ GL(n) \lto^{\det} \R^\times
 
 
 \begin{lemma}[Kernels and injectivity]
-  A homomorphism of rings $\phi:G\to H$ is injective if and only if
+  A homomorphism of groups $\phi:G\to H$ is injective if and only if
   $\ker(\phi) = \{e_G\}$.
   \begin{proof}
     $(\Rightarrow)$ By Lemma~\ref{L:HPId}, $\phi(e_G) = e_H$. If
@@ -155,8 +208,8 @@ GL(n) \lto^{\det} \R^\times
 
 
 \begin{lemma}[Images and surjectivity]
-    A homomorphism of rings $\phi:G\to H$ is surjective if and only if
-    $\im(\phi) = H$.
+    A homomorphism of groups $\phi:G\to H$ is surjective if and only
+    if $\im(\phi) = H$.
     \begin{proof}
       $(\Rightarrow)$ Follows from the definition.
 
@@ -185,7 +238,29 @@ GL(n) \lto^{\det} \R^\times
 
 
 
-\subsection{Isomorphisms revisitied}
+\section{Isomorphisms revisited}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{exercise}
+  Prove that addition is an associative operation  over $\Z$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that multiplication is an associative operation  over $\Z$.
+\end{exercise}
+
+
+
 
 
 \end{document}

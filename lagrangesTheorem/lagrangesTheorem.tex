@@ -65,8 +65,12 @@
     \end{array}
     \]
     Recall the left cosets are below the subgroup. Note there are only
-    two distinct left cosets. From this we see that $[D_3: \<r\>] =
-    2$.
+    two distinct left cosets. Here they are
+    \begin{align*}
+      \<r\> &= \{e, r, r^2\},\\
+      f\<r\> &= \{f, rf, r^2f\}.
+    \end{align*}
+    From this we see that $[D_3: \<r\>] = 2$.
 \end{example}
 
 
@@ -86,8 +90,13 @@
     \end{array}
     \]
     Recall the left cosets are below the subgroup. Note, there are
-    only $3$ distinct left cosets. From this we see that $[D_3: \<f\>]
-    = 3$.
+    only $3$ distinct left cosets.  Here they are
+    \begin{align*}
+      \<f\> &= \{e, f\},\\
+      r\<f\> &= \{r, rf\},\\
+      r^2\<f\> &= \{r^2, r^2f\}.
+    \end{align*}
+    From this we see that $[D_3: \<f\>] = 3$.
 \end{example}
 
 
@@ -374,7 +383,7 @@ complicated. Check out our next lemma.
     \[
     F(x_{\sigma(1)},\dots, x_{\sigma(n)}) = F(x_{\tau(1)},\dots, x_{\tau(n)})
     \]
-    Now, note that if $\epsilon H$,
+    Now, note that if $\epsilon \in H$,
     \[
     F(x_{\sigma\circ\epsilon(1)},\dots, x_{\sigma\circ\epsilon(n)}) =
     F(x_{\tau\circ\epsilon(1)},\dots,
@@ -408,11 +417,11 @@ complicated. Check out our next lemma.
   \[
   H = \{\sigma\in S_n: F(x_{\sigma(1)},\dots, x_{\sigma(n)}) = F(x_1,\dots,x_n)\}.
   \]
-  The number of distinct polynomials found by permutating the
+  The number of distinct polynomials found by permuting the
   variables of $F$ will divide $n!$.
     \begin{proof}
       From Lemma~\ref{L:cap}, we see that $[S_n:H]$ is the number of
-      distinct polynomials found by permutating the variables. By
+      distinct polynomials found by permuting the variables. By
       Lagrange's theorem, Theorem~\ref{T:lagrange}, the index of a
       subgroup divides the order of the group. Since the order of
       $S_n$ is $n!$, we have proved the theorem.

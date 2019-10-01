@@ -76,8 +76,12 @@ group.
     \end{array}
     \]
     The left cosets of $\<r\>$ are below $\<r\>$ and the right cosets
-    of $\<r\>$ are to the right of $\<r\>$. In particular, for $x\in
-    D_3$ we see that $x\<r\> = \<r\> x$.
+    of $\<r\>$ are to the right of $\<r\>$. Explicitly, the cosets are
+    \begin{align*}
+      \<r\> &= \{e, r, r^2\},\\
+      f\<r\> &= \{f, rf, r^2f\}.
+    \end{align*}
+    In particular, for $x\in D_3$ we see that $x\<r\> = \<r\> x$.
 \end{example}
 
 
@@ -99,8 +103,21 @@ group.
     \end{array}
     \]
     The left cosets of $\<f\>$ are below $\<f\>$ and the right cosets
-    of $\<f\>$ are to the right of $\<f\>$. In particular, for $x\in
-    D_3$ we see that $x\<f\> \ne \<f\> x$.
+    of $\<f\>$ are to the right of $\<f\>$. Explicitly, the left
+    cosets are
+    \begin{align*}
+      \<f\> &= \{e, f\},\\
+      r\<f\> &= \{r, rf\},\\
+      r^2\<f\> &= \{r^2, r^2f\},
+    \end{align*}
+    and the right cosets are
+    \begin{align*}
+      \<f\> &= \{e, f\},\\
+      \<f\>r &= \{r, r^2f\},\\
+      \<f\> r^2&= \{r^2, rf\}.
+    \end{align*}
+    In particular, for $x\in D_3$ with $x\ne e$ and $x\ne f$, we see
+    that $x\<f\> \ne \<f\> x$.
 \end{example}
 
 
