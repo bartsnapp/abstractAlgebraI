@@ -8,7 +8,8 @@
 
 \begin{document}
 \begin{abstract}
-  We introduce homomorphisms and isomorphisms. 
+  We introduce homomorphisms and isomorphisms as functions between
+  groups.
 \end{abstract}
 \maketitle
 
@@ -32,8 +33,8 @@ turn our study to the functions on groups.
 
 Believe it or not, you already know some homomorphisms!
 
-\begin{example}[Exponential functions]
-  Consider the following:
+\begin{example}[Exponential functions]\label{EG:exp}\index{exponential function}
+  Consider the following
   \begin{align*}
     \exp:(\R,+) &\to (\R_{> 0},\cdot) \\
     x &\mapsto e^x.
@@ -49,8 +50,8 @@ Believe it or not, you already know some homomorphisms!
 
 
 
-\begin{example}[Logarithmic functions]
-  Consider the following:
+\begin{example}[Logarithmic functions]\label{EG:log}\index{logarithm}
+  Consider the following
   \begin{align*}
     \log:(\R_{> 0},\cdot) &\to (\R,+)\\
     x &\mapsto \log(x).
@@ -62,10 +63,10 @@ Believe it or not, you already know some homomorphisms!
 \end{example}
 
 
-\begin{example}[Derivatives]
+\begin{example}[Derivatives]\label{EG:der}\index{derivative}
   Recall that $C^\infty(\R,\R)$ is the additive group of functions
   from $\R$ to $\R$ whose derivatives are all continuous. Consider the
-  following:
+  following
   \begin{align*}
     \frac{d}{dx}:C^\infty(\R,\R) &\to C^\infty(\R,\R) \\
       f &\mapsto f'.
@@ -78,31 +79,71 @@ Believe it or not, you already know some homomorphisms!
 \end{example}
 
 
-\begin{example}[The gradient]
+\begin{example}[The gradient]\label{EG:grad}\index{gradient}
+  Now recall that $C^\infty(\R,\R^n)$ is the set of functions from
+  $\R$ to $\R^n$ whose derivatives are all continuous. Consider the
+  gradient
   \begin{align*}
     \grad:C^\infty(\R,\R^n) &\to C^\infty(\R^n,\R^n)\\
     F &\mapsto \grad F.
+  \end{align*}
+  The function $\grad$ is a homomorphism as
+  \begin{align*}
+    \grad(F + G) = \grad F + \grad G.
+  \end{align*}
+\end{example}
+
+
+\begin{example}[The homothety map]\label{EG:he}\index{homothety map}
+  Consider the following
+  \begin{align*}
+    \eta: \Z &\to \Z\\
+    x &\mapsto \underbrace{x+x+\dots+x}_{\text{$a$ copies of $x$}} = a\cdot x.
+  \end{align*}
+  The function $\eta$ is a homomorphism as
+  \begin{align*}
+    \eta(x + y) &= a\cdot (x+ y)\\
+    &= a\cdot x + a\cdot y\\
+    &= \eta(x) + \eta(y).
   \end{align*}
 \end{example}
 
 
 
-\begin{example}[Linear transformations]
+\begin{example}[Linear transformations]\index{linear transformation}
+  Let $L:\R^n\to \R^n$ be a linear transformation. In this case $L$ is
+  a homomorphism of additive groups, $(\R^n,+)$.
 \end{example}
 
 
-\begin{exercise}
-  Complex conjugation
+\begin{exercise}\index{complex numbers}
+  The set of complex numbers are defined as follows
+  \[
+  \C = \{ a + b i: \text{$a,b\in\R$ and $i^2 = -1$}\}.
+  \]
+  Given a complex number $z\in\C$, the \dfn{complex conjugate}
+  $\bar{z}\in\C$ is defined as
+  \begin{align*}
+    z &= a+bi\\
+    \bar{z} &= a- bi.
+  \end{align*}
+  Prove that complex conjugation is a homomorphism of groups mapping
+  $(\C,+)$ to itself.
+
+
+  Additionally, prove that complex conjugation is \textbf{not} a
+  linear transformation.
 \end{exercise}
 
 
 
 
-\begin{example}[Determinants]
-  Consider the set of invertible linear transformations from $\R^n\to \R^n$:
+\begin{example}[Determinants]\label{EG:det}\index{determinant}
+  Consider $GL(n)$, the set of invertible $n\times n$ matrices with
+  entries in $\R$. Now consider the function
   \begin{align*}
     \det: GL(n) &\to \R^\times \\
-             M  &\mapsto  \det(M)
+             M  &\mapsto  \det(M).
   \end{align*}
   The function $\det$ is a homomorphism as
   \[
@@ -111,6 +152,16 @@ Believe it or not, you already know some homomorphisms!
 \end{example}
 
 
+\begin{exercise}\index{trace}
+  Consider the set $n\times n$ matrices with entries in $\R$ under the
+  operation of componentwise addition, we'll denote this group $\mat(n)$. Now consider the function
+  \begin{align*}
+    \tr:\mat(n) &\to \R\\
+    M &\mapsto \tr(M),
+  \end{align*}
+  where $\tr(M)$ is defined to be the sum of the diagonal entries of
+  $M$. Use induction to prove that $\tr$ is a homomorphism of groups.
+\end{exercise}
 
 
 \begin{lemma}[Homomorphisms preserve identity]\label{L:HPId}
@@ -122,6 +173,22 @@ Believe it or not, you already know some homomorphisms!
   $H$.
 \end{lemma}
 
+\begin{example}[Homomorphisms preserve identity]
+  We will demonstrate the lemma above for homomorphisms in the
+  examples above:
+  \begin{description}
+    \begin{multicols}{3}
+    \item[$(\ref{EG:exp})$] $\exp(0) = 1$
+    \item[$(\ref{EG:log})$] $\log(1) = 0$
+    \item[$(\ref{EG:der})$] $\frac{d}{dx}0 = 0$
+    \item[$(\ref{EG:grad})$] $\grad 0 = \vec{0}$
+    \item[$(\ref{EG:he})$] $\eta(0) = 0$
+    \item[$(\ref{EG:det}$)] $\det(I) = 1$
+    \end{multicols}
+  \end{description}
+\end{example}
+
+
 
 
 \begin{lemma}[Homomorphisms preserve inverses]\label{L:HPI}
@@ -129,7 +196,20 @@ Believe it or not, you already know some homomorphisms!
   \phi(g)^{-1}$.
 \end{lemma}
 
-
+\begin{example}[Homomorphisms preserve identity]
+  We will demonstrate the lemma above for homomorphisms in the
+  examples above:
+  \begin{description}
+    \begin{multicols}{2}
+    \item[$(\ref{EG:exp})$] $\exp(-5) = 1/\exp(5)$
+    \item[$(\ref{EG:log})$] $\log(1/5) = -\log(5)$
+    \item[$(\ref{EG:der})$] $\frac{d}{dx}(-f) = -\frac{d}{dx}f$
+    \item[$(\ref{EG:grad})$] $\grad( -F) = -\grad F$
+    \item[$(\ref{EG:he})$] $\eta(-5) = -\eta( 5)$
+    \item[$(\ref{EG:det}$)] $\det(M^{-1}) = 1/\det(M)$
+    \end{multicols}
+  \end{description}
+\end{example}
 
 
 \subsection{Isomorphisms}
