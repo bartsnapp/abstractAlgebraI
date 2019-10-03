@@ -20,6 +20,11 @@ turn our study to the functions on groups.
 
 \section{Homomorphisms}
 
+
+A \textit{homomorphism} is a function between groups that somehow
+``preserves'' the structure of the group.
+
+
 \begin{definition}\index{homomorphism!of groups}\index{group homomorphism}
   Let $(G,\star)$ and $(H,\diamond)$ be groups. A function
   \[
@@ -165,9 +170,9 @@ Believe it or not, you already know some homomorphisms!
 
 
 \begin{lemma}[Homomorphisms preserve identity]\label{L:HPId}
-  Let $\phi:G\to H$ be a homomorphism of groups. Prove that
+  If $\phi:G\to H$ is a homomorphism of groups, then
   \[
-  \phi(e_G) = e_H,
+  \phi(e_G) = e_H
   \]
   where $e_G$ is the identity of $G$ and $e_H$ is the identity of
   $H$.
@@ -183,7 +188,7 @@ Believe it or not, you already know some homomorphisms!
     \item[$(\ref{EG:der})$] $\frac{d}{dx}0 = 0$
     \item[$(\ref{EG:grad})$] $\grad 0 = \vec{0}$
     \item[$(\ref{EG:he})$] $\eta(0) = 0$
-    \item[$(\ref{EG:det}$)] $\det(I) = 1$
+    \item[$(\ref{EG:det})$] $\det(I) = 1$
     \end{multicols}
   \end{description}
 \end{example}
@@ -196,7 +201,7 @@ Believe it or not, you already know some homomorphisms!
   \phi(g)^{-1}$.
 \end{lemma}
 
-\begin{example}[Homomorphisms preserve identity]
+\begin{example}[Homomorphisms preserve inverses]
   We will demonstrate the lemma above for homomorphisms in the
   examples above:
   \begin{description}
@@ -206,37 +211,73 @@ Believe it or not, you already know some homomorphisms!
     \item[$(\ref{EG:der})$] $\frac{d}{dx}(-f) = -\frac{d}{dx}f$
     \item[$(\ref{EG:grad})$] $\grad( -F) = -\grad F$
     \item[$(\ref{EG:he})$] $\eta(-5) = -\eta( 5)$
-    \item[$(\ref{EG:det}$)] $\det(M^{-1}) = 1/\det(M)$
+    \item[$(\ref{EG:det})$] $\det(M^{-1}) = 1/\det(M)$
     \end{multicols}
   \end{description}
 \end{example}
 
 
-\subsection{Isomorphisms}
-
-\begin{definition}
-  Let $\phi:G\to H$ be a homomorphism of groups. The map $\phi$ is an
-  \dfn{isomorphism} if $\phi$ is bijective.
-\end{definition}
-
-
-\section{Kernels and images}
 
 
 
-\begin{definition}
-  Let $\phi:G\to H$ be a group homomorphism. The \dfn{kernel} of
-  $\phi$,
-  \[
-  \ker(\phi) := \{g\in G: \phi(g) = e_H\}.
-  \]
-  is the subset of $G$ that $\phi$ maps to the identity $e_H\in H$.
-\end{definition}
+\begin{exercise}
+  Prove that a group $G$ is Abelian if and only if the mapping
+  \begin{align*}
+    \phi: G &\to G\\
+    g &\mapsto g^2
+  \end{align*}
+  is a homomorphism.
+\end{exercise}
 
 
-\begin{lemma}[Kernels are normal subgroups]\label{L:kerN}
-  If $\phi:G\to H$ is a group homomorphism, then $\ker(\phi)\normal G$.
-\end{lemma}
+\begin{exercise}
+  Prove that a group $G$ is Abelian if and only if the mapping
+  \begin{align*}
+    \phi: G &\to G\\
+    g &\mapsto g^{-1}
+  \end{align*}
+  is a homomorphism.
+\end{exercise}
+
+\begin{exercise}
+  Prove that a group $G$ is Abelian if and only if the mapping
+  \begin{align*}
+    \phi: G\times G &\to G\\
+    (a,b) &\mapsto ab
+  \end{align*}
+  is a homomorphism.
+\end{exercise}
+
+
+\begin{exercise}
+  Determine the number of distinct homomorphisms $\phi:\Z_m\to \Z_n$ in
+  terms of $m$ and $n$. Be sure to prove that your answer is correct.
+\end{exercise}
+
+\begin{exercise}\index{Frobenius map}
+  Let $p$ be a prime and consider the group of polynomials in $x$ with
+  coefficients in $\Z_p$ under addition. This group is denoted by
+  $\Z_p[x]$. Let $\ph:\Z_p[x]\to\Z_p[x]$ be the map given by
+  $\phi(f)=f^p$. Prove that $\phi$ is a homomorphism. This map is
+  called the \textbf{Frobenius map}.
+\end{exercise}
+
+
+
+
+\section{Subgroups, kernels and images}
+
+
+Now we will investigate how homomorphisms act on subgroups. There will
+also be two subgroups of particular interest, the kernel of a
+homomorphism and the image of a homomorphism.
+
+
+
+\subsection{Subgroups}
+
+Homomorphisms map subgroups to subgroups.
+
 
 \begin{lemma}[Homomorphisms preserve subgroups]\label{L:hps}
   Consider a homomorphism of groups $\phi:G\to H$, and let $S\subgp
@@ -260,7 +301,30 @@ Believe it or not, you already know some homomorphisms!
 
 
 
-\begin{lemma}[Kernels and injectivity]
+
+\subsection{Kernels and images}
+
+
+\begin{definition}
+  Let $\phi:G\to H$ be a group homomorphism. The \dfn{kernel} of
+  $\phi$,
+  \[
+  \ker(\phi) := \{g\in G: \phi(g) = e_H\}.
+  \]
+  is the subset of $G$ that $\phi$ maps to the identity $e_H\in H$.
+\end{definition}
+
+
+
+
+
+\begin{lemma}[Kernels are normal subgroups]\label{L:kerN}
+  If $\phi:G\to H$ is a group homomorphism, then $\ker(\phi)\normal G$.
+\end{lemma}
+
+
+
+\begin{lemma}[Kernels and injectivity]\label{L:kerinj}
   A homomorphism of groups $\phi:G\to H$ is injective if and only if
   $\ker(\phi) = \{e_G\}$.
   \begin{proof}
@@ -298,12 +362,94 @@ Believe it or not, you already know some homomorphisms!
 \end{lemma}
 
 
+\begin{exercise}
+  Consider the group $(\R^\times,\cdot)$. Prove that
+  the map
+  \begin{align*}
+    \phi:\R^\times &\to \R^\times\\
+    x &\mapsto |x|
+  \end{align*}
+  is a homomorphism. Explicitly identify $\ker(\phi)$ and
+  $\im(\phi)$.
+\end{exercise}
+
+
+\begin{exercise}
+  Consider the group $(\Z,+)$. Prove that
+  the map
+  \begin{align*}
+    \phi:\Z &\to \Z_n\\
+    x &\mapsto x\pmod{n}
+  \end{align*}
+  is a homomorphism. Explicitly identify $\ker(\phi)$ and
+  $\im(\phi)$.
+\end{exercise}
+
+
+\begin{exercise}
+  Consider the group $(\Z_{12},+)$. Prove that the map
+  \begin{align*}
+    \phi:\Z_{12} &\to \Z_{12}\\
+    x &\mapsto 3\cdot x
+  \end{align*}
+  is a homomorphism. Explicitly identify $\ker(\phi)$ and
+  $\im(\phi)$.
+\end{exercise}
 
 
 
+\begin{exercise}
+  Consider the group $(\R^\times,\cdot)$ and let $n\in \N$. Prove that
+  the map
+  \begin{align*}
+    \phi:\R^\times &\to \R^\times\\
+    x &\mapsto x^n
+  \end{align*}
+  is a homomorphism. Explicitly identify $\ker(\phi)$ and
+  $\im(\phi)$.
+\end{exercise}
+
+\begin{exercise}
+  Consider the group $GL(2)$. Prove that the map
+  \begin{align*}
+    \phi:GL(2) &\to \R^\times\\
+    M &\mapsto \det(M)
+  \end{align*}
+  is a homomorphism. Explicitly identify $\ker(\phi)$ and
+  $\im(\phi)$.
+\end{exercise}
 
 
-\begin{exercise}[Canonical surjection]
+
+\begin{exercise}
+  Let $\R[x]$ denote the group of all polynomials in one variable with
+  real coefficients under addition. Meaning
+  \[
+  f = a_n\cdot x^{n} + a_{n-1}x_{n-1} + \cdots + a_1x + a_0
+  \]
+  where $n\in\N\cap{0}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
+  let $f'$ denote the derivative of $f$. Show that the map
+  \begin{align*}
+    \frac{d}{dx}:\R[x]&\to\R[x]\\
+    f  &\mapsto f'
+  \end{align*}
+  is a homomorphism of groups. Explicitly identify $\ker\left(\frac{d}{dx}\right)$ and
+  $\im\left(\frac{d}{dx}\right)$.
+\end{exercise}
+
+
+
+\begin{exercise}
+  Determine all homomorphisms from $\Z_{12}$ to $\Z_{30}$.
+  \begin{hint}
+    $\Z_{12}$ is cyclic, hence all homomorphisms are determined by
+    where they map the generator.
+  \end{hint}
+\end{exercise}
+
+
+
+\begin{theorem}[Canonical surjection]
   Let $G$ be a group and $N$ be a normal subgroup of $G$. Prove that
   \begin{align*}
   \pi:G &\to G/N\\
@@ -312,32 +458,90 @@ Believe it or not, you already know some homomorphisms!
   is a surjective homomorphism. This surjection is called the
   \dfn{canonical surjection} or \dfn{natural surjection} from $G$ to
   $G/N$.
+  \begin{sketch}
+    Just check that this is a surjective homomorphism.
+  \end{sketch}
+\end{theorem}
+
+
+\begin{corollary}[Normal subgroups are kernels]
+  Given a group $G$, every normal subgroup of $G$ is the kernel of
+  some canonical surjection $\pi:G\to G/N$.
+\end{corollary}
+
+
+
+
+\section{Isomorphisms}
+
+At this point we are ready to formalize our definition of an
+\textit{isomorphism}.
+
+\begin{definition}
+  Let $\phi:G\to H$ be a homomorphism of groups. The map $\phi$ is an
+  \dfn{isomorphism} if $\phi$ is bijective.
+
+
+  Two groups $G$ and $H$ are said to be \dfn{isomorphic groups} if
+  there exists an isomorphism mapping $G$ to $H$, or $H$ to $G$.  In
+  this case, we write $G\iso H$.\index{G=H@$G\iso H$}
+\end{definition}
+
+
+This new definition says that if two finite groups are isomorphic,
+then there Cayley tables for the groups that ``look the same.''
+
+\begin{exercise}
+  Prove that $\exp$ is an isomorphism from $(\R,+)$ to $(\R_{>
+    0},\cdot)$.
 \end{exercise}
-
-
-
-
-
-\section{Isomorphisms revisited}
-
-
-
-
-
-
-
-
-
-
 
 
 \begin{exercise}
-  Prove that addition is an associative operation  over $\Z$.
+  Let $G = (-1,1)\subset \R$ be a group with the operation
+  \[
+  x\cdot y := \frac{x+y}{1+xy}.
+  \]
+  Prove that $G$ is isomorphic to $(\R,+)$.
 \end{exercise}
 
 \begin{exercise}
-  Prove that multiplication is an associative operation  over $\Z$.
+  Prove that $\Z_n$ is isomorphic to $\Z/n\Z$.
 \end{exercise}
+
+
+\begin{exercise}
+  Is $\Z_3\times \Z_9$ isomorphic to $\Z_{27}$? Prove that your answer
+  is correct.
+\end{exercise}
+
+\begin{exercise}
+  Is $\Z_3\times \Z_5$ isomorphic to $\Z_{15}$? Prove that your answer
+  is correct.
+\end{exercise}
+
+\begin{exercise}
+  Let $\phi:\Z_{16}\to\Z_{17}^\times$ be given by
+  \[
+  \phi(k)= 3^k \pmod{17}.
+  \]
+  Show that $\phi$ is an isomorphism. Note, one way of proving that
+  $\phi$ is bijective would be to find the inverse of $\phi$. This is
+  quite difficult in general and is known as the \dfn{discrete log
+    problem}.
+\end{exercise}
+
+
+
+%% \section{Isomorphisms revisited}
+
+%% \begin{exercise}
+%%   Prove that addition is an associative operation  over $\Z$.
+%% \end{exercise}
+
+%% \begin{exercise}
+%%   Prove that multiplication is an associative operation  over $\Z$.
+%% \end{exercise}
 
 
 

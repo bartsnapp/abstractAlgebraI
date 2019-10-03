@@ -33,7 +33,7 @@ of subgroups called \textit{normal subgroups}.
   a\star N = N\star a,
   \]
   meaning every left coset is equal to the right coset involving the
-  same group element. In this case we write $N\normal G$. \index{normal@$\normal$}
+  same group element. In this case we write $N\normal G$. \index{normal@$\normal$}\index{N<G@$N\normal G$}
 \end{definition}
 
 \begin{corollary}
@@ -179,13 +179,13 @@ normal subgroup. Of course to make a group, we need an associative
 operation.  This next lemma is inspired by Lemma~\ref{L:mawd} and
 Lemma~\ref{L:mmwd}, and in fact, it proves both results.
 
-\begin{lemma}[Coset product is well defined]
+\begin{lemma}[Coset product is well-defined]\index{well-defined}\label{L:cpwd}
   Let $N$ be a subgroup of a group $(G,\star)$ with $a,b\in G$.  The
   product on cosets
   \[
-  (a\star N) \star (b\star N ) := (a\star b)\star N
+  (a\star N) \star (b\star N ) = (a\star b)\star N
   \]
-  is well defined if and only if $N$ is a normal subgroup of $G$.
+  is well-defined if and only if $N$ is a normal subgroup of $G$.
   \begin{proof}
         $(\Rightarrow)$ Suppose that if
     \begin{align*}
@@ -250,13 +250,13 @@ Lemma~\ref{L:mmwd}, and in fact, it proves both results.
   \end{proof}
 \end{lemma}
 
-\begin{corollary}[Modular addition is well defined]
-  Addition on $\Z_n$ is well defined.
+\begin{corollary}[Modular addition is well-defined]
+  Addition on $\Z_n$ is well-defined.
 \end{corollary}
 
 
-\begin{corollary}[Modular multiplication is well defined]
-  Multiplication on $\Z_n$ is well defined.
+\begin{corollary}[Modular multiplication is well-defined]
+  Multiplication on $\Z_n$ is well-defined.
 \end{corollary}
 
 
@@ -272,6 +272,16 @@ Lemma~\ref{L:mmwd}, and in fact, it proves both results.
     group.
   \end{proof}
 \end{theorem}
+
+\begin{exercise}
+  Let $G$ be a group and $N\normal G$. Find the order of $G/N$.
+\end{exercise}
+
+
+\begin{exercise}
+  Prove that every quotient group of a cyclic group is cyclic.
+\end{exercise}
+
 
 \begin{exercise}
   Write out the elements of $\Z/2\Z$ and use a Cayley table to show
