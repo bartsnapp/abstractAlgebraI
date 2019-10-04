@@ -199,6 +199,10 @@ Believe it or not, you already know some homomorphisms!
 \begin{lemma}[Homomorphisms preserve inverses]\label{L:HPI}
   If $\phi:G\to H$ is a group homomorphism, then $\phi(g^{-1}) =
   \phi(g)^{-1}$.
+  \begin{sketch}
+    Use the definition of an inverse and the definition of a
+    homomorphism.
+  \end{sketch}
 \end{lemma}
 
 \begin{example}[Homomorphisms preserve inverses]
@@ -286,7 +290,29 @@ Homomorphisms map subgroups to subgroups.
   \phi(S) := \{\phi(g): g\in S\}.
   \]
   In this case, $\phi(S) \subgp H$.
+  \begin{sketch}
+    Use the subgroup criterion, Lemma~\ref{T:sc}.
+  \end{sketch}
 \end{lemma}
+
+
+\begin{example}[Homomorphisms preserve subgroups]
+  Consider $\exp:(\R,+)\to(\R_{>0},\cdot)$. In this case,
+  $\Z\subgp\R$ and
+  \[
+  \exp(\Z) = \{\dots, e^{-3},e^{-2},e^{-1},e^0,e^1,e^2,e^3,\dots\}.
+  \]
+  We leave it to the reader to show $\exp(\Z)\subgp \R_{>0}$.
+
+  
+
+  Also consider $\det:GL(n)\to \R^\times$. In this case, $O(n) \subgp
+  GL(n)$ and
+  \[
+  \det(O(n)) = \{-1,1\}\subgp\R^\times.
+  \]
+\end{example}
+
 
 
 
@@ -297,8 +323,26 @@ Homomorphisms map subgroups to subgroups.
   \phi^{-1}(T) := \{g\in G: \phi(g)\in T\}.
   \]
   In this case, $\phi^{-1}(T) \subgp G$.
+  \begin{sketch}
+    Use the subgroup criterion, Lemma~\ref{T:sc}.
+  \end{sketch}
 \end{lemma}
 
+\begin{example}[Preimages preserve subgroups]
+  Consider $\exp:(\R,+)\to(\R_{>0},\cdot)$. In this case,
+  $S=\{e^n:n\in\Z\}\subgp\R$ and
+  \[
+  \exp^{-1}(S) = \Z\subgp\R.
+  \]
+
+  
+
+  Also consider $\det:GL(n)\to \R^\times$. In this case,
+  $S=\{-1,1\}\subgp \R^\times$ and
+  \[
+  {\det}^{-1}(S) = O(n).
+  \]
+\end{example}
 
 
 
@@ -320,6 +364,9 @@ Homomorphisms map subgroups to subgroups.
 
 \begin{lemma}[Kernels are normal subgroups]\label{L:kerN}
   If $\phi:G\to H$ is a group homomorphism, then $\ker(\phi)\normal G$.
+  \begin{sketch}
+    Use the normal subgroup criterion, Lemma~\ref{L:nsc}.
+  \end{sketch}
 \end{lemma}
 
 
@@ -425,7 +472,7 @@ Homomorphisms map subgroups to subgroups.
   Let $\R[x]$ denote the group of all polynomials in one variable with
   real coefficients under addition. Meaning
   \[
-  f = a_n\cdot x^{n} + a_{n-1}x_{n-1} + \cdots + a_1x + a_0
+  f = a_n\cdot x^{n} + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
   \]
   where $n\in\N\cap{0}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
   let $f'$ denote the derivative of $f$. Show that the map
@@ -433,8 +480,8 @@ Homomorphisms map subgroups to subgroups.
     \frac{d}{dx}:\R[x]&\to\R[x]\\
     f  &\mapsto f'
   \end{align*}
-  is a homomorphism of groups. Explicitly identify $\ker\left(\frac{d}{dx}\right)$ and
-  $\im\left(\frac{d}{dx}\right)$.
+  is a homomorphism of additive groups. Explicitly identify
+  $\ker\left(\frac{d}{dx}\right)$ and $\im\left(\frac{d}{dx}\right)$.
 \end{exercise}
 
 

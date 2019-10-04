@@ -12,5 +12,41 @@
 \end{abstract}
 \maketitle
 
+\begin{definition}
+  A \dfn{field} is a set $K$ with two operations that we will denote
+  by $+$ and $\cdot$ such that the following properties hold:
+  \begin{description}
+  \item[Closure] If $a,b\in K$, then $a+b\in K$ and $a\cdot b\in K$.
+  \item[Associativity] If $a,b,c\in K$, then
+    \[
+    a+(b+ c)  = (a+ b)+c\quad\text{and}\quad a\cdot(b\cdot c)  = (a\cdot b)\cdot c.
+    \]
+  \item[Commutativity] If $a,b\in K$, then
+    \[
+    a+b = b+a\quad\text{and}\quad a\cdot b = b\cdot a.
+    \]
+  \item[Identities] There exists $0,1\in K$ such that for all $a\in K$
+    \[
+    0+a = a + 0 = a \quad\text{and}\quad 1\cdot a = a\cdot 1 = a.
+    \]
+  \item[Inverses] For all $a\in K$, there exists $(-a)$, and if $a\ne
+    0$, there exists $a^{-1}$ such that
+    \[
+    a+(-a) = (-a)+ a = 0\quad\text{and}\quad a\cdot a^{-1} = a^{-1}\cdot a  = 1.
+    \]
+  \item[Distributivity] If $a,b,c\in K$, then 
+    \[
+    a\cdot (b+c) = a\cdot b+ a\cdot c.
+    \]
+  \end{description}
+\end{definition}
+
+
+\begin{exercise}
+  Let $K$ be a field. Prove that $(-1)\cdot a = (-a)$.
+\end{exercise}
+
+
+
 dfn, basic eg
 \end{document}

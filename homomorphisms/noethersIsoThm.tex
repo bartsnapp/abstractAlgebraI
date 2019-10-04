@@ -105,23 +105,25 @@ group homomorphisms. It's saying that the \textbf{image of any
   Let $\R[x]$ denote the group of all polynomials in one variable with
   real coefficients under addition. Meaning
   \[
-  f = a_n\cdot x^{n} + a_{n-1}x_{n-1} + \cdots + a_1x + a_0
+  f = a_n\cdot x^{n} + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
   \]
-  where $n\in\N\cap{0}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
+  where $n\in\N\cup\{0\}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
   let $f'$ denote the derivative of $f$. Show that the map
   \begin{align*}
     \frac{d}{dx}:\R[x]&\to\R[x]\\
     f  &\mapsto f'
   \end{align*}
-  is a homomorphism of groups. Explicitly identify
-  $\ker\left(\frac{d}{dx}\right)$ and $\im\left(\frac{d}{dx}\right)$.
-  In this case,
+  is a homomorphism of additive groups.  In this case,
   \[
   \ker\left(\frac{d}{dx}\right) = \{c:c\in \R\}
   \]
   and
   \[
   \im\left(\frac{d}{dx}\right) = \{f\in\R[x]:f(0)=0\}
+  \]
+  Moveover, by Noether's isomorphism theorem,
+  \[
+  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \iso \im\left(\frac{d}{dx}\right)
   \]
   
 \end{example}
