@@ -1,0 +1,110 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{The fraction isomorphism theorem}
+
+\begin{document}
+\begin{abstract}
+  We introduce the fraction isomorphism theorem, also known as the
+  third isomorphism theorem.
+\end{abstract}
+\maketitle
+
+\index{third isomorphism theorem}
+Previously we seen groups like this
+
+
+\begin{tikzcd}[row sep=0in]
+    & \Z_{30}/\<10\>\ar[ldd,-]  \ar[white!50!black,ddd,-] \ar[rdddd,-] &       \\
+    &\phantom{MM} & \\
+    \<2\> /\<10\> \ar[white!50!black,ddd,-] &   &  \\
+    & \color{white!50!black}\<3\>/\<10\>\ar[white!50!black,ldd,-]\ar[white!50!black,rdddd,-] & \\
+    &  &  \<5\> /\<10\>\ar[white!50!black,ddd,-]\\
+     \color{white!50!black}\<6\>/\<10\>\ar[white!50!black,rdddd,-]& & \\
+    &\<10\>/\<10\> \equiv \<0\> \ar[white!50!black,ddd,-]\ar[ruu,-,white,line width=2mm]\ar[ruu,-]\ar[luuuu,-,white,line width=2mm]\ar[luuuu,-] & \\
+    & & \color{white!50!black} \<15\>/\<10\>\ar[white!50!black,ldd,-]\\
+    &\phantom{MM} & \\
+    &  \color{white!50!black}\<0\>/\<10\> &
+\end{tikzcd}
+But how do we understand groups like 
+
+
+\begin{theorem}[Fraction isomorphism theorem]
+  Let $M\normal N\normal G$. In this case,
+  \[
+  \frac{G/M}{N/M} \iso \frac{G}{N}.
+  \]
+  \begin{proof}
+    Our plan is to define a surjective map
+    \[
+    \pi:G/M \onto G/N,
+    \]
+    we'll show that $\ker(\pi) = N/M$, and hence by Noether's
+    isomorphism theorem, Theorem~\ref{T:NI},
+    \[
+    \frac{G/M}{N/M} \iso \frac{G}{N}.
+    \]
+    \textbf{First we define a map from $\boldsymbol{G/M}$ to
+      $\boldsymbol{G/N}$.} Let $a\in G$ and define
+    \begin{align*}
+      \pi: G/M &\onto G/N \\
+      aM &\mapsto aN
+    \end{align*}
+    \textbf{We must check this map is
+      well-defined.}\index{well-defined} Suppose for $a,b\in G$
+    \[
+    a M = bM.
+    \]
+    we must show that $aN = bN$. First note that if $aM = bM$, then $a
+    \in bM$. Hence $a=bm$ for some $m\in M$. Write with me
+    \begin{align*}
+      \pi(aM) &= aN\\
+      &= bm N\\
+      &= bN.  & &\text{(since $M\subset N$)}
+    \end{align*}
+    Since $\pi(a M) = \pi(bM)$, our map is well-defined.
+
+    \textbf{Now we must show that $\boldsymbol\pi$ is a homomorphism.}
+    Write with me
+    \begin{align*}
+      \pi(aMbM) &= \phi(ab M) & &\text{(by  Lemma~\ref{L:cpwd})} \\
+      &= ab N \\
+      &= aN bN & &\text{(by  Lemma~\ref{L:cpwd})} \\
+      &= \pi(aM)\pi(bM).
+    \end{align*}
+
+
+    \textbf{We must show that $\boldsymbol{\pi}$ is surjective.}
+    Consider any element $a\in G$. Then $aN\in \im(\pi)$ since
+    $M\subset N$. In particular, this shows that $\im(\pi) = G/N$.
+
+    
+    \textbf{We must show that $\boldsymbol{\ker(\pi)=N/M}$.} We'll use
+    double containment.
+
+    $(\subset)$ We'll show that $\ker(\pi)\subset N/M$.  Suppose that
+    $kM\in\ker(\pi)$. In this case, $k\in N/M$.
+    
+
+    $(\supset)$ We'll show that $N/M\subset \ker(\pi)$. Suppose that
+    $nM\in N/M$. In this case, $\pi(nM) = nN = N$. Thus
+    $\ker(\pi)=N/M$.
+
+
+    \textbf{Use Noether's isomorphism theorem to complete the proof.} Since
+    \[
+    \ker(\pi) = N/M\quad\text{and}\quad\im(\pi) = G/N,
+    \]
+    by Noether's isomorphism theorem
+    \begin{align*}
+    \frac{G/M}{\ker(\pi)} &\iso \im(\pi)\\
+    \frac{G/M}{N/M} &\iso \frac{G}{N}.
+    \end{align*}
+    This completes the proof.
+  \end{proof}
+\end{theorem}
+
+\end{document}

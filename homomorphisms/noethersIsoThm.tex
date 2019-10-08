@@ -8,10 +8,12 @@
 
 \begin{document}
 \begin{abstract}
-  We prove a fundamental theorem about homomorphisms.
+  We introduce Noether's isomorphism theorem, also known as the first
+  isomorphism theorem.
 \end{abstract}
 \maketitle
 
+\index{first isomorphism theorem}
 Sometimes called the \textit{first isomorphism theorem}, Noether's
 isomorphism theorem first appeared in her paper \link[\textit{Abstrakter
   Aufbau der Idealtheorie in algebraischen Zahl- und
@@ -33,25 +35,25 @@ greatest mathematicians of the 20th century. Let's see her isomorphism theorem.
 
     \textbf{First we define a map from
       $\boldsymbol{\frac{G}{\ker(\phi)}}$ to
-      $\boldsymbol{\im(\phi)}$.}  Let $a,b\in G$. Set
+      $\boldsymbol{\im(\phi)}$.}  Let $a\in G$. Set
     \begin{align*}
       \eta: \frac{G}{\ker(\phi)} &\to \im(\phi)\\
       a\ker(\phi) &\mapsto \phi(a).
     \end{align*}
     \textbf{We must check this map is
-      well-defined.}\index{well-defined} Suppose
+      well-defined.}\index{well-defined} Suppose for $a,b\in G$
     \[
     a \ker(\phi) = b\ker(\phi).
     \]
     We must show that $\phi(a) = \phi(b)$. First note that if $a
-    \ker(\phi) = b\ker(\phi)$, this means that $b\in
-    a\ker(\phi)$. Hence $b = ak$ for some $k\in\ker(\phi)$. Now write
+    \ker(\phi) = b\ker(\phi)$, this means that $a\in
+    b\ker(\phi)$. Hence $a = bk$ for some $k\in\ker(\phi)$. Now write
     with me
     \begin{align*}
-      \phi(b) &=\phi(ak)\\
-      &=\phi(a)\phi(k)\\
-      &=\phi(a) e_H\\
-      &=\phi(a).
+      \phi(a) &=\phi(bk)\\
+      &=\phi(b)\phi(k)\\
+      &=\phi(b) e_H\\
+      &=\phi(b).
     \end{align*}
     Since $\phi(a) = \phi(b)$, we see that $\eta$ is well-defined.
 
@@ -105,7 +107,7 @@ group homomorphisms. It's saying that the \textbf{image of any
   Let $\R[x]$ denote the group of all polynomials in one variable with
   real coefficients under addition. Meaning
   \[
-  f = a_n\cdot x^{n} + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
+  f = a_nx^{n} + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
   \]
   where $n\in\N\cup\{0\}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
   let $f'$ denote the derivative of $f$. Show that the map
@@ -119,13 +121,21 @@ group homomorphisms. It's saying that the \textbf{image of any
   \]
   and
   \[
-  \im\left(\frac{d}{dx}\right) = \{f\in\R[x]:f(0)=0\}
+  \im\left(\frac{d}{dx}\right) =\R[x].
   \]
   Moveover, by Noether's isomorphism theorem,
   \[
-  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \iso \im\left(\frac{d}{dx}\right)
+  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \iso \im\left(\frac{d}{dx}\right).
   \]
-  
+  The isomorphism is given by:
+  \[
+  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \lto^{\frac{d}{dx}} \im\left(\frac{d}{dx}\right)
+  \]
+  and
+  \[
+  \im\left(\frac{d}{dx}\right) \lto^{\iota}\frac{\R[x]}{\ker\left(\frac{d}{dx}\right)}
+  \]
+  where $\iota(f) = \int f \d x$.
 \end{example}
 
 

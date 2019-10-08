@@ -100,17 +100,17 @@ Believe it or not, you already know some homomorphisms!
 
 
 \begin{example}[The homothety map]\label{EG:he}\index{homothety map}
-  Consider the following
+  Let $(G,\star)$ be a group and $a\in\N$ and consider the following
   \begin{align*}
-    \eta: \Z &\to \Z\\
-    x &\mapsto \underbrace{x+x+\dots+x}_{\text{$a$ copies of $x$}} = a\cdot x.
+    \eta: G &\to G\\
+    x &\mapsto \underbrace{x\star x\star \dots\star x}_{\text{$a$ copies of $x$}}.
   \end{align*}
   The function $\eta$ is a homomorphism as
   \begin{align*}
-    \eta(x + y) &= a\cdot (x+ y)\\
-    &= a\cdot x + a\cdot y\\
-    &= \eta(x) + \eta(y).
+    \eta(x \star  y) &= \underbrace{(x\star  y) \star \cdots \star (x\star  y)}_{\text{$a$ copies of $(x\star y)$}} \\
+    &= \eta(x) \star  \eta(y).
   \end{align*}
+  This can be rigorously proved through induction.
 \end{example}
 
 
@@ -176,6 +176,9 @@ Believe it or not, you already know some homomorphisms!
   \]
   where $e_G$ is the identity of $G$ and $e_H$ is the identity of
   $H$.
+  \begin{sketch}
+    Use the fact that identities are unique.
+  \end{sketch}
 \end{lemma}
 
 \begin{example}[Homomorphisms preserve identity]
@@ -472,9 +475,9 @@ Homomorphisms map subgroups to subgroups.
   Let $\R[x]$ denote the group of all polynomials in one variable with
   real coefficients under addition. Meaning
   \[
-  f = a_n\cdot x^{n} + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
+  f = a_n x^{n} + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
   \]
-  where $n\in\N\cap{0}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
+  where $n\in\N\cup\{0\}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
   let $f'$ denote the derivative of $f$. Show that the map
   \begin{align*}
     \frac{d}{dx}:\R[x]&\to\R[x]\\

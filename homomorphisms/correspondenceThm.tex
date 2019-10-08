@@ -8,10 +8,12 @@
 
 \begin{document}
 \begin{abstract}
-  We now inverstigate the subgroup structure of quotient groups.
+  We introduce the coorespondence theorem, also known as the fourth
+  isomorphism theorem.
 \end{abstract}
 \maketitle
 
+\index{fourth isomorphism theorem}
 This next theorem says that subgroups of a quotient group $G/N$ have
 the same relative structure as subgroups of $G$ that contain $N$.
 
@@ -31,7 +33,7 @@ the same relative structure as subgroups of $G$ that contain $N$.
   $\mathcal{G}\leftrightarrow\mathcal{\bar{G}}$.
   \begin{proof}
     \textbf{First define a map from $\pmb{\mathcal{G}}$ to
-      $\pmb{\mathcal{N}}$.} Let $\pi:G\to G/N$ be the canonical
+      $\pmb{\mathcal{\bar{G}}}$.} Let $\pi:G\to G/N$ be the canonical
     surjection.  By Lemma~\ref{L:hps}, define
     \begin{align*}
     \pi_*:\mathcal{G} &\to \bar{\mathcal{G}}\\
@@ -45,7 +47,7 @@ the same relative structure as subgroups of $G$ that contain $N$.
     \[
     \{\bar{e}\}\subset \pi_*(S') \subset \pi_*(S)\subset G/N.
     \]
-    \textbf{Now define a map from $\pmb{\mathcal{H}}$ to
+    \textbf{Now define a map from $\pmb{\mathcal{\bar{G}}}$ to
       $\pmb{\mathcal{G}}$.}
     By Lemma~\ref{L:pps}, define
     \begin{align*}
@@ -89,6 +91,40 @@ the same relative structure as subgroups of $G$ that contain $N$.
 \end{corollary}
 
 
+\begin{example}[A quotient of $\boldsymbol{{\pmb\Z}_{30}}$]
+  We can witness the correspondence theorem in action:
+  \[
+  \begin{tikzcd}[row sep=0in]
+    & \Z_{30} \ar[ldd,-]  \ar[ddd,-] \ar[rdddd,-] &       \\
+    &\phantom{MM} & \\
+    \<2\>  \ar[ddd,-] &   &  \\
+    & \<3\>\ar[ldd,-]\ar[rdddd,-] & \\
+    &  &  \<5\> \ar[ddd,-]\\
+    \<6\> \ar[rdddd,-]& & \\
+    &\<10\> \ar[ddd,-]\ar[ruu,-,white,line width=2mm]\ar[ruu,-]\ar[luuuu,-,white,line width=2mm]\ar[luuuu,-] & \\
+    & & \<15\>\ar[ldd,-]\\
+    &\phantom{MM} & \\
+    & \<0\> &
+  \end{tikzcd}
+  \quad
+  \begin{tikzcd}[row sep=0in]
+    & \Z_{30}/\<10\>\ar[ldd,-]  \ar[white!50!black,ddd,-] \ar[rdddd,-] &       \\
+    &\phantom{MM} & \\
+    \<2\> /\<10\> \ar[white!50!black,ddd,-] &   &  \\
+    & \color{white!50!black}\<3\>/\<10\>\ar[white!50!black,ldd,-]\ar[white!50!black,rdddd,-] & \\
+    &  &  \<5\> /\<10\>\ar[white!50!black,ddd,-]\\
+     \color{white!50!black}\<6\>/\<10\>\ar[white!50!black,rdddd,-]& & \\
+    &\<10\>/\<10\> \equiv \<0\> \ar[white!50!black,ddd,-]\ar[ruu,-,white,line width=2mm]\ar[ruu,-]\ar[luuuu,-,white,line width=2mm]\ar[luuuu,-] & \\
+    & & \color{white!50!black} \<15\>/\<10\>\ar[white!50!black,ldd,-]\\
+    &\phantom{MM} & \\
+    &  \color{white!50!black}\<0\>/\<10\> &
+  \end{tikzcd}
+  \]
+  
+\end{example}
+
+
+
 \begin{corollary}[Correspondence and homomorphisms]
   Let $\phi:G\to H$ be a homomorphism of groups. Set
   \begin{itemize}
@@ -109,5 +145,37 @@ the same relative structure as subgroups of $G$ that contain $N$.
     $\im(\phi)\iso G/\ker(\phi)$.
   \end{proof}
 \end{corollary}
+
+\begin{example}[$\boldsymbol{\pmb{\Z}_{10}\to \pmb{\Z}_{30}}$]
+  Consider the map
+  \begin{align*}
+    \Z_{10} &\to \Z_{30}\\
+    x &\mapsto 3\cdot x
+  \end{align*}
+  First show that this is a injective homomorphism. Now, checkout the
+  lattice diagrams:
+  \[
+  \begin{tikzcd}
+    & \Z_{10} \ar[ld,-]  \ar[rdd,-] &       \\
+    \< 2\> \ar[rdd,-]&       &       \\
+    &       & \<5\> \ar[ld,-]\\
+    & \<0\> &
+  \end{tikzcd}
+  \quad
+  \begin{tikzcd}[row sep=0in]
+    & \Z_{30}/\<10\>\ar[ldd,-]  \ar[white!50!black,ddd,-] \ar[rdddd,-] &       \\
+    &\phantom{MM} & \\
+    \<2\> /\<10\> \ar[white!50!black,ddd,-] &   &  \\
+    & \color{white!50!black}\<3\>/\<10\>\ar[white!50!black,ldd,-]\ar[white!50!black,rdddd,-] & \\
+    &  &  \<5\> /\<10\>\ar[white!50!black,ddd,-]\\
+     \color{white!50!black}\<6\>/\<10\>\ar[white!50!black,rdddd,-]& & \\
+    &\<10\>/\<10\> \equiv \<0\> \ar[white!50!black,ddd,-]\ar[ruu,-,white,line width=2mm]\ar[ruu,-]\ar[luuuu,-,white,line width=2mm]\ar[luuuu,-] & \\
+    & & \color{white!50!black} \<15\>/\<10\>\ar[white!50!black,ldd,-]\\
+    &\phantom{MM} & \\
+    &  \color{white!50!black}\<0\>/\<10\> &
+  \end{tikzcd}
+  \]
+\end{example}
+
 
 \end{document}
