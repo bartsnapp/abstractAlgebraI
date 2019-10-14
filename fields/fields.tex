@@ -22,14 +22,15 @@ and then return to fields.
 
 \begin{definition}
   A \dfn{field} is a set $K$ with two operations that we will denote
-  by $+$ and $\cdot$ such that the following properties hold:
+  by $+$ and $\cdot$, and call addition and multiplication, such that
+  the following properties hold:
   \begin{description}
-  \item[Abelian group under $\pmb{+}$] $(K,+)$ is an Abelian
+  \item[Abelian group under addition] $(K,+)$ is an Abelian
     group with identity element denoted by $0$.
-  \item[Abelian group under $\pmb{\cdot}$] $(K-\{0\},\cdot)$ is
+  \item[Abelian group under multiplication] $(K-\{0\},\cdot)$ is
     an Abelian group with identity element denoted by $1$.
   \item[Distributivity] The operation $\cdot$ distrbutes over $+$,
-    meaning if $a,b,c\in K$,
+    meaning that if $a,b,c\in K$,
     \[
     a\cdot (b+ c) = a\cdot b+ a\cdot c \quad\text{and}\quad (a+ b)\cdot c  = a\cdot c+ b\cdot c.
     \]
@@ -46,7 +47,8 @@ and then return to fields.
     \choice{$\Z$}
     \choice[correct]{$\Z_p$ where $p$ is a prime number}
     \choice{$\Z_m^\times$}
-  \end{exercise}
+  \end{selectAll}
+\end{exercise}
 
 \begin{exercise}
   Let $K$ be a field. Prove that $(-1)\cdot a = (-a)$.
@@ -132,7 +134,7 @@ Prove that in a domain of positive characteristic $p$, the so-called
 
 
 
-\begin{definitio}\index{homomorphism!of fields}\index{field homomorphism}
+\begin{definition}\index{homomorphism!of fields}\index{field homomorphism}
   Let $K$ and $L$ be fields. A function
   \[
   \phi:K\to L
@@ -146,8 +148,24 @@ Prove that in a domain of positive characteristic $p$, the so-called
 \end{definition}
 
 \begin{exercise}
-  Let $\phi: K\to L$
+  Let $\phi:K\to L$ be a homomorphism of fields. Prove that
+  \[
+  \phi(0_K) = 0_K\quad\text{and}\quad\phi(1_K) = 1_L.
+  \]
 \end{exercise}
+
+
+\begin{definition}\index{kernel!field homomorphism}
+  Let $\phi: K\to L$ be a homomorphism of fields. The \textbf{kernel}
+  of $\phi$ is
+  \[
+  \ker(\phi) := \{a\in K:\phi(a) = 0_L\}.
+  \]
+  The \dfn{image} of $\phi$ is
+  \[
+  \im(\phi) = \{\phi(a):a\in K\}.
+  \]
+\end{definition}
 
 
 \begin{example}[The Frobenius homomorphism]
