@@ -12,6 +12,14 @@
 \end{abstract}
 \maketitle
 
+
+In this section we will introduce fields, talk about vector spaces,
+and then return to fields.
+
+
+\section{Fields}
+
+
 \begin{definition}
   A \dfn{field} is a set $K$ with two operations that we will denote
   by $+$ and $\cdot$ such that the following properties hold:
@@ -28,11 +36,140 @@
   \end{description}
 \end{definition}
 
+\begin{exercise} 
+  Which of the following are fields under the canonical operations?
+  Select all that apply.
+  \begin{selectAll}
+    \choice[correct]{$\Q$}
+    \choice[correct]{$\R$}
+    \choice[correct]{$\C$}
+    \choice{$\Z$}
+    \choice[correct]{$\Z_p$ where $p$ is a prime number}
+    \choice{$\Z_m^\times$}
+  \end{exercise}
+
 \begin{exercise}
   Let $K$ be a field. Prove that $(-1)\cdot a = (-a)$.
 \end{exercise}
 
 
+\begin{exercise} 
+  Let $a$ and $b$ be elements of a field $K$. Prove that if $a\cdot b
+  = 0$, then $a$ is zero or $b$ is zero. 
+\end{exercise}
+
+
+\begin{exercise}
+  Note, in the definition of a field, the elements ``$0$'' and ``$1$''
+  are not necessarily the integers who look and sound the same. In
+  particular, nowhere in the definiton of a field does it state what
+  how $0$ acts on field elements by field multiplication. Prove or
+  disprove: $a\cdot 0 = 0$.
+\end{exercise}
+
+
+
+\begin{exercise} 
+  When is $\Z_n$ definitely not a field?
+\end{exercise}
+
+\begin{exercise}\label{E:FF4}
+  Describe a field with four elements.
+  \begin{hint}
+    Trial and error with a Cayley table for addition and a Cayley
+    table for multiplication is not a bad way to start.
+  \end{hint}
+\end{exercise}
+
+
+\begin{exercise}\label{E:FF6} Can you find a field with six elements?
+\end{exercise}
+
+
+\begin{exercise} 
+Let $K$ be a field. Find some quality inherent in $K$ that is
+necessary and sufficient to make the set of ordered pairs in $K\times
+K$ a field when ``addition'' is defined by $\diamond$ and
+``multiplication'' is defined by $\star$:
+\[
+(a,b)\diamond (c,d) = (a+c, b+d)\qquad\text{and}\qquad (a,b)\star (c,d) =
+(ac-bd,ad+bc).
+\]
+Hint: What if $K = \R$? What if $K = \C$? Keep on going!
+\end{exercise}
+
+
+
+
+
+
+Fields can be dichotomized by their \textit{characteristic}.
+
+\begin{definition}
+The \dfn{characteristic} of a field $K$ is the least positive
+integer $n$ such that
+\[
+\underbrace{1 + 1 + \cdots +1}_{\text{$n$ times}} =0.
+\]
+If there is no such positive integer, then we say that $K$ has
+characteristic $0$.
+\end{definition}
+
+\begin{exercise} 
+Prove that if a field has finite characteristic, then its
+characteristic is a prime number.
+\end{exercise}
+
+\begin{exercise}\index{freshman binomial theorem}\label{E:FBT}
+Prove that in a domain of positive characteristic $p$, the so-called
+\textit{freshman binomial theorem} holds:
+\[
+(a+b)^p = a^p + b^p
+\]
+\end{exercise}
+
+
+
+
+
+\begin{definitio}\index{homomorphism!of fields}\index{field homomorphism}
+  Let $K$ and $L$ be fields. A function
+  \[
+  \phi:K\to L
+  \]
+  is a \dfn{homomorphism} of fields if
+  \[
+  \phi(a+b) = \phi(a)+\phi(b)\quad\text{and}\quad\phi(a\cdot b) = \phi(a)\cdot \phi(b),
+  \]
+  where the operations on the left-hand side of the equations might not
+  be the operations on right-hand side of the equations. 
+\end{definition}
+
+\begin{exercise}
+  Let $\phi: K\to L$
+\end{exercise}
+
+
+\begin{example}[The Frobenius homomorphism]
+\end{example}
+
 
 dfn, basic eg
+
+
+\section{Vector spaces}
+
+
+
+\begin{definition}
+  A 
+\end{definition}
+
+dfn, bases dim
+
+\section{Field extensions}
+
+
+
+
 \end{document}

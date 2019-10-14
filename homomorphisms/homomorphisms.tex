@@ -30,7 +30,7 @@ A \textit{homomorphism} is a function between groups that somehow
   \[
   \phi:G\to H
   \]
-  is a \dfn{homomorphism} of groups if
+  is a \textbf{homomorphism} of groups if
   \[
   \phi(a\star b) = \phi(a)\diamond\phi(b).
   \]
@@ -352,7 +352,7 @@ Homomorphisms map subgroups to subgroups.
 \subsection{Kernels and images}
 
 
-\begin{definition}
+\begin{definition}\index{kerphi@$\ker(\phi)$}
   Let $\phi:G\to H$ be a group homomorphism. The \dfn{kernel} of
   $\phi$,
   \[
@@ -399,6 +399,17 @@ Homomorphisms map subgroups to subgroups.
     contradiction.
   \end{proof}
 \end{lemma}
+
+
+\begin{definition}\index{imphi@$\im(\phi)$}
+  Let $\phi:G\to H$ be a group homomorphism. The \dfn{image} of
+  $\phi$,
+  \[
+  \im(\phi) := \{\phi(g): g\in G\}.
+  \]
+  is the subset of $H$ containing all the values of $\phi$.
+\end{definition}
+
 
 
 \begin{lemma}[Images and surjectivity]

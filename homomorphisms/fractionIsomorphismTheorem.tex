@@ -14,31 +14,21 @@
 \maketitle
 
 \index{third isomorphism theorem}
-Previously we seen groups like this
+
+Previously we seen groups like $\<2\>/\<10\>\subgp
+\Z_{30}/\<10\>$. How can we understand this group?
 
 
-\begin{tikzcd}[row sep=0in]
-    & \Z_{30}/\<10\>\ar[ldd,-]  \ar[white!50!black,ddd,-] \ar[rdddd,-] &       \\
-    &\phantom{MM} & \\
-    \<2\> /\<10\> \ar[white!50!black,ddd,-] &   &  \\
-    & \color{white!50!black}\<3\>/\<10\>\ar[white!50!black,ldd,-]\ar[white!50!black,rdddd,-] & \\
-    &  &  \<5\> /\<10\>\ar[white!50!black,ddd,-]\\
-     \color{white!50!black}\<6\>/\<10\>\ar[white!50!black,rdddd,-]& & \\
-    &\<10\>/\<10\> \equiv \<0\> \ar[white!50!black,ddd,-]\ar[ruu,-,white,line width=2mm]\ar[ruu,-]\ar[luuuu,-,white,line width=2mm]\ar[luuuu,-] & \\
-    & & \color{white!50!black} \<15\>/\<10\>\ar[white!50!black,ldd,-]\\
-    &\phantom{MM} & \\
-    &  \color{white!50!black}\<0\>/\<10\> &
-\end{tikzcd}
-But how do we understand groups like 
 
 
 \begin{theorem}[Fraction isomorphism theorem]
-  Let $M\normal N\normal G$. In this case,
+  Let $M\normal G$, $N\normal G$, $M\subset N$. In this case,
   \[
   \frac{G/M}{N/M} \iso \frac{G}{N}.
   \]
   \begin{proof}
-    Our plan is to define a surjective map
+    First note that $M\normal N$, so all of our quotient groups above
+    make sense. Our plan is to define a surjective map
     \[
     \pi:G/M \onto G/N,
     \]
@@ -106,5 +96,19 @@ But how do we understand groups like
     This completes the proof.
   \end{proof}
 \end{theorem}
+
+\begin{example}[A subgroup of a quotient group]
+  Consider $\<2\>/\<10\>\subgp \Z_{30}/\<10\>$. Let's try to
+  understand this
+  \begin{align*}
+    \<2\>/\<10\> &= \frac{2\Z_{30}}{10\Z_{30}}\\
+    &\iso \frac{2\Z/30\Z}{10\Z/30\Z}\\
+    &\iso \frac{2\Z}{10\Z}\\
+    &\iso \frac{\Z}{5\Z}\\
+    &\iso \Z_5.
+  \end{align*}
+\end{example}
+
+
 
 \end{document}
