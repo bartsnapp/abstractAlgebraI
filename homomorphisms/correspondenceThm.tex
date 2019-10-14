@@ -8,7 +8,7 @@
 
 \begin{document}
 \begin{abstract}
-  We introduce the coorespondence theorem, also known as the fourth
+  We introduce the correspondence theorem, also known as the fourth
   isomorphism theorem.
 \end{abstract}
 \maketitle
@@ -92,7 +92,8 @@ the same relative structure as subgroups of $G$ that contain $N$.
 
 
 \begin{example}[A quotient of $\boldsymbol{{\pmb\Z}_{30}}$]
-  We can witness the correspondence theorem in action:
+  We can witness the correspondence theorem in action. Consider the
+  subgroup lattice diagram for $\Z_{30}$:
   \[
   \begin{tikzcd}[row sep=0in]
     & \Z_{30} \ar[ldd,-]  \ar[ddd,-] \ar[rdddd,-] &       \\
@@ -106,21 +107,23 @@ the same relative structure as subgroups of $G$ that contain $N$.
     &\phantom{MM} & \\
     & \<0\> &
   \end{tikzcd}
-  \quad
+  \]
+  Now, let's look at the subgroup lattice diagram for
+  $\Z_{30}/\<10\>$:
+  \[
   \begin{tikzcd}[row sep=0in]
     & \Z_{30}/\<10\>\ar[ldd,-]  \ar[white!50!black,ddd,-] \ar[rdddd,-] &       \\
     &\phantom{MM} & \\
     \<2\> /\<10\> \ar[white!50!black,ddd,-] &   &  \\
     & \color{white!50!black}\<3\>/\<10\>\ar[white!50!black,ldd,-]\ar[white!50!black,rdddd,-] & \\
     &  &  \<5\> /\<10\>\ar[white!50!black,ddd,-]\\
-     \color{white!50!black}\<6\>/\<10\>\ar[white!50!black,rdddd,-]& & \\
+    \color{white!50!black}\<6\>/\<10\>\ar[white!50!black,rdddd,-]& & \\
     &\<10\>/\<10\> \equiv \<0\> \ar[white!50!black,ddd,-]\ar[ruu,-,white,line width=2mm]\ar[ruu,-]\ar[luuuu,-,white,line width=2mm]\ar[luuuu,-] & \\
     & & \color{white!50!black} \<15\>/\<10\>\ar[white!50!black,ldd,-]\\
     &\phantom{MM} & \\
     &  \color{white!50!black}\<0\>/\<10\> &
   \end{tikzcd}
   \]
-  
 \end{example}
 
 
@@ -153,7 +156,7 @@ the same relative structure as subgroups of $G$ that contain $N$.
     x &\mapsto 3\cdot x
   \end{align*}
   First show that this is a injective homomorphism. Now, checkout the
-  lattice diagrams:
+  lattice diagram for $\Z_10$:
   \[
   \begin{tikzcd}
     & \Z_{10} \ar[ld,-]  \ar[rdd,-] &       \\
@@ -161,7 +164,10 @@ the same relative structure as subgroups of $G$ that contain $N$.
     &       & \<5\> \ar[ld,-]\\
     & \<0\> &
   \end{tikzcd}
-  \quad
+  \]
+  We can literally see this subgroup diagram in the subgroup lattice
+  diagram for $\Z_{30}$:
+  \[
   \begin{tikzcd}[row sep=0in]
     & \Z_{30}/\<10\>\ar[ldd,-]  \ar[white!50!black,ddd,-] \ar[rdddd,-] &       \\
     &\phantom{MM} & \\

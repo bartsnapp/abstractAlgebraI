@@ -17,21 +17,21 @@ linear transformations of $\R$-vector spaces are matrices. Our proof
 will be general enough that one could change the set of scalars.
 
 \begin{lemma}[Matricies are linear transformations]
-  The function $\vec{L}: V \to W$ from an $m$-dimensional vector space
+  The function $\vec{T}: V \to W$ from an $m$-dimensional vector space
   $V$ to a $n$-dimensional vector space $W$ is a linear transformation
   if and only if can be represented by a $n\times m$ matrix.
   \begin{proof}
     $(\Rightarrow)$ Recall the definition of a linear transformation,
     for $\vec{u},\vec{v}\in V$ and $s\in \R$:
     \begin{enumerate}
-    \item $\vec{L}(\vec{u}+\vec{v}) = \vec{L}(\vec{u})+\vec{L}(\vec{v})$.
-    \item $\vec{L}(s \vec{v}) = s\vec{L}(\vec{v})$.
+    \item $\vec{T}(\vec{u}+\vec{v}) = \vec{T}(\vec{u})+\vec{T}(\vec{v})$.
+    \item $\vec{T}(s \vec{v}) = s\vec{T}(\vec{v})$.
     \end{enumerate}
     We will show that any function on vector spaces having these
     properties can be expressed as a matrix over the set of scalars.
 
-    The image of $\vec{L}$ is completely determined by the action of
-    $\vec{L}$ on a basis. Let $\{\vec{b}_1,\dots,\vec{b}_m\}$ be a
+    The image of $\vec{T}$ is completely determined by the action of
+    $\vec{T}$ on a basis. Let $\{\vec{b}_1,\dots,\vec{b}_m\}$ be a
     basis for $V$. Then if $\vec{v}\in V$, we may write
     \begin{align*}
       \vec{v} &= \begin{bmatrix}
@@ -43,23 +43,23 @@ will be general enough that one could change the set of scalars.
     \end{align*}
     Now,
     \begin{align*}
-      \vec{L}(\vec{v})&=\vec{L}(a_1\vec{b}_1 + \dots + a_m\vec{b}_m)\\
-      &= \vec{L}(a_1\vec{b}_1) + \dots + \vec{L}(a_m\vec{b}_m) \\
-      &= a_1\vec{L}(\vec{b}_1) + \dots + a_m\vec{L}(\vec{b}_m).
+      \vec{T}(\vec{v})&=\vec{T}(a_1\vec{b}_1 + \dots + a_m\vec{b}_m)\\
+      &= \vec{T}(a_1\vec{b}_1) + \dots + \vec{T}(a_m\vec{b}_m) \\
+      &= a_1\vec{T}(\vec{b}_1) + \dots + a_m\vec{T}(\vec{b}_m).
     \end{align*}
-    Hence, to define a linear transformation $\vec{L}$, we only need
-    to know where $\vec{L}$ maps each basis element. In this case, we
+    Hence, to define a linear transformation $\vec{T}$, we only need
+    to know where $\vec{T}$ maps each basis element. In this case, we
     can represent
     \[
-    \vec{L} = \begin{bmatrix}
-      \vec{L}(\vec{b}_1) & \cdots & \vec{L}(\vec{b}_m)
+    \vec{T} = \begin{bmatrix}
+      \vec{T}(\vec{b}_1) & \cdots & \vec{T}(\vec{b}_m)
     \end{bmatrix}
     \]
-    where each $\vec{L}(\vec{b}_i)$ is a column vector of length $n$.
+    where each $\vec{T}(\vec{b}_i)$ is a column vector of length $n$.
     So, we may write
     \[
-    \vec{L}(\vec{v}) = \begin{bmatrix}
-      \vec{L}(\vec{b}_1) & \cdots & \vec{L}(\vec{b}_m)
+    \vec{T}(\vec{v}) = \begin{bmatrix}
+      \vec{T}(\vec{b}_1) & \cdots & \vec{T}(\vec{b}_m)
     \end{bmatrix} \begin{bmatrix}
         a_1\\
         \vdots \\

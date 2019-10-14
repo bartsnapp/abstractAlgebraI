@@ -20,7 +20,9 @@
 \end{definition}
 
 
-
+\begin{exercise}
+  Prove that every group of prime order is simple.
+\end{exercise}
 
 
 \section{Timeline of the proof}
@@ -28,7 +30,7 @@
 
 Now, to give you an idea of how much work went into this
 classification, we will copy (almost directly) from this
-\link[wikipedia]{https://en.wikipedia.org/wiki/Classification\_of\_finite\_simple\_groups\#Timeline\_of\_the\_proof}
+\link[Wikipedia]{https://en.wikipedia.org/wiki/Classification\_of\_finite\_simple\_groups\#Timeline\_of\_the\_proof}
 article. Many of the items in the list below are taken from Solomon
 (2001). The date given is usually the publication date of the complete
 proof of a result, which is sometimes several years later than the
@@ -48,7 +50,7 @@ in the ``wrong'' order.
 \item[1872] Sylow proves the Sylow theorems.
 \item[1873] Mathieu introduces three more Mathieu groups $M_{22}$,
   $M_{23}$, $M_{24}$.
-\item[1892] Otto H\"older proves that the order of any nonabelian
+\item[1892] Otto H\"older proves that the order of any non-Abelian
   finite simple group must be a product of at least four (not
   necessarily distinct) primes, and asks for a classification of
   finite simple groups.
@@ -216,6 +218,37 @@ in the ``wrong'' order.
   computer-checked version of the Feit-Thompson theorem using the \texttt{Coq}
   proof assistant.
 \end{description}
+
+
+
+In some sense, the classification of the finite simple groups
+``solves'' finite group theory---what's left are ``details'' left to
+the reader. In constrast to this view, let me point out that some of
+these ``details'' are quite complex and interesting. For example, we
+know that if $p$ is a prime
+\[
+|\Z_{p-1}|= | \Z_p^\times|,
+\]
+and later, we will show that
+\[
+\Z_{p-1}\iso \Z_p^\times.
+\]
+However, the exact nature of this isomorphism will remain
+mysterious. We know that this isomorphism must be of the form
+\begin{align*}
+  \Z_{p-1} &\to \Z_p^\times\\
+  x &\mapsto a^x
+\end{align*}
+since homomorphisms of cyclic groups are determined by where the
+generator maps to. But what should $a$ be?  Understanding this problem
+amounts to solving what is known as the \index{discrete log problem}\link[discrete log problem]{https://en.wikipedia.org/wiki/Discrete_logarithm}.
+
+
+
+
+
+
+
 
 For some interesting extra reading check out:
 \begin{itemize}

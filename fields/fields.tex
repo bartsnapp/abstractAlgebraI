@@ -12,12 +12,8 @@
 \end{abstract}
 \maketitle
 
-
-In this section we will introduce fields, talk about vector spaces,
-and then return to fields.
-
-
-\section{Fields}
+In this section we will introduce fields, which are objects that are a
+bit like two groups at once.
 
 
 \begin{definition}
@@ -29,7 +25,7 @@ and then return to fields.
     group with identity element denoted by $0$.
   \item[Abelian group under multiplication] $(K-\{0\},\cdot)$ is
     an Abelian group with identity element denoted by $1$.
-  \item[Distributivity] The operation $\cdot$ distrbutes over $+$,
+  \item[Distributivity] The operation $\cdot$ distributes over $+$,
     meaning that if $a,b,c\in K$,
     \[
     a\cdot (b+ c) = a\cdot b+ a\cdot c \quad\text{and}\quad (a+ b)\cdot c  = a\cdot c+ b\cdot c.
@@ -55,19 +51,31 @@ and then return to fields.
 \end{exercise}
 
 
+
+\begin{exercise}
+  Note, in the definition of a field, the elements ``$0$'' and ``$1$''
+  are not necessarily the integers who look and sound the same. In
+  particular, nowhere in the definition of a field does it state what
+  how $0$ acts on field elements by field multiplication. Prove or
+  disprove: $a\cdot 0 = 0$.
+\end{exercise}
+
+
+
+\begin{exercise}
+  Let $K$ be a field. Prove that ${\left(ab^{-1}\right)}\hspace{0pt}^{-1} = a^{-1}
+  b$. Note, here you are using the definition of a field to show
+  \[
+  \frac{1}{a/b} = \frac{b}{a}.
+  \]
+\end{exercise}
+
+
 \begin{exercise} 
   Let $a$ and $b$ be elements of a field $K$. Prove that if $a\cdot b
   = 0$, then $a$ is zero or $b$ is zero. 
 \end{exercise}
 
-
-\begin{exercise}
-  Note, in the definition of a field, the elements ``$0$'' and ``$1$''
-  are not necessarily the integers who look and sound the same. In
-  particular, nowhere in the definiton of a field does it state what
-  how $0$ acts on field elements by field multiplication. Prove or
-  disprove: $a\cdot 0 = 0$.
-\end{exercise}
 
 
 
@@ -85,6 +93,12 @@ and then return to fields.
 
 
 \begin{exercise}\label{E:FF6} Can you find a field with six elements?
+\end{exercise}
+
+
+\begin{exercise}
+  Let $K$ be a field. Prove that $K\times K$ is never a field under
+  componenetwise addition and componenetwise multiplication.
 \end{exercise}
 
 
@@ -117,13 +131,26 @@ If there is no such positive integer, then we say that $K$ has
 characteristic $0$.
 \end{definition}
 
+
+\begin{exercise}
+  Prove that if a field has characteristic $0$, then it contains a
+  subgroup isomorphic to $\Z$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that if a field has characteristic $p$, then it contains a
+  subgroup isomorphic to $\Z_p$.
+\end{exercise}
+
+
+
 \begin{exercise} 
 Prove that if a field has finite characteristic, then its
 characteristic is a prime number.
 \end{exercise}
 
 \begin{exercise}\index{freshman binomial theorem}\label{E:FBT}
-Prove that in a domain of positive characteristic $p$, the so-called
+Prove that in a field of positive characteristic $p$, the so-called
 \textit{freshman binomial theorem} holds:
 \[
 (a+b)^p = a^p + b^p
@@ -150,7 +177,7 @@ Prove that in a domain of positive characteristic $p$, the so-called
 \begin{exercise}
   Let $\phi:K\to L$ be a homomorphism of fields. Prove that
   \[
-  \phi(0_K) = 0_K\quad\text{and}\quad\phi(1_K) = 1_L.
+  \phi(0_K) = 0_L\quad\text{and}\quad\phi(1_K) = 1_L.
   \]
 \end{exercise}
 
@@ -168,25 +195,31 @@ Prove that in a domain of positive characteristic $p$, the so-called
 \end{definition}
 
 
-\begin{example}[The Frobenius homomorphism]
+\begin{exercise}
+  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi$ is
+  injective if and only if $\ker(\phi) = \{0\}$.
+\end{exercise}
+
+\begin{exercise}
+  Let $\phi:K\to L$. Prove that $\phi$ is either injective or the zero
+  map.
+\end{exercise}
+
+\begin{exercise}
+  Prove that every surjective homomorphism of fields is a bijective
+  homomorphism of fields.
+\end{exercise}
+
+
+
+\begin{example}[The Frobenius homomorphism]\index{Frobenius homomorphism}
+  Let $K$ be a field of characteristic $p$. Prove that
+  \begin{align*}
+    \phi:K &\to K\\
+    a &\mapsto a^p
+  \end{align*}
+  is a homomorphism of fields. Is the Frobenius homomorphism surjective?
 \end{example}
-
-
-dfn, basic eg
-
-
-\section{Vector spaces}
-
-
-
-\begin{definition}
-  A 
-\end{definition}
-
-dfn, bases dim
-
-\section{Field extensions}
-
 
 
 
