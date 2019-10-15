@@ -14,36 +14,82 @@
 
 
 
-\begin{definition}\index{K-vector space@$K$-vector space}
+\begin{definition}\index{K-vector space@$K$-vector space}\index{vector space@$K$-vector space}
   A \textbf{$\boldsymbol{K}$-vector space} is an Abelian group $(V,+)$
   along with a field $K$, whose elements are called \dfn{scalars},
   such that we may multiply group elements by field elements, meaning
-  that there is a binary operation $\cdot: K\times V \to V$ such that
-  if $\vec{v},\vec{w}\in V$ and $a,b,\in K$ we have:
+  that there is a binary operation $-\cdot-: K\times V \to V$ such that
+  if $\nu,\mu\in V$ and $a,b,\in K$ we have:
 \begin{description}
-\item[Compatibility with scalars] $(ab)\cdot \vec{v} = a\cdot (b\cdot \vec{v})$.
-\item[Vectors distribute over scalars] $(a+b)\cdot \vec{v} =
-  a\cdot\vec{v} + b\cdot \vec{v}$.
-\item[Scalars distribute over vectors] $a\cdot (\vec{v}+\vec{w}) =
-  a\cdot \vec{v} + a\cdot \vec{w}$.
-\item[Identity is respected] $1_K\cdot \vec{v} = \vec{v}$.
+\item[Compatibility with scalars] $(ab)\cdot \nu = a\cdot (b\cdot \nu)$.
+\item[Vectors distribute over scalars] $(a+b)\cdot \nu =
+  a\cdot\nu + b\cdot \nu$.
+\item[Scalars distribute over vectors] $a\cdot (\nu+\mu) =
+  a\cdot \nu + a\cdot \mu$.
+\item[Identity is respected] $1_K\cdot \nu = \nu$.
 \end{description}
 \end{definition}
 
 \begin{exercise}
-  Let $V$ be a $K$-vector space. If $\vec{v}\in V$, prove that
-  $0_K\cdot \vec{v} = \vec{0}$.
+  Let $V$ be a $K$-vector space. If $\nu\in V$, prove that
+  $0_K\cdot \nu = \vec{0}$.
 \end{exercise}
 
-\begin{exercise}
+\begin{example}[Polynomials]
   EXAMPLES?
-\end{exercise}
+\end{example}
 
 
 
 \begin{definition}
-  
+  Given a set of vectors $S$, in a $K$-vector space, $V$, the
+  \dfn{span} of these vectors is
+  \[
+  \Span(S) = \{a\sigma+b\tau:\text{$s,t\in S$ and $a,b\in K$}\}.
+  \]
 \end{definition}
+
+
+\begin{definition}
+  Given a $K$-vector space $V$, a finite set of vectors
+  \[
+  \{\lambda_1,\dots,\lambda_n\}
+  \]
+  is said to be \dfn{linearly independent} if
+  \[
+  a_1\lambda_1 + \cdots + a_n\lambda_n = 0\quad \Rightarrow \quad a_1= \cdots a_n = 0.
+  \]
+  A finite set of vectors is set to be \dfn{linearly dependent} if
+  they are not linearly independent.
+\end{definition}
+
+\begin{theorem}[Bases equivalences]
+  Define an ordering on sets where $S \preceq T$ if $|S|\le |T|$. Let
+  $S$ be a finite set of vectors in a $K$-vector space. The following
+  are equivalent facts about a set $B$:
+  \begin{enumerate}
+  \item $B = \min_{\preceq}\{S\subset V:\Span(S) = V\}$.
+  \item $B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}$.
+  \item $B$ is a linearly independent spanning set of vectors.
+  \end{enumerate}
+  Any finite set of vectors $B \subset V$ is called a \dfn{basis} for
+  $V$.
+  \begin{proof}
+    (a)$\Rightarrow$(b)
+  \end{proof}
+\end{theorem}
+
+\begin{definition}
+  Let $B$ be a basis for a $K$-vector space $V$. The \dfn{vector-space
+    dimension} of $V$ is the order of $B$,
+  \[
+  \dim_K(V) = |B|.
+  \]
+\end{definition}
+
+
+
+
 
 
 \section{Field extensions}
