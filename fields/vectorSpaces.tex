@@ -35,9 +35,42 @@
   $0_K\cdot \nu = \vec{0}$.
 \end{exercise}
 
-\begin{example}[Polynomials]
-  EXAMPLES?
+
+\begin{example}[Euclidean space]
 \end{example}
+
+
+
+\begin{example}[Complex numbers]
+  The set $\C$ is an $\R$-vector space.
+\end{example}
+
+
+\begin{example}[Polynomials of fixed degree]
+  A polynomial 
+\end{example}
+
+
+
+
+\begin{definition}
+  Let $V$ be a $K$-vector space. A subset $W\subset V$ is a
+  \textbf{$\boldsymbol K$-vector} \dfn{subspace} of $V$ if $W\subgp V$ and $W$
+  is also a $K$-vector space.
+\end{definition}
+
+\begin{lemma}[Subspace criterion]\index{subspace criterion}
+  Let $V$ be a $K$-vector space. $W\subset K$ is a subspace of $V$ if
+  and only if
+  \begin{enumerate}
+  \item $W\ne \emptyset$.
+  \item $W$ is closed under multiplication by scalars.
+  \item $W$ is closed under vector addition.
+  \end{enumerate}
+  \begin{sketch}
+    Check the definition of a vector space.
+  \end{sketch}
+\end{lemma}
 
 
 
@@ -57,7 +90,7 @@
   \]
   is said to be \dfn{linearly independent} if
   \[
-  a_1\lambda_1 + \cdots + a_n\lambda_n = 0\quad \Rightarrow \quad a_1= \cdots a_n = 0.
+  a_1\lambda_1 + a_2\lambda_2 +\cdots + a_n\lambda_n = 0\quad \Rightarrow \quad a_1= \cdots =a_n = 0.
   \]
   A finite set of vectors is set to be \dfn{linearly dependent} if
   they are not linearly independent.
@@ -65,19 +98,97 @@
 
 \begin{theorem}[Bases equivalences]
   Define an ordering on sets where $S \preceq T$ if $|S|\le |T|$. Let
-  $S$ be a finite set of vectors in a $K$-vector space. The following
-  are equivalent facts about a set $B$:
+  $B= \{\beta_1,\dots,\beta_n\}$ be a finite set of vectors in a
+  $K$-vector space $V$. The following are equivalent:
   \begin{enumerate}
   \item $B = \min_{\preceq}\{S\subset V:\Span(S) = V\}$.
-  \item $B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}$.
   \item $B$ is a linearly independent spanning set of vectors.
+  \item $B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}$.
   \end{enumerate}
-  Any finite set of vectors $B \subset V$ is called a \dfn{basis} for
-  $V$.
+  Any finite set of vectors $B \subset V$ satisfying any of the
+  equivalent conditions above is called a \dfn{basis} for $V$.
   \begin{proof}
-    (a)$\Rightarrow$(b)
+    We will prove this in a ``circle.''
+
+    
+    $(\mathrm a)\Rightarrow(\mathrm b)$ We will assume that
+    \[
+    B = \min_{\preceq}\{S\subset V:\Span(S) = V\}.
+    \]
+    We must show that $B$ is a linearly independent spanning set of
+    vectors. Seeking a contradiction, suppose that $B$ is not a
+    linearly independent set of vectors. Then there exist $a_i\in K$
+    such that
+    \[
+    a_1\beta_1 + a_2\beta_2 + \dots + a_n\beta_n = 0
+    \]
+    where not all the $a_i$ are nonzero. WLOG, we may assume that $a_n
+    \ne 0$. Then we may write
+    \[
+    a_1\beta_1 + a_2\beta_2 + \dots + a_{n-1}\beta_{n-1}= -a_n \beta_n
+    \]
+    and we see that $B' = \{\beta_1,\dots,\beta_{n-1}\}$ spans
+    $V$. But $B'\preceq B$, a contradiction. Hence $B$ is a linearly
+    independent spanning set of vectors.
+
+    
+
+    $(\mathrm b)\Rightarrow(\mathrm c)$ We will assume that $B$ is a
+    linearly independent spanning set of vectors. We must show that
+    \[
+    B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
+    \]
+    Take any set of linearly independent vectors $C =
+    \{\gamma_1,\dots, \gamma_n\}$, where $|C| = |B|$. Since $\Span(B)
+    = V$, we may express each of the vectors $\gamma_i$ in terms of
+    the vectors $\beta_i$. Now consider $C'=C\cup\{\gamma_{n+1}\}$ where
+    \[
+    \gamma_{n+1} = 
+    \]
+    In this case, we can see that $C'$ is not a linearly independent
+    set as
+    
+
+    Seeking a contradiction, suppse that $B=
+    \{\beta_1,\dots,\beta_n\}$ is not maximal. Then there exists
+    \[
+    C = \{\gamma_1,\dots,\gamma_n,\gamma_{n+1}
+    \]
+    such that $C$ is a set of linearly independent vectors. This means
+    for any $c_i\in K$ such that
+    \[
+    c_1\gamma_1 + \dots + c_n\gamma_n + c_{n+1}\gamma_{n+1} = 0,
+    \]
+    implies that $c_1 = c_2 = \dots = c_{n+1} =0$. However, by
+    assumption each $\gamma_i \in \Span(B)$. Thus we may write
+    \begin{align*}
+      \gamma_1 &= a
+    \end{align*}
   \end{proof}
 \end{theorem}
+
+
+Here is a picture that attempts to convey the situation:
+\[
+\begin{tikzpicture}
+  \draw[white,thin,shading = axis, top color = white, bottom color = gray] (-2,2) -- (0,0)-- (2,2) -- (-2,2) -- cycle;
+  \draw[white,thin,shading = axis, bottom color = white, top color = gray] (-2,-2) -- (0,0)-- (2,-2) -- (-2,-2) -- cycle;
+  \filldraw (0,0) circle (3pt);
+  \node[right] at (0,0) {$B$ is linearly independent and spans};
+  \node at (0,1.5) {$\scriptstyle \Span(B) = V$};
+  \node at (0,-1.5) {\tiny $B$  is linearly independent};
+\end{tikzpicture}
+\]
+The cone above $B$ are all sets of vectors that span $V$. The cone
+below $B$ are all sets of vectors that are linearly independent.
+
+
+
+\begin{corollary}[Bases have the same order]
+  Let $V$ be a $K$-vector space. If $B$ and $B'$ are two bases for $V$
+  over $K$, then $|B| = |B'|$
+\end{corollary}
+
 
 \begin{definition}
   Let $B$ be a basis for a $K$-vector space $V$. The \dfn{vector-space
@@ -88,16 +199,42 @@
 \end{definition}
 
 
+\begin{example}[Euclidean space]
+\end{example}
+
+
+\begin{example}[Complex numbers]
+\end{example}
+
+
+
+\begin{example}[Polynomials of fixed degree]
+\end{example}
 
 
 
 
-\section{Field extensions}
+\begin{theorem}[Quotient vector spaces]
+  Given a $K$-vector space $V$ and a subspace $W\subset V$, the set of
+  left cosets of $W$ form a $K$-vector space under coset
+  addition. This $K$-vector space is denoted by $V/W$ and is
+  pronounced ``$V$ modulo $W$.''
+  \begin{proof}
+    First note that by Theorem\ref{T:quotient}, $V/W$ is an Abelian
+    group under coset addition. Now we must show that multiplication
+    by field elements is \index{well-defined}well-defined and that
+    $V/W$ is a $K$-vector space. Suppose that
+    \[
+    \nu + W = \mu + W.
+    \]
+    We must show that if $a\in K$,
+    \[
+    a\nu + W = a\mu + W.
+    \]
+    Since $aW = W$, this is true. All other conditions for $V/W$ to be
+    a vector space are inherited from the fact that $V$ is a $K$-vector
+    space.
+  \end{proof}
+\end{theorem}
 
-
-
-
-
-
-dfn, bases dim
 \end{document}

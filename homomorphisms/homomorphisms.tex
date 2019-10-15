@@ -132,12 +132,13 @@ Believe it or not, you already know some homomorphisms!
     z &= a+bi\\
     \bar{z} &= a- bi.
   \end{align*}
-  Prove that complex conjugation is a homomorphism of groups mapping
-  $(\C,+)$ to itself.
-
-
-  Additionally, prove that complex conjugation is \textbf{not} a
-  linear transformation.
+  Prove that
+  \begin{align*}
+    \phi:\C &\to\C\\
+    z &\mapsto \bar{z}
+  \end{align*}
+  is a homomorphism of groups.  Additionally, prove that complex
+  conjugation is \textbf{not} a linear transformation.
 \end{exercise}
 
 
@@ -361,7 +362,28 @@ Homomorphisms map subgroups to subgroups.
   is the subset of $G$ that $\phi$ maps to the identity $e_H\in H$.
 \end{definition}
 
+\begin{example}[Kernel of the homothety map]\label{E:K1}
+  Consider the homomorphism
+  \begin{align*}
+    \eta:\Z_{12} &\to \Z_{12}\\
+    x &\mapsto 3x.
+  \end{align*}
+  In this case $\ker(\eta) = \{0,4,8\}\subset \Z_{12}$.
+\end{example}
 
+\begin{example}[Kernel of a surjection]\label{E:K2} 
+  Consider the homomorphism
+  \begin{align*}
+    \pi:\Z_{12} &\to \Z_{3}\\
+    n &\mapsto m & &\text{if $n\equiv m \pmod{3}$}.
+  \end{align*}
+  In this case $\ker(\pi) = \{0,4,8\}\subset \Z_{12}$.
+\end{example}
+
+\begin{exercise}
+  Why are the kernels in Example~\ref{E:K1} and Example~\ref{E:K2} the
+  same?
+\end{exercise}
 
 
 
@@ -410,6 +432,23 @@ Homomorphisms map subgroups to subgroups.
   is the subset of $H$ containing all the values of $\phi$.
 \end{definition}
 
+\begin{example}[Image of the homothety map]
+  Consider the homomorphism
+  \begin{align*}
+    \eta:\Z_{12} &\to \Z_{12}\\
+    x &\mapsto 3x.
+  \end{align*}
+  In this case $\im(\eta) = \{0,3,6,9\}\subset \Z_{12}$.
+\end{example}
+
+\begin{example}[Image of an injection]\label{E:I1} 
+  Consider the homomorphism
+  \begin{align*}
+    \iota:\Z_{4} &\to \Z_{12}\\
+    x &\mapsto 3x,
+  \end{align*}
+  In this case $\im(\iota) = \{0,4,8\}\subset \Z_{12}$.
+\end{example}
 
 
 \begin{lemma}[Images and surjectivity]
@@ -523,6 +562,17 @@ Homomorphisms map subgroups to subgroups.
     Just check that this is a surjective homomorphism.
   \end{sketch}
 \end{theorem}
+
+
+
+\begin{example}[Kernel and image of a natural surjection]
+    Consider the natural surjection
+  \begin{align*}
+    \eta:\Z &\to \Z/3\Z\\
+    x &\mapsto x+3\Z.
+  \end{align*}
+  In this case $\ker(\eta) = 3\Z \subset \Z$ and $\im(\eta) = \Z/3\Z$.
+\end{example}
 
 
 \begin{corollary}[Normal subgroups are kernels]
