@@ -28,6 +28,8 @@
   a\cdot \nu + a\cdot \mu$.
 \item[Identity is respected] $1_K\cdot \nu = \nu$.
 \end{description}
+In this case, elements of the group $V$ are called \dfn{vectors} and
+elements of the field $K$ are called \dfn{scalars}.
 \end{definition}
 
 \begin{exercise}
@@ -138,32 +140,53 @@
     \[
     B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
     \]
-    Take any set of linearly independent vectors $C =
-    \{\gamma_1,\dots, \gamma_n\}$, where $|C| = |B|$. Since $\Span(B)
-    = V$, we may express each of the vectors $\gamma_i$ in terms of
-    the vectors $\beta_i$. Now consider $C'=C\cup\{\gamma_{n+1}\}$ where
+    Suppose you want to construct another set $C$ of linearly
+    independent vectors. Suppose that $\gamma_1$ is the first vector
+    you choose to be in $C$. Since $\Span(B) = V$, we may write
+    \begin{align}
+      \gamma_1 &= c_1\beta_1 + c_2\beta_2 + \dots + c_n\beta_n \tag{$\bigstar$}\\
+      \beta_1 &= c_1^{-1}(\gamma_1 -  c_2\beta_2 - \dots - c_n\beta_n.\notag
+    \end{align}
+    Note, WLOG $c_1 \ne 0$, as if it was zero, we could renumber our
+    basis vectors.  Letting $B_1 = \{\gamma_1, \beta_2,\dots,
+    \beta_n\}$, this means that $\beta_1\in \Span(B_1)$. We claim that
+    $B_1$ is a set of linearly independent vectors. Suppose that for
+    $a_i\in K$
     \[
-    \gamma_{n+1} = 
+    a_1 \gamma_1 + a_2 \beta_2 + \dots + a_n \beta_n = 0.
     \]
-    In this case, we can see that $C'$ is not a linearly independent
-    set as
-    
-
-    Seeking a contradiction, suppse that $B=
-    \{\beta_1,\dots,\beta_n\}$ is not maximal. Then there exists
-    \[
-    C = \{\gamma_1,\dots,\gamma_n,\gamma_{n+1}
-    \]
-    such that $C$ is a set of linearly independent vectors. This means
-    for any $c_i\in K$ such that
-    \[
-    c_1\gamma_1 + \dots + c_n\gamma_n + c_{n+1}\gamma_{n+1} = 0,
-    \]
-    implies that $c_1 = c_2 = \dots = c_{n+1} =0$. However, by
-    assumption each $\gamma_i \in \Span(B)$. Thus we may write
+    Using $(\bigstar)$ to substitute, write
     \begin{align*}
-      \gamma_1 &= a
+      a_1(c_1\beta_1 + c_2\beta_2 + \dots + c_n\beta_n) + a_2 \beta_2 + \dots + a_n \beta_n = 0\\
+      (a_1c_1) \beta_1 + (a_2+a_1c_2)\beta_2 + \dots + (a_n+a_1c_n)\beta_n = 0.
     \end{align*}
+    Since $B$ is a set of linearly independent vectors, we conclude
+    \begin{align*}
+      (a_1c_1) &=0\\
+      (a_2+a_1c_2) &=0\\
+      &\vdots \\      
+      (a_n+a_1c_n) &=0.
+    \end{align*}
+    Since $c_1\ne 0$, we see that $a_i = 0$, and hence $B_1$ is a set
+    of linearly independent vectors. Inductively repeating this
+    process for $\gamma_2\notin \Span(\gamma_1)$, and then for
+    $\gamma_3 \notin \Span(\gamma_1,\gamma_2)$, we construct sets of
+    linearly independent spanning vectors
+    \begin{align*}
+      B &= \{\beta_1,\beta_2,\dots,\beta_n\},\\
+      B_1 &= \{\gamma_1,\beta_2,\dots,\beta_n\},\\
+      B_2 &= \{\gamma_1,\gamma_2,\dots,\beta_n\},\\
+      &\vdots \\
+      C = B_n &= \{\gamma_1,\gamma_2,\dots,\gamma_n\}.\\
+    \end{align*}
+    Since $C$ is a set spanning linearly independent vectors, we
+    cannot add another linearly independent vector. Since $|C| = |B|$,
+    \[
+    B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
+    \]
+    
+    $(\mathrm c)\Rightarrow(\mathrm a)$
+    
   \end{proof}
 \end{theorem}
 
@@ -196,6 +219,8 @@ below $B$ are all sets of vectors that are linearly independent.
   \[
   \dim_K(V) = |B|.
   \]
+  If a vector space does not have a finite basis, then we say it is
+  \dfn{infinite dimensional}.
 \end{definition}
 
 
