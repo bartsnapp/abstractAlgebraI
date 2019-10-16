@@ -16,10 +16,10 @@
 
 \begin{definition}\index{K-vector space@$K$-vector space}\index{vector space@$K$-vector space}
   A \textbf{$\boldsymbol{K}$-vector space} is an Abelian group $(V,+)$
-  along with a field $K$, whose elements are called \dfn{scalars},
-  such that we may multiply group elements by field elements, meaning
-  that there is a binary operation $-\cdot-: K\times V \to V$ such that
-  if $\nu,\mu\in V$ and $a,b,\in K$ we have:
+  along with a field $K$ such that we may multiply group elements by
+  field elements, meaning that there is a binary operation $-\cdot-:
+  K\times V \to V$ such that if $\nu,\mu\in V$ and $a,b,\in K$ we
+  have:
 \begin{description}
 \item[Compatibility with scalars] $(ab)\cdot \nu = a\cdot (b\cdot \nu)$.
 \item[Vectors distribute over scalars] $(a+b)\cdot \nu =
@@ -39,17 +39,25 @@ elements of the field $K$ are called \dfn{scalars}.
 
 
 \begin{example}[Euclidean space]
+  Perhaps the most obivious vector space would be $\R^3$. This is an
+  $\R$-vector space. It is also a $\Q$-vector space.
 \end{example}
 
 
 
 \begin{example}[Complex numbers]
-  The set $\C$ is an $\R$-vector space.
+  The set $\C$ is an $\C$-vector space, an $\R$-vector space, and a
+  $\Q$-vector space.
 \end{example}
 
 
-\begin{example}[Polynomials of fixed degree]
-  A polynomial 
+\begin{example}[Polynomials]
+  Let $K[x]$ be the set of all formal sums
+  \[
+  a_nx^n + a_{n-1}x^{n-1} + \dots + a_1 x + a_0
+  \]
+  where $n$ is a nonnegative integer and each $a_i \in K$. In this
+  case, $K[x]$ is a $K$-vector space.
 \end{example}
 
 
@@ -73,6 +81,42 @@ elements of the field $K$ are called \dfn{scalars}.
     Check the definition of a vector space.
   \end{sketch}
 \end{lemma}
+
+\begin{definition}
+  Let $V$ and $W$ be $K$-vector spaces. A \dfn{linear transformation}
+  for $\nu,\mu\in V$ and $s\in K$ is a function $T:V\to W$ such that
+    \begin{enumerate}
+    \item $T(\nu+\mu) = T(\nu)+T(\mu)$.
+    \item $T(s \nu) = sT(\nu)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  We proved that every linear transformation is a matrix in
+  Lemma~\ref{L:MT}.
+\end{remark}
+
+\begin{exercise}\index{kernel!linear transformation}
+  Let $V$ and $W$ be $K$-vector spaces and let $T:V\to W$ be a linear
+  transformation. Define the \textbf{kernel} of $T$ as follows:
+  \[
+  \ker(T) = \{\nu\in V: T(\nu) = 0\}\subset V.
+  \]
+  Prove that $\ker(T)$ is a $K$-vector subspace of $V$.
+\end{exercise}
+
+\begin{exercise}\index{image!linear transformation}
+  Let $V$ and $W$ be $K$-vector spaces and let $T:V\to W$ be a linear
+  transformation. Define the \textbf{image} of $T$ as follows:
+  \[
+  \im(T) = \{T(\nu): \nu\in V\}\subset W.
+  \]
+  Prove that $\im(T)$ is a $K$-vector subspace of $W$.
+\end{exercise}
+
+
+
+
 
 
 
@@ -185,8 +229,21 @@ elements of the field $K$ are called \dfn{scalars}.
     B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
     \]
     
-    $(\mathrm c)\Rightarrow(\mathrm a)$
-    
+    $(\mathrm c)\Rightarrow(\mathrm a)$ We will assume that
+    \[
+    B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
+    \]
+    We must show that
+    \[
+    B = \min_{\preceq}\{S\subset V:\Span(S) = V\}.
+    \]
+    Let $A$ be any spanning set. In this case, we can simply repeat
+    the argument given for $(\mathrm b)\Rightarrow(\mathrm c)$ and see
+    that $|A| = |B|$. Hence
+    \[
+    B = \min_{\preceq}\{S\subset V:\Span(S) = V\}.
+    \]
+    This concludes our proof of the equivalences.
   \end{proof}
 \end{theorem}
 
@@ -209,12 +266,12 @@ below $B$ are all sets of vectors that are linearly independent.
 
 \begin{corollary}[Bases have the same order]
   Let $V$ be a $K$-vector space. If $B$ and $B'$ are two bases for $V$
-  over $K$, then $|B| = |B'|$
+  over $K$, then $|B| = |B'|$.
 \end{corollary}
 
 
 \begin{definition}
-  Let $B$ be a basis for a $K$-vector space $V$. The \dfn{vector-space
+  Let $B$ be a basis for a $K$-vector space $V$. The \dfn{vector space
     dimension} of $V$ is the order of $B$,
   \[
   \dim_K(V) = |B|.
@@ -225,16 +282,67 @@ below $B$ are all sets of vectors that are linearly independent.
 
 
 \begin{example}[Euclidean space]
+  The $\R$-vector space $\R^3$ has dimension $3$ since it has basis vectors
+  \[
+  \begin{bmatrix}
+    1\\
+    0\\
+    0
+  \end{bmatrix},\quad
+  \begin{bmatrix}
+    0\\
+    1\\
+    0
+  \end{bmatrix},\quad
+   \begin{bmatrix}
+    0\\
+    0\\
+    1
+  \end{bmatrix}.
+  \]
 \end{example}
 
 
 \begin{example}[Complex numbers]
+  The complex numbers are a vector space over several different
+  fields. Here we have
+  \[
+  \dim_{\C}(\C) = 1, \quad \dim_{\R}(\C) = 2, \quad \dim_{\Q}(\C) =\infty.
+  \]
 \end{example}
+
+\begin{exercise}
+  Find a basis for $\C$ as a $\C$-vector space. Find a basis for $\C$
+  as an $\R$-vector space. In each case, prove your answer is correct.
+\end{exercise}
 
 
 
 \begin{example}[Polynomials of fixed degree]
+  Let $P_3\subset \Q[x]$ be the polynomials up to and including degree
+  $3$. In this case $\dim_{\Q}(\Q[x]) = 4$.
 \end{example}
+
+\begin{exercise}
+  Find a basis for $P_3\subset \Q[x]$, the polynomials up to and
+  including degree $3$, as a $\Q$-vector space. Prove your answer is
+  correct.
+\end{exercise}
+
+
+\begin{theorem}[Bases and unique representation]
+  Let $V$ be a $K$-vector space and $B = \{\beta_1,\dots,\beta_n$ be a
+  basis for $V$. If
+  \begin{align*}
+  \alpha = a_1\beta_1 + a_2\beta_2 + \dots + a_n\beta_n\\
+  \alpha = c_1\beta_1 + c_2\beta_2 + \dots + c_n\beta_n,
+  \end{align*}
+  where $a_i, c_i\in K$, then $a_i = c_i$ for $i =1,\dots, n$.
+  \begin{sketch}
+    Subtract the two equations above, combine like terms, and use the
+    fact that a basis is a linearly independent set of vectors.
+  \end{sketch}
+\end{theorem}
 
 
 
@@ -261,5 +369,29 @@ below $B$ are all sets of vectors that are linearly independent.
     space.
   \end{proof}
 \end{theorem}
+
+\begin{corollary}[Dimensions and quotients]
+  Let $V$ be a $K$-vector space and $W\subset V$ be a subspace. In
+  this case,
+  \[
+  \dim_K(V) = \dim_K(W) + \dim_K(V/W)
+  \]
+\end{corollary}
+
+%% \begin{example}[$\R^n$]
+%% \end{example}
+
+
+\begin{corollary}[Dimension and linear transformations]
+  Let $V$ and $W$ be a $K$-vector spaces and let $T:V\to W$ be a
+  linear transformation. In this case
+  \[
+  \dim_K(V) = \dim_K(\ker(T)) + \dim_K(\im(T)).
+  \]
+  \begin{sketch}
+    Use Noether's isomorphism theorem, Theorem~\ref{T:NI}.
+  \end{sketch}
+\end{corollary}
+
 
 \end{document}
