@@ -12,5 +12,46 @@
 \end{abstract}
 \maketitle
 
+\begin{definition}
+  Given fields $K\subset L$, $L$ is a \dfn{field extension} of $K$ if
+  the field operations on $L$ restrict to the field operations of $K$.
+\end{definition}
+
+\begin{lemma}
+  If $L$ is a field extension of $K$, then $L$ is a $K$-vector space.
+  \begin{sketch}
+    Check the conditions of the definition of a vector space.
+  \end{sketch}
+\end{lemma}
+
+\begin{definition}\index{degree!of a field extension}
+  If $L$ is a field extension of $K$, then we define the
+  \textbf{degree} of a $L$ over $K$ to be the dimension of $L$ as a
+  $K$-vector space. We denote the degree of $L$ over $K$ with
+  $[L:K]$. In short,
+  \[
+  [L:K] = \dim_K(L).
+  \]
+\end{definition}
+
+\begin{example}[Complex numbers]
+  The complex numbers
+  \[
+  \C = \{a+bi:a,b\in\R\}
+  \]
+  are a field extension of $\R$. Since $\dim_\R(\C)=2$, we say
+  $[\C:\R]=2$, this is a degree two extension.
+\end{example}
+
+
+\begin{example}[Fields adjoin an element]
+  Given a field $K$, we may adjoin an element $\alpha$ by writing
+  \[
+  K[\alpha]
+  \]
+\end{example}
+
+
+
 dfn, bases dim
 \end{document}

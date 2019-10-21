@@ -167,16 +167,19 @@ Prove that in a field of positive characteristic $p$, the so-called
   \phi:K\to L
   \]
   is a \dfn{homomorphism} of fields if
-  \[
-  \phi(a+b) = \phi(a)+\phi(b)\quad\text{and}\quad\phi(a\cdot b) = \phi(a)\cdot \phi(b),
-  \]
+  \begin{align*}
+    \phi(a+b) &= \phi(a)+\phi(b)\\
+    \phi(a\cdot b) &= \phi(a)\cdot \phi(b)\\
+    \phi(1_K) &= 1_L,
+  \end{align*}
   where the operations on the left-hand side of the equations might not
   be the operations on right-hand side of the equations. 
 \end{definition}
 
 \begin{exercise}
   Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi(0_K)
-  = 0_L$. Is it the case that $\phi(1_K) = 1_L$? Why or why not?
+  = 0_L$. Can you prove that $\phi(1_K) = 1_L$ strictly from the first
+  two equations that define a field homomorphism? Why or why not?
 \end{exercise}
 
 
@@ -199,8 +202,8 @@ Prove that in a field of positive characteristic $p$, the so-called
 \end{exercise}
 
 \begin{exercise}
-  Let $\phi:K\to L$. Prove that $\phi$ is either injective or the zero
-  map.
+  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi$ is
+  injective.
 \end{exercise}
 
 \begin{exercise}

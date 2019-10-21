@@ -54,9 +54,9 @@ elements of the field $K$ are called \dfn{scalars}.
 \begin{example}[Polynomials]
   Let $K[x]$ be the set of all formal sums
   \[
-  a_nx^n + a_{n-1}x^{n-1} + \dots + a_1 x + a_0
+  c_nx^n + c_{n-1}x^{n-1} + \dots + c_1 x + c_0
   \]
-  where $n$ is a nonnegative integer and each $a_i \in K$. In this
+  where $n$ is a nonnegative integer and each $c_i \in K$. In this
   case, $K[x]$ is a $K$-vector space.
 \end{example}
 
@@ -96,6 +96,12 @@ elements of the field $K$ are called \dfn{scalars}.
   Lemma~\ref{L:MT}.
 \end{remark}
 
+\begin{definition}\index{isomorphic!vector spaces}
+  Two $K$-vector spaces $V$ and $W$ are said to be \textbf{isomorphic
+    vector spaces} if there exists a bijective linear transformation
+  $T:V\to W$. In this case we write, $V\iso W$.
+\end{definition}
+
 \begin{exercise}\index{kernel!linear transformation}
   Let $V$ and $W$ be $K$-vector spaces and let $T:V\to W$ be a linear
   transformation. Define the \textbf{kernel} of $T$ as follows:
@@ -122,11 +128,16 @@ elements of the field $K$ are called \dfn{scalars}.
 
 \begin{definition}
   Given a set of vectors $S$, in a $K$-vector space, $V$, the
-  \dfn{span} of these vectors is
+  \dfn{span} of the vectors in $S$ is
   \[
-  \Span(S) = \{a\sigma+b\tau:\text{$s,t\in S$ and $a,b\in K$}\}.
+  \Span(S) = \left\{\sum_{i=1}^n a_i\sigma_i:\text{$n\in \N$,
+    $\sigma_i\in S$, and $a_i\in K$}\right\}.
   \]
+  If $\Span(S) = V$, then we say $S$ is a \dfn{spanning set}.
 \end{definition}
+
+
+
 
 
 \begin{definition}
@@ -142,10 +153,27 @@ elements of the field $K$ are called \dfn{scalars}.
   they are not linearly independent.
 \end{definition}
 
+
+
+\begin{exercise}
+  Let $V$ be a $K$-vector space. Let $S= \{\sigma_1,\sigma_2,
+  \dots,\sigma_n\}$. Prove that if $\tau\notin\Span(S)$, that $\tau$
+  and $\sigma_i$ are linearly independent.
+\end{exercise}
+
+
+%% \begin{exercise}
+%%   Let $V$ be a $K$-vector space. Let $L= \{\lambda_1,\lambda_2,
+%%   \dots,\lambda_n\}$. Prove that if , that $\tau$
+%%   and $\sigma_i$ are linearly independent.
+%% \end{exercise}
+
+
+
 \begin{theorem}[Bases equivalences]
-  Define an ordering on sets where $S \preceq T$ if $|S|\le |T|$. Let
-  $B= \{\beta_1,\dots,\beta_n\}$ be a finite set of vectors in a
-  $K$-vector space $V$. The following are equivalent:
+  Define a partial ordering on sets where $S \preceq T$ if $S\subset
+  T$. Let $B= \{\beta_1,\dots,\beta_n\}$ be a finite set of vectors in
+  a $K$-vector space $V$. The following are equivalent:
   \begin{enumerate}
   \item $B = \min_{\preceq}\{S\subset V:\Span(S) = V\}$.
   \item $B$ is a linearly independent spanning set of vectors.
@@ -156,37 +184,64 @@ elements of the field $K$ are called \dfn{scalars}.
   \begin{proof}
     We will prove this in a ``circle.''
 
-    
+
     $(\mathrm a)\Rightarrow(\mathrm b)$ We will assume that
     \[
     B = \min_{\preceq}\{S\subset V:\Span(S) = V\}.
     \]
     We must show that $B$ is a linearly independent spanning set of
-    vectors. Seeking a contradiction, suppose that $B$ is not a
-    linearly independent set of vectors. Then there exist $a_i\in K$
-    such that
+    vectors.  If the set $B$ is minimal with respect to spanning $V$,
+    no subset of $B$ will span $V$. In particular, if
     \[
-    a_1\beta_1 + a_2\beta_2 + \dots + a_n\beta_n = 0
+    B = \{\beta_1,\beta_2,\dots,\beta_n\},
     \]
-    where not all the $a_i$ are nonzero. WLOG, we may assume that $a_n
-    \ne 0$. Then we may write
+    then
     \[
-    a_1\beta_1 + a_2\beta_2 + \dots + a_{n-1}\beta_{n-1}= -a_n \beta_n
+    \beta_n \notin \Span(\beta_1,\dots,\beta_{n-1}).
     \]
-    and we see that $B' = \{\beta_1,\dots,\beta_{n-1}\}$ spans
-    $V$. But $B'\preceq B$, a contradiction. Hence $B$ is a linearly
-    independent spanning set of vectors.
+    This means $\beta_n$ and $\beta_i$ are linearly independent for $i
+    = 1,\dots, n-1$. Repeating this process with each $\beta_i$, we
+    see that $B$ is a spanning set of linearly independent vectors.
 
-    
 
     $(\mathrm b)\Rightarrow(\mathrm c)$ We will assume that $B$ is a
     linearly independent spanning set of vectors. We must show that
     \[
     B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
     \]
-    Suppose you want to construct another set $C$ of linearly
-    independent vectors. Suppose that $\gamma_1$ is the first vector
-    you choose to be in $C$. Since $\Span(B) = V$, we may write
+    If $B$ is a set of linearly independent vectors that span $V$,
+    then no vector can be added to this list while maintaining linear
+    independence. Hence $B$ is a maximal linearly independent set.
+    
+
+    $(\mathrm c)\Rightarrow(\mathrm a)$ We will assume that
+    \[
+    B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
+    \]
+    We must show that
+    \[
+    B = \min_{\preceq}\{S\subset V:\Span(S) = V\}.
+    \]
+    If $B$ is a maximal linearly independent set, no vectors can be
+    added while maintaining linear independence, thus $\Span(B) =
+    V$. If any element were removed from $B$, it would no longer span
+    $V$, hence $B$ is a minimal spanning set.
+  \end{proof}
+\end{theorem}
+
+
+\begin{theorem}[Bases have the same order]
+  Let $V$ be a $K$-vector space with bases
+  \begin{align*}
+    B &= \{\beta_1,\beta_2,\dots, \beta_n\}, \\
+    C &= \{\gamma_1,\gamma_2, \dots, \gamma_m\}.
+  \end{align*}
+  In this case, $n = m$.
+  \begin{proof}
+    Let $B= \{\beta_1,\beta_2,\dots, \beta_n\}$ be a basis for $V$.
+    Suppose you want to construct another basis, $C$.  Let $\gamma_1$
+    be the first vector you choose to be in $C$. Since $\Span(B) = V$,
+    we may write
     \begin{align}
       \gamma_1 &= c_1\beta_1 + c_2\beta_2 + \dots + c_n\beta_n \tag{$\bigstar$}\\
       \beta_1 &= c_1^{-1}(\gamma_1 -  c_2\beta_2 - \dots - c_n\beta_n.\notag
@@ -221,29 +276,10 @@ elements of the field $K$ are called \dfn{scalars}.
       B_1 &= \{\gamma_1,\beta_2,\dots,\beta_n\},\\
       B_2 &= \{\gamma_1,\gamma_2,\dots,\beta_n\},\\
       &\vdots \\
-      C = B_n &= \{\gamma_1,\gamma_2,\dots,\gamma_n\}.\\
+      C = B_n &= \{\gamma_1,\gamma_2,\dots,\gamma_n\}.
     \end{align*}
     Since $C$ is a set spanning linearly independent vectors, we
-    cannot add another linearly independent vector. Since $|C| = |B|$,
-    \[
-    B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
-    \]
-    
-    $(\mathrm c)\Rightarrow(\mathrm a)$ We will assume that
-    \[
-    B = \max_{\preceq}\{S\subset V:\text{$S$ is a linearly independent set of vectors}\}.
-    \]
-    We must show that
-    \[
-    B = \min_{\preceq}\{S\subset V:\Span(S) = V\}.
-    \]
-    Let $A$ be any spanning set. In this case, we can simply repeat
-    the argument given for $(\mathrm b)\Rightarrow(\mathrm c)$ and see
-    that $|A| = |B|$. Hence
-    \[
-    B = \min_{\preceq}\{S\subset V:\Span(S) = V\}.
-    \]
-    This concludes our proof of the equivalences.
+    cannot add another linearly independent vector, thus $|C| = |B|$.
   \end{proof}
 \end{theorem}
 
@@ -262,12 +298,6 @@ Here is a picture that attempts to convey the situation:
 The cone above $B$ are all sets of vectors that span $V$. The cone
 below $B$ are all sets of vectors that are linearly independent.
 
-
-
-\begin{corollary}[Bases have the same order]
-  Let $V$ be a $K$-vector space. If $B$ and $B'$ are two bases for $V$
-  over $K$, then $|B| = |B'|$.
-\end{corollary}
 
 
 \begin{definition}
@@ -344,6 +374,10 @@ below $B$ are all sets of vectors that are linearly independent.
   \end{sketch}
 \end{theorem}
 
+
+\begin{corollary}
+  If $V$ is an $n$ dimensional $K$-vector space, then $V\iso K^n$.
+\end{corollary}
 
 
 
