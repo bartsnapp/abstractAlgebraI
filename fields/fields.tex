@@ -46,9 +46,6 @@ bit like two groups at once.
   \end{selectAll}
 \end{exercise}
 
-\begin{exercise}
-  Let $K$ be a field. Prove that $(-1)\cdot a = (-a)$.
-\end{exercise}
 
 
 
@@ -59,6 +56,12 @@ bit like two groups at once.
   how $0$ acts on field elements by field multiplication. Prove or
   disprove: $a\cdot 0 = 0$.
 \end{exercise}
+
+\begin{exercise}
+  Let $K$ be a field. Prove that $(-1)\cdot a = (-a)$.
+\end{exercise}
+
+
 
 
 
@@ -116,7 +119,67 @@ Hint: What if $K = \R$? What if $K = \C$? Keep on going!
 
 
 
+\section{Homomorphisms of fields}
 
+
+\begin{definition}\index{homomorphism!of fields}\index{field homomorphism}\index{isomorphism!of fields}\index{field isomorphism}
+  Let $K$ and $L$ be fields. A function
+  \[
+  \phi:K\to L
+  \]
+  is a \dfn{homomorphism} of fields if
+  \begin{align*}
+    \phi(a+b) &= \phi(a)+\phi(b)\\
+    \phi(a\cdot b) &= \phi(a)\cdot \phi(b)\\
+    \phi(1_K) &= 1_L,
+  \end{align*}
+  where the operations on the left-hand side of the equations might
+  not be the operations on right-hand side of the equations. A
+  bijective homomorphism of fields is called a \dfn{field isomorphism}.
+\end{definition}
+
+\begin{exercise}
+  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi(0_K)
+  = 0_L$. Can you prove that $\phi(1_K) = 1_L$ strictly from the first
+  two equations that define a field homomorphism? Why or why not?
+\end{exercise}
+
+
+\begin{definition}\index{kernel!field homomorphism}
+  Let $\phi: K\to L$ be a homomorphism of fields. The \textbf{kernel}
+  of $\phi$ is
+  \[
+  \ker(\phi) := \{a\in K:\phi(a) = 0_L\}\subset K.
+  \]
+  The \textbf{image} of $\phi$ is\index{image!field homomorphism}
+  \[
+  \im(\phi) = \{\phi(a):a\in K\}\subset L.
+  \]
+\end{definition}
+
+
+\begin{exercise}
+  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi$ is
+  injective if and only if $\ker(\phi) = \{0\}$.
+\end{exercise}
+
+\begin{exercise}
+  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi$ is
+  injective.
+\end{exercise}
+
+\begin{exercise}
+  Prove that every surjective homomorphism of fields is a bijective
+  homomorphism of fields.
+\end{exercise}
+
+
+
+
+
+
+
+\section{The characteristic of a field}
 
 
 Fields can be dichotomized by their \textit{characteristic}.
@@ -159,59 +222,8 @@ Prove that in a field of positive characteristic $p$, the so-called
 
 
 
-
-
-\begin{definition}\index{homomorphism!of fields}\index{field homomorphism}
-  Let $K$ and $L$ be fields. A function
-  \[
-  \phi:K\to L
-  \]
-  is a \dfn{homomorphism} of fields if
-  \begin{align*}
-    \phi(a+b) &= \phi(a)+\phi(b)\\
-    \phi(a\cdot b) &= \phi(a)\cdot \phi(b)\\
-    \phi(1_K) &= 1_L,
-  \end{align*}
-  where the operations on the left-hand side of the equations might not
-  be the operations on right-hand side of the equations. 
-\end{definition}
-
-\begin{exercise}
-  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi(0_K)
-  = 0_L$. Can you prove that $\phi(1_K) = 1_L$ strictly from the first
-  two equations that define a field homomorphism? Why or why not?
-\end{exercise}
-
-
-\begin{definition}\index{kernel!field homomorphism}
-  Let $\phi: K\to L$ be a homomorphism of fields. The \textbf{kernel}
-  of $\phi$ is
-  \[
-  \ker(\phi) := \{a\in K:\phi(a) = 0_L\}\subset K.
-  \]
-  The \textbf{image} of $\phi$ is\index{image!field homomorphism}
-  \[
-  \im(\phi) = \{\phi(a):a\in K\}\subset L.
-  \]
-\end{definition}
-
-
-\begin{exercise}
-  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi$ is
-  injective if and only if $\ker(\phi) = \{0\}$.
-\end{exercise}
-
-\begin{exercise}
-  Let $\phi:K\to L$ be a homomorphism of fields. Prove that $\phi$ is
-  injective.
-\end{exercise}
-
-\begin{exercise}
-  Prove that every surjective homomorphism of fields is a bijective
-  homomorphism of fields.
-\end{exercise}
-
-
+When working in fields of characteristic $p$, we have a new
+homomorphism.
 
 \begin{example}[The Frobenius homomorphism]\index{Frobenius homomorphism}
   Let $K$ be a field of characteristic $p$. Prove that
@@ -221,6 +233,96 @@ Prove that in a field of positive characteristic $p$, the so-called
   \end{align*}
   is a homomorphism of fields. Is the Frobenius homomorphism surjective?
 \end{example}
+
+
+
+
+
+This simple idea of characteristic tells us something about fields.
+
+\begin{definition}
+  A $K$ is a \dfn{subfield} of a field $K$ if
+  \begin{enumerate}
+  \item $k\subset K$,
+  \item $k$ has the same identity elements and operations as $K$.
+  \end{enumerate}
+\end{definition}
+
+
+\begin{theorem}[Base fields of positive characteristic]
+  If a field $K$ has positive characteristic, then $K$ contains a
+  subfield $Z$ such that $Z\iso \Z_p$.
+  \begin{sketch}
+    Set
+    \[
+    Z =\left\{\sum_{i=1}^n 1:n\in\{1,2,\dots,p\}\right\}.
+    \]
+    Prove that $Z$ is a group of order $p$, and hence is isomorphic to
+    $\Z_p$. Since $\Z_p$ is also a field, we are done.
+  \end{sketch}
+\end{theorem}
+
+
+
+
+
+\begin{theorem}[Base fields of characteristic zero]
+  If a field $K$ has positive characteristic, then $K$ contains a
+  subfield $Q$ such that $Q\iso \Q$.
+  \begin{sketch}
+    Set
+    \[
+    Z =\left\{\sum_{i=1}^n \pm 1:n\in \N\cup\{0\}\right\}.
+    \]
+    Prove that $(Z,+)$ is an infinite cyclic group and hence is
+    isomorphic to $(\Z,+)$.
+
+    Now set
+    \[
+    Q = \{a^{-1}b : a,b\in Z\}.
+    \]
+    We claim that $Q$ is a field. First note that $Q$ is a subgroup of
+    $K$ under field addition. Suppose $\alpha,\beta\in Q$. We'll
+    show that $\alpha-\beta\in Q$. Let $\alpha = a^{-1}b$ and $\beta=
+    c^{-1}d$. Write
+    \[
+    a^{-1}b - c^{-1} d = (ac)^{-1}(bc- ad)\in Q.
+    \]
+    Now we must show that $Q-\{0\}$ is a subgroup of $K$ under
+    multiplication. Again let $\alpha = a^{-1}b$ and $\beta=
+    c^{-1}d$. We'll show that $\alpha^{-1}\beta \in Q$. Write
+    \[
+    a^{-1}b (c^{-1}d)^{-1} = (ad)^{-1} bc\in Q.
+    \]
+    Since $Q\subset K$, multiplication distributes over addition.
+
+    Now we will prove that $\Q\iso Q$. Define a map
+    \begin{align*}
+      \Q &\to Q\\
+      b/a &\mapsto a^{-1} b.
+    \end{align*}
+    We must show that this map is \index{well-defined}well-defined.
+    Suppose that
+    \[
+    \frac{b}{a} = \frac{d}{c},
+    \]
+    this happens if and only if
+    \[
+    ad = bc\quad\Leftrightarrow a^{-1} b = c^{-1} d,
+    \]
+    and so our map is a map of fields that is clearly a surjective
+    homomorphism, and hence an isomorphism.
+  \end{sketch}
+\end{theorem}
+
+
+
+
+
+
+
+
+
 
 
 
