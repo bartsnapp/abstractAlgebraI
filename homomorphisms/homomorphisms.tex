@@ -100,15 +100,16 @@ Believe it or not, you already know some homomorphisms!
 
 
 \begin{example}[The homothety map]\label{EG:he}\index{homothety map}
-  Let $(G,\star)$ be a group and $a\in\N$ and consider the following
+  Let $(G,+)$ be an Abelian group and $a\in\N$ and consider the
+  following
   \begin{align*}
     \eta: G &\to G\\
-    x &\mapsto \underbrace{x\star x\star \dots\star x}_{\text{$a$ copies of $x$}}.
+    x &\mapsto \underbrace{x+ x+ \dots+ x}_{\text{$a$ copies of $x$}}.
   \end{align*}
   The function $\eta$ is a homomorphism as
   \begin{align*}
-    \eta(x \star  y) &= \underbrace{(x\star  y) \star \cdots \star (x\star  y)}_{\text{$a$ copies of $(x\star y)$}} \\
-    &= \eta(x) \star  \eta(y).
+    \eta(x +  y) &= \underbrace{(x+  y) + \cdots + (x+  y)}_{\text{$a$ copies of $(x+ y)$}} \\
+    &= \eta(x) +  \eta(y).
   \end{align*}
   This can be rigorously proved through induction.
 \end{example}
