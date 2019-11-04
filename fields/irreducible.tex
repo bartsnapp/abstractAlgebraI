@@ -1,13 +1,200 @@
 \documentclass{ximera}
 
-\input{../preamble.tex}
+\input{../../preamble.tex}
+
+\author{Bart Snapp}
 
 \title{Irreducible polynomials}
 
 \begin{document}
 \begin{abstract}
-  We investigate polynomials that have no factors of positive degree.
+  We discuss how to identify irreducible polynomials.
 \end{abstract}
 \maketitle
 
+From our previous work, we know that $K[x]/(n(x)$ is a field if and
+only if $n(x)$ is an irreducible polynomial. Let's figure out some
+strategies to determine if a polynomial is irreducible. In particular,
+we are interested in showing that polyomials in $\Q[x]$ are
+irreducible.
+
+\section{Degree two or three}
+
+\begin{lemma}[Irreducibility for degree two and three]
+  Let $K$ be a field and $f(x)\in K[x]$ where $2 \le deg(f(x))\le 3$. In
+  this case, $f(x)$ is irreducible if and only if $f(x)$ has no roots
+  in $K$.
+  \begin{sketch}
+    If $2 \le deg(f(x))\le 3$ and $f(x)$ factors, then it must have a
+    factor of degree $1$.
+  \end{sketch}
+\end{lemma}
+
+
+
+
+
+
+\section{Changing coefficients}
+
+So far, we've been thinking about polynomials whose coefficients are
+field elements. This doesn't have to be the case. Define
+\[
+\Z[x] = \{\text{polynomials in terms of $x$ with coefficients in
+  $\Z$}\}.
+\]
+
+When the polynomial has integer coefficients, there is an easy way to
+find rational roots.
+
+\begin{lemma}[Rational roots test]
+  Let $K$ be a field and let $f(x) \in \Z[x]$,
+  \[
+  f(x) = c_nx^n + c_{n-1}x^{n-1} + \cdots + c_1 x + c_0.
+  \]
+  If $\frac{r}{s}\in\Q$ is in lowest terms and $\frac{r}{s}$ is a root
+  of $f(x)$, then
+  \[
+  r | c_0 \quad\text{and}\quad s | c_n.
+  \]
+  \begin{proof}
+    Evaluate $f\left(\frac{r}{s}\right)$ and clear denominators.
+  \end{proof}
+\end{lemma}
+
+Even if the degree of the polynomial you are working with is higher
+than two or three, the rational roots test allows you to easily find
+linear factors.
+
+
+\begin{lemma}[Reduction to characteristic $\boldsymbol p$]
+  Given a polynomial in $\Z_p[x]$, if $f(x)$ is irreducible in
+  $\Z_p[x]$ for some prime $p$, then $f(x)$ is irreducible in $\Z[x]$.
+  \begin{sketch}
+    Prove the contrapostive of the statement.
+  \end{sketch}
+\end{lemma}
+
+
+\begin{lemma}[Gauss' lemma]\index{Gauss' lemma}
+  Given a polynomial $f(x)\in\Z[x]$, if $f(x)$ is irreducible in
+  $\Z[x]$, then $f(x)$ is irreducible in $\Q[x]$.
+  \begin{proof}
+    We'll prove the contrapositive of this statement. Suppose $f(x) =
+    g(x)\cdot h(x)$ where $g(x),h(x)\in\Q[x]$. Let $d$ be a common
+    denominator for the coefficients of $g(x)$ and $h(x)$. Hence
+    \[
+    d\cdot f(x) = g'(x)\cdot h'(x)
+    \]
+    where $g'(x) = d\cdot g(x)\in \Z[x]$ and $h'(x) = d \cdot
+    h(x)\in\Z[x]$. We may factor
+    \[
+    d = p_1,\dots, p_n.
+    \]
+    Since $p_1$ divides $d$, $p_1$ divides the coefficients of
+    $g'(x)\cdot h'(x)$.
+
+
+    We claim that $p_1$ divides all the coefficients of $g'(x)$ or
+    $p_1$ divides all the coefficients of $h'(x)$.  Let $a_i$
+    represent the coefficients of $g'(x)$ and $b_j$ represent the
+    coefficients of $h'(x)$. Seeking a contradiction, suppose 
+    \begin{itemize}
+      \item $a_n$ be the first coefficient of $g'(x)$ that is not
+        divisible by $p_1$.
+      \item $b_m$ be the first coefficient of $h'(x)$ that is not
+        divisible by $p_1$.
+    \end{itemize}
+    Writing out the coefficient of $x_{m+n}$ of $d\cdot f(x)$, we have
+    \[
+    \underbrace{a_0b_{m+n}  + \cdots + a_{n-1}b_{m+1}}_{\text{divisible by $p_1$}} + a_nb_m + \underbrace{a_{n+1}b_{m-1} + \cdots + a_{m+n} b_0}_{\text{divisible by $p_1$}}
+    \]
+    Since this entire expression is divisible by $p_1$, we conclude
+    that $a_nb_m$ is divisible by $p_1$. Now by Euclid's lemma,
+    Corollary~\ref{L:EL2}, this means $p|a_n$ or $p|b_m$. Hence $p_1$
+    divides all the coefficients of $g'(x)$ or $p_1$ divides all the
+    coefficients of $h'(x)$. This means that
+    \[
+    g'(x)/p \in \Z[x] \quad\text{or}\quad h'(x)/p \in \Z[x]
+    \]
+    Repeat for every prime factor of $d$ to see that $f(x)$ factors in
+    $\Z[x]$.
+  \end{proof}
+\end{lemma}
+
+Now we have the following:
+\[
+\text{Irreducible in $\Z_p[x]$} \Rightarrow \text{Irreducible in $\Z[x]$}  \Rightarrow \text{Irreducible in $\Q[x]$}
+\]
+
+
+\section{Eisenstein's criterion}
+
+
+
+\begin{theorem}[Eisenstein's criterion]\index{Eisenstein's criterion}
+  Given a polynomial $f(x) \in\Z[x]$
+  \[
+  f(x) = c_nx^n + c_{n-1}x^{n-1} + \cdots + c_1 x + c_0,
+  \]
+  if there exists a prime $p$ such that
+  \begin{enumerate}
+  \item $p|c_i$ for $i \ne n$,
+  \item $p\nmid c_n$, and
+  \item $p^2\nmid c_0$,
+  \end{enumerate}
+  then $f(x)$ is irreducible in $\Z[x]$.
+  \begin{proof}
+    Seeking a contradiction, suppose that $f(x)$ factors in $\Z[x]$ and there exists a prime $p$ such that
+  \begin{enumerate}
+  \item $p|c_i$ for $i \ne n$,
+  \item $p\nmid c_n$,
+  \item $p^2\nmid c_0$.
+  \end{enumerate}
+  Write
+  \[
+  f(x) = g(x) \cdot h(x)
+  \]
+  where
+  \begin{align*}
+    g(x) &= a_rx^r + \cdots + a_1 x+ a_0\\
+    h(x) &= b_sx^s + \cdots + b_1 x+ b_0,
+  \end{align*}
+  and $r + s = n = \deg(f(x))$. Multiplying $g(x)$ and $h(x)$ and
+  examining coefficients we find
+  \begin{align*}
+    c_0 &= a_0b_0\\
+    c_1 &= a_0b_1 + a_1 b_0\\
+    &\vdots \\
+    c_n &= a_r b_s.
+  \end{align*}
+  If $p| c_0$, then by Euclid's lemma, Corollary~\ref{C:EL2}, we have
+    that $p|a_r$ or $p|b_s$, but not both as $p^2\nmid c_0$. WLOG
+    assume $p|a_0$ and $p\nmid b_0$.
+
+    Since $p|c_1$, then by Euclid's lemma, Corollary~\ref{C:EL2}, we have
+      that $p|a_1$ or $p|b_0$. Since $p\nmid b_0$, we see
+      $p|a_1$. Continuing on in this fashion, we see $p|c_i$ for all
+      $i$ implies $p| a_i$, $i=1,\dots, r$. But this means
+      \[
+      p|a_rb_s \quad\Leftrightarrow p|c_n,
+      \]
+      a contradiction. 
+  \end{proof}
+\end{theorem}
+
+\begin{exercise}
+  Prove that $x^4 + 10x + 5$ is irreducible in $\Q[x]$.
+\end{exercise}
+
+
+
+\begin{exercise}
+  Prove that $x^4 + 1$ is irreducible in $\Q[x]$.
+  \begin{hint}
+    Set $x = 1+y$.
+  \end{hint}
+\end{exercise}
+
 \end{document}
+

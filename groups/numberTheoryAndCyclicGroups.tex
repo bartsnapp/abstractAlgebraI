@@ -17,9 +17,9 @@ We start by introducing the GCD of two numbers and by proving
 fundamental theorems about the GCD.
 
 
-\begin{definition} \index{greatest common divisor}\index{GCD}
-An integer $g$ is called a \textbf{greatest common divisor} of two
-integers $m$ and $n$ provided that
+\begin{definition}\index{GCD}
+An integer $g$ is called a \dfn{greatest common divisor} of two
+integers $m$ and $n$ provided that:
 \begin{enumerate}
 \item $g| m$ and $g | n$.
 \item If $d$ is an element where $d| m$ and $d | n$, then $d\le g$.
@@ -77,6 +77,9 @@ lemma. Here is a picture that attempts to convey the situation:
   \node[right] at (0,0) {$\scriptstyle\gcd(m,n)$};
   \node at (0,1.5) {$\scriptstyle a\cdot m + b\cdot n\in\mathcal{S}$};
   \node at (0,-1.5) {\text{\tiny common divisors of $m$ and $n$}};
+  \draw[->,ultra thick] (-3,-2) -- (-3,2);
+  \node[left] at (-3,-1.5) {\text{\tiny smaller numbers}};
+  \node[left] at (-3,1.5) {\text{\tiny larger numbers}};
 \end{tikzpicture}
 \]
 The cone above $\gcd(m,n)$ is $\mathcal{S}$. The cone below
@@ -356,7 +359,7 @@ However, $\Z_n$ is \textbf{not a group under multiplication.} The
 issue is that $0$ has no inverse. Moreover, any number $x|n$ will also
 not have an inverse. We should state this as a lemma.
 
-\begin{lemma}[Multiplicative inverses]
+\begin{lemma}[Multiplicative inverses]\label{L:mi}
   An element $a\in\Z_n$ has a multiplicative inverse if and only if
   $\gcd(a,n) = 1$.
   \begin{sketch}
