@@ -43,6 +43,33 @@
 \end{example}
 
 
+
+\begin{example}[Fields adjoin an element]
+  Given a field $K$, we may adjoin an element $\alpha$ by writing
+  \[
+  K[\alpha] =\{\text{polynomials in terms of $\alpha$ with
+    coefficients in $K$}\}.
+  \]
+  This may or may not be a field depending on $\alpha$. 
+\end{example}
+
+\begin{exercise}
+  Define:
+  \[
+  \Q[\sqrt{2}] = \{ a+ b\sqrt{2}: a,b,\in\Q\}.
+  \]
+  Prove that $\Q[\sqrt{2}]$ is a field.
+\end{exercise}
+
+\begin{exercise}
+  Prove or disprove that
+  \[
+  \Z_5[i] = \{a + b i: a,b\in\Z_5\}
+  \]
+  is a field.
+\end{exercise}
+
+
 \begin{example}[Rationals and some irrationals]
   The stucture of field extensions can be more complicated than the
   first example. Consider
@@ -94,21 +121,13 @@
 \end{example}
 
 
-\begin{example}[Fields adjoin an element]
-  Given a field $K$, we may adjoin an element $\alpha$ by writing
-  \[
-  K[\alpha] =\{\text{polynomials in terms of $\alpha$ with
-    coefficients in $K$}\}.
-  \]
-\end{example}
-
 \begin{lemma}[Degree is multiplicative]
   Let $k\subset K\subset L$ be a tower of field extensions,
   \[
-  \begin{tikzcd}
-    L\ar[d,-,"{[L:K]}"] \\
-    K \ar[d,-,"{[K:k]}"]\\
-    k
+  \begin{tikzcd}[column sep=0pt]
+    L\ar[d,-,"{[L:K]}",swap]  &             &  L\ar[dd,-,"{[L:K]\cdot [K:k]}"]   \\
+    K \ar[d,-,"{[K:k]}",swap] & \Rightarrow &     \\
+    k                         &             &  k
   \end{tikzcd}
   \]
   In this case $[L:K]\cdot [K:k] = [L:k]$.
@@ -201,6 +220,12 @@
 \begin{example}[$\pmb{\C}$ is algebraic over $\pmb{\R}$]
 \end{example}
 
+\begin{exercise}
+  A field $K$ is called \textbf{algebraically closed} if every
+  polynomial of positive degree in $K[x]$ has a root in $K$. For
+  example, $\C$ is algebraically closed but $\R$ is not. Prove that
+  every algebraically closed field has an infinite number of elements.
+\end{exercise}
 
 
 \begin{definition}
@@ -296,6 +321,25 @@
   \]
   is a basis for $K(\alpha)$ as a $K$-vector space.
   \begin{proof}
+    Since $K(\alpha)$ is a field that contains $\alpha$, it also contains
+    \[
+    1, \alpha, \alpha^2, \dots, \alpha^{n-1}.
+    \]
+    Set $V$ to be the $K$-vector space spanned by
+    \[
+    A = \{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}.
+    \]
+    We claim that $A$ is a basis for $V$ over $K$. First we'll show
+    that the set $A$ is a set of linearly independent vectors.
+
+    Seeking a contradiction, suppose that $A$ consists of linearly
+    dependent vectors, so we may write
+    \[
+    c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1} =0
+    \]
+    where $c_i\ne 0$ for some $i$. But now $\alpha$ is a root of a
+    polynomial of degree $n-1$, a contradiction, since the degree of
+    the minimal polynomial for $\alpha$ is $n$.
   \end{proof}
 \end{theorem}
 
