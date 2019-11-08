@@ -48,7 +48,7 @@ When the polynomial has integer coefficients, there is an easy way to
 find rational roots.
 
 \begin{lemma}[Rational roots test]
-  Let $K$ be a field and let $f(x) \in \Z[x]$,
+  Consider $f(x) \in \Z[x]$,
   \[
   f(x) = c_nx^n + c_{n-1}x^{n-1} + \cdots + c_1 x + c_0.
   \]
@@ -57,9 +57,9 @@ find rational roots.
   \[
   r | c_0 \quad\text{and}\quad s | c_n.
   \]
-  \begin{proof}
+  \begin{sketch}
     Evaluate $f\left(\frac{r}{s}\right)$ and clear denominators.
-  \end{proof}
+  \end{sketch}
 \end{lemma}
 
 Even if the degree of the polynomial you are working with is higher
@@ -86,8 +86,7 @@ linear factors.
     \[
     d\cdot f(x) = g'(x)\cdot h'(x)
     \]
-    where $g'(x) = d\cdot g(x)\in \Z[x]$ and $h'(x) = d \cdot
-    h(x)\in\Z[x]$. We may factor
+    where $g'(x)\in \Z[x]$ and $h'(x) \in\Z[x]$. We may factor
     \[
     d = p_1,\dots, p_n.
     \]
@@ -111,7 +110,7 @@ linear factors.
     \]
     Since this entire expression is divisible by $p_1$, we conclude
     that $a_nb_m$ is divisible by $p_1$. Now by Euclid's lemma,
-    Corollary~\ref{L:EL2}, this means $p|a_n$ or $p|b_m$. Hence $p_1$
+    Corollary~\ref{C:EL2}, this means $p_1|a_n$ or $p_1|b_m$. Hence $p_1$
     divides all the coefficients of $g'(x)$ or $p_1$ divides all the
     coefficients of $h'(x)$. This means that
     \[
@@ -172,14 +171,11 @@ Now we have the following:
     that $p|a_r$ or $p|b_s$, but not both as $p^2\nmid c_0$. WLOG
     assume $p|a_0$ and $p\nmid b_0$.
 
-    Since $p|c_1$, then by Euclid's lemma, Corollary~\ref{C:EL2}, we have
-      that $p|a_1$ or $p|b_0$. Since $p\nmid b_0$, we see
-      $p|a_1$. Continuing on in this fashion, we see $p|c_i$ for all
-      $i$ implies $p| a_i$, $i=1,\dots, r$. But this means
-      \[
-      p|a_rb_s \quad\Leftrightarrow p|c_n,
-      \]
-      a contradiction. 
+    Since $p|c_1$, then by Euclid's lemma, Corollary~\ref{C:EL2}, we
+    have that $p|a_1$ or $p|b_0$. Since $p\nmid b_0$, we see
+    $p|a_1$. Continuing on in this fashion, we see $p|c_i$ for all $i$
+    implies $p| a_i$, $i=1,\dots, r$. But this means $p|a_rb_s$ which
+    means $p|c_n$, a contradiction.
   \end{proof}
 \end{theorem}
 

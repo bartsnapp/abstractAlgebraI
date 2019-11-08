@@ -15,16 +15,58 @@
 
 
 
-
-
-
-
 \begin{definition}
   Given fields $K\subset L$, $L$ is a \dfn{field extension} of $K$ if
-  the field operations on $L$ restrict to the field operations of $K$.
+  the field operations and identities $L$ restrict to the field
+  operations of $K$. If there are several field extensions, say $k
+  \subset K \subset L$ we often write
+  \[
+  \begin{tikzcd}
+    L\ar[d,-] \\
+    K \ar[d,-]\\
+    k
+  \end{tikzcd}
+  \]
+  and call this a \dfn{tower of field extensions}. In this case, $k$ is called the \dfn{ground field}.
 \end{definition}
 
-\begin{lemma}
+\begin{example}[Reals and rationals]
+  The real numbers are a field extension of the rational numbers,
+  \[
+  \begin{tikzcd}
+    \R\ar[d,-] \\
+    \Q
+  \end{tikzcd}
+  \]
+  and here $\Q$ is the ground field. In particular, if $K$ is a field
+  of characteristic zero, $K$ is (isomorphic to) a field extension of $\Q$.
+\end{example}
+
+
+\begin{example}[Rationals and some irrationals]
+  The stucture of field extensions can be more complicated than the
+  first example. Consider
+  \[
+  \begin{tikzcd}
+    & \Q[\sqrt{2},\sqrt{3}]\ar[rd,-] \ar[d,-] \ar[ld,-]& \\
+    \Q[\sqrt{2}] \ar[rd,-]& \Q[\sqrt{6}] \ar[d,-]& \Q[\sqrt{3}]\ar[ld,-]\\
+    &  \Q & 
+  \end{tikzcd}
+  \]
+  again, $\Q$ is the ground field.  The reader should verify that each
+  of
+  \begin{align*}
+    \Q[\sqrt{2}] &=\{a + b\sqrt{2}: a,b\in \Q\},\\
+    \Q[\sqrt{3}] &=\{a + b\sqrt{3}: a,b\in \Q\},\\
+    \Q[\sqrt{6}] &=\{a + b\sqrt{6}: a,b\in \Q\},\\
+    \Q[\sqrt{2},\sqrt{3}] &=\{a + b\sqrt{2} + c\sqrt{3} + d\sqrt{6}: a,b,c,d\in \Q\},
+  \end{align*}
+  are in fact fields.
+\end{example}
+
+
+
+\begin{lemma}[Field extensions are vector spaces]
   If $L$ is a field extension of $K$, then $L$ is a $K$-vector space.
   \begin{sketch}
     Check the conditions of the definition of a vector space.
@@ -46,19 +88,216 @@
   \[
   \C = \{a+bi:a,b\in\R\}
   \]
-  are a field extension of $\R$. Since $\dim_\R(\C)=2$, we say
-  $[\C:\R]=2$, this is a degree two extension.
+  are a field extension of $\R$. Since a basis of $\C$ over $\R$ is
+  $\{1,i\}$, we see $\dim_\R(\C)=2$ and so we say $[\C:\R]=2$. The
+  field $\C$ is a degree two extension of $\R$.
 \end{example}
 
 
 \begin{example}[Fields adjoin an element]
   Given a field $K$, we may adjoin an element $\alpha$ by writing
   \[
-  K[\alpha]
+  K[\alpha] =\{\text{polynomials in terms of $\alpha$ with
+    coefficients in $K$}\}.
   \]
+\end{example}
+
+\begin{lemma}[Degree is multiplicative]
+  Let $k\subset K\subset L$ be a tower of field extensions,
+  \[
+  \begin{tikzcd}
+    L\ar[d,-,"{[L:K]}"] \\
+    K \ar[d,-,"{[K:k]}"]\\
+    k
+  \end{tikzcd}
+  \]
+  In this case $[L:K]\cdot [K:k] = [L:k]$.
+  \begin{proof}
+    Let
+    \[
+    A = \{\alpha_1,\alpha_2,\dots,\alpha_m\}\subset L
+    \]
+    be a basis for $L$ as a $K$-vector space. Let
+    \[
+    B = \{\beta_1,\beta_2,\dots,\beta_n\}\subset K
+    \]
+    be a basis for $K$ as a $k$-vector space. We'll show that
+    \[
+    C = \{\alpha_i\cdot \beta_j:\alpha_i\in A \text{ and }\beta_j\in B\} \subset L
+    \]
+    is a basis for $L$ as a $k$-vector space. Since $C$ has
+    $[L:K]\cdot [K:k]$ elements, this will prove the result.
+
+    We must show that $C$ spans $L$ as a $k$-vector space and that $C$
+    is a linearly independent set of vectors in a $k$-vector space.
+
+    \textbf{$\boldsymbol C$ spans $\boldsymbol L$ as a $\boldsymbol k$-vector space.} Suppose
+    that $\l\in L$. Since $L$ is a $K$-vector space, we may write
+    \[
+    \l = a_1\alpha_1 + a_2 \alpha_2 + \cdots + a_m\alpha_m,
+    \]
+    where each $a_i\in K$. However, $K$ is a $k$-vector space, so for
+    each $i$, we may write
+    \[
+    a_i = b_{i,1}\beta_1 +  b_{i,2}\beta_2 + \cdots +   b_{i,n}\beta_n
+    \]
+    where each $b_{i,j}\in k$. Substituting in, we can express $\l$ as
+    a linear combination of vectors of the form $\alpha_i\cdot
+    \beta_j$. Hence $C$ spans $L$ as a $k$-vector space.
+
+
+
+    \textbf{$\boldsymbol C$ is a linear independent set of vectors.}
+    Suppose that there is a linear relation
+    \begin{align*}
+      0 = &c_{1,1} \alpha_1\beta_1 + c_{1,2} \alpha_1\beta_2 + \cdots + c_{1,n} \alpha_1\beta_n\\
+      +&c_{2,1} \alpha_2\beta_1 + c_{2,2} \alpha_2\beta_2 + \cdots + c_{2,n} \alpha_2\beta_n\\
+      &\vdots\\
+      +&c_{m,1} \alpha_m\beta_1 + c_{m,2} \alpha_m\beta_2 + \cdots + c_{m,n} \alpha_m\beta_n,
+    \end{align*}
+    where $c_{i,j}\in k$. Factor out $\alpha_i$ to find
+    \begin{align*}
+      0 = &\alpha_1(c_{1,1} \beta_1 + c_{1,2} \beta_2 + \cdots + c_{1,n} \beta_n)\\
+      +&\alpha_2(c_{2,1} \beta_1 + c_{2,2} \beta_2 + \cdots + c_{2,n} \beta_n)\\
+      &\vdots\\
+      +&\alpha_m(c_{m,1} \beta_1 + c_{m,2} \beta_2 + \cdots + c_{m,n} \beta_n),
+    \end{align*}
+    where each 
+    \[
+    (c_{i,1} \beta_1 + c_{i,2} \beta_2 + \cdots + c_{i,n} \beta_n)\in K.
+    \]
+    Since $A$ is a set of linearly independent vectors, we see that
+    for each $i= 1,\dots, m$
+    \[
+    (c_{i,1} \beta_1 + c_{i,2} \beta_2 + \cdots + c_{i,n} \beta_n) = 0.
+    \]
+    However, since $B$ is a basis for $K$ as a $k$-vector space, we
+    see each $c_{i,j}=0$. This completes the proof.
+  \end{proof}
+\end{lemma}
+
+\begin{corollary}[Finite extensions]
+  If $k\subset K\subset L$ is a tower of field extensions
+  \[
+  \begin{tikzcd}[column sep=0pt]
+    L\ar[d,-,"\text{finite}",swap] & & L\ar[dd,-,"\text{finite}"]\\
+    K \ar[d,-,"\text{finite}",swap] & \Rightarrow& \\
+    k & \vphantom{K} & k
+  \end{tikzcd}
+  \]
+  and $[K:k]<\infty$ and $[L:K]<\infty$, then $[L:k]<\infty$.
+\end{corollary}
+
+
+
+\section{Algebraic extensions}
+
+\begin{definition}
+  Let $K\subset L$ be a field extension. The field $L$ is an
+  \dfn{algebraic extension} over $K$ if for every element $\alpha\in
+  L$, there exists $f(x) \in K[x]$ such that $f(\alpha) = 0$.
+\end{definition}
+
+\begin{example}[$\pmb{\C}$ is algebraic over $\pmb{\R}$]
 \end{example}
 
 
 
-dfn, bases dim
+\begin{definition}
+  Let $K\subset L$ be an algebraic extension of fields with
+  $\alpha\in L$. A polynomial $f(x)\in K[x]$ is called a \dfn{minimal
+    polynomial} for $\alpha$ if for all $g(x)\in K[x]$,
+  \[
+  g(\alpha) = 0 \quad\Rightarrow\quad \deg(f(x)) \le \deg(g(x)).
+  \]
+\end{definition}
+
+\begin{example}[Minimal polynomials]
+  Let $a+bi$ be any complex number where $a,b\in\R$ and $b\ne 0$. A
+  minimal polynomial for this complex number is
+  \[
+  (x-(a+bi))(x-(a-bi)) = x^2 -2ax +a^2 + b^2\in\R[x].
+  \]
+\end{example}
+
+\begin{lemma}[Minimal polynomials and division]
+  Let $K$ be a field and $f(x)\in K[x]$. If $f(x)$ is a minimal
+  polynomial for $\alpha$ over $K$, and $g(\alpha) = 0$, then $f(x) |
+  g(x)$.
+  \begin{proof}
+    Seeking a contradiction, suppose that $g(\alpha) = 0$ and $f(x)
+    \nmid g(x)$. Then
+    \[
+    g(x) = f(x) \cdot q(x) + r(x), \quad 0<\deg(r(x))< \deg(f(x)).
+    \]
+    Now evaluate at $x = \alpha$,
+    \begin{align*}
+      g(\alpha) &= f(\alpha) \cdot q(\alpha) + r(\alpha),\\
+      0 &= 0 + r(\alpha),
+    \end{align*}
+    so $r(\alpha)=0$, but this is a contradiction, as the degree of
+    $r(x)$ is less than the degree of the minimal polynomial.
+  \end{proof}
+\end{lemma}
+
+
+
+
+\begin{lemma}[Minimal polynomials are irreducible]
+  Let $K$ be a field and $f(x)\in K[x]$. If $f(x)$ is a minimal
+  polynomial for $\alpha$ over $K$, then $f(x)$ is irreducible in
+  $K[x]$.
+  \begin{proof}
+    Seeking a contradiction, suppose that $f(x)$ is a minimal
+    polynomial for $\alpha$ over $K$ and that
+    \[
+    f(x) = g(x) \cdot h(x) 
+    \]
+    where
+    \[
+    \deg(g(x)) <\deg(f(x))\text{and}\quad\deg(h(x)) <\deg(f(x)).
+    \]
+    Now $f(\alpha) = 0$ implies that $g(\alpha) =0$ or $h(\alpha) =
+    0$, but the degrees of both $g(x)$ and $h(x)$ are both less than
+    the degree of $f(x)$, the minimal polynomial. This is a
+    contradiction.
+  \end{proof}
+\end{lemma}
+
+\begin{definition}\index{Kalpha@$K(\alpha)$}
+  Let $K$ be a field and let $\alpha$ be a element that is algebraic
+  over $K$. In this case,
+  \[
+  K(\alpha) := \{\text{smallest field containing $K$ and $\alpha$}\}
+  \]
+\end{definition}
+
+
+\begin{lemma}[Field extensions and conrguence]
+  Let $K$ be a field and $f(x)\in K[x]$ be a minimal polynomial for
+  $\alpha$. In this case
+  \[
+  K(\alpha) \iso K[x]/(f(x)).
+  \]
+  \begin{sketch}
+  \end{sketch}
+\end{lemma}
+
+
+\begin{theorem}[Degree of an algebraic extension]
+  Let $K$ be a field and let $\alpha$ be algebraic over $K$ with
+  minimal polynomial $f(x)\in K[x]$. Then
+  \[
+  \dim_K(K(\alpha)) = [K(\alpha):K] = \deg(f(x)) = n,
+  \]
+  and
+  \[
+  \{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}
+  \]
+  is a basis for $K(\alpha)$ as a $K$-vector space.
+  \begin{proof}
+  \end{proof}
+\end{theorem}
+
+
 \end{document}
