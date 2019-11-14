@@ -1,0 +1,343 @@
+\documentclass{ximera}
+
+\author{Bart Snapp}
+
+\input{../preamble.tex}
+
+\title{Algebra is geometry}
+
+\begin{document}
+\begin{abstract}
+  We construct the complex plane.
+\end{abstract}
+\maketitle
+
+
+Now we will combine two areas of mathematics: Algebra and
+geometry. Gauss was the first to do this, and we will be inspired by
+his work.
+
+\section{Geometry}
+
+Around 300 BCE, Euclid, wrote \textit{The Elements.} This is a book
+that is widely accepted to be the first ``axiomatic'' approach to
+mathematics. It was used as a text for higher-education for around
+2000 years, and it is surely the most successful textbook ever
+written. In this work, Euclid states five so-called postulates:
+\begin{enumerate}
+\item[(1)] To draw a straight line from any point to any point.
+\item[(2)] To produce a finite straight line continuously in a straight line.
+\item[(3)] To describe a circle with any center and radius.
+\item[(4)] That all right angles equal one another.
+\item[(5)] That, if a straight line falling on two straight lines makes the
+  interior angles on the same side less than two right angles, the two
+  straight lines, if produced indefinitely, meet on that side on which
+  are the angles less than the two right angles.
+\end{enumerate}
+Readers thoughout time have interpreted these statements as statements
+concerning what is allowed when working with geometry.
+
+Postulates (1) is typically interpreted to mean that, ``if you want to
+draw a line, you must be connecting two points.'' \textbf{This is exactly what
+you can draw with a straightedge.}
+
+
+Postulate (2) is interpreted to mean that, ``if you have a central
+point, and a point on the circle, then you can draw trhe circle.''
+\textbf{This is exactly what you can draw with a compass.}
+
+Compass and straightedge constructions have lost some of their
+practicality with the advent of computer-aided-design. However, it is
+worth pointing out some facts.
+
+\paragraph{Compass and straightedge constructions are \textbf{independent of units}.} 
+Whether you are working in centimeters or miles, compass and
+straightedge constructions work just as well. By not being locked to
+set of units, the constructions given by a compass and straightedge
+have certain generality that is appreciated even today. For example,
+this allowed violin makers of the 1700's to construct shapes for
+violins that could be scaled for the musician.
+
+
+\paragraph{Compass and straightedge constructions are \textbf{theoretically correct}.} 
+In mathematics, a correct method to solve a problem is more valuable
+than a correct solution. In this sense, the compass and straightedge
+are ideal tools for the mathematician. Easy enough to use that the
+rough drawings that they produce can be somewhat relied upon, yet
+simple enough that the tools themselves can be described
+theoretically. Hence it is usually not too difficult to connect a
+given construction to a formal proof showing that the construction is
+correct.
+
+
+\paragraph{Combined, the compass and straightedge seem like \textbf{powerful tools}.} 
+No tool is useful unless it can solve a lot of problems. Without a
+doubt, the compass and straightedge combined form a powerful
+tool. Using a compass and straightedge, we are able to solve many
+problems exactly. Of the problems that we cannot solve exactly, we can
+always produce an approximate solution.
+
+
+We'll start by giving the rules of compass and straightedge
+constructions:
+
+\subsubsection{Rules for Compass and Straightedge Constructions}
+\begin{enumerate}
+\item You may only use a compass and straightedge.
+\item You must have two points to draw a line.
+\item You must have a point and a line segment to draw a circle. The
+  point is the center and the line segment gives the radius.
+\item Points can only be placed in two ways:
+\begin{enumerate}
+\item As the intersection of lines and/or circles.
+\item As a \textbf{free point}\index{free point}, meaning the location
+  of the point is not important for the final outcome of the
+  construction.
+\end{enumerate}
+\end{enumerate}
+
+
+
+\subsection{Basic constructions}
+Our first construction is also Euclid's first construction:
+
+\begin{construction}[Equilateral Triangle]\index{compass and straightedge!equilateral triangle} We wish to construct an equilateral triangle given the length of one 
+side.
+\begin{enumerate} 
+\item Open your compass to the width of the line segment.
+\item Draw two circles, one with the center being each end point 
+of the line segment.
+\item The two circles intersect at two points.  Choose one and 
+connect it to both of the line segment's endpoints.
+\end{enumerate}
+\[
+\includegraphics[scale=0.9]{eqtri.pdf}
+\]
+\end{construction}
+
+Euclid's second construction will also be our second construction:
+
+\begin{construction}[Transferring a Segment]\index{compass and straightedge!transferring a segment}
+Given a segment, we wish to move it so that it starts on a given
+point, on a given line.
+\begin{enumerate}        
+\item Draw a line through the point in question.
+\item Open your compass to the length of the line segment and draw a circle with the given point as its center.
+\item The line segment consisting of the given point and the intersection of the circle and the line 
+is the transferred segment.
+\end{enumerate}
+\end{construction}
+
+
+
+If you read \textit{The elements}, you'll see that Euclid's construction is
+much more complicated than ours.   Apparently, Euclid felt the need to
+justify the ability to move a distance. Many sources say that Euclid
+used what is called a \index{compass!collapsing}\index{collapsing
+compass}\textit{collapsing compass}, that is a compass that collapsed
+when it was picked up. However, I do not believe that such an
+invention ever existed. Rather this is something that lives in the
+conservative geometer's head.
+
+
+Regardless of whether the difficulty of transferring distances was theoretical
+or physical, we need not worry when we do it.  In fact, Euclid's
+proof of the above theorem proves that our modern way of using the
+compass to transfer distances is equivalent to using the so-called
+collapsing compass.
+
+
+
+
+
+\begin{construction}[Bisecting a Segment]\index{compass and straightedge!bisecting a segment} 
+Given a segment, we wish to cut it in half.
+\begin{enumerate}
+\item Open your compass to the width of the segment.
+\item Draw two circles, one with the center being at each end point 
+of the line segment.
+\item The circles intersect at two points.  Draw a line through 
+these two points.
+\item The new line bisects the original line segment.
+\end{enumerate}
+\[
+\includegraphics[scale=0.9]{bisectseg.pdf}
+\]
+\end{construction}
+
+\begin{construction}[Perpendicular to a Line through a Point]\index{compass and straightedge!perpendicular to a line through a point}  
+Given a point and a line, we wish to construct a line perpendicular to
+the original line that passes through the given point.
+\begin{enumerate}
+\item Draw a circle centered at the point large enough  
+       to intersect the line in two distinct points.
+\item Bisect the line segment. The line used to do this 
+       will be the desired line.
+\end{enumerate}
+\[
+\includegraphics[scale=0.8]{perpfrompoint.pdf}
+\]
+\end{construction}
+
+
+
+
+
+\begin{construction}[Bisecting an Angle]\index{compass and straightedge!bisecting an angle} 
+We wish to divide an angle in half.
+\begin{enumerate}
+\item Draw a circle with its center being the vertex of the 
+angle.
+\item Draw a line segment where the circle intersects the lines.
+\item Bisect the new line segment.  The bisector will bisect the angle.
+\end{enumerate}
+\[
+\includegraphics{bisectangle.pdf}
+\]
+\end{construction}
+
+
+We now come to a very important construction:
+
+\begin{construction}[Copying an Angle]\index{compass and straightedge!copying an angle} 
+Given a point on a line and some angle, we wish to copy the 
+given angle so that the new angle has the point as its 
+vertex and the line as one of its edges.
+\begin{enumerate}
+\item Open the compass to a fixed width and make a circle 
+centered at the vertex of the angle.
+\item Make a circle of the same radius on the line with the point.
+\item Open the compass so that one end touches the $1$st circle 
+where it hits an edge of the original angle, with the other end of the compass extended to where the $1$st circle hits the other edge of the original angle.
+\item Draw a circle with the radius found above with its center 
+where the second circle hits the line.
+\item Connect the point to where the circles meet. This is the other leg of the angle we are constructing.
+\end{enumerate}
+\[
+\includegraphics{copyangle.pdf}
+\]
+\end{construction}
+
+
+
+\begin{construction}[Parallel to a Line through a Point]\index{compass and straightedge!parallel to a line through a point} 
+ Given a line and a point, we wish to construct another line parallel
+ to the first that passes through the given point.
+\begin{enumerate}
+\item Draw a circle around the given point that passes through the given line at two points.
+\item We now have an isosceles triangle, duplicate this triangle.
+\item Connect the top vertexes of the triangles and we get a parallel line.
+\end{enumerate}
+\vspace{1cm}
+\[
+\includegraphics[scale=0.9]{parallel.pdf}
+\]
+\end{construction}
+
+
+
+\section{Geometry and numbers}
+
+In this section, we'll use compass and straightedge to construct $\Z$,
+$\Q$, $\Q(i)$, and more.  First we'll construct $\Z$. Start by making
+some point the \textbf{origin}:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(0,0){0}
+  \tkzDrawPoint[fill=black](0)
+  \tkzLabelPoints[below right](0)
+\end{tikzpicture}
+\]
+Now we'll draw any line through this point, note here we will use a
+free point, we'll call this the \dfn{real axis}.
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(0,0){0}
+  \tkzDefPoint(3,0){x}
+  \tkzDefPoint(-3,0){nx}
+  \tkzDrawPoint[fill=black](0)
+  
+  \tkzDrawLine(x,nx)
+  \tkzLabelPoints[below right](0)
+\end{tikzpicture}
+\]
+Now, we will use a free point to pick a unit length, and use the
+compass to create the integers. We'll denote the points by the
+integers they represent.
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(3,0){x}
+  \tkzDefPoint(-3,0){nx}
+ 
+  \tkzDefPoint(0,0){0}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(2,0){2}
+  \tkzDefPoint(3,0){3}
+  \tkzDefPoint(-1,0){-1}
+  \tkzDefPoint(-2,0){-2}
+  \tkzDefPoint(-3,0){-3}
+  
+  \tkzCompass(1,2)
+  \tkzCompass(2,3)
+  \tkzCompass(-1,-2)
+  \tkzCompass(-2,-3)
+  
+  \tkzDrawPoint[fill=black](0)
+  \tkzDrawPoint[fill=black](1)
+  \tkzDrawPoint[fill=black](2)
+  \tkzDrawPoint[fill=black](3)
+  \tkzDrawPoint[fill=black](-1)
+  \tkzDrawPoint[fill=black](-2)
+  \tkzDrawPoint[fill=black](-3)
+
+  \tkzDrawLine(x,nx)
+  \tkzLabelPoints[below right](0)
+  \tkzLabelPoints[below right](1)
+  \tkzLabelPoints[below right](2)
+  \tkzLabelPoints[below right](3)
+  \tkzLabelPoints[below right](-1)
+  \tkzLabelPoints[below right](-2)
+  \tkzLabelPoints[below right](-3)
+
+  \tkzDrawCircle[dashed](0,1)
+\end{tikzpicture}
+\]
+At this point we have a geometric model of the integers, $\Z$. To add
+two integers, we simply concatenate two line segments. Multiplying
+integers is tricker. Suppose we have two segments, one of length $a$
+and one of length $b$. To construct a segment of length $a\cdot b$,
+we'll use facts about similar triangles.
+
+
+Now, we'll use a compass and straightedge to construct a line
+perpendicular to the real axis through the origin.
+
+
+
+
+\begin{tikzpicture}
+    % The triangle
+    \tkzDefPoint(2,2){A}
+    \tkzDefPoint(5,-2){B}
+    \tkzDefPoint(1,-2){C}
+    \tkzDrawSegments(A,B B,C C,A)
+
+    % circumcircle
+    \tkzCircumCenter(A,B,C)\tkzGetPoint{G}
+    \tkzDrawPoint(G)
+    \tkzDrawCircle(G,A)
+
+    % incircle
+    \tkzDefCircle[in](A,B,C)\tkzGetPoint{I}\tkzGetLength{rIN}
+    \tkzDrawPoint(I)
+    \tkzDrawCircle[R](I,\rIN pt)
+
+    \tkzLabelPoints[below](B)
+    \tkzLabelPoints[below left](C)
+    \tkzLabelPoints[above left](A,I,G)
+\end{tikzpicture}
+
+\begin{tikzpicture}\tkzInit\tkzGrid[sub]\tkzPoint[pos=left](1,5){A}\tkzPoint(5,2){B}\tkzDrawSegment(A,B)\tkzDefPointBy[rotation in rad= center A angle pi/3](B)\tkzGetPoint{C}\tkzCompass[color=red](A,C)\tkzCompass[color=red](B,C)\end{tikzpicture}
+
+
+\end{document}
