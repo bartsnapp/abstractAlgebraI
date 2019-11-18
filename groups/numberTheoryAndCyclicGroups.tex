@@ -140,18 +140,9 @@ each sometimes referred to as \dfn{Euclid's lemma}. This fact appears as \link[P
   p|mn \quad \Rightarrow \quad p|m \text{ or } p|n.
   \]
   \begin{sketch}
-    The proof is basically three steps:
-    \begin{enumerate}
-    \item Suppose that $p\nmid m$, explain why $\gcd(m,p) =1$.
-    \item Write $1 = am + bp$, multiply both sides by $n$.
-    \item Can you finish it from here?
-    \end{enumerate}
+    Follows from Euclids's lemma, Corollary~\ref{C:EL2}.
   \end{sketch}
 \end{corollary}
-
-
-
-
 
 
 \begin{exercise} Prove that if $\gcd(m,n) = 1$, then 
@@ -159,6 +150,94 @@ each sometimes referred to as \dfn{Euclid's lemma}. This fact appears as \link[P
 in \equiv jn \pmod m \qquad \Rightarrow\qquad i\equiv j\pmod m.
 \]
 \end{exercise}
+
+
+
+\begin{corollary}[Unique factorization of natrual numbers]\label{C:UFNN}
+  Every natural number greater than $1$ can be expressed as a unique
+  (up to order) product of prime numbers.
+  \begin{proof}
+    We'll write this proof in two of steps.
+
+    %% \textbf{First we'll show that every natural number bigger than one
+    %%   is divisible by a prime number.} Let
+    %% \[
+    %% \mathcal{S} = \{n\in\N: \text{$n>1$ and $n$ has no prime divisors}\}\subset \N.
+    %% \]
+    %% Seeking a contradiction, suppose that $\mathcal{S} \ne
+    %% \emptyset$. By the \index{well-ordering principle}well-ordering
+    %% principle, $\mathcal{S}$ has a lesst element, call it $\l\in
+    %% \mathcal{S}$. By the definition of $\mathcal{S}$, $\l$ is not
+    %% prime. Hence $\l = a\cdot b$, where $a,b\in \N$ with $a<\l$ and
+    %% $b\le \l$. Since neither $a$ nor $b$ are in $\mathcal{S}$, both
+    %% must have prime divisors, and thus so must $\l$, a
+    %% contradiction. Hence every natural number bigger than one is
+    %% divisible by a prime number.
+
+    \textbf{First we'll show that every natural number bigger than one
+      is a product of prime numbers.} Let 
+    \[
+    \mathcal{S} = \{n\in\N: \text{$n>1$ and $n$ is not a product of
+      prime numbers}\}\subset \N.
+      \]
+      Seeking a contradiction, suppose that $\mathcal{S} \ne
+      \emptyset$. By the \index{well-ordering principle}well-ordering
+      principle, $\mathcal{S}$ has a least element, call it $\l\in
+      \mathcal{S}$. By the definition of $\mathcal{S}$, $\l$ is not
+      prime. Hence $\l = a\cdot b$, where $a,b\in \N$ with $a<\l$ and
+      $b\le \l$ and both $a>1$ and $b>1$. Since neither $a$ nor $b$
+      are in $\mathcal{S}$, both must be a product of primes, and so
+      $\l$ must be a product of prime numbers.
+
+
+      \textbf{Next we'll show that this factorization is unique.}
+      Let 
+      \[
+      \mathcal{S} = \{n\in\N: \text{$n>1$ and $n$ has two prime
+        factorizations}\}\subset \N.
+       \]
+      Seeking a contradiction, suppose that $\mathcal{S} \ne
+      \emptyset$. By the \index{well-ordering principle}well-ordering
+      principle, $\mathcal{S}$ has a least element, call it $\l\in
+      \mathcal{S}$. Write
+      \[
+      \l = p_1 \cdot p_2 \cdot \cdots \cdot p_m = q_1 \cdot q_2 \cdot \cdots \cdot p_n
+      \]
+      where the $p_i$s and the $q_i$s are not necessarily distinct.
+      By definition,
+      \[
+      p_1 |   q_1 \cdot q_2 \cdot \cdots \cdot p_n
+      \]
+      By Euclid's lemma, Corollary~\ref{C:EL2}, we see WLOG,
+      relabeling as needed,
+      \[
+      p_1 | q_1.
+      \]
+      However, this can only happen if $p_1 = q_1$. Thus
+      \[
+      \l' = p_2 \cdot \cdots \cdot p_m = q_2 \cdot \cdots \cdot p_n
+      \]
+      is a number smaller than $\l$, and hence
+      $\l'\notin\mathcal{S}$. This means that the factorization of
+      $\l'$ is unique, meaning the factorization of $\l$ is a also
+      unique, up to reordering. This is a contradiction, and we see
+      $\mathcal{S}$ is empty. Thus every natural number greater than
+      $1$ can be expressed as a unique (up to order) product of prime
+      numbers.
+  \end{proof}
+\end{corollary}
+
+
+\begin{exercise}
+  Let each $p_i$ be a distinct prime number.  How many divisors does
+  \[
+  p_1^{\alpha_1} \cdot p_2^{\alpha_2} \cdot \cdots \cdot p_n^{\alpha_n}
+  \]
+  have? Prove your answer is correct. What number(s) between $0$ and
+  $100$ have the most divisors?
+\end{exercise}
+
+
 
 
 
@@ -535,6 +614,7 @@ celebrated theorem. Until then, we will make due with these more
 specialized theorems that follow from the division theorem,
 Theorem~\ref{T:DT}.
 
+
 \begin{lemma}[Element's order is at most the group's order]
   Prove that if $G$ is a group and $a\in G$, then $\o(a)\le |G|$.
   \begin{sketch}
@@ -543,7 +623,7 @@ Theorem~\ref{T:DT}.
 \end{lemma}
 
 
-\begin{theorem}[Element's order divides cyclic group's order]
+\begin{theorem}[Element's order divides cyclic group's order]\label{T:eodvgo}
   Let $G$ be a finite cyclic group with $a\in G$. In this case,
   $\o(a)$ divides $|G|$.
   \begin{sketch}
@@ -559,6 +639,65 @@ Theorem~\ref{T:DT}.
     explain why the order of $a_d$ must be $d$.
   \end{sketch}
 \end{corollary}
+
+We can continue on and prove a little more.
+
+
+
+\begin{lemma}[Order divides other exponents]\label{L:odoe}
+  Let $G$ be a group with $a\in G$. If $a^n = 1$, then $o(a)|n$.
+  \begin{sketch}
+    Use the division theorem, Theorem~\ref{T:DT}.
+  \end{sketch}
+\end{lemma}
+
+
+\begin{lemma}[Coprime element order]\label{L:cpeo}
+  Let $G$ be a finite Abelian group. If $\gcd(\o(a),\o(b)) = 1$, then
+  $\o(ab) = \o(a)\cdot \o(b)$.
+  \begin{proof}
+    If $(ab)^n = 1$ then $(a)^{n\o(b)} = 1$. By Lemma~\ref{L:odoe},
+    \[
+    \o(a) | n\o(b).
+    \]
+    By Euclid's lemma, Corollary~\ref{C:EL2}, we see $\o(a) | n$. The
+    same argument with $a$ and $b$ switched will show $\o(b)|n$. Thus
+    \[
+    (\o(a)\o(b))|n.
+    \]
+    Since $(ab)^(\o(a)\o(b)) = 1$, we are done.
+  \end{proof}
+\end{lemma}
+
+
+
+\begin{corollary}[Order divides maximal order]\label{C:odmo}
+  Let $G$ be a finite Abelian group and let $m\in G$ such that $\o(m)
+  \ge \o(a)$ for all $a\in G$. In this case,
+  \[
+  \o(a) | \o(m).
+  \]
+  \begin{proof}
+    Seeking a contradiction, suppose that $\o(a) \nmid \o(m)$. By
+    unique factorization, Corollary~\ref{C:UFNN}, this means that
+    there is a prime $p$ where a higher power of $p$ divides $\o(a)$
+    than $\o(m)$,
+    \[
+    \o(m) = p^\alpha q_1 \quad\text{and}\quad \o(a) = p^\beta q_2  
+    \]
+    where $\beta>\alpha$ and $p\nmid q_1$ and $p\nmid q_2$. In this case,
+    \[
+    \o(m^{p^\alpha}) = q_1\quad\text{and}\quad \o(a^{q_2}) = p^\beta
+    \]
+    and $\gcd(q_1,p^\beta) = 1$. Thus by Lemma~\ref{L:cpeo},
+    \[
+    \o(m^{p^\alpha}a^{q_2}) = p^\beta\cdot q_1> p^\alpha q_1 = \o(m).
+    \]
+    This is a contradiction, since $m$ has maximal order by
+    assumption.
+  \end{proof}
+\end{corollary}
+
 
 
 

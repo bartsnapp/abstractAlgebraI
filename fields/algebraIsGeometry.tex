@@ -8,7 +8,8 @@
 
 \begin{document}
 \begin{abstract}
-  We construct the complex plane.
+  We analyize which numbers can be constructed via compass and
+  straightedge.
 \end{abstract}
 \maketitle
 
@@ -56,7 +57,7 @@ straightedge constructions work just as well. By not being locked to
 set of units, the constructions given by a compass and straightedge
 have certain generality that is appreciated even today. For example,
 this allowed violin makers of the 1700's to construct shapes for
-violins that could be scaled for the musician.
+violins that could be scaled for size of the musician.
 
 
 \paragraph{Compass and straightedge constructions are \textbf{theoretically correct}.} 
@@ -101,7 +102,7 @@ constructions:
 \subsection{Basic constructions}
 Our first construction is also Euclid's first construction:
 
-\begin{construction}[Equilateral Triangle]\index{compass and straightedge!equilateral triangle} We wish to construct an equilateral triangle given the length of one 
+\begin{construction}[Equilateral triangle]\index{compass and straightedge!equilateral triangle} We wish to construct an equilateral triangle given the length of one 
 side.
 \begin{enumerate} 
 \item Open your compass to the width of the line segment.
@@ -117,7 +118,7 @@ connect it to both of the line segment's endpoints.
 
 Euclid's second construction will also be our second construction:
 
-\begin{construction}[Transferring a Segment]\index{compass and straightedge!transferring a segment}
+\begin{construction}[Transferring a segment]\index{compass and straightedge!transferring a segment}
 Given a segment, we wish to move it so that it starts on a given
 point, on a given line.
 \begin{enumerate}        
@@ -150,7 +151,7 @@ collapsing compass.
 
 
 
-\begin{construction}[Bisecting a Segment]\index{compass and straightedge!bisecting a segment} 
+\begin{construction}[Bisecting a segment]\index{compass and straightedge!bisecting a segment} 
 Given a segment, we wish to cut it in half.
 \begin{enumerate}
 \item Open your compass to the width of the segment.
@@ -165,7 +166,7 @@ these two points.
 \]
 \end{construction}
 
-\begin{construction}[Perpendicular to a Line through a Point]\index{compass and straightedge!perpendicular to a line through a point}  
+\begin{construction}[Perpendicular to a line through a point]\index{compass and straightedge!perpendicular to a line through a point}  
 Given a point and a line, we wish to construct a line perpendicular to
 the original line that passes through the given point.
 \begin{enumerate}
@@ -183,7 +184,7 @@ the original line that passes through the given point.
 
 
 
-\begin{construction}[Bisecting an Angle]\index{compass and straightedge!bisecting an angle} 
+\begin{construction}[Bisecting an angle]\index{compass and straightedge!bisecting an angle} 
 We wish to divide an angle in half.
 \begin{enumerate}
 \item Draw a circle with its center being the vertex of the 
@@ -199,7 +200,7 @@ angle.
 
 We now come to a very important construction:
 
-\begin{construction}[Copying an Angle]\index{compass and straightedge!copying an angle} 
+\begin{construction}[Copying an angle]\index{compass and straightedge!copying an angle} 
 Given a point on a line and some angle, we wish to copy the 
 given angle so that the new angle has the point as its 
 vertex and the line as one of its edges.
@@ -220,7 +221,7 @@ where the second circle hits the line.
 
 
 
-\begin{construction}[Parallel to a Line through a Point]\index{compass and straightedge!parallel to a line through a point} 
+\begin{construction}[Parallel to a line through a point]\index{compass and straightedge!parallel to a line through a point} 
  Given a line and a point, we wish to construct another line parallel
  to the first that passes through the given point.
 \begin{enumerate}
@@ -245,7 +246,7 @@ some point the \textbf{origin}:
 \begin{tikzpicture}
   \tkzDefPoint(0,0){0}
   \tkzDrawPoint[fill=black](0)
-  \tkzLabelPoints[below right](0)
+  \tkzLabelPoints[below](0)
 \end{tikzpicture}
 \]
 Now we'll draw any line through this point, note here we will use a
@@ -258,7 +259,7 @@ free point, we'll call this the \dfn{real axis}.
   \tkzDrawPoint[fill=black](0)
   
   \tkzDrawLine(x,nx)
-  \tkzLabelPoints[below right](0)
+  \tkzLabelPoints[below](0)
 \end{tikzpicture}
 \]
 Now, we will use a free point to pick a unit length, and use the
@@ -291,53 +292,373 @@ integers they represent.
   \tkzDrawPoint[fill=black](-3)
 
   \tkzDrawLine(x,nx)
-  \tkzLabelPoints[below right](0)
-  \tkzLabelPoints[below right](1)
-  \tkzLabelPoints[below right](2)
-  \tkzLabelPoints[below right](3)
-  \tkzLabelPoints[below right](-1)
-  \tkzLabelPoints[below right](-2)
-  \tkzLabelPoints[below right](-3)
+  \tkzLabelPoints[below](0)
+  \tkzLabelPoints[below](1)
+  \tkzLabelPoints[below](2)
+  \tkzLabelPoints[below](3)
+  \tkzLabelPoints[below](-1)
+  \tkzLabelPoints[below](-2)
+  \tkzLabelPoints[below](-3)
 
   \tkzDrawCircle[dashed](0,1)
 \end{tikzpicture}
 \]
-At this point we have a geometric model of the integers, $\Z$. To add
-two integers, we simply concatenate two line segments. Multiplying
-integers is tricker. Suppose we have two segments, one of length $a$
-and one of length $b$. To construct a segment of length $a\cdot b$,
-we'll use facts about similar triangles.
-
-
-Now, we'll use a compass and straightedge to construct a line
-perpendicular to the real axis through the origin.
-
-
-
-
+At this point we have a geometric model of the integers, $\Z$. As this
+author reads Euclid, I see someone who is trying to give ``meaning''
+to numbers. Euclid modeled numbers by thinking of them as lengths of
+line segments. We will follow in his footsteps, but we will think of
+numbers a directed lengths, more commonly known as vectors.  With this
+in mind, let us now explore how to add, subtract, multiply, and divide
+numbers when viewed as vectors. To be quite explicit, we view the
+number $3$ as the vector:
+\[
 \begin{tikzpicture}
-    % The triangle
-    \tkzDefPoint(2,2){A}
-    \tkzDefPoint(5,-2){B}
-    \tkzDefPoint(1,-2){C}
-    \tkzDrawSegments(A,B B,C C,A)
-
-    % circumcircle
-    \tkzCircumCenter(A,B,C)\tkzGetPoint{G}
-    \tkzDrawPoint(G)
-    \tkzDrawCircle(G,A)
-
-    % incircle
-    \tkzDefCircle[in](A,B,C)\tkzGetPoint{I}\tkzGetLength{rIN}
-    \tkzDrawPoint(I)
-    \tkzDrawCircle[R](I,\rIN pt)
-
-    \tkzLabelPoints[below](B)
-    \tkzLabelPoints[below left](C)
-    \tkzLabelPoints[above left](A,I,G)
+  \tkzDefPoint(3,0){x}
+  \tkzDefPoint(0,0){nx}
+ 
+  \tkzDefPoint(0,0){0}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(2,0){2}
+  \tkzDefPoint(3,0){3}
+      
+  \tkzDrawPoint[fill=black](0)
+  \tkzDrawPoint[fill=black](1)
+  \tkzDrawPoint[fill=black](2)
+  \tkzDrawPoint[fill=black](3)
+  
+  \tkzDrawLine(x,nx)
+  \tkzLabelPoints[below](0)
+  \tkzLabelPoints[below](1)
+  \tkzLabelPoints[below](2)
+  \tkzLabelPoints[below](3)
+  
+  \tkzDrawVector[ultra thick](0,3)
 \end{tikzpicture}
+\]
+We model the the integer $-2$ as the vector:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(-2,0){x}
+  \tkzDefPoint(0,0){nx}
+ 
+  \tkzDefPoint(0,0){0}
+  \tkzDefPoint(-1,0){-1}
+  \tkzDefPoint(-2,0){-2}
 
-\begin{tikzpicture}\tkzInit\tkzGrid[sub]\tkzPoint[pos=left](1,5){A}\tkzPoint(5,2){B}\tkzDrawSegment(A,B)\tkzDefPointBy[rotation in rad= center A angle pi/3](B)\tkzGetPoint{C}\tkzCompass[color=red](A,C)\tkzCompass[color=red](B,C)\end{tikzpicture}
+  \tkzDrawPoint[fill=black](0)
+  \tkzDrawPoint[fill=black](-1)
+  \tkzDrawPoint[fill=black](-2)
+    
+
+  \tkzDrawLine(x,nx)
+  \tkzLabelPoints[below](0)
+  \tkzLabelPoints[below](-1)
+  \tkzLabelPoints[below](-2)
+  
+  \tkzDrawVector[ultra thick](0,-2)
+  
+\end{tikzpicture}
+\]
+To add two integers, we add them like vectors, tip-to-tail. Below we see $3+(-2)$:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(3,0){x}
+  \tkzDefPoint(0,0){nx}
+ 
+  \tkzDefPoint(0,0){0}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(2,0){2}
+  \tkzDefPoint(3,0){3}
+      
+  \tkzDrawPoint[fill=black](0)
+  \tkzDrawPoint[fill=black](1)
+  \tkzDrawPoint[fill=black](2)
+  \tkzDrawPoint[fill=black](3)
+  
+  \tkzDrawLine(x,nx)
+  \tkzLabelPoints[below](0)
+  \tkzLabelPoints[below](1)
+  \tkzLabelPoints[below](2)
+  \tkzLabelPoints[below](3)
+  
+  \tkzDrawVector[ultra thick](0,3)
+
+  \tkzDrawVector[ultra thick](3,1)
+  
+\end{tikzpicture}
+\]
+In an entirely similar fashion, to compute $a-b$, we simply add $a+
+(-b)$.
+
+Multiplying integers is tricker. Suppose we have two segments, one of
+length $a$ and one of length $b$. To construct a segment of length
+$a\cdot b$, we'll use facts about similar triangles. Place nonparallel
+vectors whose lengths are equal to $|a|$ and $|b|$ so that their tails
+are at the same point:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(1.41,1.41){2}
+  \tkzDrawVector[ultra thick](0,3)
+  \tkzDrawVector[ultra thick](0,2)
+  \tkzLabelSegment[above left](0,2){$a$}
+  \tkzLabelSegment[below](0,3){$b$}
+\end{tikzpicture}
+\]
+To multiply, we'll need to see the relationship between $b$ and $1$:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(.5,-.3){l}
+  \tkzDefPoint(1.41,1.41){2}
+  \tkzDrawPoint[fill=black](1)
+  \tkzDrawVector[ultra thick](0,3)
+  \tkzDrawVector[ultra thick](0,2)
+  \tkzLabelSegment[above left](0,2){$a$}
+  \tkzLabelSegment[below](0,3){$b$}
+  \tkzDrawSegment[
+    decoration={
+      brace,
+      mirror,
+      raise=0.2cm
+    },
+    decorate](0,1)
+  \tkzLabelPoint[below](l){$1$}
+\end{tikzpicture}
+\]
+Now constuct a segment from $1$ to the tip of $a$, and a line from the tip of $b$ that is parallel to this line:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(1.41,1.41){2}
+  \tkzDefPoint(3,0){3}
+  \tkzDefPoint(4.23,4.23){23}
+  \tkzDefPoint(.5,-.3){l}
+  
+  \tkzDrawPoint[fill=black](1)
+
+  \tkzDrawLine(1,2)
+
+  \tkzDrawLine[dashed](3,23)
+
+  \tkzDrawVector[ultra thick,gray](0,23)
+  \tkzDrawVector[ultra thick](0,3)
+  \tkzDrawVector[ultra thick](0,2)
+
+  \tkzLabelSegment[above left](0,2){$a$}
+  \tkzLabelSegment[above left](0,23){$a\cdot b$}
+  \tkzLabelSegment[below](0,3){$b$}
+
+  
+  \tkzDrawSegment[decoration={brace,mirror,raise=0.2cm},decorate](0,1)
+  \tkzLabelPoint[below](l){$1$}
+\end{tikzpicture}
+\]
+
+Division is similar (pun intended!) to multiplication. Suppose we wish
+to compute $a/b$.  Place nonparallel vectors whose lengths are equal
+to $|a|$ and $|b|$ so that their tails are at the same point, and show the relationship between $b$ and $1$:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(1.41,1.41){2}
+  \tkzDefPoint(3,0){3}
+  \tkzDefPoint(4.23,4.23){23}
+  \tkzDefPoint(.5,-.3){l}
+  
+  \tkzDrawPoint[fill=black](1)
+
+  %\tkzDrawLine(1,2)
+
+  %\tkzDrawLine[dashed](3,23)
+
+  %\tkzDrawVector[ultra thick,gray](0,2)
+  \tkzDrawVector[ultra thick](0,3)
+  \tkzDrawVector[ultra thick](0,23)
+
+  %\tkzLabelSegment[above left](0,2){$a/b$}
+  \tkzLabelSegment[above left](0,23){$a$}
+  \tkzLabelSegment[below](0,3){$b$}
+
+  
+  \tkzDrawSegment[decoration={brace,mirror,raise=0.2cm},decorate](0,1)
+  \tkzLabelPoint[below](l){$1$}
+\end{tikzpicture}
+\]
+Now constuct a segment from the tip of $b$ to the tip of $a$, and a
+line passing through $1$ that is parallel to this line:
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(1.41,1.41){2}
+  \tkzDefPoint(3,0){3}
+  \tkzDefPoint(4.23,4.23){23}
+  \tkzDefPoint(.5,-.3){l}
+  
+  \tkzDrawPoint[fill=black](1)
+
+  \tkzDrawLine[dashed](1,2)
+
+  \tkzDrawLine(3,23)
+
+  
+  \tkzDrawVector[ultra thick](0,3)
+  \tkzDrawVector[ultra thick](0,23)
+  \tkzDrawVector[ultra thick,gray](0,2)
+  
+  \tkzLabelSegment[above left](0,2){$a/b$}
+  \tkzLabelSegment[above left](0,23){$a$}
+  \tkzLabelSegment[below](0,3){$b$}
+
+  
+  \tkzDrawSegment[decoration={brace,mirror,raise=0.2cm},decorate](0,1)
+  \tkzLabelPoint[below](l){$1$}
+\end{tikzpicture}
+\]
+
+
+At this point, we have shown that every element of $\Q$ is
+constructible with compass and straightedge. Moreover, if we visualize
+$i$ as up (and this was Gauss' key insight), we can construct all of
+$\Q(i)$.
+
+\[
+\begin{tikzpicture}
+  \tkzDefPoint(3,0){x}
+  \tkzDefPoint(-3,0){nx}
+
+  \tkzDefPoint(0,3){y}
+  \tkzDefPoint(0,-3){ny}
+
+  \tkzDefPoint(0,0){0}
+  \tkzDefPoint(1,0){1}
+  \tkzDefPoint(2,0){2}
+  \tkzDefPoint(3,0){3}
+  \tkzDefPoint(-1,0){-1}
+  \tkzDefPoint(-2,0){-2}
+  \tkzDefPoint(-3,0){-3}
+
+  \tkzDefPoint(0,1){1i}
+  \tkzDefPoint(0,2){2i}
+  \tkzDefPoint(0,3){3i}
+  \tkzDefPoint(0,-1){-1i}
+  \tkzDefPoint(0,-2){-2i}
+  \tkzDefPoint(0,-3){-3i}
+    
+  \tkzDrawPoint[fill=black](0)
+  \tkzDrawPoint[fill=black](1)
+  \tkzDrawPoint[fill=black](2)
+  \tkzDrawPoint[fill=black](3)
+  \tkzDrawPoint[fill=black](-1)
+  \tkzDrawPoint[fill=black](-2)
+  \tkzDrawPoint[fill=black](-3)
+  \tkzDrawPoint[fill=black](1i)
+  \tkzDrawPoint[fill=black](2i)
+  \tkzDrawPoint[fill=black](3i)
+  \tkzDrawPoint[fill=black](-1i)
+  \tkzDrawPoint[fill=black](-2i)
+  \tkzDrawPoint[fill=black](-3i)
+
+  \tkzDrawLine(x,nx)
+  \tkzDrawLine(y,ny)
+  \tkzLabelPoints[below left](0)
+  \tkzLabelPoints[below](1)
+  \tkzLabelPoints[below](2)
+  \tkzLabelPoints[below](3)
+  \tkzLabelPoints[below](-1)
+  \tkzLabelPoints[below](-2)
+  \tkzLabelPoints[below](-3)
+
+  \tkzLabelPoints[left](1i)
+  \tkzLabelPoints[left](2i)
+  \tkzLabelPoints[left](3i)
+  \tkzLabelPoints[left](-1i)
+  \tkzLabelPoints[left](-2i)
+  \tkzLabelPoints[left](-3i)
+\end{tikzpicture}
+\]
+
+
+
+
+
+
+
+
+
+
+
+Now it is time for a definition.
+
+\begin{definition}\index{C@$\mathcal{C}$}
+  A complex number $a+bi$ is a \dfn{constructible number} if the point
+  $(a,b)$ is constructible with compass and straightedge. Call the set
+  of constructible numbers $\mathcal{C}$.
+\end{definition}
+
+From our work above we see
+\[
+\Z\subset \Q \subset \Q(i) \subset \mathcal{C} \subset \C.
+\]
+
+\begin{lemma}[Construcible numbers form a field]
+  The set of constructible numbers $\mathcal{C}$ is a field.
+  \begin{proof}
+    We'll define
+    \[
+    (a+ bi)\cdot(c+di) := (ac-bd) + (ad+bc)i.
+    \]
+    First note that both $0$ and $1$ are constructible numbers. We
+    will show that $(\mathcal{C},+)$ is an additive subgroup of
+    $(\C,+)$. Consider $a+ bi, c+di \in \mathcal{C}$. We must show
+    that
+    \[
+    (a+ bi)-(c+di)\in \mathcal{C}.
+    \]
+    Our method of subtracting vectors above shows that this is
+    true. Hence $(\mathcal{C},+)$ is an additive subgroup of
+    $(\C,+)$. Now we must show that $(\mathcal{C}-\{0\},\cdot)$ is a
+    multiplicative subgroup of $(\C-\{0\},\cdot)$. Consider $a+ bi,
+    c+di \in \mathcal{C}$. We must show that
+    \[
+    (a+ bi)(c+di)^{-1} \in \mathcal{C}.
+    \]
+    Expanding the left-hand side above, we see
+    \[
+    (a+ bi)(c+di)^{-1} = \frac{(ac+bd) + (bc-ad)i}{c^2 + d^2},
+    \]
+    and this is constructible from our work above. Since we know that
+    multiplication distributes over addition in $\C$, we know that
+    multiplication distributes over addition in $\mathcal{C}$. Hence
+    $\mathcal{C}$ is a field.
+  \end{proof}
+\end{lemma}
+
+
+\begin{definition}
+  A \dfn{constructible number field} is a subfield of $\C$ where every
+  number is constructible.
+\end{definition}
+
+
+\begin{theorem}
+  Let $L$ be a constructible number field. If $L$ is a finite
+  extension of $\Q$, then $[L: \Q] = 2^n$ for some nonnegative integer
+  $n$.
+  \begin{proof}
+    $(\Rightarrow)$ Suppose we have a constructible number field
+    $K$. The only way to add new points to this constructible number
+    field is by intersecting lines with lines, lines with circles, or
+    circles with circles. These geometric objects have the following
+    algebraic forms:
+    \begin{align*}
+      ax + by + c &= 0 & & (a,b,c\in K)\\
+      (x-p)^2 + (y-q)^2 &= r^2 & & (p,q,r\in K)
+    \end{align*}
+    when we intersect these lines and circles, we obtain linear or
+    quadratic equations describing their intersections. Hence
+    $[K(\alpha) : K] \le 2$.
+  \end{proof}
+\end{theorem}
 
 
 \end{document}

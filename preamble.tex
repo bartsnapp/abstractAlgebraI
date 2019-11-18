@@ -10,6 +10,8 @@
 
 
 \usepackage{tikz-cd}
+\usepackage{tkz-euclide} %% compass
+\usetkzobj{all}  %% tkzCompass
 \tikzset{>=stealth}
 \tikzcdset{arrow style=tikz}
 \usetikzlibrary{math} %% for assigning variables
@@ -133,6 +135,7 @@
 		{\thmname{#1}\thmnumber{ #2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
 \theoremstyle{Alg}
 \newtheorem*{algorithm}{Algorithm}
+\newtheorem*{construction}{Construction}
 
 
 

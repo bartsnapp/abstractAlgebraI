@@ -1,0 +1,326 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\author{Bart Snapp}
+
+\title{Polynomials, degree, and roots}
+
+\begin{document}
+\begin{abstract}
+  We view sets of polynomials as a vector space over a field.
+\end{abstract}
+\maketitle
+
+
+\begin{definition}\index{degree!of a polynomial}
+  Let $K$ be a field. A \dfn{polynomial} over $K$, is a formal sum
+  \[
+  f = c_nx^n + c_{n-1}x^{n-1} + \dots + c_1 x + c_0
+  \]
+  where $n$ is a nonnegative integer and each $c_i \in K$. The number
+  $n$ is the \textbf{degree} of the polynomial, $\deg(f) = n$, and the
+  field element $c_n$ is the \dfn{leading coefficient}. If $f=0$, we
+  leave the degree of $f$ undefined. The set of all polynomials in
+  terms of $x$ with coefficients in $K$ is denoted $K[x]$.\index{K[x]@$K[x]$}
+\end{definition}
+
+\begin{exercise} 
+  Which of the following are polynomials in $\R[x]$?
+  \begin{selectAll}
+    \choice[correct]{$f(x) = 0$}
+    \choice[correct]{$f(x) = -9$}
+    \choice[correct]{$f(x) = 3x+1$}
+    \choice{$f(x) = x^{1/2}-x +8$}
+    \choice{$f(x) = -4x^{-3}+5x^{-1}+7-18x^2$}
+    \choice{$f(x) = \frac{x^2 - 3x + 2}{x-2}$}
+    \choice[correct]{$f(x) = x^7-32x^6-\pi x^3+45/84$}
+  \end{selectAll}
+\end{exercise}
+
+
+\begin{exercise}
+  Prove that if $f,g\in K[x]$ are nonzero, then
+  \begin{align*}
+    \deg(f+g) &\le \max\{\deg(f),\deg(g)\}\\
+    \deg(f\cdot g) &= \deg(f) + \deg(g).
+  \end{align*}
+\end{exercise}
+
+
+
+\begin{definition}
+  Let $K$ be a field and $f= c_nx^n + \dots + c_1 x+ c_0$ be a
+  polynomial in $K[x]$. An element $\alpha\in K$ is a \dfn{root} of
+  $f$ if
+  \[
+  c_n\alpha^n + \dots + c_1 \alpha+ c_0 =0.
+  \]
+\end{definition}
+
+
+Roots have a strong connection to reducibility.
+
+
+\begin{theorem}[Polynomial division theorem]\label{T:divThmPoly}
+\index{division theorem}
+
+Let $K$ be a field and consider any polynomial $n(x)\in K[x]$ and a
+nonzero polynomial $d(x)$. Then there exist unique polynomials $q(x)$
+and $r(x)$ such that
+\[
+n(x) = d(x) q(x) + r(x) \qquad \text{with $r(x) = 0$ or $\deg(r) <
+  \deg(d)$}.
+\]
+\begin{sketch}
+  We will prove that the quotient and remainder in the polynomial
+  division theorem exist.
+\begin{enumerate}
+\item Prove the existence of $q(x)$ and $r(x)$ if $\deg(n(x))=0$.
+\item Prove the existence of $q(x)$ and $r(x)$ if $d(x)|n(x)$.
+\item Suppose that $\deg(n(x)) \ne 0$ and $d(x)\nmid n(x)$. Consider the set:
+\[
+\mathcal{S} = \{1+\deg(n(x) -  d(x)f(x)) : f(x)\in K[x]\}
+\]
+Explain why $\mathcal S$ is not empty.
+\item Explain why $\mathcal S$ has a least element.
+\item Use the least element found above to obtain an element $r(x)$
+  and explain why $\deg(r(x)) < \deg(d(x))$. Hint, suppose that $\deg(r)\ge
+  \deg(d)$ and consider the polynomial
+  \[
+  s(x) = r(x) - cx^{\deg(r)-\deg(d)} \cdot d(x)
+  \]
+  for some suitable value of $c$.
+\item Explain how to choose $q(x)$ satisfying the conditions of the
+  polynomial division theorem.
+\end{enumerate}
+
+Now we will prove that the quotient and remainder in the polynomial
+division theorem are unique.
+\begin{enumerate}
+\item Suppose that $(q_1(x),r_1(x))$ and $(q_2(x),r_2(x))$ both satisfied the
+  conditions of the theorem for a divisor $n(x)$ and dividend
+  $d(x)$. Use these two equations to produce a third equation relating
+  $d(x)$, $q_1(x)$, $q_2(x)$, $r_1(x)$, and $r_2(x)$.
+\item If $q_1(x) \ne q_2(x)$ explain why $\deg(r_1(x) - r_2(x)) \ge \deg(d(x))$.
+\end{enumerate}
+\end{sketch}
+\end{theorem}
+
+\begin{corollary}[Roots and linear factors]\label{C:rlf}
+  If $f(x)\in K[x]$ and $\alpha\in K$, then there exists unique $q(x)\in
+  K[x]$ such that
+  \[
+  f(x) = (x-\alpha)\cdot q(x) + f(\alpha)
+  \]
+\end{corollary}
+
+This corollary says that if $\alpha$ is a root of $f\in K[x]$, then
+\[
+(x-\alpha) | f(x).
+\]
+This is a critical insight.
+
+
+\begin{definition}
+  Let $K$ be a field, and $f(x)\in K[x]$ with $\deg(f(x))>0$. The
+  polynomial $f(x)$ is \dfn{irreducible} in $K[x]$ if $f(x)$ cannot be
+  expressed as the product of polynomials in $K[x]$ of positive
+  degree.
+\end{definition}
+
+\begin{example}[Irreducible polynomials]\hfil
+  \begin{itemize}
+  \item The polynomial $x$ is irreducible in $\C[x]$.
+  \item The polynomial $x^2+1$ is irreducible in $\R[x]$, but not in
+    $\C[x]$.
+  \item The polynomial $x^2-2$ is irreducible in $\Q[x]$, but not in
+    $\R[x]$ or $\C[x]$.
+  \end{itemize}
+\end{example}
+
+\begin{corollary}[Roots of irreducible polynomials]
+  Let $K$ be a field. An irreducible polynomial $f(x)$ has a root in
+  $K$ if and only if $\deg(f(x))= 1$.
+  \begin{sketch}
+    $(\Rightarrow)$ Suppose that $f(x)$ is irreducible in $K[x]$ and
+    it has a root, $\alpha\in K$. We must show that $\deg(f(x))=
+    1$. By Corollary~\ref{C:rlf}, we may write
+    \[
+    f(x) = (x-\alpha)\cdot q(x)\qquad\deg(q(x))< 1
+    \]
+    where $q(x)\in K[x]$. But this means $\deg(q(x)) = 0$, and so
+    $f(x) = (x-\alpha)\cdot c$, a polynomial of degree one.
+
+
+    $(\Leftarrow)$ Simply solve a linear equation.
+  \end{sketch}
+\end{corollary}
+
+\begin{exercise}
+  List all irreducible polynomials in $\Z_2[x]$ of degree $2$.
+\end{exercise}
+
+\begin{exercise}
+  List all irreducible polynomials in $\Z_2[x]$ of degree $3$.
+\end{exercise}
+
+
+
+
+\begin{theorem}[Degree and roots]
+  A polynomial of degree $n$ over a field $K$ has at most $n$ roots.
+  \begin{sketch}
+    Induction on the degree.
+  \end{sketch}
+\end{theorem}
+
+\begin{remark}
+  Note, in the theorem above it was critical that $K$ is a
+  field. Consider $x^2+1$ in $Q_8$, this polynomial has three
+  distinct roots!
+\end{remark}
+
+
+
+\begin{theorem}[The multiplicative group is cyclic]
+  Let $K$ be a finite field. In this case, $K^\times = K-\{0\}$ is a
+  cyclic group.
+  \begin{proof}
+    Seeking a contradiction, suppose that $K^\times$ is not
+    cyclic. Choose a cyclic subgroup $\< m\> \subgp K^\times$ of
+    maximal order. Suppose that $a\notin\<m\>$. By
+    Corollary~\ref{C:odmo}, $\o(a)|\o(m)$. Thus there is $q$ such that
+    \[
+    \o(m) = \o(a)\cdot q.
+    \]
+    Now consider the polynomial
+    \[
+    f(x) = x^{\o(m)}-1.
+    \]
+    every element of $\<m\>$ is a root of $f$ as
+    \begin{align*}
+    f(m^n) &=  (m^n)^{\o(m)} - 1\\
+    &= (m^{\o(m)})^n-1\\
+    &= 1^n-1\\
+    &=0.
+    \end{align*}
+    Moreover, every element of $\<a\>$ is a root of $f$ as
+    \begin{align*}
+    f(a^n) &=  (a^n)^{\o(m)} - 1\\
+    &= (a^{\o(m)})^n-1\\
+    &= (a^{\o(a)q})^n-1\\
+    &= (a^{\o(a)})^{qn}-1\\
+    &= 1^{qn}-1\\
+    &=0.
+    \end{align*}
+    But now, $f$ has more than $\o(m)$ roots, a contradiction.
+  \end{proof}
+\end{theorem}
+
+\begin{corollary}[$\boldsymbol{\pmb\Z_p^{\pmb\times}}$ is cyclic.]
+  The group $\Z_p^\times$ is cyclic.
+\end{corollary}
+
+
+
+
+
+
+
+
+
+\begin{theorem}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}\label{T:fta}
+  A polynomial in $\C[x]$ of degree $n$ will have exactly $n$ roots in
+  $\C$.
+  \begin{sketch}
+    We will sketch Gauss' first proof of the fundamental theorem of
+    algebra. Suppose you have a polynomial in $\C[z]$,
+    \[
+    f(z) = c_n z^n + c_{n-1}z^{n-1} + \dots + c_1 z + c_0.
+    \]
+    In this case $z = x + yi$ where $x,y,\in\R$. Now make two new
+    functions of two variables:
+    \begin{align*}
+      G(x,y) &= \Re(f(x+ yi)) & & \text{(real part of $f(z)$)}\\
+      H(x,y) &= \Im(f(x+yi)) & & \text{(imaginary part of $f(z)$)}
+    \end{align*}
+
+    Consider the level curves
+    \[
+    G(x,y) = 0 \quad\text{and}\quad H(x,y) = 0.
+    \]
+    If these level curves intersect at some point $(x,y)$, then
+    $f(x+yi) = 0$. Understanding these level curves precisely is
+    difficult. However, if $x$ and $y$ are sufficiently large, then
+    \[
+    f(z) \approx c_n z^n.
+    \]
+    It can be shown that if $f(z) = z^n$ then the level curves
+    \[
+    G(x,y) = 0 \quad\text{and}\quad H(x,y) = 0,
+    \]
+    are simply lines though the origin:
+    \[
+    \includegraphics[width=.3\textwidth]{realLines.pdf} \qquad \includegraphics[width=.3\textwidth]{imLines.pdf}
+    \]
+    On the left we see the level curves for $G$ and on the right we
+    see level curves for $H$. In particular, the lines are interleaved:
+    \[
+    \includegraphics[width=.3\textwidth]{lines.pdf}
+    \]
+    If you have any polynomial, the level curves will look like this
+    for $x$ and $y$ sufficiently large.
+
+    So here is the idea, imagine a circle of very large
+    radius. Outside the circle the level curves look like this:
+    \[
+    \includegraphics[width=.3\textwidth]{circlelines.pdf}
+    \]
+    However, we're not real sure what happens inside the circle, so we
+    leave it blank.
+    
+    At this point Gauss claims that any level curve entering the
+    circle will leave the circle. This is a hard fact to prove---and
+    the source of the gap in Gauss' first proof of the fundamental
+    theorem of algebra. Regardless, accepting this fact, we then know
+    that the inside of the disk must look something like:
+    \[
+    \includegraphics[width=.6\textwidth]{linesIntersection.pdf}
+    \]
+    Each intersection corresponds to a root in $\C$, and Gauss then
+    gave a proof that counted the intersections, and showed that if
+    the polynomial has degree $n$, there will always be $n$
+    intersections. For example, above we are working with a fifth
+    degree polynomial, and we see we have $5$ intersections.
+  \end{sketch}
+\end{theorem}
+
+
+\begin{remark}
+  The proof that we sketched above is actually Gauss' first proof, and
+  it was roughly equivalent to Gauss' Ph.D.\ dissertation.
+\end{remark}
+
+
+
+\begin{corollary}[Irreducible polynomials in $\pmb\C$]
+  The only irreducible polynomials in $\C[x]$ are nonconstant linear
+  polynomials.
+\end{corollary}
+
+
+
+
+For some interesting extra reading check out:
+\begin{itemize}
+\item \link[\textit{On Gauss's first proof of the fundamental theorem of algebra},
+  S.\ Basu and D.J.\ Velleman]{https://arxiv.org/abs/1704.06585v1}.
+\item \link[\textit{C.F.\ Gauss's proofs of the fundamental theorem of algebra},
+  H.\ Cain]{http://math.huji.ac.il/~ehud/MH/Gauss-HarelCain.pdf}.
+\item \link[\textit{Cyclicity of $(\Z/(p))^\times$},
+  K.\ Conrad]{https://kconrad.math.uconn.edu/blurbs/grouptheory/cyclicmodp.pdf}.
+\end{itemize}
+
+
+\end{document}

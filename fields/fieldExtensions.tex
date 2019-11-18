@@ -195,7 +195,7 @@
   \end{proof}
 \end{lemma}
 
-\begin{corollary}[Finite extensions]
+\begin{corollary}[Finite extensions of finite extensions]\label{C:fe}
   If $k\subset K\subset L$ is a tower of field extensions
   \[
   \begin{tikzcd}[column sep=0pt]
@@ -218,6 +218,11 @@
 \end{definition}
 
 \begin{example}[$\pmb{\C}$ is algebraic over $\pmb{\R}$]
+  Let $a+ bi$ be any complex number. It's the root of
+  \[
+  x^2 -2ax + a^2 + b^2 \in \R[x].
+  \]
+  Hence, $\C$ is algebraic over $\R$.
 \end{example}
 
 \begin{exercise}
@@ -268,7 +273,7 @@
 
 
 
-\begin{lemma}[Minimal polynomials are irreducible]
+\begin{lemma}[Minimal polynomials are irreducible]\label{L:ipi}
   Let $K$ be a field and $f(x)\in K[x]$. If $f(x)$ is a minimal
   polynomial for $\alpha$ over $K$, then $f(x)$ is irreducible in
   $K[x]$.
@@ -280,7 +285,7 @@
     \]
     where
     \[
-    \deg(g(x)) <\deg(f(x))\text{and}\quad\deg(h(x)) <\deg(f(x)).
+    \deg(g(x)) <\deg(f(x))\quad\text{and}\quad\deg(h(x)) <\deg(f(x)).
     \]
     Now $f(\alpha) = 0$ implies that $g(\alpha) =0$ or $h(\alpha) =
     0$, but the degrees of both $g(x)$ and $h(x)$ are both less than
@@ -302,11 +307,71 @@
   Let $K$ be a field and $f(x)\in K[x]$ be a minimal polynomial for
   $\alpha$. In this case
   \[
-  K(\alpha) \iso K[x]/(f(x)).
+  K[x]/(f(x))\iso K(\alpha). 
   \]
-  \begin{sketch}
-  \end{sketch}
+  \begin{proof}
+    By Lemma~\ref{L:ipi}, $f(x)$ is irreducible, and hence by
+    Theorem~\ref{T:cmip}, $K[x]/(f(x))$ is a field. Define a map
+    \begin{align*}
+    \phi:K[x]/(f(x)) &\to K(\alpha)\\
+    g(x) &\mapsto g(\alpha).
+    \end{align*}
+    We must prove that this map is \index{well-defined}well-defined.
+    Suppose that
+    \[
+    g(x) \equiv h(x) \pmod{f(x)}
+    \]
+    We must show that $\phi(g(x)) = \phi(h(x))$. Since $g(x) \equiv
+    h(x) \pmod{f(x)}$, we may write
+    \[
+    g(x) = h(x) + n(x) \cdot f(x).
+    \]
+    If we evaluate this at $x= \alpha$, we see
+    \[
+    g(\alpha) = h(\alpha)
+    \]
+    as $f(\alpha) = 0$.
+
+    We claim that $\phi$ is an isomorphism of fields. First note
+    $\phi(0) = 0$, $\phi(1) = 1$ and that if $g(x),h(x)\in
+    K[x]/(f(x))$, then
+    \begin{align*}
+      \phi(g(x) + h(x)) &= g(\alpha) + h(\alpha) & &\text{and}\\
+      \phi(g(x) \cdot h(x)) &= g(\alpha)\cdot h(\alpha). & &
+    \end{align*}
+
+
+    Finally, we claim that this map is a surjective homomorphism of
+    fields, and hence is bijective. Consider
+    \[
+    c_m\alpha^m + c_{m-1}\alpha^{m-1} + \cdots + c_1\alpha + c_0\in
+    K(\alpha).
+    \]
+    The polynomial
+    \[
+    h(x) = c_m x^m + c_{m-1} x^{m-1} + \cdots + c_1x  + c_0\in
+    K[x]
+    \]
+    will map to this polynomial. Moreover, if $m\ge \deg(f(x))$, then
+    we may write
+    \[
+    h(x) \equiv g(x) \pmod{f(x)}
+    \]
+    where $\deg(g(x))< \deg(f(x))$. Thus $\phi(g(x)) =\phi(h(x))$ and
+    we are done.
+  \end{proof}
 \end{lemma}
+
+
+\begin{remark}
+From the proof of the lemma above, we see that if $\alpha$ is
+algebraic over $K$ of degree $n$, then every element of $K$ can be
+expressed in the form
+\[
+c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
+\]
+\end{remark}
+
 
 
 \begin{theorem}[Degree of an algebraic extension]
@@ -329,8 +394,9 @@
     \[
     A = \{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}.
     \]
-    We claim that $A$ is a basis for $V$ over $K$. First we'll show
-    that the set $A$ is a set of linearly independent vectors.
+    By our lemma above, $V = K(\alpha)$.  We claim that $A$ is a basis for
+    $V$ over $K$. By our setup, $A$ necessarily spans $V$. Now we'll
+    show that the set $A$ is a set of linearly independent vectors.
 
     Seeking a contradiction, suppose that $A$ consists of linearly
     dependent vectors, so we may write
@@ -339,9 +405,124 @@
     \]
     where $c_i\ne 0$ for some $i$. But now $\alpha$ is a root of a
     polynomial of degree $n-1$, a contradiction, since the degree of
-    the minimal polynomial for $\alpha$ is $n$.
+    the minimal polynomial for $\alpha$ is $n$. Thus
+    \[
+    \{1,\alpha,\alpha^2,\dots,\alpha^{n-1}\}
+    \]
+    is a linearly independent set of vectors, and hence a basis.
   \end{proof}
 \end{theorem}
+
+\begin{example}[Cube root of unity]
+  Consider $x^3-1 \in \Q[x]$. By the fundamental theorem of algebra,
+  Theorem~\ref{T:fta}, this polynomial has three roots in $\C$, all of
+  whose cube root is one. In this case,
+  \[
+  x^3-1= (x-1)(x^2+x+1).
+  \]
+  We claim $x^2+x+1$ is irreducible in $\Q[x]$.  Since the degree of
+  our polynomial is $2$ we can simply check for roots by
+  Lemma~\ref{L:d23}. Since $x^2+x+1$ has no roots in $\Z_2[x]$ it is
+  irreducible in $\Z_2[x]$, and hence irreducible in $\Z[x]$ by
+  Lemma~\ref{L:RCP}; we could have also used the rational roots test
+  here, Lemma~\ref{L:rr}. Now by Gauss' lemma, Lemma~\ref{L:G}, $x^2+x+1$ is
+  irreducible in $\Q[x]$.
+
+
+  Let $\zeta$ be a root of $x^2 + x +1$. In this case
+  \[
+  [\Q(\zeta):\Q] = 2
+  \]
+  as $\Q(\zeta)$ has $\{1,\zeta\}$ as a basis as a $\Q$-vector space,
+  and also because the minimum polynomial for $\zeta$ has degree
+  $2$. Moreover, $\Q(\zeta) \iso \Q[x]/(x^2 + x+ 1)$.
+\end{example}
+
+
+\begin{example}[Fifth root of unity]
+  Consider $x^5-1 \in \Q[x]$.
+\end{example}
+
+\begin{theorem}[Finite extensions are algebraic]\label{T:fea}
+  If $L$ is a field extension of $K$ and $[L:K]<\infty$, then $L$ is
+  algebraic over $K$.
+  \begin{proof}
+    Suppose that $[L:K]=n$. Then as a $K$-vector space, $\dim_K(L) =
+    n$. This means that there is a basis for $L$ with $n$
+    elements. Take any element of $L$, write
+    \[
+    \{ \underbrace{1, \alpha, \alpha^2 ,\dots, \alpha^n}_{\text{$n+1$ elements}}\}.
+    \]
+    Since $n+1$ is larger than the vector space dimension, these
+    elements must be linearly dependent. Thus, there exist $c_i\in K$ (not
+    all zero) such that
+    \[
+    c_n\alpha^n + c_{n-1}\alpha^{n-1} + \cdots + c_1\alpha + c_0 = 0,
+    \]
+    and so $\alpha$ is a root of the polynomial
+    \[
+    c_n x^n + c_{n-1}x^{n-1} + \cdots + c_1 x + c_0,
+    \]
+    and hence $\alpha$ is algebric over $K$.
+  \end{proof}
+\end{theorem}
+
+
+\begin{corollary}[Algebraic extensions of algebraic extensions]\label{C:feac}
+  If $k\subset K\subset L$ is a tower of field extensions
+  \[
+  \begin{tikzcd}[column sep=0pt]
+    L\ar[d,-,"\text{algebraic}",swap] & & L\ar[dd,-,"\text{algebraic}"]\\
+    K \ar[d,-,"\text{algebraic}",swap] & \Rightarrow& \\
+    k & \vphantom{K} & k
+  \end{tikzcd}
+  \]
+  If $K$ is algebraic over $k$, and $L$ is algebric over $K$, then $L$
+  is algebraic over $k$.
+  \begin{sketch}
+    Use Corollary~\ref{C:fe} and Theorem~\ref{T:fea}.
+  \end{sketch}
+\end{corollary}
+
+
+
+\begin{corollary}[Algebraic extensions are algebraic]
+  Let $K$ be a field with $\alpha$ algebraic over $K$. In this case,
+  $K(\alpha)$ is algebric over $K$.
+  \begin{sketch}
+    The issue here is that we must show that every element of
+    $K(\alpha)$ is algebraic over $K$. Use the corollary above.
+  \end{sketch}
+\end{corollary}
+
+
+
+\begin{corollary}[Operations and algebraic elements]
+  If $\alpha$ and $\beta$ are algebraic over $K$, then so are
+  $\alpha+\beta$ and $\alpha\cdot \beta$.
+  \begin{sketch}
+    Show that $\alpha+\beta$ and $\alpha\cdot \beta$ are in
+    $K(\alpha,\beta)$, and use Corollary~\ref{C:feac}.
+  \end{sketch}
+\end{corollary}
+
+
+
+
+\begin{definition}
+  Let $K$ be a field. An extension of the form $K(\alpha)$ is called a
+  \dfn{simple extension} of $K$.
+\end{definition}
+
+\begin{lemma}[Algebraic extensions are simple]
+  Let $K\subset \C$ and suppose that $\alpha,\beta\in \C$ are
+  algebraic over $K$. Then there exists $\gamma\in\C$ such that
+  $K(\alpha,\beta) = \K(\gamma)$.
+  \begin{proof}
+  \end{proof}
+\end{lemma}
+
+
 
 
 \end{document}
