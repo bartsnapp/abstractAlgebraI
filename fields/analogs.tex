@@ -1,0 +1,255 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title{Analogs to number theory}
+
+\begin{document}
+\begin{abstract}
+  We repeat our ideas from number theory, but now with polynomials.
+\end{abstract}
+\maketitle
+
+
+\section{Back to number theory}
+
+
+To start, let's continue with number theory as our guide. We'll
+introduce the GCD of two polynomials.
+
+\begin{definition}
+  Let $K$ be a field. A polynomial $g(x)\in K[x]$ is called a
+  \dfn{greatest common divisor} of two polynomials $m(x),n(x)\in K[x]$
+  provided that:
+  \begin{enumerate}
+  \item $g(x) | m(x)$ and $g(x) | n(x)$.
+  \item If $d(x)\in K[x]$ is an element where $d(x)| m(x)$ and $d(x) | n(x)$, then $\deg(d(x))\le \deg(g(x))$.
+  \end{enumerate}
+  The GCD of two polynomials is \textbf{not} unique.  We denote the set of GCDs
+  of $m(x)$ and $n(x)$ as $\gcd(m(x),n(x))$. If $c\in K$ and $c\in
+  \gcd(m(x),n(x))$ we say that $m(x)$ and $n(x)$ are \dfn{coprime} or
+  \dfn{relatively prime}.
+\end{definition}
+
+
+\begin{example}[Some polynomials in a GCD]
+  Consider $x^4$ and $x^5$. Then we have
+  \[
+  x^4, 3x^4, x^4/2 \in \gcd(x^4,x^5).
+  \]
+\end{example}
+
+\begin{theorem}[Euclid's lemma for polynomials, version 1]\label{T:ELP1}\index{Euclid's lemma}
+  Let $K$ be a field. Given nonzero $m(x),n(x)\in K[x]$, if $G(x)\in
+  \gcd(m(x),n(x))$, then
+  \[
+  \deg(G(x)) = \min\{\deg(f(x)\cdot m(x) +g(x)\cdot n(x)): f(x),g(x)\in K[x]\}.
+  \]
+  \begin{sketch} We will prove this in several steps.
+  \begin{enumerate}
+  \item Let $\mathcal S = \{\deg(f(x)\cdot m(x) +g(x)\cdot n(x)):
+    f(x),g(x)\in K[x]\}$. Prove that $\mathcal S$ has a least element,
+    call it $d$.
+  \item Let $h(x) = f_d(x)\cdot m(x) +g_d(x)\cdot n(x)$ be such that
+    $\deg(h(x)) = d$. Prove that $h(x)| (f(x)\cdot m(x) +g(x)\cdot n(x))$.
+  \item Prove that $h(x)| m(x)$ and $d(x)| n(x)$. Explain why $\deg(d(x)) \le a(x)\in\gcd(m(x),n(x))$.
+  \item Recall that $h(x) = f_d(x)\cdot m(x) +g_d(x)$, and prove that
+    for any $a(x)\in(m,n)$, $a(x) | h(x)$. Explain why we must
+    conclude that $h(x)\in\gcd(m(x),n(x))$.
+  \end{enumerate}
+  \end{sketch}
+\end{theorem}
+
+As before (when we first studied Euclid's lemma, Theorem~\ref{T:EL1},
+if $h(x)\in\gcd(m(x),n(x))$, $h(x)$ is simultaneously the polynomial of
+\textbf{largest degree} that divides both $m(x)$ and $n(x)$ and the
+polynomial of \textbf{smallest degree} of the form $f(x)\cdot m(x) + g(x)\cdot
+n(x)$. However consider this
+\[
+\gcd(m(x),n(x)) = \{\text{common divisors of $m(x)$ and $n(x)$}\}\cap \mathcal{S}
+\]
+where $\mathcal{S}$ is the set from the proof of Euclid's lemma for
+polynomials. Here is a picture that attempts to convey the situation:
+\[
+\begin{tikzpicture}
+  \draw[white,thin,shading = axis, top color = white, bottom color = gray] (-2,2) -- (0,0)-- (2,2) -- (-2,2) -- cycle;
+  \draw[white,thin,shading = axis, bottom color = white, top color = gray] (-2,-2) -- (0,0)-- (2,-2) -- (-2,-2) -- cycle;
+  \filldraw (0,0) circle (3pt);
+  \node[right] at (0,0) {$\scriptstyle\gcd(m(x),n(x))$};
+  \node at (0,1.5) {$\scriptstyle f(x)\cdot m(x) + b(x)\cdot n(x)$};
+  \node at (0,-1.5) {\text{\tiny common divisors of $m(x)$ and $n(x)$}};
+  \draw[->,ultra thick] (-3,-2) -- (-3,2);
+  \node[left] at (-3,-1.5) {\text{\tiny smaller degree}};
+  \node[left] at (-3,1.5) {\text{\tiny larger degree}};
+\end{tikzpicture}
+\]
+In the cone above $\gcd(m(x),n(x))$ is all polynomials of the form
+$f(x)\cdot m(x) + b(x)\cdot n(x)$. The cone below $\gcd(m(x),n(x))$ is the
+set of common divisors of $m(x)$ and $n(x)$.
+
+
+
+
+\begin{corollary}[Euclid's lemma for polynomials, version 2]\label{C:ELP2}\index{Euclid's lemma}
+  Let $K$ be a field and $\l(x)$, $m(x)$, and $n(x)$ be nonzero
+  polynomials in $K[x]$. If
+  \[
+  \l(x)|m(x)n(x)\qquad\text{and}\qquad \gcd(\l(x),m(x))\subset K,
+  \]
+  then $\l(x)|n(x)$. 
+\end{corollary}
+
+\section{Congruence modulo a polynomial}
+
+Think about the group $\Z_n$. In this group,
+\[
+a\equiv b \pmod{n} \quad\Leftrightarrow \quad n| (a-b).
+\]
+In Lemma~\ref{L:mawd} and Lemma~\ref{L:mmwd} we show that both
+addition and multiplication are well defined on this group. Recall
+that this is called \textit{congruence modulo an integer.}  If $K[x]$
+is the set of polynomials in terms of $x$ with coefficients in $K$, we
+can think about \textit{congruence modulo a polynomial.}
+
+
+\begin{definition}[Congruence modulo a polynomial]
+  Given a field $K$, and polynomials in $K[x]$, we define
+  $f(x),g(x)\in K[x]$ to be \dfn{congruent modulo a polynomial}
+  $n(x)\in K[x]$:
+  \begin{align*}
+    f(x) \equiv g(x) \pmod{n(x)}\quad &\Leftrightarrow \quad n(x) | (f(x)-g(x))\\
+    &\Leftrightarrow \quad f(x)-g(x) = n(x)\cdot q(x).
+  \end{align*}
+  for some $q(x)\in K[x]$. We'll denote the set of polynomials in
+  $K[x]$ congruent modulo $n(x)$ as $K[x]/(n(x))$.
+\end{definition}
+
+
+We should now show that addition and multiplication modulo a
+polynomial are well defined.
+
+\begin{lemma}[Arithmetic modulo a polynomial is well-defined]
+  Let $K$ be a field and consider $K[x]/(n(x))$. Both addition and
+  multiplication in $K[x]/(n(x))$ are
+  well-defined.\index{well-defined} This means that if
+  \begin{align*}
+    f(x) &\equiv f'(x) \pmod{n(x)}\\
+    g(x) &\equiv g'(x) \pmod{n(x)},
+  \end{align*}
+  then
+  \begin{align*}
+    f(x) + g(x) &\equiv f'(x) + g'(x) \pmod{n(x)} & \text{and}\\
+    f(x) \cdot g(x) &\equiv f'(x) \cdot g'(x) \pmod{n(x)}. & 
+  \end{align*}
+  \begin{sketch}
+    Use the fact that
+    \[
+    f(x) \equiv g(x) \pmod{n(x)}\quad \Leftrightarrow \quad f(x)-g(x) = n(x)\cdot q(x)
+    \]
+    for some $q(x) \in K[x]$.
+  \end{sketch}
+\end{lemma}
+
+
+
+\begin{lemma}[$\boldsymbol{K\pmb[x\pmb]\pmb/\pmb(n\pmb(x\pmb)\pmb)}$ is a vector space]\label{L:mpvs}
+  Let $K$ be a field and consider $K[x]/(n(x))$. The group
+  $K[x]/(n(x))$ is a $K$-vector space.
+  \begin{sketch}
+    Check the definition of a vector space.
+  \end{sketch}
+\end{lemma}
+
+
+\begin{example}[Congruence modulo a polynomial]
+  Let's examine the elements of $K[x]/(n(x))$ in some specific cases:
+  \begin{align*}
+    \Z_2[x]/(x^2) &= \{a + b x: a,b\in \Z_2\}.\\
+    \Z_3[x]/(x^2) &= \{a + b x: a,b\in \Z_3\}.\\
+    \Z_5[x]/(x^3) &= \{a + b x + c x^2: a,b\in \Z_5\}.\\
+    \Z_3[x]/(x^2+1) &= \{a + b x: a,b\in \Z_3\}.
+  \end{align*}
+\end{example}
+
+\begin{exercise}
+  Let $K$ be a finite field of order $m$. Let $n(x)$ be a polynomial
+  of degree $d$. How many elements are in $K[x]/(n(x))$?
+\end{exercise}
+
+
+\begin{exercise}
+  Is $\Z_2[x]/(x^3)$ a field?
+\end{exercise}
+
+
+
+
+From our work before, we know that $\Z_n$ is a field if and only if
+$n$ is prime. Since $\Z_n$ is a group, and multiplication distributes
+over addition, we had to show that every element of $\Z_p-\{0\}$ had
+an inverse. We did this in Lemma~\ref{L:mi}.
+
+
+\begin{theorem}[Congruence modulo an irreducible polynomial]\label{T:cmip}
+  Let $K$ be a field and $n(x)\in K[x]$ be a polynomial of positive
+  degree. The set $K[x]/(n(x))$ is a field if and only if $n(x)$ is
+  irreducible in $K[x]$.
+  \begin{proof}
+    $(\Rightarrow)$ Working by contraposition, suppose $n(x)$ is not
+    an irreducible polynomial. Then $n(x) = a(x)\cdot b(x)$ where
+    $\deg(a(x))>0$ and $\deg(b(x))>0$. Since both $a(x)$ and $b(x)$
+    have degree less than $n(x)$, both
+    \[
+    a(x),b(x)\in K[x]/(n(x)).
+    \]
+    However, $a(x)\cdot b(x) \equiv 0 \pmod{n(x)}$. Hence $K[x]/(n(x))$
+    cannot be a field.
+    
+
+
+    $(\Leftarrow)$ First note that $K[x]/(n(x))$ is an additive group
+    under modular addition, Lemma~\ref{L:mpvs}. Next note that
+    multiplication distributes over addition (show this). The
+    multiplicative identity is $1\in K[x]/(n(x))$. All that remains to
+    be shown is that multiplicative inverses exist in
+    $K[x]/(n(x))-\{0\}$. Consider $a(x)\in K[x]/(n(x))$. Since $n(x)$
+    is irreducible, $\gcd(a(x),n(x)) \subset K$. Let $c\in
+    \gcd(a(x),n(x))$ and write
+    \begin{align*}
+      c &= a(x) \cdot f(x) + n(x) \cdot g(x) \\
+      1 &= c^{-1}a(x) \cdot f(x) + c^{-1}n(x) \cdot g(x) \\
+      1 - c^{-1}a(x) \cdot f(x)  &=c^{-1}n(x) \cdot g(x) \\
+      (c^{-1} f(x)) \cdot a(x) &\equiv 1 \pmod{n(x)}.
+    \end{align*}
+    Thus, $K[x]/(n(x))$ is a field.
+  \end{proof}
+\end{theorem}
+
+Let us recall the first time we learned about the number $i$\dots
+Roman numerals notwithstanding, $i$ is the ``number'' that when you
+square $i$, you obtain $-1$. Of course, there is no real number with
+this property.
+
+All of this may seem quite artificial. Why are we allowed to just
+``declare'' that something like $i$ exists, especially when it plainly
+doesn't?
+
+So here is something of a response to the sentiment above. Let's
+\textit{construct} $i$, and hence all of $\C$, in terms of conrguences
+modulo a polynomial.
+
+\begin{example}[A construction of $\pmb\C$]
+  Consider $\R[x]/(x^2+1)$. Since $x^2+1$ is irreducible in $\R[x]$,
+  $\R[x]/(x^2+1)$ is a field. Consider the map
+  \begin{align*}
+    \pi: \R[x]/(x^2+1) &\to \C\\
+    a  + bx + (x^2+1) &\mapsto a+ bi.
+  \end{align*}
+  This map is a surjection. You should show that this map is a
+  homomorphism (and hence and isomorphism) of fields.
+\end{example}
+
+
+
+
+\end{document}
