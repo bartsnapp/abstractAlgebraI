@@ -71,7 +71,7 @@
 
 
 \begin{example}[Rationals and some irrationals]
-  The stucture of field extensions can be more complicated than the
+  The structure of field extensions can be more complicated than the
   first example. Consider
   \[
   \begin{tikzcd}
@@ -215,6 +215,10 @@
   Let $K\subset L$ be a field extension. The field $L$ is an
   \dfn{algebraic extension} over $K$ if for every element $\alpha\in
   L$, there exists $f(x) \in K[x]$ such that $f(\alpha) = 0$.
+
+
+  If $\alpha\in L$ is not the root of any polynomial with coefficients
+  in $K$, then we say $\alpha$ is \dfn{transcendental} over $K$.
 \end{definition}
 
 \begin{example}[$\pmb{\C}$ is algebraic over $\pmb{\R}$]
@@ -251,9 +255,9 @@
 \end{example}
 
 \begin{lemma}[Minimal polynomials and division]
-  Let $K$ be a field and $f(x)\in K[x]$. If $f(x)$ is a minimal
-  polynomial for $\alpha$ over $K$, and $g(\alpha) = 0$, then $f(x) |
-  g(x)$.
+  Let $K$ be a field and $f(x)\in K[x]$. If $f(x),g(x)\in K[x]$ and
+  $f(x)$ is a minimal polynomial for $\alpha$ over $K$, and $g(\alpha)
+  = 0$, then $f(x) | g(x)$.
   \begin{proof}
     Seeking a contradiction, suppose that $g(\alpha) = 0$ and $f(x)
     \nmid g(x)$. Then
@@ -270,16 +274,13 @@
   \end{proof}
 \end{lemma}
 
-
-
-
 \begin{lemma}[Minimal polynomials are irreducible]\label{L:ipi}
-  Let $K$ be a field and $f(x)\in K[x]$. If $f(x)$ is a minimal
-  polynomial for $\alpha$ over $K$, then $f(x)$ is irreducible in
-  $K[x]$.
+  Let $K$ be a field and $f(x)\in K[x]$. In this case $f(x)$ is a
+  minimal polynomial for $\alpha$ over $K$ if and only if $f(x)$ is
+  irreducible in $K[x]$.
   \begin{proof}
-    Seeking a contradiction, suppose that $f(x)$ is a minimal
-    polynomial for $\alpha$ over $K$ and that
+    $(\Rightarrow)$ Seeking a contradiction, suppose that $f(x)$ is a
+    minimal polynomial for $\alpha$ over $K$ and that
     \[
     f(x) = g(x) \cdot h(x) 
     \]
@@ -291,6 +292,19 @@
     0$, but the degrees of both $g(x)$ and $h(x)$ are both less than
     the degree of $f(x)$, the minimal polynomial. This is a
     contradiction.
+
+    $(\Leftarrow)$ Suppose that $f(\alpha) = 0$ and that $f(x)$ is
+    irreducible in $K[x]$. We claim $f$ has minimal degree, and is
+    hence the minimal polynomial for $\alpha$. Seeking a
+    contradiction, suppose that a minimal polynomial for $\alpha$ is
+    $g(x)\in K[x]$, where $\deg(g(x)) < \deg(f(x))$. Since $f(x)$ is irreducible,
+    \[
+    f(x) = g(x) \cdot h(x) + r(x) \qquad \deg(r(x))<\deg(g(x)).
+    \]
+    Evaluating at $\alpha$, we see that $r(x)$ has $\alpha$ as a root,
+    contradicting the minimality of $g(x)$. Hence if $f(x)$ is
+    irreducible, and $f(\alpha) = 0$, then $f(x)$ is a minimal
+    polynomial for $\alpha$.
   \end{proof}
 \end{lemma}
 
@@ -298,7 +312,7 @@
   Let $K$ be a field and let $\alpha$ be a element that is algebraic
   over $K$. In this case,
   \[
-  K(\alpha) := \{\text{smallest field containing $K$ and $\alpha$}\}
+  K(\alpha) := \{\text{smallest field containing $K$ and $\alpha$}\}.
   \]
 \end{definition}
 
@@ -374,7 +388,7 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
 
 
 
-\begin{theorem}[Degree of an algebraic extension]
+\begin{theorem}[Degree of an algebraic extension]\label{T:dae}
   Let $K$ be a field and let $\alpha$ be algebraic over $K$ with
   minimal polynomial $f(x)\in K[x]$. Then
   \[
@@ -463,7 +477,7 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
     \[
     c_n x^n + c_{n-1}x^{n-1} + \cdots + c_1 x + c_0,
     \]
-    and hence $\alpha$ is algebric over $K$.
+    and hence $\alpha$ is algebraic over $K$.
   \end{proof}
 \end{theorem}
 
@@ -477,7 +491,7 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
     k & \vphantom{K} & k
   \end{tikzcd}
   \]
-  If $K$ is algebraic over $k$, and $L$ is algebric over $K$, then $L$
+  If $K$ is algebraic over $k$, and $L$ is algebraic over $K$, then $L$
   is algebraic over $k$.
   \begin{sketch}
     Use Corollary~\ref{C:fe} and Theorem~\ref{T:fea}.
@@ -486,14 +500,14 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
 
 
 
-\begin{corollary}[Algebraic extensions are algebraic]
-  Let $K$ be a field with $\alpha$ algebraic over $K$. In this case,
-  $K(\alpha)$ is algebric over $K$.
-  \begin{sketch}
-    The issue here is that we must show that every element of
-    $K(\alpha)$ is algebraic over $K$. Use the corollary above.
-  \end{sketch}
-\end{corollary}
+%% \begin{corollary}[Algebraic extensions are algebraic]
+%%   Let $K$ be a field with $\alpha$ algebraic over $K$. In this case,
+%%   $K(\alpha)$ is algebraic over $K$.
+%%   \begin{sketch}
+%%     The issue here is that we must show that every element of
+%%     $K(\alpha)$ is algebraic over $K$. Use the corollary above.
+%%   \end{sketch}
+%% \end{corollary}
 
 
 
@@ -509,18 +523,19 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
 
 
 
-\begin{definition}
-  Let $K$ be a field. An extension of the form $K(\alpha)$ is called a
-  \dfn{simple extension} of $K$.
-\end{definition}
+%% \begin{definition}
+%%   Let $K$ be a field. An extension of the form $K(\alpha)$ is called a
+%%   \dfn{simple extension} of $K$.
+%% \end{definition}
 
-\begin{lemma}[Algebraic extensions are simple]
-  Let $K\subset \C$ and suppose that $\alpha,\beta\in \C$ are
-  algebraic over $K$. Then there exists $\gamma\in\C$ such that
-  $K(\alpha,\beta) = \K(\gamma)$.
-  \begin{proof}
-  \end{proof}
-\end{lemma}
+%% \begin{lemma}[Algebraic extensions are simple]
+%%   Let $K\subset \C$ and suppose that $\alpha,\beta\in \C$ are
+%%   algebraic over $K$. Then there exists $\gamma\in\C$ such that
+%%   $K(\alpha,\beta) = \K(\gamma)$.
+%%   \begin{proof}
+    
+%%   \end{proof}
+%% \end{lemma}
 
 
 

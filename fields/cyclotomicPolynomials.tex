@@ -1,0 +1,243 @@
+\documentclass{ximera}
+
+\author{Bart Snapp}
+
+\input{../preamble.tex}
+
+\title{Cyclotonic polynomials}
+
+\begin{document}
+\begin{abstract}
+  We introduce cyclotomic, or ``circle-dividing'' polynomials.
+\end{abstract}
+\maketitle
+
+\begin{theorem}[DeMoivre's Theorem]\index{DeMoivre's Theorem} 
+Let $\alpha$ be any nonzero complex number. Then the equation
+\[
+x^n - \alpha = 0
+\]
+has exactly $n$ distinct roots, all of which are complex numbers.
+\begin{proof} 
+We will give a direct proof of DeMoivre's Theorem \textit{without}
+appealing to the Fundamental Theorem of Algebra.
+\begin{enumerate}
+\item Prove that $e^{i \theta} = \cos(\theta) + i \sin(\theta)$.
+\item Prove that any complex number $a + bi$ can be expressed as $R
+  e^{i\theta}$ where $R\in \R$ and $\theta \in [0,2\pi)$.
+\item Explain why if $\alpha = R(\cos(\theta) +i \sin(\theta))$, then 
+\[
+\sqrt[n]{R} \cdot  e^{\frac{i(\theta + 2k\pi)}{n}}
+\]
+is a root of $x^n - \alpha$.
+\item Plot the roots on the unit circle, how many are there?
+\end{enumerate}
+Explain how we have proved the theorem.
+\end{proof}
+\end{theorem}
+
+
+\begin{definition}\index{root of unity}\index{zetan@$\zeta_n$} 
+For $n\in \N$, let 
+\[
+\zeta_n = e^{2\pi i/n}
+\]
+In this case we call $\zeta_n^k$ an \textbf{$\boldsymbol{n}$th-root of unity}, where $k\in
+\N$.
+\end{definition}
+
+\begin{exercise} 
+Prove that $\zeta_n^k\bar{\zeta_n^k} = 1$, where $\bar{\zeta_n^k}$ is
+the complex conjugate of $\zeta_n^k$. Explain what this means
+geometrically.
+\end{exercise}
+
+\begin{exercise}\label{E:KN} Prove that the set 
+\[
+K_n = \{\zeta_n^k = e^{2k\pi i/n}: k\in \N\}
+\]
+is a cyclic group under multiplication. Further prove that $K_n \iso
+\Z_n$ as groups.
+\end{exercise}
+
+
+
+\begin{exercise}
+If $n = 2m$, prove that 
+\[
+x^n -1 = (x-1)(x+1)q_1(x) \cdots q_{m-1}(x)
+\]
+where $q_i(x)$ are distinct irreducible polynomials in $\R[x]$. Hint, see (\ref{E:RQ}).
+\end{exercise}
+
+\begin{exercise}
+If $n = 2m+1$, prove that 
+\[
+x^n -1 = (x-1)q_1(x) \cdots q_{m}(x)
+\]
+where $q_i(x)$ are distinct irreducible polynomials in $\R[x]$. Hint, see (\ref{E:RQ}).
+\end{exercise}
+
+
+\begin{definition}\index{primitive root of unity} 
+A number $\zeta$ is called a \textbf{primitive} $n$th root of unity if
+\[
+\zeta^n = 1 \qquad\text{and}\qquad \zeta^{m} \ne 1
+\]
+for all $m< n$ where $m,n\in\N$.
+\end{definition}
+
+
+\begin{theorem} 
+A number $\zeta_n^k$, where $1\le k\le n$, is a primitive $n$th root
+of unity if and only if $(k,n) = 1$.
+
+\begin{proof} 
+$(\Rightarrow)$ Seek a contradiction supposing that $\zeta_n^k$ is a
+  primitive $n$th root of unity and that $(k,n) \ne 1$.
+
+$(\Leftarrow)$ Seek a contradiction supposing $(k,n) = 1$ and
+  $\zeta_n^k$ is not a primitive $n$th root of unity. Use the fact
+  that the order of $\zeta_n$ in $K_n$ is $n$ and Euclid's Lemma
+  (\ref{E:EL2}).\index{Euclid's Lemma}
+\end{proof}
+\end{theorem}
+
+
+
+\begin{exercise}\label{E:KP}
+Prove that given a prime $p\nmid n$, the primitive $n$th roots of
+unity are given by
+\[
+\{\zeta_n^{kp}: 1\le k \le n\}.
+\]
+\end{exercise}
+
+
+\begin{exercise}\index{Euler phi-function@Euler $\phi$-function}\index{phi@$\phi$}
+Prove that there are exactly $\phi(n)$ primitive roots of unity in
+$\C$.
+\end{exercise}
+
+
+
+\begin{definition}\index{cyclotomic polynomial}
+The $n$th \dfn{cyclotomic polynomial} is defined as:
+\[
+\Phi_n(x) = \prod_{\substack{(k,n)=1 \\ k<n}}(x-\zeta_n^k)
+\]
+\end{definition}
+
+\begin{exercise}
+  What is the degree of $\Phi_n(x)$?
+\end{exercise}
+
+\begin{exercise}
+  Carefully explain each step shown below:
+  \begin{align*}
+    x^n - 1 &= \prod_{k=1}^n (x-\zeta_n^k) \\
+    &=\prod_{d|n}\prod_{\substack{(k,d) = 1\\ \zeta_d^k \in K_n}}(x-\zeta_d^k) \\
+    &=\prod_{d|n} \Phi_d(x).
+  \end{align*}
+\end{exercise}
+
+\begin{corollary}
+  The upshot of the above exercise is that 
+  \[
+  \Phi_n(x) = \frac{x^n-1}{\prod_{d|n} \Phi_d(x)}
+  \]
+\end{corollary}
+
+\begin{exercise}
+  Given a prime $p$, compute $\Phi_p(x)$. 
+\end{exercise}
+
+\begin{exercise}
+  Compute $\Phi_n$ for $n = 1, \dots, 10$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that 
+  \[
+  n = \sum_{d|n} \phi(d).
+  \]
+\end{exercise}
+
+
+\begin{theorem} 
+  The $n$th cyclotomic polynomial $\Phi_n(x)$ is a monic polynomial in
+  $\Z[x]$ for all $n\in \N$.
+  
+  \begin{proof} Proceed by induction on $n$.
+    \begin{enumerate}
+    \item Check the case when $n = 1$. 
+    \item Now suppose our statement holds for all values less than $n$.
+    \item Noting that 
+      \[
+      x^n - 1 = \prod_{d|n}\Phi_d(x) = \Phi_n(x)\cdot \prod_{\substack{d|n\\ d \ne n}}\Phi_d(x).
+      \]
+      Hence $\prod_{\substack{d|n\\ d \ne n}}\Phi_d(x)$ divides $x^n-1$ in
+      $\Q(\zeta_n)[x]$. Explain why this is also true in $\Q[x]$. Big hint,
+      see the Division Theorem for polynomials, see
+      (\ref{T:divThmPoly}). Use this theorem in $\Q(\zeta_n)[x]$ and $\Q[x]$
+      utilizing uniqueness!
+    \end{enumerate}
+    Explain how to finish the proof. Hint, use (\ref{D:cont}).
+  \end{proof}
+\end{theorem}
+
+\begin{theorem} 
+  The $n$th cyclotomic polynomial $\Phi_n(x)$ is irreducible in $\Q[x]$
+  for all $n\in \N$.
+  \begin{proof} 
+    Seeking a contradiction, suppose that $\Phi_n(x)$ is not irreducible.
+    \begin{enumerate}
+    \item Explain why we may assume that $\Phi_n(x)$ is reducible in
+      $\Z[x]$.
+    \item Explain why we may assume that $\Phi_n(x) = f(x)\cdot g(x)$
+      where $f(x)$ and $g(x)$ are monic polynomials in $\Z[x]$ with
+      \[
+      \deg(f) < \phi(n) \qquad \text{and}\qquad \deg(g) < \phi(n).
+      \]
+      Hint, use (\ref{D:cont}).
+\item Explain why we may assume that $f$ is a minimal polynomial for
+  $\zeta_n$.
+    \end{enumerate}
+    Now we claim that given a prime $p \nmid n$, $\zeta_n^p$ is also a
+    root of $f(x)$. Further seek another contradiction, and suppose that
+    $\zeta_n^p$ is not a root of $f(x)$.
+    \begin{enumerate}
+    \item Explain why $\zeta_n^p$ is a root of $g(x)$.
+    \item Explain why $f(x) | g(x^p)$ and write $g(x^p) = f(x) \cdot
+      h(x)$, where $h(x)\in \Q[x]$.
+    \item Explain why we may conclude that $h(x)$ is a monic polynomial
+      $\Z[x]$, use (\ref{D:cont}).
+    \item Reduce the equation $g(x^p) = f(x) \cdot h(x)$ modulo $p$,
+      writing the image of the polynomials $f$, $g$, and $h$ as $\bar{f}$,
+      $\bar{g}$, and $\bar{h}$:
+      \[
+      \bar{g}(x^p) = \bar{f}(x) \cdot \bar{h}(x)
+      \]\index{Freshman Binomial Theorem}\index{Fermat's Little Theorem}
+    \item Explain how to use the Freshman Binomial Theorem (\ref{E:FBT}),
+      or Fermat's Little Theorem (\ref{T:FLT}), to conclude that
+      \[
+      \bar{g}(x)^p = \bar{f}(x) \cdot \bar{h}(x)
+      \]
+    \item Explain how the fact that $\Z_p[x]$ is a UFD allows us to
+      conclude that $\bar{f}$ and $\bar{g}$ have a common factor.
+    \item Explain why we must conclude that $x^n-1$ has a multiple root
+      modulo $p$. Further explain why $\bar{f}$ and $\bar{g}$ both have
+  $x$ as a factor, see (\ref{E:mr}). Explain why this is a
+      contradiction.
+    \end{enumerate}
+    Thus we conclude that $\zeta^p_n$ is a root of $f(x)$. Since this
+    argument will work for any prime $p$ with $p\nmid n$, we can show that
+    every primitive $n$th root of unity is a root of $f$, see (\ref{E:KP}). This will
+    show that $\Phi_n(x) = f$, and is hence irreducible.
+  \end{proof}
+\end{theorem}
+
+
+
+
+\end{document}

@@ -639,8 +639,7 @@ From our work above we see
   number is constructible.
 \end{definition}
 
-
-\begin{theorem}
+\begin{theorem}[Degree and constructibility]
   Let $L$ be a constructible number field. If $L$ is a finite
   extension of $\Q$, then $[L: \Q] = 2^n$ for some nonnegative integer
   $n$.
@@ -655,10 +654,90 @@ From our work above we see
       (x-p)^2 + (y-q)^2 &= r^2 & & (p,q,r\in K)
     \end{align*}
     when we intersect these lines and circles, we obtain linear or
-    quadratic equations describing their intersections. Hence
-    $[K(\alpha) : K] \le 2$.
+    quadratic equations describing their intersections. This means
+    that if a field extension is constructible, then there is a tower
+    of field extensions,
+    \[
+    \Q = K_0 \subset K_1 \subset \cdots \subset K_n
+    \]
+    where $[K_{i+1}:K] = 2$. Thus $[L:\Q]=2^n$.
   \end{proof}
 \end{theorem}
 
+
+\section{Impossibilities}
+
+\subsection{Doubling the cube}
+
+There is an ancient myth that Apollo, sent a plague to
+Delos. Puportedly, the people of Delos appealed to the oracal at
+Delphi, and were instructed to ``double'' the altar of Apollo. The
+citizens doubled the side lengths, thus changing the volume by a
+factor of $8$. This author believes that this myth is an alegory to
+young mathematicians, reminding them of the seriousness and pitfalls
+of scaling volume by scaling linear dimensions.
+
+
+Given a cube of side-length $z$, it is impossible to construct a
+side-length $y$ such that
+\[
+y^3 = 2 z^3.
+\]
+If it were possible, then
+\begin{align*}
+  y^3/z^3 &= 2\\
+  x^3 &= 2.
+\end{align*}
+By the rational roots test, Lemma~\ref{L:rr}, we can see that $x^3-2$
+is irreducible in $\Z[x]$. By Gauss' lemma, Lemma~\ref{L:G}, $x^3-2$
+is irreducible in $\Q[x]$. By Lemma~\ref{L:ipi}, $f(x)$ is the minimal
+polynomial for $\sqrt[3]{2}$. Hence by Theorem~\ref{T:dae},
+\[
+  [\Q(\alpha):\Q]=3.
+\]
+However, if $\alpha$ were constructible, the
+degree would be a power of $2$. Since $3\ne 2^n$ for any nonnegative
+integer $n$, we see that $\alpha$ is not constructible, hence it is
+impossible to construct a length of $\alpha = \sqrt[3]{2}$ with
+compass and straightedge alone.
+
+
+
+\subsection{Trisecting angles}
+
+It is impossible to trisect an arbitrary angle with compass and
+straightedge alone.
+
+Suppose we could trisect a $60^\circ$ angle. This means that we could
+construct a $20^\circ$ angle. In particular, this means that we could
+construct $\cos(20^\circ)$. But we know the following, for all $\theta$, 
+\[
+\cos(3\theta) =  4\cos^3(\theta) -3 \cos(\theta)
+\]
+Thus
+\[
+\cos(3\cdot20^\circ) = \cos(60^\circ) = 1/2 = 4x^3 -3x.
+\]
+This means that $\cos(20^\circ)$ is a root of
+\[
+f(x)=4x^3 -3x -1/2.
+\]
+Set $x = \frac{y+1}{2}$, so
+\[
+f(x) = g(y) = y^3-3y^2-3.
+\]
+Now we see that $g(y)$ is irreducible in $\Z[x]$ by Eisenstein's
+criterion, Theorem~\ref{T:ec}. Hence $f(x)$ is irreducible in
+$\Z[x]$. By Gauss' lemma, Lemma~\ref{L:G}, we see $f(x)$ is
+irreducible in $\Q[x]$.  By Lemma~\ref{L:ipi}, $f(x)$ is the minimal
+polynomial for $\alpha=\cos(20^\circ)$. By Theorem~\ref{T:dae},
+\[
+  [\Q(\alpha):\Q]=3.
+\]
+However, if $\alpha$ were constructible, the
+degree would be a power of $2$. Since $3\ne 2^n$ for any nonnegative
+integer $n$, we see that $\alpha$ is not constructible, hence it is
+impossible to trisect an angle of $60^\circ$, and hence an arbitrary
+angle with compass and straightedge alone.
 
 \end{document}
