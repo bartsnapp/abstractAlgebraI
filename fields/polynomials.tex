@@ -231,7 +231,7 @@ This is a critical insight.
 
 
 \begin{theorem}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}\label{T:fta}
-  A polynomial in $\C[x]$ of degree $n$ will have exactly $n$ roots in
+  Every nonconstant polynomial in $\C[z]$ has at least one root in
   $\C$.
   \begin{sketch}
     We will sketch Gauss' first proof of the fundamental theorem of
@@ -289,10 +289,14 @@ This is a critical insight.
     \includegraphics[width=.6\textwidth]{linesIntersection.pdf}
     \]
     Each intersection corresponds to a root in $\C$, and Gauss then
-    gave a proof that counted the intersections, and showed that if
-    the polynomial has degree $n$, there will always be $n$
-    intersections. For example, above we are working with a fifth
-    degree polynomial, and we see we have $5$ intersections.
+    gave a proof that showed the level curves corresponding to the
+    real part and the level curves corresponding to the imaginary part
+    must intersect at some point, and hence there is at least one
+    complex root.
+
+    In fact, all roots are found that way. For example, above we are
+    working with a fifth degree polynomial, and we see we have $5$
+    intersections.
   \end{sketch}
 \end{theorem}
 
@@ -308,6 +312,18 @@ This is a critical insight.
   The only irreducible polynomials in $\C[x]$ are nonconstant linear
   polynomials.
 \end{corollary}
+
+\begin{exercise} 
+Prove that a polynomial of positive degree $n$ in $\C[x]$ has exactly
+$n$ roots in $\C$.
+\end{exercise}
+
+
+\begin{exercise}\label{E:RQ} 
+Show that every polynomial of positive degree in $\R[x]$ can be
+factored as a product of polynomials in $\R[x]$ each with degrees $1$
+or $2$.
+\end{exercise}
 
 
 
