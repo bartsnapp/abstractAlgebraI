@@ -240,8 +240,18 @@ where the second circle hits the line.
 \section{Geometry and numbers}
 
 In this section, we'll use compass and straightedge to construct $\Z$,
-$\Q$, $\Q(i)$, and more.  First we'll construct $\Z$. Start by making
-some point the \textbf{origin}:
+$\Q$, $\Q(i)$, and more.
+
+Now it is time for a definition.
+
+\begin{definition}\index{C@$\mathcal{C}$}
+  A complex number $a+bi$ is a \dfn{constructible number} if the point
+  $(a,b)$ is constructible with compass and straightedge. Call the set
+  of constructible numbers $\mathcal{C}$.
+\end{definition}
+
+First we'll construct $\Z$, thus showing $\Z\subset
+\mathcal{C}$. Start by making some point the \textbf{origin}:
 \[
 \begin{tikzpicture}
   \tkzDefPoint(0,0){0}
@@ -303,6 +313,9 @@ integers they represent.
   \tkzDrawCircle[dashed](0,1)
 \end{tikzpicture}
 \]
+
+
+\paragraph{Modeling numbers}
 At this point we have a geometric model of the integers, $\Z$. As this
 author reads Euclid, I see someone who is trying to give ``meaning''
 to numbers. Euclid modeled numbers by thinking of them as lengths of
@@ -359,7 +372,10 @@ We model the the integer $-2$ as the vector:
   
 \end{tikzpicture}
 \]
-To add two integers, we add them like vectors, tip-to-tail. Below we see $3+(-2)$:
+
+\paragraph{Adding and subtracting}
+To add two integers, we add them like vectors, tip-to-tail. Below we
+see $3+(-2)$:
 \[
 \begin{tikzpicture}
   \tkzDefPoint(3,0){x}
@@ -387,10 +403,11 @@ To add two integers, we add them like vectors, tip-to-tail. Below we see $3+(-2)
   
 \end{tikzpicture}
 \]
-In an entirely similar fashion, to compute $a-b$, we simply add $a+
-(-b)$.
+In an entirely similar fashion, to compute $a-b$, we simply add the
+vectors $a+ (-b)$.
 
-Multiplying integers is trickier. Suppose we have two segments, one of
+
+\paragraph{Multiplying and dividing} Multiplying integers is trickier. Suppose we have two segments, one of
 length $a$ and one of length $b$. To construct a segment of length
 $a\cdot b$, we'll use facts about similar triangles. Place nonparallel
 vectors whose lengths are equal to $|a|$ and $|b|$ so that their tails
@@ -454,6 +471,7 @@ Now construct a segment from $1$ to the tip of $a$, and a line from the tip of $
 \end{tikzpicture}
 \]
 
+
 Division is similar (pun intended!) to multiplication. Suppose we wish
 to compute $a/b$.  Place nonparallel vectors whose lengths are equal
 to $|a|$ and $|b|$ so that their tails are at the same point, and show the relationship between $b$ and $1$:
@@ -514,12 +532,32 @@ line passing through $1$ that is parallel to this line:
   \tkzLabelPoint[below](l){$1$}
 \end{tikzpicture}
 \]
-
-
 At this point, we have shown that every element of $\Q$ is
-constructible with compass and straightedge. Moreover, if we visualize
-$i$ as up (and this was Gauss' key insight), we can construct all of
-$\Q(i)$.
+constructible with compass and straightedge.
+
+
+\paragraph{Square-roots} If $n$ is a constructible number then so is $\sqrt{n}$. To see this, suppose that $n$ is constructible, and so are all integers.  In this case, we can construct the circle
+\[
+x^2 + \left(y- \frac{n-1}{2}\right)^2 = \left(\frac{n+1}{2}\right)^2
+\]
+and intersect it with the horizontal line $y=0$. Now,
+\begin{align*}
+  x^2 + \left(y- \frac{n-1}{2}\right)^2 &= \left(\frac{n+1}{2}\right)^2 \\
+  x^2 + \left(\frac{n-1}{2}\right)^2 &= \left(\frac{n+1}{2}\right)^2 \\
+  4x^2 + n^2-2n+1 &= n^2+2n+1 \\
+  4x^2 &= 4n \\
+  x^2 &= n
+\end{align*}
+and thus, the $x$-coordinate of the intersection of the circle with
+the $x$-axis is the square-root of $n$. Hence we have shown that if
+$n$ is a positive element of $\Q$, then
+\[
+\Q(\sqrt{n}) \subset \mathcal{C}.
+\]
+
+
+Finally, Gauss' key insight was to work with complex numbers. If we
+visualize $i$ as up, we can construct all of $\Q(i)$.
 
 \[
 \begin{tikzpicture}
@@ -578,24 +616,6 @@ $\Q(i)$.
 \]
 
 
-
-
-
-
-
-
-
-
-
-Now it is time for a definition.
-
-\begin{definition}\index{C@$\mathcal{C}$}
-  A complex number $a+bi$ is a \dfn{constructible number} if the point
-  $(a,b)$ is constructible with compass and straightedge. Call the set
-  of constructible numbers $\mathcal{C}$.
-\end{definition}
-
-From our work above we see
 \[
 \Z\subset \Q \subset \Q(i) \subset \mathcal{C} \subset \C.
 \]
@@ -639,16 +659,16 @@ From our work above we see
   number is constructible.
 \end{definition}
 
-\begin{theorem}[Degree and constructibility]
+\begin{theorem}[Degree and constructibility]\label{T:dc}
   Let $L$ be a constructible number field. If $L$ is a finite
   extension of $\Q$, then $[L: \Q] = 2^n$ for some nonnegative integer
   $n$.
   \begin{proof}
-    $(\Rightarrow)$ Suppose we have a constructible number field
-    $K$. The only way to add new points to this constructible number
-    field is by intersecting lines with lines, lines with circles, or
-    circles with circles. These geometric objects have the following
-    algebraic forms:
+    Suppose we have a constructible number field $K$. The only way to
+    add new points to this constructible number field is by
+    intersecting lines with lines, lines with circles, or circles with
+    circles. These geometric objects have the following algebraic
+    forms:
     \begin{align*}
       ax + by + c &= 0 & & (a,b,c\in K)\\
       (x-p)^2 + (y-q)^2 &= r^2 & & (p,q,r\in K)
@@ -683,13 +703,14 @@ From our work above we see
 \section{Impossibilities}
 
 
-There is an ancient myth that Apollo, sent a plague to
-Delos. Purportedly, the people of Delos appealed to the oracle at
-Delphi, and were instructed to ``double'' the altar of Apollo. The
-citizens doubled the side lengths, thus changing the volume by a
-factor of $8$. This author believes that this myth is an allegory to
-young mathematicians, reminding them of the seriousness and pitfalls
-of scaling volume by scaling linear dimensions.
+There is an ancient myth that Apollo, sent a plague to Delos; surely
+there was a plague, but \textit{Apollo} sent nothing. Purportedly, the
+people of Delos appealed to the oracle at Delphi, and were instructed
+to ``double'' the altar of Apollo. The citizens doubled the side
+lengths, thus changing the volume by a factor of $8$. This author
+believes that this myth is an allegory to young mathematicians,
+reminding them of the seriousness and pitfalls of scaling volume by
+scaling linear dimensions.
 
 
 \begin{example}[Doubling the cube]

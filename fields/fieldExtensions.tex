@@ -93,7 +93,7 @@
 
 
 
-\begin{lemma}[Field extensions are vector spaces]
+\begin{lemma}[Field extensions are vector spaces]\label{L:fevs}
   If $L$ is a field extension of $K$, then $L$ is a $K$-vector space.
   \begin{sketch}
     Check the conditions of the definition of a vector space.
@@ -121,7 +121,7 @@
 \end{example}
 
 
-\begin{lemma}[Degree is multiplicative]
+\begin{lemma}[Degree is multiplicative]\label{L:dm}
   Let $k\subset K\subset L$ be a tower of field extensions,
   \[
   \begin{tikzcd}[column sep=0pt]
@@ -431,6 +431,7 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
   \end{proof}
 \end{theorem}
 
+
 \begin{example}[Cube root of unity]
   Consider $x^3-1 \in \Q[x]$. By the fundamental theorem of algebra,
   Theorem~\ref{T:fta}, this polynomial has three roots in $\C$, all of
@@ -443,11 +444,9 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
   Lemma~\ref{L:d23}. Since $x^2+x+1$ has no roots in $\Z_2[x]$ it is
   irreducible in $\Z_2[x]$, and hence irreducible in $\Z[x]$ by
   Lemma~\ref{L:RCP}; we could have also used the rational roots test
-  here, Lemma~\ref{L:rr}. Now by Gauss' lemma, Lemma~\ref{L:G}, $x^2+x+1$ is
-  irreducible in $\Q[x]$.
-
-
-  Let $\zeta$ be a root of $x^2 + x +1$. In this case
+  here, Lemma~\ref{L:rr}. Now by Gauss' lemma, Lemma~\ref{L:G},
+  $x^2+x+1$ is irreducible in $\Q[x]$. Let $\zeta$ be a root of $x^2 +
+  x +1$. In this case
   \[
   [\Q(\zeta):\Q] = 2
   \]
@@ -461,19 +460,33 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
   Consider $x^5-1 \in \Q[x]$.
 \end{example}
 
+
+\begin{exercise}
+  Let $K(\alpha)$ be a degree $n$ algebraic extension of
+  $K$. Prove that
+  \[
+  \{\alpha,\alpha^2, \cdots, \alpha^{n-1},\alpha^n\}
+  \]
+  is a basis for $K(\alpha)$ as a $K$-vector space.
+\end{exercise}
+
+
+
+
 \begin{theorem}[Finite extensions are algebraic]\label{T:fea}
   If $L$ is a field extension of $K$ and $[L:K]<\infty$, then $L$ is
   algebraic over $K$.
   \begin{proof}
     Suppose that $[L:K]=n$. Then as a $K$-vector space, $\dim_K(L) =
     n$. This means that there is a basis for $L$ with $n$
-    elements. Take any element of $L$, write
+    elements. Take any element $\alpha\in L$, and consider powers of
+    this element, starting with $0$ and ending at $n$
     \[
     \{ \underbrace{1, \alpha, \alpha^2 ,\dots, \alpha^n}_{\text{$n+1$ elements}}\}.
     \]
-    Since $n+1$ is larger than the vector space dimension, these
-    elements must be linearly dependent. Thus, there exist $c_i\in K$ (not
-    all zero) such that
+    Since $n+1$ is larger than the vector space dimension, this is a
+    linearly dependent set of elements. Thus, there exist $c_i\in K$
+    (not all zero) such that
     \[
     c_n\alpha^n + c_{n-1}\alpha^{n-1} + \cdots + c_1\alpha + c_0 = 0,
     \]
@@ -484,6 +497,21 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
     and hence $\alpha$ is algebraic over $K$.
   \end{proof}
 \end{theorem}
+
+
+
+\begin{warning}[Algebraic extensions are not necessarily finite]
+  Consider
+  \[
+  \Q(\sqrt{2},\sqrt{3},\sqrt{5},\dots)
+  \]
+  where we adjoin every root of a nonperfect square to $\Q$. This
+  extension is an algebraic extension of of $\Q$, but it is
+  \textbf{not} a finite extension of $\Q$.
+\end{warning}
+
+
+
 
 
 \begin{corollary}[Algebraic extensions of algebraic extensions]\label{C:feac}
@@ -497,10 +525,27 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
   \]
   If $K$ is algebraic over $k$, and $L$ is algebraic over $K$, then $L$
   is algebraic over $k$.
-  \begin{sketch}
-    Use Corollary~\ref{C:fe} and Theorem~\ref{T:fea}.
-  \end{sketch}
+  \begin{proof}
+    Suppose that $\beta\in L$. Since $L$ is algebraic over $K$, there
+    exists a polynomial $f(x)\in K[x]$ with $\beta$ as a root. Suppose that
+    \[
+    f(x) = \alpha_0 + \alpha_1 x + \cdot + \alpha_n x^n \in K[x].
+    \]
+    Since $K$ is algebraic over $k$, each $\alpha_i$ is algebraic over
+    $k$. Let $g_i(x)\in k[x]$ be the minimal polynomial for each
+    $\alpha_i$, and suppose that $\deg(g_i(x)) = d_i$. Then
+    \[
+    [k(\beta):k]\le d_1\cdot d_2 \cdot \cdots \cdot d_n \cdot n
+    \]
+    and hence $\beta$ is algebraic over $k$ by
+    Theorem~\ref{T:fea}. Since $\beta$ is an arbitrary element of $L$,
+    we see that every element of $L$ is algebraic over $k$, and so $L$
+    is algebraic over $k$.
+  \end{proof}
 \end{corollary}
+
+
+
 
 
 

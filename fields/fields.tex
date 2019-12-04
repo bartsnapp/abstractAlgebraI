@@ -241,12 +241,16 @@ homomorphism.
 This simple idea of characteristic tells us something about fields.
 
 \begin{definition}
-  A $K$ is a \dfn{subfield} of a field $K$ if
+  A field $K$ is a \dfn{subfield} of a field $L$ if
   \begin{enumerate}
-  \item $k\subset K$,
-  \item $k$ has the same identity elements and operations as $K$.
+  \item $K\subset L$,
+  \item $K$ has the same identity elements and operations as $L$.
   \end{enumerate}
 \end{definition}
+
+\begin{exercise}
+  Develop a ``subfield criterion'' similar to the subgroup criterion.
+\end{exercise}
 
 
 \begin{theorem}[Base fields of positive characteristic]
@@ -281,16 +285,17 @@ This simple idea of characteristic tells us something about fields.
     \[
     Q = \{a^{-1}b : a,b\in Z\}.
     \]
-    We claim that $Q$ is a field. First note that $Q$ is a subgroup of
-    $K$ under field addition. Suppose $\alpha,\beta\in Q$. We'll
+    We claim that $Q$ is a field. First note that $(Q,+)$ is a subgroup of
+    $(K,+)$ under field addition. Suppose $\alpha,\beta\in Q$. We'll
     show that $\alpha-\beta\in Q$. Let $\alpha = a^{-1}b$ and $\beta=
     c^{-1}d$. Write
     \[
     a^{-1}b - c^{-1} d = (ac)^{-1}(bc- ad)\in Q.
     \]
-    Now we must show that $Q-\{0\}$ is a subgroup of $K$ under
-    multiplication. Again let $\alpha = a^{-1}b$ and $\beta=
-    c^{-1}d$. We'll show that $\alpha^{-1}\beta \in Q$. Write
+    Now we must show that $(Q-\{0\},\cdot)$ is a subgroup of
+    $(K-{0},\cdot)$ under multiplication. Again let $\alpha = a^{-1}b$
+    and $\beta= c^{-1}d$. We'll show that $\alpha^{-1}\beta \in
+    Q$. Write
     \[
     a^{-1}b (c^{-1}d)^{-1} = (ad)^{-1} bc\in Q.
     \]
@@ -298,10 +303,10 @@ This simple idea of characteristic tells us something about fields.
 
     Now we will prove that $\Q\iso Q$. Define a map
     \begin{align*}
-      \Q &\to Q\\
+      \phi: \Q &\to Q\\
       b/a &\mapsto a^{-1} b.
     \end{align*}
-    We must show that this map is \index{well-defined}well-defined.
+    We must show that $\phi$ is \index{well-defined}well-defined.
     Suppose that
     \[
     \frac{b}{a} = \frac{d}{c},
@@ -310,13 +315,14 @@ This simple idea of characteristic tells us something about fields.
     \[
     ad = bc\quad\Leftrightarrow a^{-1} b = c^{-1} d.
     \]
-    Thus our map is well-defined.
+    Thus $\phi$ is well-defined.
 
-    Next, show it is a homomorphism of fields by using the definition.
+    Next, show $\phi$ is a homomorphism of fields by using the
+    definition.
 
 
-    Since our homomorphism is clearly a surjective, it is an
-    isomorphism of fields.
+    Since $\phi$ is clearly a surjective homomorphism of fields,
+    $\phi$ is an isomorphism of fields.
   \end{sketch}
 \end{theorem}
 
