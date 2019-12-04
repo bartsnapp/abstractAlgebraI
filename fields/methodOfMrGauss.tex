@@ -13,7 +13,7 @@
 \maketitle
 
 When Gauss was around 16 years old, he put his massive brain to the
-question of which regular $n$-gons are construcible with compass and
+question of which regular $n$-gons are constructible with compass and
 straightedge.
 
 
@@ -40,11 +40,11 @@ $\aut(G)$, and $\aut(K)$ form groups.
   \gal_K(L)
   \]
   to be the set of field automorphisms that fix elements of $K$. Hence
-  $\gal_K(L)$ is a set of meaning bijective field isomorphims where if
+  $\gal_K(L)$ is a set of meaning bijective field isomorphisms where if
   $a\in K$ and $\sigma \in \gal_K(L)$, then $\sigma(a) = a$.
 \end{definition}
 
-Galois groups are named after the mathematican \link[\'Evariste
+Galois groups are named after the mathematician \link[\'Evariste
   Galois]{https://en.wikipedia.org/wiki/Evariste\_Galois} (pronounced
 \textit{gal-wah}). He lived a short and tragic life. He was shot dead
 in a meaningless duel at the age of 20.
@@ -356,8 +356,8 @@ Now it is time for a dirty lemma that we will use over and over again.
   \gal_{\Q}(\Q(\zeta_{5}))\iso \Z_{5}^\times
   \]
   and is cyclic. There is no easy method other than trial-and-error to
-  find the generator of this group, nevertheless we, like the heros
-  before us, persist and find a generator
+  find the generator of this group, as this is the discrete log
+  problem,\index{discrete log problem}
   \[
   \sigma(\zeta_{5}) = \zeta_{5}^2.
   \]
@@ -436,8 +436,9 @@ Now it is time for a dirty lemma that we will use over and over again.
   \gal_{\Q}(\Q(\zeta_{17}))\iso \Z_{17}^\times
   \]
   and is cyclic. There is no easy method other than trial-and-error to
-  find the generator of this group, nevertheless we, like the heros
-  before us, persist and find a generator
+  find the generator of this group as this is the discrete log
+  problem\index{discrete log problem}. Nevertheless we, like the
+  heros before us, persist and find a generator
   \[
   \sigma(\zeta_{17}) = \zeta_{17}^3.
   \]
@@ -591,7 +592,9 @@ Now it is time for a dirty lemma that we will use over and over again.
 
 
 
-\begin{theorem}[Constructible regular $\boldsymbol n$-gons]
+\begin{theorem}[Constructible regular $\boldsymbol p$-gons]
+  If $p$ is a prime number, it is possible to construct a regular
+  $p$-gon if $p= 2^n-1$ for some $n\in \N$.
   \begin{proof}
     Suppose you wish to construct a regular $p$-gon where $p$ is a
     prime number. This is equivalent to constructing the roots of
@@ -631,14 +634,43 @@ Now it is time for a dirty lemma that we will use over and over again.
     \]
     with the right-most isomorphism holding by
     Corollary~\ref{C:mzpc}. Let $\sigma$ be a generator for the cyclic
-    group $\gal_\Q(\Q(\zeta_p))$.
+    group $\gal_\Q(\Q(\zeta_p))$. In this case, $\sigma$ cyclicly permutes the set
+    \[
+    \{\zeta_p,\zeta_p^2,\dots,\zeta_p^{p-1}\},
+    \]
+    and $\sigma^2$ permutes exactly half of this set. Thus we can set
+    $\alpha$ to be the sum of the $\zeta_p^i$ that are permuted by
+    $\sigma^2$ and $\beta$ to be the sum of the $\zeta_p^i$ that are
+    not permuted by $\sigma^2$.  Note that the elements
+    $\{\alpha,\beta\}$ form a basis for $\Q[\alpha,\beta]$ over $\Q$,
+    as $\alpha$ and $\beta$ are linearly independent and they span
+    $\Q[\alpha,\beta]$. Moreover, by construction, $\sigma(\alpha) =
+    \beta$ and $\sigma(\beta) = \alpha$. This means
+    \begin{align*}
+      \sigma(\alpha+\beta) &= \alpha + \beta,\\
+      \sigma(\alpha\beta) &= \alpha\beta,
+    \end{align*}
+    which by Lemma~\ref{L:fgf} shows that
+    $\alpha+\beta,\alpha\beta\in\Q$. However, $\alpha$ and $\beta$ are
+    both roots of the polynomial
+    \[
+    x^2 - (\alpha +\beta) x + \alpha\beta\in\Q[x]
+    \]
+    which is irreducible in $\Q[x]$, since neither $\alpha$ nor $\beta$
+    are rational. Hence $\Q[\alpha,\beta]= \Q(\alpha)$ and
+    $[\Q(\alpha):\Q] = 2$.
 
-    HEREHERE
 
-
-    Since $\Z_{2^n}$ has subgroups for each
-    power of $2$ less than $2^n$, so does $\gal_\Q(\Q(\zeta_p))$. 
+    Now we repeat this process for $\zeta_p^i$ that appear as summands
+    of $\alpha$ and use Lemma~\ref{L:fgf} to ensure that our minimal
+    polynomial has coefficients in the lower field. At each step, our
+    list of $\zeta_p^i$, is cut in half, and hence after $2^n-1$
+    steps, we will have a tower of degree two field extensions as
+    required.  Hence we can construct a regular $p$-gon with compass
+    and straightedge alone when $p=2^n+1$.
   \end{proof}
 \end{theorem}
+
+
 
 \end{document}
