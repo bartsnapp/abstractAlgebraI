@@ -210,7 +210,7 @@ subgroup.
 
 
 
-
+And now we are ready to state and prove Lagrange's theorem.
 
 
 
@@ -220,12 +220,15 @@ subgroup.
   |G| = [G:S]\cdot |S|.
   \]
   \begin{proof}
-    First note that by Proposition~\ref{P:CSG}, $|S| = |aS|$. By
-    Theorem~\ref{T:CPG}, $G$ is partitioned by the left cosets of
-    $S$. This means that every element of $G$ is in exactly one left
-    coset. Hence $|G| = [G:S]\cdot |S|$.
+    First note that by Proposition~\ref{P:CSG}, $|S| = |aS|$ for all
+    $a\in G$. By Theorem~\ref{T:CPG}, $G$ is partitioned by the left
+    cosets of $S$. This means that every element of $G$ is in exactly
+    one left coset. Hence $|G| = [G:S]\cdot |S|$.
   \end{proof}
 \end{theorem}
+
+We can witness the importance of Lagrange's theorem by its
+corollaries.
 
 \begin{corollary}[Subgroup's order divides the group's order]
   If $G$ is a finite group with subgroup $S$, then the order of $S$
@@ -300,6 +303,13 @@ subgroup.
 
 
 \section{Converse to Lagrange?}
+
+
+The converse to Lagrange's theorem would be
+\begin{quote}
+  If $G$ is a group and $n$ divides $|G|$, then $G$ has a subgroup of
+  order $n$.
+\end{quote}
 
 You may wonder, is the converse of Lagrange's theorem true? The answer
 is ``no.''
