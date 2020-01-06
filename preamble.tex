@@ -9,6 +9,9 @@
 
 \usepackage{multicol}
 
+\usepackage{setspace} %% for tighter annotate
+
+
 
 \usepackage{tikz-cd}
 \usepackage{tkz-euclide} %% compass
@@ -318,7 +321,7 @@
 
 
 
-\NewEnviron{annotate}{\vspace{-.3cm}\small \itshape \BODY \vspace{.3cm}}
+\NewEnviron{annotate}{\vspace{-.1cm}\small \begin{spacing}{0.1} \itshape \BODY \end{spacing}\vspace{1cm}}
 
 
 %%%% TIKZ STUFF
