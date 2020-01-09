@@ -64,7 +64,8 @@ tell myself in hard times:
 
 So here's my proposal for an easier problem. Let's study a subset of
 $\aut(T)$. Let's roll it way back to middle school. We'll study the
-\textit{symmetries} of $T$. An informal definition of symmetry might be:
+\textit{symmetries} of $T$, the symmetries of $T$ will be a subset of
+$\aut(T)$. An informal definition of symmetry might be:
 \begin{quote}
   Symmetry is immunity to a possible change.
 \end{quote}
@@ -78,11 +79,14 @@ With this in mind we will think of a special class of groups.
   $n$-gon as $D_n$.
 \end{definition}
 
-
 The easiest $n$-gon in two-dimensional space is the triangle. Hence,
-let's try to understand $D_3$.  There are six symmetries of the
-equilateral triangle. Let's list them. There are $3$ flips
-(reflections across lines) $f_1$, $f_2$, $f_3$:
+let's try to understand $D_3$.  In this case,
+\[
+D_3\subset \aut(T).
+\]
+There are six symmetries of the equilateral triangle. Let's list
+them. There are $3$ flips (reflections across lines) $f_1$, $f_2$,
+$f_3$:
 \[
 \begin{tikzpicture}
   \tikzmath{\rrr=1.7;}
@@ -119,6 +123,11 @@ equilateral triangle. Let's list them. There are $3$ flips
   \node[above right] at (2.5,-2) {$f_3$};
 \end{tikzpicture}
 \]
+Note, the flip $f_1$ always flips across a line from the lower
+left-hand vertex of the triangle to the opposite side; the flip $f_2$
+always flips across a line from the top vertex of the triangle to the
+opposite side; and $f_3$ always flips across a line from the lower
+right-hand vertex of the triangle to the opposite side.
 
 
 There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
@@ -152,7 +161,7 @@ There are two counterclockwise rotations, $r_{120}$, $r_{240}$:
   
 \end{tikzpicture}
 \]
-and an identity symmetry, the ``do nothing'' symmetry. Let's call it
+and an identity symmetry, the ``do nothing'' symmetry, let's call it
 $e$.
 
 \begin{example}[The dihedral group of order six]
@@ -217,12 +226,12 @@ maintain the distance between points are called
 \begin{definition}
   Let $X\subset \R^n$. An \dfn{isometry} of $X$ is a function $f:X\to X$ such
   that the distance between points on $X$ is preserved by $f$. This means
-  that if $a,b\in X$, and $\vec{v}$ is the vector from $a$ to $b$ then
+  that if $a,b\in X$, and $\nu$ is the vector from $a$ to $b$ then
   \[
-  |\vec{v}| = |f(\vec{v})|,
+  |\nu| = |f(\nu)|,
   \]
-  where $|\vec{v}|$ is the magnitude of vector $\vec{v}$ and
-  $|f(\vec{v})|$ is the magnitude of vector $f(\vec{v})$.
+  where $|\nu|$ is the magnitude of vector $\nu$ and
+  $|f(\nu)|$ is the magnitude of vector $f(\nu)$.
 \end{definition}
 
 \begin{exercise}
@@ -341,11 +350,11 @@ do that. It's a fact, there are exactly five regular solids, called
   The \textbf{symmetries of the five Platonic solids} will be denoted
   by:
   \begin{enumerate}
-  \item $\mathcal{T}_{12}$ for the tetrahedron.
+  \item $\mathcal{T}_{12}$ for the regular tetrahedron.
   \item $\mathcal{C}_{24}$ for the cube.
-  \item $\mathcal{O}_{24}$ for the octahedron.
-  \item $\mathcal{D}_{60}$ for the dodecahedron.
-  \item $\mathcal{I}_{60}$ for the icosahedron.
+  \item $\mathcal{O}_{24}$ for the regular octahedron.
+  \item $\mathcal{D}_{60}$ for the regular dodecahedron.
+  \item $\mathcal{I}_{60}$ for the regular icosahedron.
   \end{enumerate}
 \end{definition}
 
@@ -548,37 +557,37 @@ tetrahedron.
 
 
 \begin{exercise}
-  List all elements of $\mathcal{T}_{12}$ that leave vertex $4$ fixed. Show that these
-  form a group.
+  List all elements of $\mathcal{T}_{12}$ that leave vertex $4$
+  fixed. Show that these form a group.
 \end{exercise}
 
 \begin{exercise}
-  List all elements of $\mathcal{T}_{12}$ that leave vertex $3$ fixed. Show that these
-  form a group.
+  List all elements of $\mathcal{T}_{12}$ that leave vertex $3$
+  fixed. Show that these form a group.
 \end{exercise}
 
 \begin{exercise}\label{E:symcube}
-  Let $\mathcal{C}_{24}$ be the group of order preserving symmetries of the
-  cube. Prove that $|\mathcal{C}_{24}| = 24$.
+  Let $\mathcal{C}_{24}$ be the group of order preserving symmetries
+  of the cube. Prove that $|\mathcal{C}_{24}| = 24$.
 \end{exercise}
 
 \begin{exercise}\label{E:symoct}
-  Let $\mathcal{O}_{24}$ be the group of order preserving symmetries of the
-  octahedron. Prove that $|\mathcal{O}_{24}|= 24$.
+  Let $\mathcal{O}_{24}$ be the group of order preserving symmetries
+  of the regular octahedron. Prove that $|\mathcal{O}_{24}|= 24$.
 \end{exercise}
 
 \begin{exercise}\label{E:symdoe}
-  Let $\mathcal{D}_{60}$ be the group of order preserving symmetries of the
-  doedecahedron. Prove that $|\mathcal{D}_{60}|=60$.
+  Let $\mathcal{D}_{60}$ be the group of order preserving symmetries
+  of the regular dodecahedron. Prove that $|\mathcal{D}_{60}|=60$.
 \end{exercise}
 
 \begin{exercise}\label{E:symicos}
-  Let $\mathcal{I}_{60}$ be the group of order preserving symmetries of the
-  icosahedron. Prove that $|\mathcal{I}_{60}|=60$.
+  Let $\mathcal{I}_{60}$ be the group of order preserving symmetries
+  of the regular icosahedron. Prove that $|\mathcal{I}_{60}|=60$.
 \end{exercise}
 
 \begin{exercise}
-  Give a geometric argument explaining \textbf{why}
+  Give a geometric argument explaining \textbf{why}:
   \begin{align*}
     |\mathcal{C}_{24}| &= |\mathcal{O}_{24}|\\
     |\mathcal{D}_{60}| &= |\mathcal{I}_{60}|
