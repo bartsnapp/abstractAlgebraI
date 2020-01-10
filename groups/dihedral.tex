@@ -314,11 +314,18 @@ type of a group is called a \textit{dihedral} group.
 
 
 \begin{definition}
-  Let $G$ be a group, the \dfn{order of an element} $g\in G$ is
+  Let $(G,\star)$ be a group, the \dfn{order of an element} $g\in G$ is
   \[
-  \o(g) := \min\{n>0: g^n = e\},
+  \o(g) := \min\left\{n: \bigstar_{i=1}^n g = e\right\}\in\N.
   \]
-  where $g^n = \underbrace{g\star g \star \cdots \star g}_{\text{$n$ copies of $g$}}$.
+  If the group has an operation like multiplication, $(G,\cdot)$, we will write
+  \[
+  \o(g) := \min\left\{n: \prod_{i=1}^n g = 1\right\}\in\N.
+  \]
+  If the group has an operation like addition, $(G,+)$, we will write
+  \[
+  \o(g) := \min\left\{n: \sum_{i=1}^n g = 0\right\}\in\N.
+  \]
 \end{definition}
 
 \begin{exercise}
