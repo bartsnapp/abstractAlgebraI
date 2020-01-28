@@ -87,6 +87,16 @@ $\gcd(m,n)$ is the set of common divisors of $m$ and $n$.
 
 
 
+\begin{exercise}\label{EL1E}
+  Prove that if $a,b,n\in\Z$, $\gcd(a,b) = 1$,
+  \[
+  a|n, \quad\text{and}\quad b|n,
+  \]
+  then $ab | n$.
+\end{exercise}
+
+
+
 
 \begin{corollary}[Euclid's lemma, version 2]\label{C:EL2}\index{Euclid's lemma}
   Let $\l$, $m$, and $n$ be nonzero integers. If
@@ -398,6 +408,23 @@ Here's another famous group you might run into. The \textit{Klein
   Make a Cayley table for $V_4$.
 \end{exercise}
 
+
+\begin{exercise}
+  Consider a nonsquare rectangle. 
+  \[ 
+  \begin{tikzpicture}
+  \draw[ultra thick,rounded corners=.05mm] (0,0) -- (4,0) -- (4,2) -- (0,2)-- cycle;
+  \draw[fill] (0,0) circle (1mm) node[below left] {$1$};
+  \draw[fill] (4,0) circle (1mm) node[below right] {$2$};
+  \draw[fill] (4,2) circle (1mm) node[above right] {$3$};
+  \draw[fill] (0,2) circle (1mm) node[above left] {$4$};
+  \end{tikzpicture}
+  \]
+  Show that the group of symmetries of this nonsquare rectangle is
+  isomorphic to $V_4$.
+\end{exercise}
+
+
 \begin{exercise}
   What are the generators of $V_4$?
 \end{exercise}
@@ -656,16 +683,25 @@ We can continue on and prove a little more.
   Let $G$ be a finite Abelian group. If $\gcd(\o(a),\o(b)) = 1$, then
   $\o(ab) = \o(a)\cdot \o(b)$.
   \begin{proof}
-    If $(ab)^n = 1$ then $(a)^{n\o(b)} = 1$. By Lemma~\ref{L:odoe},
+    If $(ab)^n = 1$ then
+    \begin{align*}
+      (ab)^{n\o(b)} &= a^{n\o(b)}b^{n\o(b)}\\
+      &=a^{n\o(b)}\left(b^{\o(b)}\right)^n \\
+      &=a^{n\o(b)}1^n \\
+      &=a^{n\o(b)},
+    \end{align*}
+    so $a^{n\o(b)} = 1$. By Lemma~\ref{L:odoe},
     \[
     \o(a) | n\o(b).
     \]
     By Euclid's lemma, Corollary~\ref{C:EL2}, we see $\o(a) | n$. The
     same argument with $a$ and $b$ switched will show $\o(b)|n$. Thus
+    by Exercise~\ref{EL1E},
     \[
-    (\o(a)\o(b))|n.
+    \o(a)\o(b)|n.
     \]
-    Since $(ab)^(\o(a)\o(b)) = 1$, we are done.
+    In particular, this means that the product $\o(a)\o(b)$ is less than $n$.
+    Since $(ab)^{\o(a)\o(b)} = 1$, we are done.
   \end{proof}
 \end{lemma}
 

@@ -441,12 +441,27 @@ theorem. We must start with a fundamental lemma.
 
 
 \begin{definition}
-  Let $G$ be group, a subset $\{g_1,\dots, g_n,\dots\}\subset G$ is a
-  set of \dfn{generators} for $G$ if for all $a\in G$
+  Let $(G,\star)$ be group, a subset $\{g_1,\dots, g_n,\dots\}\subset
+  G$ is a set of \dfn{generators} for $G$ if for all $a\in G$, there
+  exist $\alpha_i$ such that
   \[
-  a = \prod_{\mathrm{finite}} g_i^{\alpha_i}
+  a = \bigstar_{i=1}^m \bigstar_{k=1}^{\alpha_i}g_i
   \]
-  where $\alpha_i\in \Z$ and the $g_i$'s are not necessarily distinct.
+  where $m,\alpha_i\in \Z$ and the $g_i$'s are not necessarily distinct.
+
+  
+  If the group has an operation like multiplication, we write
+  \begin{align*}
+  a &= \prod_{i=1}^m \prod_{k=1}^{\alpha_i}g_i\\
+  &=  \prod_{i=1}^m g_i^{\alpha_i}.
+  \end{align*}
+
+
+  If the group has an operation like addition, we write
+  \begin{align*}
+  a &= \sum_{i=1}^m \sum_{k=1}^{\alpha_i}g_i\\
+  &=  \sum_{i=1}^m \alpha_i \cdot g_i.
+  \end{align*}
 \end{definition}
 
 

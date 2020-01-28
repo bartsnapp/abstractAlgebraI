@@ -3,7 +3,6 @@
 \input{../preamble.tex}
 
 \author{Bart Snapp}
-
 \title{Matrix groups}
 
 \begin{document}
@@ -11,6 +10,14 @@
   Sets of matrices can form groups.
 \end{abstract}
 \maketitle
+
+
+
+Matrices are intimately connected to groups. Let's see if we can
+convince you of this.
+
+
+\section{Matrices are linear transformations}
 
 Matrices are functions between vector spaces. Let's prove that the
 linear transformations of $\R$-vector spaces are matrices. Our proof
@@ -22,44 +29,44 @@ will be general enough that one could change the set of scalars.
   if and only if can be represented by a $n\times m$ matrix.
   \begin{proof}
     $(\Rightarrow)$ Recall the definition of a \index{linear transformation}linear transformation,
-    for $\vec{u},\vec{v}\in V$ and $s\in \R$:
+    for $\mu,\nu\in V$ and $s\in \R$:
     \begin{enumerate}
-    \item $T(\vec{u}+\vec{v}) = T(\vec{u})+T(\vec{v})$.
-    \item $T(s \vec{v}) = sT(\vec{v})$.
+    \item $T(\mu+\nu) = T(\mu)+T(\nu)$.
+    \item $T(s \nu) = sT(\nu)$.
     \end{enumerate}
     We will show that any function on vector spaces having these
     properties can be expressed as a matrix over the set of scalars.
 
     The image of $T$ is completely determined by the action of
-    $T$ on a basis. Let $\{\vec{b}_1,\dots,\vec{b}_m\}$ be a
-    basis for $V$. Then if $\vec{v}\in V$, we may write
+    $T$ on a basis. Let $\{\beta_1,\dots,\beta_m\}$ be a
+    basis for $V$. Then if $\nu\in V$, we may write
     \begin{align*}
-      \vec{v} &= \begin{bmatrix}
+      \nu &= \begin{bmatrix}
         a_1\\
         \vdots \\
         a_m
         \end{bmatrix}\\
-      &=a_1\vec{b}_1 + \dots + a_m\vec{b}_m.
+      &=a_1\beta_1 + \dots + a_m\beta_m.
     \end{align*}
     Now,
     \begin{align*}
-      T(\vec{v})&=T(a_1\vec{b}_1 + \dots + a_m\vec{b}_m)\\
-      &= T(a_1\vec{b}_1) + \dots + T(a_m\vec{b}_m) \\
-      &= a_1T(\vec{b}_1) + \dots + a_mT(\vec{b}_m).
+      T(\nu)&=T(a_1\beta_1 + \dots + a_m\beta_m)\\
+      &= T(a_1\beta_1) + \dots + T(a_m\beta_m) \\
+      &= a_1T(\beta_1) + \dots + a_mT(\beta_m).
     \end{align*}
     Hence, to define a linear transformation $T$, we only need
     to know where $T$ maps each basis element. In this case, we
     can represent
     \[
     T = \begin{bmatrix}
-      T(\vec{b}_1) & \cdots & T(\vec{b}_m)
+      T(\beta_1)| & \cdots &| T(\beta_m)
     \end{bmatrix}
     \]
-    where each $T(\vec{b}_i)$ is a column vector of length $n$.
+    where each $T(\beta_i)$ is a column vector of length $n$.
     So, we may write
     \[
-    T(\vec{v}) = \begin{bmatrix}
-      T(\vec{b}_1) & \cdots & T(\vec{b}_m)
+    T(\nu) = \begin{bmatrix}
+      T(\beta_1) |& \cdots & |T(\beta_m)
     \end{bmatrix} \begin{bmatrix}
         a_1\\
         \vdots \\
@@ -69,14 +76,14 @@ will be general enough that one could change the set of scalars.
     We have now shown that every linear transformation can be thought
     of as an $n\times m$ matrix.
 
-      $(\Leftarrow)$ Since matrix multiplication distributes over
-      vector addition,
+      $(\Leftarrow)$ Let $M$ be an $n\times n$ matrix. Since matrix
+    multiplication distributes over vector addition,
       \[
-      M(\vec{u}+\vec{v})  = M\cdot \vec{u} + M\cdot \vec{v}.
+      M(\mu+\nu)  = M\cdot \mu + M\cdot \nu.
       \]
       Also, we know that with matrix multiplication,
       \[
-      s M \vec{v} = M(s\vec{v}).
+      s M \nu = M(s\nu).
       \]
       Hence any $n\times m$ matrix is a linear transformation from an
       $m$-dimensional vector space to an $n$-dimensional vector
@@ -95,6 +102,38 @@ will be general enough that one could change the set of scalars.
 \begin{exercise}
   Prove that $GL(n)$ is a group under matrix multiplication.
 \end{exercise}
+
+
+
+\section{Determinants}
+
+In mathematics, we often want to reduce something complicated to a
+single number. Determinants are a way to reduce a matrix to a single
+number.
+
+\begin{definition}  \label{D:determinants}
+A \dfn{determinant}\textbf{ function} of an $n\times n$ matrix $M$
+with entries in $\R$ is a real number $D(M)$ such that
+\begin{itemize}
+\item If $M$ is lower triangular, then $D(M)$ is the product of the
+  diagonal entries of $M$.
+\item The determinant of the transpose of a matrix is equal to the
+  determinant of the matrix, $D(M^\transpose)=D(M)$.
+\item Let $N$ be an $n\times n$ matrix, then
+  \[
+  D(MN) = D(M) D(N).
+  \]
+\end{itemize}
+\end{definition}
+
+
+\begin{lemma}[The determinant function is unique]  
+  There is only one determinant function. It is denoted $\det(M)$ and
+  called the \dfn{determinant} of $M$.
+  \begin{sketch}
+    See a text on linear algebra.
+  \end{sketch}
+\end{lemma}
 
 
 
@@ -132,39 +171,39 @@ will be general enough that one could change the set of scalars.
     Note that the square of the distance between the points $x_{1}$
     and $x_{2}$ is the dot product of the vector%
     \[
-    \vec{v}=x_{2}-x_{1}%
+    \nu=x_{2}-x_{1}%
     \]
     with itself.  Also recall the identity
     $(AB)^\transpose=B^\transpose A^\transpose$.
     
     $(\Rightarrow)$ If $M$ is orthogonal, write
     \[
-    (M\vec{v}) \bullet (M\vec{v})
+    (M\nu) \bullet (M\nu)
     \]
-    and deduce that this equals ${\vec v}\bullet{\vec v}$.
+    and deduce that this equals ${\nu}\bullet{\nu}$.
 
     $(\Leftarrow)$ Suppose that $M$ defines an isometry. Explain why
     this means that
     \[
-    ( M{\vec v}) \bullet ( M{\vec v})=
-    {\vec v} \bullet {\vec v}
+    ( M{\nu}) \bullet ( M{\nu})=
+    {\nu} \bullet {\nu}
     \]
-    for every ${\vec v}$.  Now rewrite as:
+    for every ${\nu}$.  Now rewrite as:
     \[
-    \vec{v}^\transpose M^\transpose \cdot M\vec{v}=\vec{v}^\transpose
-    \cdot{\vec v}.
+    \nu^\transpose M^\transpose \cdot M\nu=\nu^\transpose
+    \cdot{\nu}.
     \]
     Write
     \[
-    {\vec v} =
+    {\nu} =
     \begin{bmatrix}
       a_1 \\ a_2 \\ \vdots \\ a_n
     \end{bmatrix}
     \]
      and view the equation 
     \[
-    \vec{v}^\transpose M^\transpose \cdot M\vec{v}=\vec{v}^\transpose
-    \cdot{\vec v}
+    \nu^\transpose M^\transpose \cdot M\nu=\nu^\transpose
+    \cdot{\nu}
     \]
     as a polynomial equation in the variables $a_1,\dots,a_n$. Since
     polynomials are equal if and only if their coefficients are equal
@@ -193,6 +232,10 @@ will be general enough that one could change the set of scalars.
   SO(n) \subset O(n) \subset GL(n)
   \]
 \end{exercise}
+
+\section{Classification}
+
+
 
 \begin{lemma}[Classification of \textit{SO}(2)]\label{L:SO}
   If $M\in SO(2)$, then
