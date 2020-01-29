@@ -38,7 +38,7 @@ the symbols are numbers) and rearrange the symbols.
 
 It helps to see an example of permutations in action.
 
-\begin{example}
+\begin{example}[Notation]
   Let $\sigma$ be a permutation on the set $\{1,2,3\}$ represented by
   \[
   \sigma = \left(\begin{smallmatrix}
@@ -76,7 +76,7 @@ It helps to see an example of permutations in action.
 
 If one example is good, two are better.
 
-\begin{example}
+\begin{example}[Notation]
   Let $\sigma$ be a permutation on the set $\{1,2,3,4,5\}$ represented by
   \[
   \sigma = \left(\begin{smallmatrix}
@@ -159,9 +159,9 @@ If one example is good, two are better.
 \end{exercise}
 
 
-\begin{example}
-  To compose two permutations, you work very much like how you apply
-  them to numbers.  Write with me
+\begin{example}[Composition]
+  Composing permutations is similar to how you evaluate permutations.
+  Write with me
   \[
   \left(\begin{smallmatrix}
     1 & 2 & 3 & 4 & 5\\
@@ -227,9 +227,9 @@ If one example is good, two are better.
   we usually assume that the set is $\{1,2,3,\dots,n\}$. In
   particular, we could say
   \[
-  S_n = \aut(\{1,2,3,\dots,n\}),
+  S_n = \aut(\{1,2,3,\dots,n\}).
   \]
-  note, this proves immediately that $S_n$ is a group.
+  By Theorem~\ref{E:aut0}, we see immediately that $S_n$ is a group.
 \end{remark}
 
 \begin{exercise}
@@ -290,7 +290,7 @@ If one example is good, two are better.
 \end{definition}
 
 
-\begin{example}
+\begin{example}[Permutation versus cycle notation]
   The permutation $\sigma = \left(\begin{smallmatrix}
     1 & 2 & 3\\
     3 & 1 & 2
@@ -298,14 +298,14 @@ If one example is good, two are better.
   the permutation $\tau = \left(\begin{smallmatrix}
     1 & 2 & 3 & 4 & 5\\
     4 & 3 & 5 & 1 & 2
-  \end{smallmatrix}\right)$ cannot be represented by a (single) cycle, in cycle notation $\tau$ is the composition of \textbf{two} cycles, $\tau = (1\ 4)(2\ 3\ 5)$.
+  \end{smallmatrix}\right)$ cannot be represented by a (single) cycle, since in cycle notation $\tau$ is the composition of \textbf{two} cycles, $\tau = (1\ 4)(2\ 3\ 5)$.
 \end{example}
 
 
 
 
 \begin{exercise}
-  Write down the elements of $S_4$ that are cycles. 
+  Write down the elements of $S_4$ that are cycles.
 \end{exercise}
 
 \begin{exercise}
