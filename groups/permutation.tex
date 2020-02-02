@@ -346,12 +346,12 @@ If one example is good, two are better.
 
 
 
-\begin{exercise}
-  Let $(a_1 \ a_2 \ a_3 \ \cdots \ a_{n})\in S_n$. Use induction to
-  prove that
+\begin{exercise}\label{E:tcd}
+  Let $(a_1 \ a_2 \ a_3 \ \cdots \ a_{n})\in S_n$. Prove that
   \[
   (a_1 \ a_2 \ a_3 \ \cdots \ a_{n}) = (a_2 \ a_3 \ \cdots \ a_{n}) (a_1 \ a_{n}). 
   \]
+  See Lemma~\ref{L:td}.
 \end{exercise}
 
 
@@ -481,16 +481,15 @@ If one example is good, two are better.
 
 
 
-\begin{lemma}[Transposition decomposition]
+\begin{lemma}[Transposition decomposition]\label{L:td}
   Every permutation is a composition of $2$-cycles.
   \begin{sketch}
     First note $e = (12)(12)$. Now use induction on the length of a
-    cycle to prove that every (single) cycle can me represented as a
-    composition of $2$-cycles. Note that
+    cycle to prove that every (single) cycle can be represented as a
+    composition of $2$-cycles. Note that from Exercise~\ref{E:tcd}
     \[
-    (a_1 \ a_2 \ a_3 \ \cdots \ a_{n+1}) = (a_2 \ a_3 \ \cdots \ a_{n+1}) (a_1 \ a_{n+1}) 
+    (a_1 \ a_2 \ a_3 \ \cdots \ a_{n}) = (a_2 \ a_3 \ \cdots \ a_{n+1}) (a_1 \ a_{n}). 
     \]
-
     Now use Lemma~\ref{L:CC}.
   \end{sketch}
 \end{lemma}
