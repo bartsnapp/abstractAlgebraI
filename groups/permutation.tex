@@ -388,8 +388,9 @@ If one example is good, two are better.
 \section{Permutation matrices}
 
 \begin{definition}
-  A \dfn{permutation matrix} is a matrix $P_\sigma$ whose entries are
-  zero or one, whose columns describe the map
+  Let $\sigma \in S_n$. A \dfn{permutation matrix} is a matrix
+  $P_\sigma\in GL(n)$ whose entries are zero or one and whose columns
+  describe the map
   \[
   P_\sigma : \begin{bmatrix}
     1 \\
@@ -559,7 +560,8 @@ even number of $2$-cycles.
   $2$-cycles, then every $2$-cycle representation of $\sigma$ will
   have an odd number of $2$-cycles.
   \begin{proof}
-    Consider two different $2$-cycle representations of $\sigma\in S_n$,
+    Consider two different $2$-cycle representations of some
+    permutation $\sigma$
     \[
     \sigma = \alpha_1\alpha_2\cdots\alpha_m \quad\text{and}\quad \sigma = \beta_1\beta_2\cdots\beta_n 
     \]
@@ -576,9 +578,10 @@ even number of $2$-cycles.
     \[
     e = \beta_1\beta_2\cdots\beta_n\alpha_m\alpha_{m-1}\cdots\alpha_1.
     \]
-    Since $e$ is always transposed into an even number of $2$-cycles,
-    if $m$ is even exactly when $n$ is even; $m$ is odd exactly when
-    $n$ is odd.
+    Since $e$ is always expressed as an even number of $2$-cycles, if
+    $m$ is even, then $n$ must be even. If $m$ is odd, then $n$ is
+    odd. This proves that a permutation is either even or odd and not
+    both.
   \end{proof}
 \end{lemma}
 

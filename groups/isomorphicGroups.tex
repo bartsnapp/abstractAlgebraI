@@ -59,8 +59,29 @@ is isomorphic to a permutation group! To see this we'll need a lemma.
   \end{proof}
 \end{corollary}
 
+\begin{remark}
+  Currently, we say groups are isomorphic if they can be expressed so
+  that their group tables are ``the same.'' In what follows, we will
+  explicitly show which elements map to others, and our construction
+  (of the permutations/matrices) will ensure that the group tables are
+  the same.
 
-\begin{example}
+  Later in Definition~\ref{D:isomorphism}, you will learn that an
+  \dfn{isomorphism} is a bijective function $\phi:(G,\star)\to
+  (H,\diamond)$ such that if $a,b\in G$,
+  \[
+  \phi(a \star b) = \phi(a) \diamond \phi(b).
+  \]
+  Groups will then be isomorphic if there is an isomorphism mapping
+  one group to the other. The line above ensures that multiplication
+  in $G$ agrees with multiplication in $H$, and hence the group tables
+  will be the same.
+\end{remark}
+
+
+
+
+\begin{example}[Representation of $\pmb{\Z_4}$]
   We'll find a permutation group and a matrix group isomorphic to
   $\Z_4$ by explicitly listing a bijective correspondence between the
   elements of the permutation group, the matrix group, and $\Z_4$.
