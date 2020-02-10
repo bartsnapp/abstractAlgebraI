@@ -38,7 +38,7 @@ the symbols are numbers) and rearrange the symbols.
 
 It helps to see an example of permutations in action.
 
-\begin{example}[Notation]
+\begin{example}[Permutation versus cycle notation]
   Let $\sigma$ be a permutation on the set $\{1,2,3\}$ represented by
   \[
   \sigma = \left(\begin{smallmatrix}
@@ -76,7 +76,7 @@ It helps to see an example of permutations in action.
 
 If one example is good, two are better.
 
-\begin{example}[Notation]
+\begin{example}[Permutation versus cycle notation]
   Let $\sigma$ be a permutation on the set $\{1,2,3,4,5\}$ represented by
   \[
   \sigma = \left(\begin{smallmatrix}
@@ -280,17 +280,17 @@ If one example is good, two are better.
 
 
 \begin{definition}\index{n-cycle@$n$-cycle}
-  A \dfn{cycle} is a permutation $\sigma$ that can be represented as:
+  An \textbf{$\boldsymbol{n}$-cycle} is a permutation $\sigma$ that
+  can be represented as a single cycle with $n$ entries
   \[
-  \sigma = (x_1\ \sigma(x_1)\ \sigma^2(x_1)\ \cdots\ \sigma^{n_1}(x_1)) .
+  \sigma = (x_1\ \sigma(x_1)\ \sigma^2(x_1)\ \cdots\ \sigma^{n-1}(x_1))
   \]
-  If a cycle has $n$ entries, it is called a
-  $\boldsymbol{n}$\textbf{-cycle}. If it is a $2$-cycle, it is
-  sometimes called a \dfn{transposition}.
+  where $\sigma^n(x_1) = x_1$.  If the permutation is a $2$-cycle, it
+  is sometimes called a \dfn{transposition}.
 \end{definition}
 
 
-\begin{example}[Permutation versus cycle notation]
+\begin{example}[$\boldsymbol{3}$-cycle]
   The permutation $\sigma = \left(\begin{smallmatrix}
     1 & 2 & 3\\
     3 & 1 & 2
@@ -381,6 +381,17 @@ If one example is good, two are better.
 \begin{exercise}
   Prove that a permutation $\sigma$ has order $2$ if and only if it
   can be represented by a composition of disjoint $2$-cycles.
+\end{exercise}
+
+\begin{exercise}
+  Find the order of $(1\ 4\ 3)(2 \ 7 \ 5 \ 6) \in S_7$.
+\end{exercise}
+
+\begin{exercise}
+  Find the order of $\left(\begin{smallmatrix}
+    1 & 2 & 3 & 4 & 5\\
+    4 & 3 & 5 & 1 & 2
+  \end{smallmatrix}\right)\in S_5$.
 \end{exercise}
 
 
@@ -561,7 +572,7 @@ even number of $2$-cycles.
   have an odd number of $2$-cycles.
   \begin{proof}
     Consider two different $2$-cycle representations of some
-    permutation $\sigma$
+    permutation $\sigma$,
     \[
     \sigma = \alpha_1\alpha_2\cdots\alpha_m \quad\text{and}\quad \sigma = \beta_1\beta_2\cdots\beta_n 
     \]
@@ -571,8 +582,8 @@ even number of $2$-cycles.
     \]
     so, we may multiply both sides by
     \begin{align*}
-    (\alpha_1\alpha_2\cdots\alpha_m)^{-1} &= \alpha_m^{-1}\alpha_{m-1}^{-1}\cdots\alpha_1^{-1}\\
-    &= \alpha_m\alpha_{m-1}\cdots\alpha_1
+      (\alpha_1\alpha_2\cdots\alpha_m)^{-1} &= \alpha_m^{-1}\alpha_{m-1}^{-1}\cdots\alpha_1^{-1}\\
+      &= \alpha_m\alpha_{m-1}\cdots\alpha_1
     \end{align*}
     to see
     \[

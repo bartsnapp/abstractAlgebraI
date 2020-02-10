@@ -13,6 +13,13 @@
 \maketitle
 
 
+If a group $H$ is contained inside of another group $G$, and both
+group use the same operation, then we say $H$ is a \textit{subgroup}
+of $G$.
+
+
+
+
 \begin{definition}
   Let $(G,\star)$ be a group, a subset $S\subset G$ is a \dfn{subgroup} if
   \begin{enumerate}
@@ -22,6 +29,22 @@
   \end{enumerate}
   We denote subgroups by writing $S\subgp G$.\index{S<G@$S\subgp G$}
 \end{definition}
+
+
+\begin{exercise}
+  Below we have listed pairs of the form $S\subset G$. In which of
+  these pairs is $S$ a subgroup of $G$?  Select all that apply.
+  \begin{selectAll}
+  \choice[correct]{$\{x^2:x\in\Z_2\}\subset \Z_2$}
+  \choice[correct]{$\{3x:x\in\Z\}\subset \Z$}
+  \choice{$\Z_4= \{0,1,2,3\}\subset \Z$}
+  \choice{$\{x^3:x\in\Z\}\subset \Z$}
+  \choice[correct]{$\{0,6\}\subset \Z_{12}$}
+  \choice{$\Z_p^\times\subset \Z_p$}
+  \end{selectAll}
+\end{exercise}
+
+
 
 
 \begin{exercise}\index{nZ@$n\Z$}
@@ -84,6 +107,9 @@
   Draw lattice diagrams for $\Z_n$ for $n=2,3\dots, 12$.
 \end{exercise}
 
+
+
+
 \begin{example}[Lattice diagram for $\boldsymbol{D_3}$]\index{symmetries!of the equilateral triangle}
   Here is the subgroup lattice diagram for $D_3$:
   \[
@@ -96,9 +122,36 @@
   \]
 \end{example}
 
+
+
+\begin{example}[Witnessing the subgroups of $\boldsymbol{D_3}$]
+  Consider the following picture:
+  \[
+  \includegraphics[width=.6\textwidth]{threeSubgp.pdf}
+  \]
+  If we associate all the non-black colors as the color white, then
+  our picture has a symmetry group equal to $D_3$.
+
+  
+  If we associate all non-yellow colors as the color white, then our
+  picture has a symmetry group equal to $\< r \>\subgp D_3$.
+
+  
+  If we associate yellow and any two other non-yellow colors as the
+  color white, then our picture will have a symmetry group equal to
+  $\< f\> \subgp D_3$,  $\< rf\> \subgp D_3$,  or $\< r^2f\> \subgp D_3$.
+\end{example}
+
+
+
+
+
 \begin{exercise}
   Find the order of each subgroup of $D_3$.
 \end{exercise}
+
+
+
 
 
 \begin{example}[Lattice diagram for $\boldsymbol{D_4}$]
@@ -143,20 +196,20 @@
   Again, consider the lattice for $\Z_6$:
   \[
   \begin{tikzcd}
-    & \Z_6 \ar[rd,-]  \ar[ldd,-] &       \\
-    &       & \<2\> \ar[ldd,-]\\
-    \< 3\> \ar[rd,-]&       &       \\   
+    & \Z_6 \ar[ld,-]  \ar[rdd,-] &       \\
+    \<2\> \ar[rdd,-] &  &\\
+   & &  \< 3\> \ar[ld,-]        \\   
     & \<0\> &
   \end{tikzcd}
-  \]
+  \] 
   Now check out the lattice diagram for $\Z_{15}$:
   \[
   \begin{tikzcd}
-    & \Z_{15} \ar[rd,-]  \ar[ldd,-] &       \\
-    &       & \<3\> \ar[ldd,-]\\
-    \< 5\> \ar[rd,-]&       &       \\   
+        & \Z_{15} \ar[ld,-]  \ar[rdd,-] &       \\
+    \<3\> \ar[rdd,-] &  &\\
+   & &  \< 5\> \ar[ld,-]        \\   
     & \<0\> &
-  \end{tikzcd}
+      \end{tikzcd}
   \]
 \end{example}
 
