@@ -220,7 +220,7 @@ And now we are ready to state and prove Lagrange's theorem.
   |G| = [G:S]\cdot |S|.
   \]
   \begin{proof}
-    First note that by Proposition~\ref{P:CSG}, $|S| = |aS|$ for all
+    First note that by Lemma~\ref{L:CSG}, $|S| = |aS|$ for all
     $a\in G$. By Theorem~\ref{T:CPG}, $G$ is partitioned by the left
     cosets of $S$. This means that every element of $G$ is in exactly
     one left coset. Hence $|G| = [G:S]\cdot |S|$.
@@ -305,7 +305,7 @@ corollaries.
 \section{Converse to Lagrange?}
 
 
-The converse to Lagrange's theorem would be
+The converse to Lagrange's theorem would be:
 \begin{quote}
   If $G$ is a group and $n$ divides $|G|$, then $G$ has a subgroup of
   order $n$.
@@ -367,7 +367,49 @@ theorem exists.
 The formal definition of a group came well after the time of
 Lagrange. This being the case, it is somewhat interesting that a
 fundamental theorem in group theory bears his name. How did this
-happen? Well Lagrange was interested in the following question:
+happen? Let's give a little history lesson. Given a quadratic equation
+\[
+ax^2 + bx + c = 0
+\]
+we've (as humans) have know the \textit{quadratic
+  formula}\index{quadratic formula} for nearly $4000$ years. Here it
+is
+\[
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\]
+Later Ferro and Tartaglia solved the cubic formula around $1500$ CE. Given,
+\[
+ax^3 + bx^2 + cx + d = 0
+\]
+we can find a solution with
+\begin{gather}
+\begin{align*}
+  x &= \sqrt[3]{\left(\frac{-b^3}{27a^3}+\frac{bc}{6a^2}-\frac{d}{2a}\right)+\sqrt{\left(\frac{-b^3}{27a^3}+\frac{bc}{6a^2}-\frac{d}{2a}\right)^2 + \left(\frac{c}{3a}-\frac{b^2}{9a^2}\right)^3}} \\
+    &+ \sqrt[3]{\left(\frac{-b^3}{27a^3}+\frac{bc}{6a^2}-\frac{d}{2a}\right)+\sqrt{\left(\frac{-b^3}{27a^3}+\frac{bc}{6a^2}-\frac{d}{2a}\right)^2 - \left(\frac{c}{3a}-\frac{b^2}{9a^2}\right)^3}} -\frac{b}{3a}.
+\end{align*}
+\end{gather}
+This formula was popularized by Cardano in the mid $1500$s.
+
+
+At this time, Cardano's student, Ferrari joined the quest. He was able
+to defeat Tartaglia in a ``mathematical duel'' and also discovered the
+quartic formula.  Given
+\[
+ax^4 + bx^3 + cx^2 + dx + e = 0
+\]
+we can find solutions with
+\begin{gather}
+  \begin{align*} %% Copied from https://github.com/curtisbright/quartic/
+    x &= \frac{1}{12a}\Big(-3b\pm\big(\sqrt{3\big(3b^2-8ac+2a\root3\of{4\big(2c^3-9bcd+27ad^2+27b^2e-72ace+\sqrt{(2c^3-9bcd+27ad^2+27b^2e-72ace)^2-4(c^2-3bd+12ae)^3}\big)}+2a\root3\of{4\big(2c^3-9bcd+27ad^2+27b^2e-72ace-\sqrt{(2c^3-9bcd+27ad^2+27b^2e-72ace)^2-4(c^2-3bd+12ae)^3}\big)}\big)}\\
+    &\pm\sqrt{3\big(3b^2-8ac+2a\big({-1+\sqrt{-3}\over2}\big)\root3\of{4\big(2c^3-9bcd+27ad^2+27b^2e-72ace+\sqrt{(2c^3-9bcd+27ad^2+27b^2e-72ace)^2-4(c^2-3bd+12ae)^3}\big)}+2a\big({-1-\sqrt{-3}\over2}\big)\root3\of{4\big(2c^3-9bcd+27ad^2+27b^2e-72ace-\sqrt{(2c^3-9bcd+27ad^2+27b^2e-72ace)^2-4(c^2-3bd+12ae)^3}\big)}\big)}\big)\\
+    &\pm\sgn\big(\big(\sgn\big(-b^3+4abc-8a^2d\big)-{1\over2}\big)\big(\sgn\big(\max((2c^3-9bcd+27ad^2+27b^2e-72ace)^2-4(c^2-3bd+12ae)^3,\min(3b^2-8ac,3b^4+16a^2c^2+16a^2bd-16ab^2c-64a^3e))\big)-{1\over2}\big)\big)\sqrt{3\big(3b^2-8ac+2a\big({-1-\sqrt{-3}\over2}\big)\root3\of{4\big(2c^3-9bcd+27ad^2+27b^2e-72ace+\sqrt{(2c^3-9bcd+27ad^2+27b^2e-72ace)^2-4(c^2-3bd+12ae)^3}\big)}+2a\big({-1+\sqrt{-3}\over2}\big)\root3\of{4\big(2c^3-9bcd+27ad^2+27b^2e-72ace-\sqrt{(2c^3-9bcd+27ad^2+27b^2e-72ace)^2-4(c^2-3bd+12ae)^3}\big)}\big)}\Big).
+  \end{align*}
+\end{gather}
+
+Two hundred years pass, and Lagrange enters the scene. Lagrange wanted
+further formulas that would solve equations of degree $5$, $6$, and so
+on. As part of this pursuit, Lagrange sought the answer to the
+following question:
 
 
 \begin{quote}
@@ -462,6 +504,15 @@ complicated. Check out our next lemma.
       $S_n$ is $n!$, we have proved the theorem.
       \end{proof}
 \end{theorem}
+
+
+However, mathematics is hard. Even with this answer Lagrange was
+unable to find a formula for a degree $5$ equation, making (perhaps in
+his eyes) his work a \textbf{failure}. But Lagrange, despite failing
+in this one regard, \textbf{was not a failure.} He laid the
+foundations for mathematics that he would not live to see.
+
+
 
 
 For some interesting extra reading check out:
