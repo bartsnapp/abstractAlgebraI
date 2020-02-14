@@ -254,7 +254,15 @@ corollaries.}
 
 \begin{corollary}[Index is multiplicative]
   Let $S \subgp T \subgp G$ be subgroups of a finite group
-  $G$. Then
+  $G$:
+  \[
+  \begin{tikzcd}[column sep=0pt]
+    G\ar[d,-,"{[G:T]}",swap] & & G\ar[dd,-,"{[G:S] = [G:T]\cdot [T:S]}"]\\
+    T \ar[d,-,"{[T:S]}",swap] & \Rightarrow& \\
+    S &  & S
+  \end{tikzcd}
+  \]
+  Then
   \[
   [G:S] = [G:T]\cdot [T:S].
   \]
@@ -262,7 +270,7 @@ corollaries.}
 
 
 \begin{corollary}[Fermat's little theorem]\index{Fermat's little theorem}
-  Let $p\in \N$ be a prime number. Given $a\in\Z_p$,
+  Let $p\in \N$ be a prime number. Given $a\in\Z_p$ where $a\ne 0$,
   \[
   a^{p-1}\equiv 1 \pmod{p}.
   \]
@@ -270,7 +278,7 @@ corollaries.}
 
 
 \begin{corollary}[Euler's little theorem]\index{Euler's little theorem}
-  Let $n\in \N$. Given $a\in\Z_n$,
+  Let $n\in \N$. Given $a\in\Z_n$ where $a\ne 0$,
   \[
   a^{\eulerphi(n)}\equiv 1 \pmod{n}.
   \]
@@ -405,8 +413,8 @@ we can find solutions with
 \end{gather}
 If you, dear reader, cannot read the formula above, do not despair. I,
 an author, cannot read it either. We will need a bigger sheet of
-paper. I leave this task to the happy children of the future, and send
-our greetings to them (hello children of the future).
+paper.  I leave this task to the happy children of the future.  Let us
+also send our greetings to them, ``Hello children of the future.''
 
 
 
@@ -521,8 +529,10 @@ foundations for mathematics that he would not live to see.
 
 For some interesting extra reading check out:
 \begin{itemize}
+\item \link[\textit{A characterization of the cyclic groups by subgroup indices}, G.\ Oman and T.\ Slattum, The College Math Journal, January (2016), 29--33]
+  {https://www.jstor.org/stable/10.4169/college.math.j.47.1.29}.
 \item \link[\textit{A history of Lagrange's theorem on groups},
-  R.\ Roth, Mathematics Magazine. April (2001), 99--198.]{https://www.jstor.org/stable/2690624}.
+  R.\ Roth, Mathematics Magazine, April (2001), 99--198]{https://www.jstor.org/stable/2690624}.
 \end{itemize}
 
 \end{document}
