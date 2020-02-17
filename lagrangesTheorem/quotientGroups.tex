@@ -15,8 +15,11 @@
 
 
 We are now going to give a construction that will allow us to make new
-groups from old groups. As a first step, we must look at a special set
-of subgroups called \textit{normal subgroups}.
+groups from old groups. Here's the idea: Given a group $G$ with
+subgroup $N\subgp G$, we will make a group on the set of left cosets
+of $N$. This group will be called the \textit{quotient group} of $G$
+modulo $N$, and will be denoted $G/N$.  As a first step, we must look
+at a special set of subgroups called \textit{normal subgroups}.
 
 
 
@@ -39,6 +42,21 @@ of subgroups called \textit{normal subgroups}.
 \begin{corollary}[Abelian implies normal]
   If $G$ is an Abelian group and $N\subgp G$, then $N\normal G$.
 \end{corollary}
+
+
+
+
+
+\begin{exercise}
+  Prove that every subgroup of index two is normal.
+\end{exercise}
+
+\begin{exercise}
+  Prove that every subgroup of $Q_8$ is normal. Note, this is
+  interesting, as $Q_8$ is not Abelian.
+\end{exercise}
+
+
 
 \begin{example}[$\boldsymbol{\<r\>\normal D_3}$]\index{symmetries!of the equilateral triangle}
   If we arrange a Cayley table for $D_3$ appropriately, we can ``see''
@@ -104,6 +122,8 @@ of subgroups called \textit{normal subgroups}.
 
 
 
+
+
 \begin{lemma}[Normal subgroup criterion]\label{L:nsc}\index{normal subgroup criterion}
   A subgroup $N$ of a group $(G,\star)$ is normal if and only if for
   all $n\in N$ and all $g\in G$,
@@ -142,14 +162,6 @@ of subgroups called \textit{normal subgroups}.
   \end{proof}
 \end{lemma}
 
-\begin{exercise}
-  Prove that every subgroup of index two is normal.
-\end{exercise}
-
-\begin{exercise}
-  Prove that every subgroup of $Q_8$ is normal. Note, this is
-  interesting, as $Q_8$ is not Abelian.
-\end{exercise}
 
 
 
