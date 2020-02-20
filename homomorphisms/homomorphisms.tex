@@ -592,6 +592,14 @@ Homomorphisms map subgroups to subgroups.
 \end{example}
 
 
+\begin{lemma}[Images are subgroups]
+  If $\phi:G\to H$ is a homomorphism of groups, then $\im(\phi)\subgp H$.
+  \begin{proof}
+    This is a special case of Lemma~\ref{L:hps}.
+  \end{proof}
+\end{lemma}
+
+
 \begin{lemma}[Images and surjectivity]
     A homomorphism of groups $\phi:G\to H$ is surjective if and only
     if $\im(\phi) = H$.
@@ -691,7 +699,7 @@ Homomorphisms map subgroups to subgroups.
 
 
 \begin{theorem}[Canonical surjection]
-  Let $G$ be a group and $N$ be a normal subgroup of $G$. Prove that
+  If $G$ is a group and $N\normal G$ is a normal subgroup, then
   \begin{align*}
   \pi:G &\to G/N\\
   g &\mapsto gN
@@ -709,10 +717,10 @@ Homomorphisms map subgroups to subgroups.
 \begin{example}[Kernel and image of a natural surjection]
     Consider the natural surjection
   \begin{align*}
-    \eta:\Z &\to \Z/3\Z\\
+    \pi:\Z &\to \Z/3\Z\\
     x &\mapsto x+3\Z.
   \end{align*}
-  In this case $\ker(\eta) = 3\Z \subset \Z$ and $\im(\eta) = \Z/3\Z$.
+  In this case $\ker(\pi) = 3\Z \normal \Z$ and $\im(\pi) = \Z/3\Z$.
 \end{example}
 
 
