@@ -102,6 +102,20 @@ group homomorphisms. It's saying that the \textbf{image of any
   \]
 \end{corollary}
 
+\begin{example}[$\boldsymbol{\pmb\Z\pmb\to\pmb\Z_3}$]
+  Consider the homomorphism of groups
+  \begin{align*}
+    \pi:\Z &\to \Z_3\\
+    1 &\mapsto 1.
+  \end{align*}
+  Here $\ker(\phi)= 3\Z$, hence we see by Noether's isomorphism
+  theorem that
+  \[
+  \frac{\Z}{3\Z}\iso \Z_3.
+  \]
+\end{example}
+
+
 
 \begin{example}[Single variable calculus]
   Let $\R[x]$ denote the group of all polynomials in one variable with
@@ -127,10 +141,11 @@ group homomorphisms. It's saying that the \textbf{image of any
   \[
   \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \iso \im\left(\frac{d}{dx}\right).
   \]
-  The isomorphism is given by:
-  \[
-  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \lto^{\frac{d}{dx}} \im\left(\frac{d}{dx}\right)
-  \]
+  The isomorphisms are given by
+  \begin{align*}
+    \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} &\to \im\left(\frac{d}{dx}\right)\\
+    f+\left(\frac{d}{dx}\right) &\mapsto f'(x)
+  \end{align*}
   and
   \[
   \im\left(\frac{d}{dx}\right) \lto^{\iota}\frac{\R[x]}{\ker\left(\frac{d}{dx}\right)}
