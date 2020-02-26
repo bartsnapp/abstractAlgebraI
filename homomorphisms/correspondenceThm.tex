@@ -21,22 +21,22 @@ the same relative structure as subgroups of $G$ that contain $N$.
   If $G$ is a group, $N$ is a normal subgroup of $G$, and
   \begin{itemize}
   \item $\mathcal{G} = \{S:N\subgp S\subgp G\}$
-  \item $\mathcal{\bar{G}} = \{\bar{T}:\{\bar{e}\}\subgp \bar{T}\subgp G/N\}$,
+  \item $\mathcal{H} = \{T:\{N\}\subgp T\subgp G/N\}$,
   \end{itemize}
   \[
   \begin{tikzcd}
     N \ar[r,-,"\subgp"] \ar[d,<->,dotted]& S\ar[r,-,"\subgp"] \ar[d,<->,dotted]& G \ar[d,<->,dotted]\\
-    \{\bar{e}\} \ar[r,-,"\subgp"] & \bar{T} \ar[r,-,"\subgp"] & G/N
+    \{N\} \ar[r,-,"\subgp"] & T \ar[r,-,"\subgp"] & G/N
   \end{tikzcd}
   \]
   then there is a bijective order-preserving map of sets
-  $\mathcal{G}\leftrightarrow\mathcal{\bar{G}}$.
+  $\mathcal{G}\leftrightarrow\mathcal{H}$.
   \begin{proof}
     \textbf{First define a map from $\pmb{\mathcal{G}}$ to
-      $\pmb{\mathcal{\bar{G}}}$.} Let $\pi:G\to G/N$ be the canonical
+      $\pmb{\mathcal{H}}$.} Let $\pi:G\to G/N$ be the canonical
     surjection.  By Lemma~\ref{L:hps}, define
     \begin{align*}
-    \pi_*:\mathcal{G} &\to \bar{\mathcal{G}}\\
+    \pi_*:\mathcal{G} &\to \mathcal{H}\\
     S &\mapsto \pi(S).
     \end{align*}
     From this construction we see that if
@@ -45,41 +45,41 @@ the same relative structure as subgroups of $G$ that contain $N$.
     \]
     then
     \[
-    \{\bar{e}\}\subset \pi_*(S') \subset \pi_*(S)\subset G/N.
+    \{N\}\subset \pi_*(S') \subset \pi_*(S)\subset G/N.
     \]
-    \textbf{Now define a map from $\pmb{\mathcal{\bar{G}}}$ to
+    \textbf{Now define a map from $\pmb{\mathcal{H}}$ to
       $\pmb{\mathcal{G}}$.}
     By Lemma~\ref{L:pps}, define
     \begin{align*}
-      \pi^*:\bar{\mathcal{G}} &\to \mathcal G\\ \bar{T} &\mapsto
-      \pi^{-1}(\bar{T}).
+      \pi^*:\mathcal{H} &\to \mathcal G\\ T &\mapsto
+      \pi^{-1}(T).
     \end{align*}
     From this construction we see that if
     \[
-    \{\bar{e}\} \subset \bar{T}\hspace{0em}' \subset \bar{T} \subset G/N,
+    \{N\} \subset T\hspace{0em}' \subset T \subset G/N,
     \]
     then
     \[
-    N \subset \pi^*(\bar{T}\hspace{0em}')\subset \pi^*(\bar{T}) \subset G.
+    N \subset \pi^*(T\hspace{0em}')\subset \pi^*(T) \subset G.
     \]
     \textbf{Now we'll show that the maps above are inverses of each
       other.} We will show that $\pi^*(\pi_*(S)) = S$ and
-    $\pi_*(\pi^*(\bar T)) = \bar{T}$. Both of these follow from the
+    $\pi_*(\pi^*(T)) = T$. Both of these follow from the
     definition.
 
     \textbf{Now we'll show that our maps are bijective}. First note
     that
     \[
-    \pi_*(\pi^*(\bar{T})) = \bar{T}
+    \pi_*(\pi^*(T)) = T
     \]
     shows that $\pi_*$ is surjective.
 
     We claim that $\pi_*$ is injective. Seeking a contradiction,
     suppose there exists $S,S'\in \mathcal{G}$ such that
     \[
-    \bar{T} = \pi(S) =\pi(S').
+    T = \pi(S) =\pi(S').
     \]
-    In this case, $\pi^*(\bar T) = S\cup S'$. This contradicts the
+    In this case, $\pi^*(T) = S\cup S'$. This contradicts the
     fact that $\pi_*$ and $\pi^*$ are inverses of each other.
   \end{proof}
 \end{theorem}
@@ -87,7 +87,7 @@ the same relative structure as subgroups of $G$ that contain $N$.
 
 \begin{corollary}[Correspondence of normal subgroups]
   If in the theorem above, $S$ is normal then $\pi_*(S)$ is normal; if
-  $\bar{T}$ is normal, then $\pi^*(\bar{T})$ is normal.
+  $T$ is normal, then $\pi^*(T)$ is normal.
 \end{corollary}
 
 

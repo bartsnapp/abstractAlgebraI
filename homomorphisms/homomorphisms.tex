@@ -79,16 +79,16 @@ A \textit{homomorphism} is a function between groups that somehow
 \end{example}
 
 
-\begin{example}[$\boldsymbol{D_3\pmb{\to} \pmb\Z_3}$]\label{EG:D3-Z3}
-  We can define a homomorphism $\pi:D_3\to \Z_3$ by setting
+\begin{example}[$\boldsymbol{D_3\pmb{\to} \pmb\Z_3}$]\label{EG:D3-Z2}
+  We can define a homomorphism $\pi:D_3\to \Z_2$ by setting
   \[
-  \pi(r) = 1\quad\text{and}\quad\pi(f) = 0. 
+  \pi(f) = 1\quad\text{and}\quad\pi(r) = 0. 
   \]
   With these two facts, and the property of $\pi$ being a
   homomorphism, we can deduce
   \begin{align*}
-    \pi(r^2) &= 2 &  \pi(r^3) &= 0 \\
-    \pi(rf)  &=1 & \pi(r^2f) &= 2.
+    \pi(r^2) &= 0 &  \pi(r^3) &= 0 \\
+    \pi(rf)  &=1 & \pi(r^2f) &= 1.
   \end{align*}
  Again, we can see \textit{some} of the structure of the group preserved.
 \end{example}
@@ -324,7 +324,7 @@ all over mathematics.
   examples above:
   \begin{description}
     \begin{multicols}{2}
-    \item[$(\ref{EG:D3-Z3})$] $\pi(e) = 0$
+    \item[$(\ref{EG:D3-Z2})$] $\pi(e) = 0$
     \item[$(\ref{EG:T12-A4})$] $\phi(e_{\mathcal{T}_{12}}) = e_{A_4}$
     \item[$(\ref{EG:exp})$] $\exp(0) = 1$
     \item[$(\ref{EG:log})$] $\log(1) = 0$
@@ -353,7 +353,7 @@ all over mathematics.
   examples above:
   \begin{description}
     \begin{multicols}{2}
-    \item[$(\ref{EG:D3-Z3})$] $\pi(r^{-1}) = 2$
+    \item[$(\ref{EG:D3-Z2})$] $\pi(f^{-1}) = 1$
     \item[$(\ref{EG:T12-A4})$] $\phi(p^{-1}) = (4\ 3)(2 \ 3)$
     \item[$(\ref{EG:exp})$] $\exp(-5) = 1/\exp(5)$
     \item[$(\ref{EG:log})$] $\log(1/5) = -\log(5)$
@@ -535,6 +535,14 @@ Homomorphisms map subgroups to subgroups.
   \end{sketch}
 \end{lemma}
 
+\begin{exercise}
+  Prove that there is no homomorphism $\phi:D_3\to \Z_3$ where
+  \[
+  \phi(r) = 1\quad\text{and}\quad\pi(f) = 0. 
+  \]
+\end{exercise}
+
+
 
 
 \begin{lemma}[Kernels and injectivity]\label{L:kerinj}
@@ -570,7 +578,8 @@ Homomorphisms map subgroups to subgroups.
   \[
   \im(\phi) := \{\phi(g): g\in G\}\subset H.
   \]
-  is the subset of $H$ containing all the values of $\phi$.
+  is the subset of $H$ containing all the values of $\phi$. Note, from
+  our notation before we have that $\im(\phi) = \phi(G)$.
 \end{definition}
 
 \begin{example}[Image of the homothety map]
