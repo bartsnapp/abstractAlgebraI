@@ -34,33 +34,35 @@ the same relative structure as subgroups of $G$ that contain $N$.
   \begin{proof}
     \textbf{First define a map from $\pmb{\mathcal{G}}$ to
       $\pmb{\mathcal{H}}$.} Let $\pi:G\to G/N$ be the canonical
-    surjection.  By Lemma~\ref{L:hps}, define
+    surjection.  Define
     \begin{align*}
     \pi_*:\mathcal{G} &\to \mathcal{H}\\
     S &\mapsto \pi(S).
     \end{align*}
-    From this construction we see that if
+    By Lemma~\ref{L:hps}, this maps subgroups of $G$ to subgroups of
+    $G/N$. From this construction we see that if
     \[
-    N \subset S'\subset S \subset G,
+    N \subgp S'\subgp S \subgp G,
     \]
     then
     \[
-    \{N\}\subset \pi_*(S') \subset \pi_*(S)\subset G/N.
+    \{N\}\subgp \pi_*(S') \subgp \pi_*(S)\subgp G/N.
     \]
+    We know that subgroups are preserved by $\pi_*$ via Lemma
     \textbf{Now define a map from $\pmb{\mathcal{H}}$ to
-      $\pmb{\mathcal{G}}$.}
-    By Lemma~\ref{L:pps}, define
+      $\pmb{\mathcal{G}}$.}  Define
     \begin{align*}
       \pi^*:\mathcal{H} &\to \mathcal G\\ T &\mapsto
       \pi^{-1}(T).
     \end{align*}
-    From this construction we see that if
+    By Lemma~\ref{L:pps}, this maps subgroups of $G/N$ to subgroups of
+    $G$.  From this construction we see that if
     \[
-    \{N\} \subset T\hspace{0em}' \subset T \subset G/N,
+    \{N\} \subgp T\hspace{0em}' \subgp T \subgp G/N,
     \]
     then
     \[
-    N \subset \pi^*(T\hspace{0em}')\subset \pi^*(T) \subset G.
+    N \subgp \pi^*(T\hspace{0em}')\subgp \pi^*(T) \subgp G.
     \]
     \textbf{Now we'll show that the maps above are inverses of each
       other.} We will show that $\pi^*(\pi_*(S)) = S$ and
@@ -132,7 +134,7 @@ the same relative structure as subgroups of $G$ that contain $N$.
   Let $\phi:G\to H$ be a homomorphism of groups. Set
   \begin{itemize}
   \item $\mathcal{G} = \{S:\ker(\phi)\subgp S\subgp G\}$
-  \item $\mathcal{H} = \{T:\{e_H\}\subgp T\subgp \im(\phi)\subset H\}$,
+  \item $\mathcal{H} = \{T:\{e_H\}\subgp T\subgp \im(\phi)\subgp H\}$,
   \end{itemize}
   \[
   \begin{tikzcd}

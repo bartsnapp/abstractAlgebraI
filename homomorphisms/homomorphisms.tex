@@ -428,7 +428,7 @@ homomorphism and the image of a homomorphism.
 Homomorphisms map subgroups to subgroups.
 
 
-\begin{lemma}[Homomorphisms preserve subgroups]\label{L:hps}
+\begin{lemma}[Homomorphisms preserve subgroups]\label{L:hps}\index{image of a subgroup}\index{phi(S)@$\phi(S)$}
   Consider a homomorphism of groups $\phi:G\to H$, and let $S\subgp
   G$. Define
   \[
@@ -461,7 +461,7 @@ Homomorphisms map subgroups to subgroups.
 
 
 
-\begin{lemma}[Preimages preserve subgroups]\label{L:pps}
+\begin{lemma}[Preimages preserve subgroups]\label{L:pps}\index{preimage}\index{phiinv(T)@$\phi^{-1}(T)$}
   Consider a homomorphism of groups $\phi:G\to H$, and let $T\subgp
   H$. Define
   \[
@@ -494,7 +494,7 @@ Homomorphisms map subgroups to subgroups.
 \subsection{Kernels and images}
 
 
-\begin{definition}\index{kerphi@$\ker(\phi)$}\index{kernel!group homomorphism}
+\begin{definition}\index{kerphi@$\ker(\phi)$}
   Let $\phi:G\to H$ be a group homomorphism. The \index{kernel} of
   $\phi$,
   \[
@@ -540,6 +540,9 @@ Homomorphisms map subgroups to subgroups.
   \[
   \phi(r) = 1\quad\text{and}\quad\pi(f) = 0. 
   \]
+  \begin{hint}
+    See Example~\ref{EG:fnn}.
+  \end{hint}
 \end{exercise}
 
 
@@ -572,8 +575,8 @@ Homomorphisms map subgroups to subgroups.
 \end{lemma}
 
 
-\begin{definition}\index{imphi@$\im(\phi)$}\index{image!group homomorphism}
-  Let $\phi:G\to H$ be a group homomorphism. The \textbf{image} of
+\begin{definition}\index{imphi@$\im(\phi)$}
+  Let $\phi:G\to H$ be a group homomorphism. The \dfn{image} of
   $\phi$,
   \[
   \im(\phi) := \{\phi(g): g\in G\}\subset H.
@@ -792,6 +795,37 @@ then there Cayley tables for the groups that ``look the same.''
   Is $\Z_3\times \Z_5$ isomorphic to $\Z_{15}$? Prove that your answer
   is correct.
 \end{exercise}
+
+
+\begin{exercise}\index{automorphism}
+  Given any group $G$, we define
+  \[
+  \aut(G) := \{\text{set of isomorphisms from $G$ to $G$}\},
+  \]
+  where the group operation is composition. Prove that
+  \[
+  \aut(\Z_n) \iso \Z_n^\times.
+  \]
+\end{exercise}
+
+
+\begin{exercise}\index{hom@$\hom$}
+  Given any two groups $(G,\star)$ and $(H,\diamond)$, we define
+  \[
+  \hom(G,H) := \{\text{set of homomorphisms from $G$ to $H$}\}
+  \]
+  Prove that $\hom(G,H)$ is a group under the operation $\diamond$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that $\hom(D_3,\Z_2) \iso \Z_2$.
+\end{exercise}
+
+\begin{exercise}
+  True or false: $\aut(G) \iso \hom(G,G)$. If true, give a proof. If
+  false, give a counterexample.
+\end{exercise}
+
 
 \begin{exercise}
   Let $\phi:\Z_{16}\to\Z_{17}^\times$ be given by
