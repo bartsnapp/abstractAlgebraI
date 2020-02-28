@@ -223,25 +223,26 @@ in the ``wrong'' order.
 
 In some sense, the classification of the finite simple groups
 ``solves'' finite group theory---what's left are ``details'' left to
-the reader. In constrast to this view, let me point out that some of
+the reader. In contrast to this view, let me point out that some of
 these ``details'' are quite complex and interesting. For example, we
 know that if $p$ is a prime
 \[
-|\Z_{p-1}|= | \Z_p^\times|,
+| \Z_p^\times|=|\Z_{p-1}|,
 \]
 and later, we will show that
 \[
-\Z_{p-1}\iso \Z_p^\times.
+\Z_p^\times \iso \Z_{p-1}.
 \]
 However, the exact nature of this isomorphism will remain
 mysterious. We know that this isomorphism must be of the form
 \begin{align*}
-  \Z_{p-1} &\to \Z_p^\times\\
-  x &\mapsto a^x
+  \Z_p^\times &\to\Z_{p-1} \\
+  a^x &\mapsto x
 \end{align*}
 since homomorphisms of cyclic groups are determined by where the
 generator maps to. But what should $a$ be?  Understanding this problem
-amounts to solving what is known as the \index{discrete log problem}\link[discrete log problem]{https://en.wikipedia.org/wiki/Discrete_logarithm}.
+amounts to solving what is known as the \index{discrete log problem}\link[discrete log problem]{https://en.wikipedia.org/wiki/Discrete_logarithm}. This is called the ``discrete log problem'' because we are talking about discrete sets, and 
+$\log_b(b^x) = x$.
 
 
 
