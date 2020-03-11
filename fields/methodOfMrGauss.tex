@@ -12,7 +12,7 @@
 \end{abstract}
 \maketitle
 
-When Gauss was around 16 years old, he put his massive brain to the
+When Gauss was around $16$ years old, he put his massive brain to the
 question of which regular $n$-gons are constructible with compass and
 straightedge.
 
@@ -357,11 +357,15 @@ Now it is time for a dirty lemma that we will use over and over again.
   \]
   and is cyclic. There is no easy method other than trial-and-error to
   find the generator of this group, as this is the discrete log
-  problem,\index{discrete log problem}
-  \[
-  \sigma(\zeta_{5}) = \zeta_{5}^2.
-  \]
-  Writing this map as the cycle on exponents, we have
+  problem.\index{discrete log problem} However, though
+  trial-and-error, we find the following generator:
+  \begin{align*}
+    \sigma:\Q(\zeta_{5}) \to\Q(\zeta_{5})\\
+    \zeta_{5} &\mapsto \zeta_{5}^2.
+  \end{align*}
+  We may now use this cyclic generator to produce subgroups of
+  $\gal_{\Q}(\Q(\zeta_{5}))$.  Writing this map as the cycle on
+  exponents, we have
   \begin{align*}
     \sigma &= (1\ 2\ 4\ 3),\\
     \sigma^2 &= (1\ 4)(2\ 3).
@@ -439,10 +443,11 @@ Now it is time for a dirty lemma that we will use over and over again.
   find the generator of this group as this is the discrete log
   problem\index{discrete log problem}. Nevertheless we, like the
   heros before us, persist and find a generator
-  \[
-  \sigma(\zeta_{17}) = \zeta_{17}^3.
-  \]
-  With this generator, we can produce subgroups of
+  \begin{align*}
+  \sigma:\Q(\zeta_{17}) &\to \Q(\zeta_{17})\\
+  \zeta_{17} &\mapsto \zeta_{17}^3.
+  \end{align*}
+  Using the cyclic generator $\sigma$, we can produce subgroups of
   $\gal_\Q(\Q(\zeta_{17})) = \< \sigma \>$. We'll present it as a
   lattice:
   \[
@@ -498,7 +503,7 @@ Now it is time for a dirty lemma that we will use over and over again.
   \]
   Now look at $\<\sigma^4\>\subgp \< \sigma^2\>$,
   \[
-  \<\sigma^4\> = \{ \sigma^4, \sigma^8,\sigma^12,\sigma^{14},\sigma^{16} = e\}.
+  \<\sigma^4\> = \{ \sigma^4, \sigma^8,\sigma^{12},\sigma^{14},\sigma^{16} = e\}.
   \]
   Let's look at these field isomorphisms:
   \begin{align*}

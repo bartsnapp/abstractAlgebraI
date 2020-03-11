@@ -318,13 +318,12 @@
 \newcommand\frontstyle{%
   \def\activitystyle{activity-chapter}
   \def\maketitle{%
-    \addtocounter{titlenumber}{1}%
-                    {\flushleft\small\sffamily\bfseries\@pretitle\par\vspace{-1.5em}}%
-                    {\flushleft\LARGE\sffamily\bfseries\@title \par }%
-                    {\vskip .6em\noindent\textit\theabstract\setcounter{problem}{0}\setcounter{sectiontitlenumber}{0}}%
+                {\flushleft\small\sffamily\bfseries\@pretitle\par\vspace{-1.5em}}%
+                {\flushleft\LARGE\sffamily\bfseries\@title \par }%
+                {\vskip .6em\noindent\textit\theabstract\setcounter{problem}{0}\setcounter{sectiontitlenumber}{0}}%
                     \par\vspace{2em}
                     \phantomsection\addcontentsline{toc}{section}{\textbf{\@title}}%
-                  }}
+                     \setcounter{titlenumber}{0}}}
 \makeatother
 
 

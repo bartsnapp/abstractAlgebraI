@@ -107,19 +107,26 @@ division theorem are unique.
 \end{sketch}
 \end{theorem}
 
-\begin{corollary}[Roots and linear factors]\label{C:rlf}
-  If $f(x)\in K[x]$ and $\alpha\in K$, then there exists unique $q(x)\in
-  K[x]$ such that
+
+
+The following corollary is a critical insight.
+
+\begin{corollary}[Descartes' factor theorem]\label{C:rlf}
+  If $f(x)\in K[x]$ and $\alpha$ is a root of $f$, then
   \[
-  f(x) = (x-\alpha)\cdot q(x) + f(\alpha)
+  (x-\alpha) | f(x).
   \]
+  \begin{proof}
+  By Theorem~\ref{T:divThmPoly}, there exists unique $q(x)\in K[x]$
+  such that
+  \[
+  f(x) = (x-\alpha)\cdot q(x) + f(\alpha).
+  \]
+  If $\alpha$ is a root of $f$, then $f(\alpha) = 0$. Hence
+  $(x-\alpha) | f(x)$.
+  \end{proof}
 \end{corollary}
 
-This corollary says that if $\alpha$ is a root of $f\in K[x]$, then
-\[
-(x-\alpha) | f(x).
-\]
-This is a critical insight.
 
 
 \begin{definition}
@@ -264,13 +271,16 @@ This is a critical insight.
     \[
     \includegraphics[width=.3\textwidth]{realLines.pdf} \qquad \includegraphics[width=.3\textwidth]{imLines.pdf}
     \]
-    On the left we see the level curves for $G$ and on the right we
-    see level curves for $H$. In particular, the lines are interleaved:
+    Above on the left we see the level curves for $G$ and on the right
+    we see level curves for $H$. In particular, the lines are
+    interleaved, alternating red and blue:
     \[
     \includegraphics[width=.3\textwidth]{lines.pdf}
     \]
-    If you have any polynomial, the level curves will look like this
-    for $x$ and $y$ sufficiently large.
+    Hence if you have any polynomial, the level curves $G(x,y)=0$ and
+    $H(x,y)=0$ will look like this for $x$ and $y$ sufficiently large.
+
+    
 
     So here is the idea, imagine a circle of very large
     radius. Outside the circle the level curves look like this:
@@ -303,7 +313,9 @@ This is a critical insight.
 
 \begin{remark}
   The proof that we sketched above is actually Gauss' first proof, and
-  it was roughly equivalent to Gauss' Ph.D.\ dissertation.
+  it was roughly equivalent to Gauss' Ph.D.\ dissertation. The details
+  of the proof and much more in-depth discussion can be found in the
+  papers listed at the end of this section.
 \end{remark}
 
 

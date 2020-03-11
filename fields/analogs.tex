@@ -26,9 +26,11 @@ introduce the GCD of two polynomials.
   \item If $d(x)\in K[x]$ is an element where $d(x)| m(x)$ and $d(x) | n(x)$, then $\deg(d(x))\le \deg(g(x))$.
   \end{enumerate}
   The GCD of two polynomials is \textbf{not} unique.  We denote the set of GCDs
-  of $m(x)$ and $n(x)$ as $\gcd(m(x),n(x))$. If $c\in K$ and $c\in
-  \gcd(m(x),n(x))$ we say that $m(x)$ and $n(x)$ are \dfn{coprime} or
-  \dfn{relatively prime}.
+  of $m(x)$ and $n(x)$ as $\gcd(m(x),n(x))$. If
+  \[
+  c\in K\quad\text{ and }c\in \gcd(m(x),n(x))
+  \]
+  we say that $m(x)$ and $n(x)$ are \dfn{coprime} or \dfn{relatively prime}.
 \end{definition}
 
 
@@ -60,10 +62,14 @@ introduce the GCD of two polynomials.
   \end{sketch}
 \end{theorem}
 
-As before (when we first studied Euclid's lemma, Theorem~\ref{T:EL1},
-if $h(x)\in\gcd(m(x),n(x))$, $h(x)$ is simultaneously the polynomial of
-\textbf{largest degree} that divides both $m(x)$ and $n(x)$ and the
-polynomial of \textbf{smallest degree} of the form $f(x)\cdot m(x) + g(x)\cdot
+As before, when we first studied Euclid's lemma, Theorem~\ref{T:EL1},
+if
+\[
+h(x)\in\gcd(m(x),n(x)),
+\]
+$h(x)$ is simultaneously the polynomial of \textbf{largest degree}
+that divides both $m(x)$ and $n(x)$ and the polynomial of
+\textbf{smallest degree} of the form $f(x)\cdot m(x) + g(x)\cdot
 n(x)$. However consider this
 \[
 \gcd(m(x),n(x)) = \{\text{common divisors of $m(x)$ and $n(x)$}\}\cap \mathcal{S}
@@ -96,8 +102,24 @@ set of common divisors of $m(x)$ and $n(x)$.
   \[
   \l(x)|m(x)n(x)\qquad\text{and}\qquad \gcd(\l(x),m(x))\subset K,
   \]
-  then $\l(x)|n(x)$. 
+  then $\l(x)|n(x)$.
 \end{corollary}
+
+
+\begin{corollary}[Unique factorization of polynomials]\label{C:UFP}
+  Every nonzero polynomial can be expressed as a unique (up to order)
+  product of irreducible polynomials.
+  \begin{sketch}
+    See the proof of unique factorization of natural numbers,
+    Corollary~\ref{C:UFNN}.
+  \end{sketch}
+\end{corollary}
+
+
+
+
+
+
 
 \section{Congruence modulo a polynomial}
 
@@ -128,7 +150,7 @@ can think about \textit{congruence modulo a polynomial.}
 We should now show that addition and multiplication modulo a
 polynomial are well defined.
 
-\begin{lemma}[Arithmetic modulo a polynomial is well-defined]
+\begin{lemma}[Arithmetic modulo a polynomial]
   Let $K$ be a field and consider $K[x]/(n(x))$. Both addition and
   multiplication in $K[x]/(n(x))$ are
   well-defined.\index{well-defined} This means that if
@@ -190,7 +212,7 @@ over addition, we had to show that every element of $\Z_p-\{0\}$ had
 an inverse. We did this in Lemma~\ref{L:mi}.
 
 
-\begin{theorem}[Congruence modulo an irreducible polynomial]\label{T:cmip}
+\begin{theorem}[Fields and irreducible polynomials]\label{T:cmip}
   Let $K$ be a field and $n(x)\in K[x]$ be a polynomial of positive
   degree. The set $K[x]/(n(x))$ is a field if and only if $n(x)$ is
   irreducible in $K[x]$.
