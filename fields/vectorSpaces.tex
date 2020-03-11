@@ -32,6 +32,7 @@ In this case, elements of the group $V$ are called \dfn{vectors} and
 elements of the field $K$ are called \dfn{scalars}.
 \end{definition}
 
+
 \begin{exercise}
   Let $V$ be a $K$-vector space. If $\nu\in V$, prove that
   $0_K\cdot \nu = \vec{0}$.
@@ -46,7 +47,7 @@ elements of the field $K$ are called \dfn{scalars}.
 
 
 \begin{example}[Complex numbers]
-  Recall $\C = \{a+bi:a,b\in\R\}$. The set $\C$ is an $\C$-vector
+  Recall $\C = \{a+bi:a,b\in\R\}$. The set $\C$ is a $\C$-vector
   space, an $\R$-vector space, and a $\Q$-vector space.
 \end{example}
 
@@ -78,15 +79,38 @@ elements of the field $K$ are called \dfn{scalars}.
   \item $W$ is closed under vector addition.
   \end{enumerate}
   \begin{sketch}
-    Check the definition of a vector space.
+    Check the definition of a vector space and show that $-1\cdot \nu=
+    -\nu$. Compare this with the definition of a subgroup,
+    Definition~\ref{D:subgp}, and the subgroup criterion, Theorem~\ref{T:sc}.
   \end{sketch}
 \end{lemma}
+
+\begin{exercise}
+  Which of the following are vector subspaces? Select all that apply.
+  \begin{selectAll}
+    \choice{$\{(x,y,z)\in\R^3:x^2 + y^2 + z^2 \le 4\}$ is a vector space.}
+    \choice[correct]{$\{(x,y,z)\in\R^3: x + 2y + 3z = 0\}$ is a vector space.}
+    \choice{$\{(x,y,z)\in\R^3:x^2 + y^2 +z^2 =0 \}$ is a vector space.}
+    \choice{$\{(x,y,z)\in\R^3:x + 2y + 3z =4 \}$ is a vector space.}
+    \choice[correct]{$\left\{(x,y,z)\in\R^3: A \left(\begin{smallmatrix} x\\ y\\ z\end{smallmatrix}\right) = 0\text{ where $A$ is a $3\times 3$ matrix}\right\}$ is a vector space.}
+  \end{selectAll}
+\end{exercise}
 
 
 \begin{exercise}
   Let $V$ be a $K$-vector space with subspaces $U$ and $W$. Prove that
   $U\cap W$ is a $K$-vector subspace of $V$.
 \end{exercise}
+
+\begin{exercise}
+  Let $W\subseteq \R^3$ be an $\R$-vector subspace where $W\ne \R^3$.
+  Define
+  \[
+  W^\perp = \{\nu\in\R^3: \nu \dotp \mu = \vec{0}\text{ for all $\mu\in W$} \}.
+  \]
+  Prove that $W^\perp$ is an $\R$-vector subspace of $\R^3$.
+\end{exercise}
+
 
 \begin{definition}
   Let $V$ and $W$ be $K$-vector spaces. A \dfn{linear transformation}
@@ -357,6 +381,18 @@ below $B$ are all sets of vectors that are linearly independent.
 \end{exercise}
 
 
+\begin{exercise}
+   Let $W\subseteq \R^n$ be a $k$-dimensional subspace where $k<n$.
+   Define
+   \[
+   W^\perp = \{\nu\in\R^n: \nu\dotp\mu = \vec{0}\text{ for all $\mu\in W$} \}.
+   \]
+   Let $W = \Span(e_1,e_2,e_3)\subseteq \R^5$. Find a basis
+   for $W^\perp$.
+\end{exercise}
+
+
+
 
 \begin{example}[Polynomials of fixed degree]
   Let $\mathcal{P}_3\subset \Q[x]$ be the polynomials up to and including degree
@@ -385,8 +421,8 @@ below $B$ are all sets of vectors that are linearly independent.
 \end{theorem}
 
 
-\begin{corollary}
-  If $V$ is an $n$ dimensional $K$-vector space, then $V\iso K^n$.
+\begin{corollary}[Structure theorem for vector spaces]
+  If $V$ is an $n$-dimensional $K$-vector space, then $V\iso K^n$.
 \end{corollary}
 
 \begin{exercise}
@@ -444,7 +480,8 @@ below $B$ are all sets of vectors that are linearly independent.
   \dim_K(V) = \dim_K(\ker(T)) + \dim_K(\im(T)).
   \]
   \begin{sketch}
-    Use Noether's isomorphism theorem, Theorem~\ref{T:NI}.
+    Remember that every vector space is an Abelian group, and use
+    Noether's isomorphism theorem, Theorem~\ref{T:NI}.
   \end{sketch}
 \end{corollary}
 

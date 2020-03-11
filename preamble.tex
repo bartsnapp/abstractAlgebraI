@@ -11,6 +11,8 @@
 
 \usepackage{setspace} %% for tighter annotate
 
+\usepackage[normalem]{ulem}  %% for \sout
+\renewcommand{\ULthickness}{1.5pt}%
 
 
 \usepackage{tikz-cd}
@@ -274,7 +276,7 @@
 \renewcommand{\>}{\rangle}
 
 
-\def\bigstar{\operatornamewithlimits{%
+\def\prodstar{\operatornamewithlimits{%
   \mathchoice{\vcenter{\hbox{\huge $\star$}}}
              {\vcenter{\hbox{\Large $\star$}}}
              {\star}
