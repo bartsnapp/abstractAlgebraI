@@ -446,22 +446,22 @@ theorem. We must start with a fundamental lemma.
   G$ is a set of \dfn{generators} for $G$ if for all $a\in G$, there
   exist $\alpha_i$ such that
   \[
-  a = \prodstar_{i=1}^m \prodstar_{k=1}^{\alpha_i}g_i
+  a =\left(\prodstar_{i=1}^m \prodstar_{k=1}^{\alpha_i}g_i \right) \star \left(\prodstar_{i=1}^m \prodstar_{k=1}^{\alpha_i}g^{-1}_i\right)
   \]
   where $m,\alpha_i\in \Z$ and the $g_i$'s are not necessarily distinct.
 
   
   If the group has an operation like multiplication, we write
   \begin{align*}
-  a &= \prod_{i=1}^m \prod_{k=1}^{\alpha_i}g_i\\
-  &=  \prod_{i=1}^m g_i^{\alpha_i}.
+  a &= \left(\prod_{i=1}^m \prod_{k=1}^{\alpha_i}g_i\right)\cdot \left(\prod_{i=1}^m \prod_{k=1}^{\alpha_i}g_i^{-1}\right)\\
+  &=  \prod_{i=-n}^m g_i^{\alpha_i}.
   \end{align*}
 
 
   If the group has an operation like addition, we write
   \begin{align*}
-  a &= \sum_{i=1}^m \sum_{k=1}^{\alpha_i}g_i\\
-  &=  \sum_{i=1}^m \alpha_i \cdot g_i.
+  a &= \left(\sum_{i=1}^m \sum_{k=1}^{\alpha_i}g_i\right)+\left(\sum_{i=1}^m \sum_{k=1}^{\alpha_i}-g_i\right)\\
+  &=  \sum_{i=-n}^m \alpha_i \cdot g_i.
   \end{align*}
 \end{definition}
 
