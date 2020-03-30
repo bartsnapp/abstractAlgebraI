@@ -39,6 +39,12 @@ elements of the field $K$ are called \dfn{scalars}.
 \end{exercise}
 
 
+\begin{exercise}\label{E:sfvs}
+  Let $K\subset L$ be a subfield of $L$. Prove that $L$ is a
+  $K$-vector space.
+\end{exercise}
+
+
 \begin{example}[Euclidean space]
   Perhaps the most obvious vector space would be $\R^3$. This is an
   $\R$-vector space. It is also a $\Q$-vector space.
@@ -421,7 +427,7 @@ below $B$ are all sets of vectors that are linearly independent.
 \end{theorem}
 
 
-\begin{corollary}[Structure theorem for vector spaces]
+\begin{corollary}[Structure theorem for vector spaces]\label{C:stvs}
   If $V$ is an $n$-dimensional $K$-vector space, then $V\iso K^n$.
 \end{corollary}
 
@@ -435,6 +441,23 @@ below $B$ are all sets of vectors that are linearly independent.
   Let $V$ be a $\Z_5$-vector space of dimension $3$. How many elements
   are in $V$?
 \end{exercise}
+
+\begin{exercise}\label{E:nfo6}
+  Prove that there is no field of order $6$.
+  \begin{hint}
+    Use Exercise~\ref{E:fcp}, then Theorem~\ref{T:bfpc}. Now use
+    Exercise~\ref{E:sfvs} and the structure theorem for vector spaces,
+    Corollary~\ref{C:stvs}.
+  \end{hint}
+\end{exercise}
+
+\begin{corollary}[Fields have prime-power order]
+  Prove that if $K$ is a finite field, then $|K|= p^n$ where $p$ is
+  some prime.
+  \begin{sketch}
+    Generalize the proof for Exercise~\ref{E:nfo6}.
+  \end{sketch}
+\end{corollary}
 
 
 
