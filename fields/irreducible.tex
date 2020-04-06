@@ -12,10 +12,10 @@
 \end{abstract}
 \maketitle
 
-From our previous work, we know that $K[x]/(n(x)$ is a field if and
+From our previous work, we know that $K[x]/(n(x))$ is a field if and
 only if $n(x)$ is an irreducible polynomial. Let's figure out some
 strategies to determine if a polynomial is irreducible. In particular,
-we are interested in showing that polyomials in $\Q[x]$ are
+we are interested in showing that polynomials in $\Q[x]$ are
 irreducible.
 
 \section{Degree two or three}
@@ -71,7 +71,7 @@ linear factors.
   Given a polynomial in $\Z_p[x]$, if $f(x)$ is irreducible in
   $\Z_p[x]$ for some prime $p$, then $f(x)$ is irreducible in $\Z[x]$.
   \begin{sketch}
-    Prove the contrapostive of the statement.
+    Prove the contrapositive of the statement.
   \end{sketch}
 \end{lemma}
 
@@ -180,8 +180,19 @@ Now we have the following:
   \end{proof}
 \end{theorem}
 
-Some folks say that a polynomial is \textbf{Eisenstein} if it satifies
-the conditions of Eisenstein's criterion.
+Some folks say that a polynomial is \textbf{Eisenstein} if it satisfies
+the conditions of Eisenstein's criterion. 
+
+\begin{exercise}
+  Eisenstein's criterion is often combined with the following
+  exercise: Prove that if $f(ax+b)$ is irreducible, then $f(x)$ is
+  irreducible.
+
+
+  So now, if you want to show a polynomial $f$ is irreducible, one
+  strategy is to see if $f(ax+b)$ is Eisenstein for some values of
+  $a$ and $b$.
+\end{exercise}
 
 
 \begin{exercise}
@@ -211,9 +222,14 @@ the conditions of Eisenstein's criterion.
   \item $x^5 + 9x^4 + 12x^2 + 6$ in  $\Q[x]$.
   \item $17 x^3 - 7x^2 + 34x + 1$ in $\Q[x]$.
   \item $x^4 + 10x + 1$ in $\Q[x]$.
-  \item $x^4 + 10x^2 + 1$ in $\Q[x]$.
-  \item $4x^3 -3x -1/2$ in $\Q[x]$. 
-\end{enumerate}
+  \item $x^4 + 10x^2 + 1$ in $\Q[x]$. This is known as a
+    \index{Swinnerton-Dyer polynomial}.
+  \item $4x^3 -3x -1/2$ in $\Q[x]$.
+  \end{enumerate}
+  \begin{hint}
+    Note, each of these may require different techniques. Some will
+    probably require `brute-force.'
+  \end{hint}
 \end{exercise}
 
 
