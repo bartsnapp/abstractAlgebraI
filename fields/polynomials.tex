@@ -116,7 +116,7 @@ The following corollary is a critical insight.
   \[
   (x-\alpha) | f(x).
   \]
-  \begin{proof}
+  \begin{sketch}
   By Theorem~\ref{T:divThmPoly}, there exists unique $q(x)\in K[x]$
   such that
   \[
@@ -124,7 +124,7 @@ The following corollary is a critical insight.
   \]
   If $\alpha$ is a root of $f$, then $f(\alpha) = 0$. Hence
   $(x-\alpha) | f(x)$.
-  \end{proof}
+  \end{sketch}
 \end{corollary}
 
 
@@ -331,11 +331,28 @@ Prove that a polynomial of positive degree $n$ in $\C[x]$ has $n$
 \end{exercise}
 
 
-\begin{exercise}\label{E:RQ} 
+\begin{corollary}[Linear and quadratic factors]\label{C:RQ} 
 Show that every polynomial of positive degree in $\R[x]$ can be
 factored as a product of polynomials in $\R[x]$ each with degree $1$
 or $2$.
-\end{exercise}
+\begin{sketch}
+  Let $f\in \R[x]$ be a polynomial of positive degree.  By Descartes'
+  factor theorem, Theorem~\ref{C:rlf}, each real root of $f$
+  corresponds to a linear factor of $f$. By the fundamental theorem of
+  algebra, Theorem~\ref{T:fta}, the remaining roots of $f$ are in
+  $\C-\R$.  Recall that if $z=a+bi\in\C$, where $a,b\in\R$, the
+  \dfn{complex conjugate} of $z$ is defined to be $\bar{z} = a - bi$.
+  By Exercise~\ref{E:cc},
+  \begin{align*}
+    \phi:\C&\to\C\\
+    z &\mapsto \bar{z}
+  \end{align*}
+  is a homomorphism of fields.  Use $\phi$ to show that if $z$ is a
+  root of $f$, then so is $\bar{z}$.  Prove that both $z\cdot \bar{z}$
+  and $z+\bar{z}$ are real numbers.  Conclude that $f$ can be factored
+  as a product of linear and quadratic polynomials in $\R[x]$.
+\end{sketch}
+\end{corollary}
 
 
 
