@@ -12,14 +12,16 @@
 \end{abstract}
 \maketitle
 
-
+To understand a group, it helps to understand the subgroup
+structure. To understand a field, it helps to understand its field
+extensions.
 
 
 \begin{definition}
   Given fields $K\subset L$, $L$ is a \dfn{field extension} of $K$ if
-  the field operations and identities $L$ restrict to the field
-  operations of $K$. If there are several field extensions, say $k
-  \subset K \subset L$ we often write
+  the field operations and identities $L$ restrict to those of $K$. If
+  there are several field extensions, say $k \subset K \subset L$ we
+  often write
   \[
   \begin{tikzcd}
     L\ar[d,-] \\
@@ -44,21 +46,31 @@
 
 
 
-\begin{example}[Fields adjoin an element]
+\begin{example}[Fields adjoin an element]\index{K[alpha]@$K[\alpha]$}
   Given a field $K$, we may adjoin an element $\alpha$ by writing
   \[
-  K[\alpha] =\{\text{polynomials in terms of $\alpha$ with
+  K[\alpha] :=\{\text{polynomials in terms of $\alpha$ with
     coefficients in $K$}\}.
   \]
-  This may or may not be a field depending on $\alpha$. 
+  This may or may not be a field depending on $\alpha$. In a somewhat
+  similar way,
+  \[
+  K(\alpha) := \bigcap_{\alpha \in L} L\index{K(alpha)@$K(\alpha)$}
+  \]
+  where $L$ ranges over all fields containing $\alpha$.
 \end{example}
+
+\begin{exercise}
+  Prove if $K[\alpha]$ is a field, then $K[x] = K(\alpha)$.
+\end{exercise}
+
 
 \begin{exercise}
   Define:
   \[
   \Q[\sqrt{2}] = \{ a+ b\sqrt{2}: a,b,\in\Q\}.
   \]
-  Prove that $\Q[\sqrt{2}]$ is a field.
+  Prove that $\Q[\sqrt{2}]$ is a field, and so $\Q[\sqrt{2}] = \Q(\sqrt{2})$.
 \end{exercise}
 
 \begin{exercise}
@@ -66,7 +78,7 @@
   \[
   \Z_5[i] = \{a + b i: a,b\in\Z_5\}
   \]
-  is a field.
+  is a field, and so $\Z_5[i] = \Z_5(i)$.
 \end{exercise}
 
 
@@ -312,16 +324,8 @@
   \end{proof}
 \end{lemma}
 
-\begin{definition}\index{Kalpha@$K(\alpha)$}
-  Let $K$ be a field and let $\alpha$ be a element that is algebraic
-  over $K$. In this case,
-  \[
-  K(\alpha) := \{\text{smallest field containing $K$ and $\alpha$}\}.
-  \]
-\end{definition}
 
-
-\begin{lemma}[Field extensions and conrguence]
+\begin{lemma}[Field extensions and congruence]
   Let $K$ be a field and $f(x)\in K[x]$ be a minimal polynomial for
   $\alpha$. In this case
   \[
@@ -435,7 +439,36 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
 \begin{example}[Cube root of unity]
   Consider $x^3-1 \in \Q[x]$. By the fundamental theorem of algebra,
   Theorem~\ref{T:fta}, this polynomial has three roots in $\C$, all of
-  whose cube root is one. In this case,
+  whose cube root is one. Here is a plot of them in the complex plane:
+\[
+  \begin{tikzpicture}  
+    \begin{axis}[  
+        xmin=-1.2,  
+        xmax=1.2,  
+        ymin=-1.2,  
+        ymax=1.2,  
+        axis lines=center,
+        ticks=none,
+        xlabel=$\Re$,  
+        ylabel=$\Im$,  
+        every axis y label/.style={at=(current axis.above origin),anchor=south},  
+        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+        axis equal image,clip mode=individual
+      ]
+      \draw[dashed] (axis cs: 0,0) circle[radius=.935in];
+      
+      \draw[fill=black] (axis cs: {1},{0}) circle[radius=.03in];
+      \node[anchor=south west] at (axis cs:{1},{0}) {\scriptsize$1$};
+      
+      \draw[fill=black] (axis cs: {cos(360/3)},{sin(360/3)}) circle[radius=.03in];
+      \node[anchor=east] at (axis cs:{cos(360/3)},{sin(360/3)}) {\scriptsize$e^{2\pi i/5} = \cos(2\pi/3) + i \sin(2\pi/3)$};
+
+      \draw[fill=black] (axis cs: {cos(2*360/3)},{sin(2*360/3)}) circle[radius=.03in];
+      \node[anchor=east] at (axis cs:{cos(2*360/3)},{sin(2*360/3)}) {\scriptsize$e^{4\pi i/3} = \cos(4\pi/3) + i \sin(4\pi/3)$};
+    \end{axis}
+  \end{tikzpicture}  
+  \]
+In this case,
   \[
   x^3-1= (x-1)(x^2+x+1).
   \]
@@ -457,7 +490,63 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
 
 
 \begin{example}[Fifth root of unity]
-  Consider $x^5-1 \in \Q[x]$.
+  Consider $x^5-1 \in \Q[x]$. By the fundamental theorem of algebra,
+  Theorem~\ref{T:fta}, this polynomial has five roots in $\C$, all of
+  whose cube root is one. Here is a plot of them in the complex plane:
+\[
+  \begin{tikzpicture}  
+    \begin{axis}[  
+        xmin=-1.2,  
+        xmax=1.2,  
+        ymin=-1.2,  
+        ymax=1.2,  
+        axis lines=center,
+        ticks=none,
+        xlabel=$\Re$,  
+        ylabel=$\Im$,  
+        every axis y label/.style={at=(current axis.above origin),anchor=south},  
+        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+        axis equal image,clip mode=individual
+      ]
+      \draw[dashed] (axis cs: 0,0) circle[radius=.935in];
+      
+      \draw[fill=black] (axis cs: {1},{0}) circle[radius=.03in];
+      \node[anchor=south west] at (axis cs:{1},{0}) {\scriptsize$1$};
+      
+      \draw[fill=black] (axis cs: {cos(360/5)},{sin(360/5)}) circle[radius=.03in];
+      \node[anchor=south west] at (axis cs:{cos(360/5)},{sin(360/5)}) {\scriptsize$e^{2\pi i/5} = \cos(2\pi/5) + i \sin(2\pi/5)$};
+
+      \draw[fill=black] (axis cs: {cos(2*360/5)},{sin(2*360/5)}) circle[radius=.03in];
+      \node[anchor=east] at (axis cs:{cos(2*360/5)},{sin(2*360/5)}) {\scriptsize$e^{4\pi i/5} = \cos(4\pi/5) + i \sin(4\pi/5)$};
+
+      \draw[fill=black] (axis cs: {cos(3*360/5)},{sin(3*360/5)}) circle[radius=.03in];
+      \node[anchor=east] at (axis cs:{cos(3*360/5)},{sin(3*360/5)}) {\scriptsize$e^{6\pi i/5} = \cos(6\pi/5) + i \sin(6\pi/5)$};
+
+      \draw[fill=black] (axis cs: {cos(4*360/5)},{sin(4*360/5)}) circle[radius=.03in];
+      \node[anchor=north west] at (axis cs:{cos(4*360/5)},{sin(4*360/5)}) {\scriptsize$e^{8\pi i/5} = \cos(8\pi/5) + i \sin(8\pi/5)$};
+    \end{axis}
+  \end{tikzpicture}  
+  \]
+  In this case,
+  \[
+  x^5-1= (x-1)(x^4+x^3+x^2+1).
+  \]
+  We claim $f(x)=x^4+x^3+x^2+x+1$ is irreducible in $\Q[x]$.  By
+  Gauss' lemma, Lemma~\ref{L:G}, it is sufficient to show that $f$ is
+  irreducible in $\Z[x]$. By Exercise~\ref{E:et}, it is sufficient to
+  show that
+  \[
+  f(y+1)  = x^4 + 5x^3 + 10x^2 + 10x +  5
+  \]
+  is irreducible. However, $f(y+1)$ is Eisenstein, and hence
+  irreducible. Thus $f$ is irreducible in $\Q[x]$.  Let $\zeta =
+  e^{2\pi i/5}$, a root of $f$. In this case
+  \[
+  [\Q(\zeta):\Q] = 4
+  \]
+  as $\Q(\zeta)$ has $\{1,\zeta,\zeta^2,\zeta^3\}$ as a basis as a $\Q$-vector space,
+  and also because the minimum polynomial for $\zeta$ has degree
+  $4$. Moreover, $\Q(\zeta) \iso \Q[x]/(x^4+x^3+x^2+1)$.
 \end{example}
 
 
