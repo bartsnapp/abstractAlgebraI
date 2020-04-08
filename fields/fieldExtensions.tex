@@ -258,7 +258,7 @@ extensions.
   $\alpha\in L$. A polynomial $f(x)\in K[x]$ is called a \dfn{minimal
     polynomial} for $\alpha$ if for all $g(x)\in K[x]$,
   \[
-  g(\alpha) = 0 \quad\Rightarrow\quad \deg(f(x)) \le \deg(g(x)).
+  g(\alpha) = 0 \quad\Rightarrow\quad \deg(f) \le \deg(g).
   \]
 \end{definition}
 
@@ -278,7 +278,7 @@ extensions.
     Seeking a contradiction, suppose that $g(\alpha) = 0$ and $f(x)
     \nmid g(x)$. Then
     \[
-    g(x) = f(x) \cdot q(x) + r(x), \quad 0<\deg(r(x))< \deg(f(x)).
+    g(x) = f(x) \cdot q(x) + r(x), \quad 0<\deg(r)< \deg(f).
     \]
     Now evaluate at $x = \alpha$,
     \begin{align*}
@@ -302,7 +302,7 @@ extensions.
     \]
     where
     \[
-    \deg(g(x)) <\deg(f(x))\quad\text{and}\quad\deg(h(x)) <\deg(f(x)).
+    \deg(g) <\deg(f)\quad\text{and}\quad\deg(h) <\deg(f).
     \]
     Now $f(\alpha) = 0$ implies that $g(\alpha) =0$ or $h(\alpha) =
     0$, but the degrees of both $g(x)$ and $h(x)$ are both less than
@@ -313,9 +313,9 @@ extensions.
     irreducible in $K[x]$. We claim $f$ has minimal degree, and is
     hence the minimal polynomial for $\alpha$. Seeking a
     contradiction, suppose that a minimal polynomial for $\alpha$ is
-    $g(x)\in K[x]$, where $\deg(g(x)) < \deg(f(x))$. Since $f(x)$ is irreducible,
+    $g(x)\in K[x]$, where $\deg(g) < \deg(f)$. Since $f(x)$ is irreducible,
     \[
-    f(x) = g(x) \cdot h(x) + r(x) \qquad \deg(r(x))<\deg(g(x)).
+    f(x) = g(x) \cdot h(x) + r(x) \qquad \deg(r)<\deg(g).
     \]
     Evaluating at $\alpha$, we see that $r(x)$ has $\alpha$ as a root,
     contradicting the minimality of $g(x)$. Hence if $f(x)$ is
@@ -374,12 +374,12 @@ extensions.
     h(x) = c_m x^m + c_{m-1} x^{m-1} + \cdots + c_1x  + c_0\in
     K[x]
     \]
-    will map to this polynomial. Moreover, if $m\ge \deg(f(x))$, then
+    will map to this polynomial. Moreover, if $m\ge \deg(f)$, then
     we may write
     \[
     h(x) \equiv g(x) \pmod{f(x)}
     \]
-    where $\deg(g(x))< \deg(f(x))$. Thus $\phi(g(x)) =\phi(h(x))$ and
+    where $\deg(g)< \deg(f)$. Thus $\phi(g(x)) =\phi(h(x))$ and
     we are done.
   \end{proof}
 \end{lemma}
@@ -400,7 +400,7 @@ c_0 + c_1\alpha_1 + \cdots + c_{n-1}\alpha^{n-1}.
   Let $K$ be a field and let $\alpha$ be algebraic over $K$ with
   minimal polynomial $f(x)\in K[x]$. Then
   \[
-  \dim_K(K(\alpha)) = [K(\alpha):K] = \deg(f(x)) = n,
+  \dim_K(K(\alpha)) = [K(\alpha):K] = \deg(f) = n,
   \]
   and
   \[
@@ -618,11 +618,11 @@ In this case,
     Suppose that $\beta\in L$. Since $L$ is algebraic over $K$, there
     exists a polynomial $f(x)\in K[x]$ with $\beta$ as a root. Suppose that
     \[
-    f(x) = \alpha_0 + \alpha_1 x + \cdot + \alpha_n x^n \in K[x].
+    f(x) = \alpha_0 + \alpha_1 x + \cdots + \alpha_n x^n \in K[x].
     \]
     Since $K$ is algebraic over $k$, each $\alpha_i$ is algebraic over
     $k$. Let $g_i(x)\in k[x]$ be the minimal polynomial for each
-    $\alpha_i$, and suppose that $\deg(g_i(x)) = d_i$. Then
+    $\alpha_i$, and suppose that $\deg(g_i) = d_i$. Then
     \[
     [k(\beta):k]\le d_1\cdot d_2 \cdot \cdots \cdot d_n \cdot n
     \]
