@@ -20,11 +20,11 @@ his work.
 
 \section{Geometry}
 
-Around 300 BCE, Euclid, wrote \textit{The Elements.} This is a book
-that is widely accepted to be the first ``axiomatic'' approach to
-mathematics. It was used as a text for higher-education for around
-2000 years, and it is surely the most successful textbook ever
-written. In this work, Euclid states five so-called postulates:
+Around 300 BCE, Euclid, wrote \textit{The Elements.} This is a
+geometry book that is widely accepted to be the first ``axiomatic''
+approach to mathematics. It was used as a text for higher-education
+for around 2000 years, and it is surely the most successful textbook
+ever written. In this work, Euclid states five so-called postulates:
 \begin{enumerate}
 \item[(1)] To draw a straight line from any point to any point.
 \item[(2)] To produce a finite straight line continuously in a straight line.
@@ -38,12 +38,12 @@ written. In this work, Euclid states five so-called postulates:
 Readers throughout time have interpreted these statements as statements
 concerning what is allowed when working with geometry.
 
-Postulates (1) is typically interpreted to mean that, ``if you want to
-draw a line, you must be connecting two points.'' \textbf{This is exactly what
-you can draw with a straightedge.}
+Postulate (1) is typically interpreted to mean that, ``if you want to
+draw a line, you must be connecting two points.'' \textbf{This is
+  exactly what you can draw with a straightedge.}
 
 
-Postulate (2) is interpreted to mean that, ``if you have a central
+Postulate (3) is interpreted to mean that, ``if you have a central
 point, and a point on the circle, then you can draw the circle.''
 \textbf{This is exactly what you can draw with a compass.}
 
@@ -574,10 +574,10 @@ visualize $i$ as up, we can construct all of $\Q(i)$.
   \tkzDefPoint(-2,0){-2}
   \tkzDefPoint(-3,0){-3}
 
-  \tkzDefPoint(0,1){1i}
+  \tkzDefPoint(0,1){i}
   \tkzDefPoint(0,2){2i}
   \tkzDefPoint(0,3){3i}
-  \tkzDefPoint(0,-1){-1i}
+  \tkzDefPoint(0,-1){-i}
   \tkzDefPoint(0,-2){-2i}
   \tkzDefPoint(0,-3){-3i}
     
@@ -614,10 +614,12 @@ visualize $i$ as up, we can construct all of $\Q(i)$.
 \end{tikzpicture}
 \]
 
-
+From our work above, we see:
 \[
 \Z\subset \Q \subset \Q(i) \subset \mathcal{C} \subset \C.
 \]
+
+And finally, geometry becomes algebra in $3$, $2$, $1$:
 
 \begin{lemma}[Construcible numbers form a field]
   The set of constructible numbers $\mathcal{C}$ is a field.
