@@ -588,10 +588,10 @@ visualize $i$ as up, we can construct all of $\Q(i)$.
   \tkzDrawPoint[fill=black](-1)
   \tkzDrawPoint[fill=black](-2)
   \tkzDrawPoint[fill=black](-3)
-  \tkzDrawPoint[fill=black](1i)
+  \tkzDrawPoint[fill=black](i)
   \tkzDrawPoint[fill=black](2i)
   \tkzDrawPoint[fill=black](3i)
-  \tkzDrawPoint[fill=black](-1i)
+  \tkzDrawPoint[fill=black](-i)
   \tkzDrawPoint[fill=black](-2i)
   \tkzDrawPoint[fill=black](-3i)
 
@@ -605,10 +605,10 @@ visualize $i$ as up, we can construct all of $\Q(i)$.
   \tkzLabelPoints[below](-2)
   \tkzLabelPoints[below](-3)
 
-  \tkzLabelPoints[left](1i)
+  \tkzLabelPoints[left](i)
   \tkzLabelPoints[left](2i)
   \tkzLabelPoints[left](3i)
-  \tkzLabelPoints[left](-1i)
+  \tkzLabelPoints[left](-i)
   \tkzLabelPoints[left](-2i)
   \tkzLabelPoints[left](-3i)
 \end{tikzpicture}
@@ -708,10 +708,15 @@ There is an ancient myth that Apollo, sent a plague to Delos; surely
 there was a plague, but \textit{Apollo} sent nothing. Purportedly, the
 people of Delos appealed to the oracle at Delphi, and were instructed
 to ``double'' the altar of Apollo. The citizens doubled the side
-lengths, thus changing the volume by a factor of $8$. This author
-believes that this myth is an allegory to young mathematicians,
-reminding them of the seriousness and pitfalls of scaling volume by
-scaling linear dimensions.
+lengths, thus changing the volume by a factor of $8$. However, this is
+not correct, they should have changed the length of the of the
+original cube by a factor of $\sqrt[3]{2}$.
+
+Of course, the plage continued, as chaning the dimensions of a
+religious alter is not a way to fix a plage.  This author believes
+that this myth is an allegory to young mathematicians, reminding them
+of the seriousness and pitfalls of scaling volume by scaling linear
+dimensions.
 
 
 \begin{example}[Doubling the cube]
@@ -724,7 +729,7 @@ y^3 = 2 z^3.
   If it were possible, then
   \begin{align*}
     y^3/z^3 &= 2\\
-    x^3 &= 2.
+    x^3 &= 2 & & \text{(setting $x=y/z$)}.
   \end{align*}
   By the rational roots test, Lemma~\ref{L:rr}, we can see that $x^3-2$
   is irreducible in $\Z[x]$. By Gauss' lemma, Lemma~\ref{L:G}, $x^3-2$
@@ -769,7 +774,7 @@ straightedge alone.
   \]
   This means that $\cos(20^\circ)$ is a root of
   \[
-  f(x)=4x^3 -3x -1/2.
+  f(x)=4x^3 -3x -1/2.\index{4x^3-3x-1/2@$4x^3-3x-1/2$}
   \]
   Set $x = \frac{y+1}{2}$, so
   \[
