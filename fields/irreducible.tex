@@ -97,16 +97,16 @@ linear factors.
     We claim that $p_1$ divides all the coefficients of $g'(x)$ or
     $p_1$ divides all the coefficients of $h'(x)$.  Let $a_i$
     represent the coefficients of $g'(x)$ and $b_j$ represent the
-    coefficients of $h'(x)$. Seeking a contradiction, suppose 
+    coefficients of $h'(x)$. Seeking a contradiction, let:
     \begin{itemize}
       \item $a_n$ be the first coefficient of $g'(x)$ that is not
-        divisible by $p_1$.
+        divisible by $p_1$,
       \item $b_m$ be the first coefficient of $h'(x)$ that is not
         divisible by $p_1$.
     \end{itemize}
     Writing out the coefficient of $x_{m+n}$ of $d\cdot f(x)$, we have
     \[
-    \underbrace{a_0b_{m+n}  + \cdots + a_{n-1}b_{m+1}}_{\text{divisible by $p_1$}} + a_nb_m + \underbrace{a_{n+1}b_{m-1} + \cdots + a_{m+n} b_0}_{\text{divisible by $p_1$}}
+    \underbrace{a_0b_{m+n}  + \cdots + a_{n-1}b_{m+1}}_{\text{divisible by $p_1$}} + a_nb_m + \underbrace{a_{n+1}b_{m-1} + \cdots + a_{m+n} b_0.}_{\text{divisible by $p_1$}}
     \]
     Since this entire expression is divisible by $p_1$, we conclude
     that $a_nb_m$ is divisible by $p_1$. Now by Euclid's lemma,
@@ -180,19 +180,15 @@ Now we have the following:
   \end{proof}
 \end{theorem}
 
-Some folks say that a polynomial is \textbf{Eisenstein} if it satisfies
-the conditions of Eisenstein's criterion. 
-
+Some folks say that a polynomial is \textbf{Eisenstein} if it
+satisfies the conditions of Eisenstein's criterion. Eisenstein's
+criterion is often combined with the following exercise:
 \begin{exercise}\label{E:et}
-  Eisenstein's criterion is often combined with the following
-  exercise: Prove that if $f(ax+b)$ is irreducible, then $f(x)$ is
-  irreducible.
-
-
-  So now, if you want to show a polynomial $f$ is irreducible, one
-  strategy is to see if $f(ax+b)$ is Eisenstein for some values of
-  $a$ and $b$.
+  Prove that if $f(ax+b)$ is irreducible, then $f(x)$ is irreducible.
 \end{exercise}
+So now, if you want to show a polynomial $f$ is irreducible, one
+strategy is to see if $f(ax+b)$ is Eisenstein for some values of $a$
+and $b$.
 
 
 \begin{exercise}
