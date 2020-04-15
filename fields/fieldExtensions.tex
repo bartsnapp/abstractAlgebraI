@@ -644,17 +644,30 @@ In this case,
     \]
     Since $K$ is algebraic over $k$, each $\alpha_i$ is algebraic over
     $k$. Let $g_i(x)\in k[x]$ be the minimal polynomial for each
-    $\alpha_i$, and suppose that $\deg(g_i) = d_i$. Then
+    $\alpha_i$, and suppose that $\deg(g_i) = d_i$. Now, we can write
+    a tower of field extensions:
     \[
-    [k(\beta):k]\le d_1\cdot d_2 \cdot \cdots \cdot d_n \cdot n
+    \begin{tikzcd}
+      k(\alpha_0,\alpha_1,\dots,\alpha_n,\beta) \ar[d,-, "{[k(\alpha_0,\alpha_1,\dots, \alpha_n,\beta):k] = n}"]\\
+      k(\alpha_0,\alpha_1,\dots,\alpha_n) \ar[d,-, "{[k(\alpha_0,\alpha_1,\dots, \alpha_n):k] \le d_n}"]\\
+      \vdots  \ar[d,-]\\
+      k(\alpha_0,\alpha_1) \ar[d,-, "{[k(\alpha_0,\alpha_1):k] \le d_1}"]\\
+      k(\alpha_0) \ar[d,-, "{[k(\alpha_0):k] =d_0}"]\\
+      k
+    \end{tikzcd}
     \]
-    and hence $\beta$ is algebraic over $k$ by
-    Theorem~\ref{T:fea}. Since $\beta$ is an arbitrary element of $L$,
-    we see that every element of $L$ is algebraic over $k$, and so $L$
-    is algebraic over $k$.
+    Since the degrees in a tower of extension are multiplicative,
+    Lemma~\ref{L:dm},
+    \[
+    [k(\beta):k]\le d_0\cdot d_1 \cdot \cdots \cdot d_n \cdot n.
+    \]
+    So we see that $k(\beta)\subseteq
+    k(\alpha_0,\alpha_1,\dots,\alpha_n,\beta)$ is finite extension of
+    $k$, hence algebraic over $k$ by Theorem~\ref{T:fea}. Since $\beta$
+    is an arbitrary element of $L$, we see that every element of $L$
+    is algebraic over $k$, and so $L$ is algebraic over $k$.
   \end{proof}
 \end{corollary}
-
 
 
 
