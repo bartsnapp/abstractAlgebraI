@@ -145,38 +145,50 @@ Now we have the following:
   \end{enumerate}
   then $f(x)$ is irreducible in $\Z[x]$.
   \begin{proof}
-    Seeking a contradiction, suppose that $f(x)$ factors in $\Z[x]$ and there exists a prime $p$ such that
-  \begin{enumerate}
-  \item $p|c_i$ for $i \ne n$,
-  \item $p\nmid c_n$,
+    Seeking a contradiction, suppose that $f(x)$ factors in $\Z[x]$
+    and there exists a prime $p$ such that
+    \begin{enumerate}
+    \item $p|c_i$ for $i \ne n$,
+    \item $p\nmid c_n$,
   \item $p^2\nmid c_0$.
-  \end{enumerate}
-  Write
-  \[
-  f(x) = g(x) \cdot h(x)
-  \]
-  where
-  \begin{align*}
-    g(x) &= a_rx^r + \cdots + a_1 x+ a_0\\
-    h(x) &= b_sx^s + \cdots + b_1 x+ b_0,
-  \end{align*}
-  and $r + s = n = \deg(f(x))$. Multiplying $g(x)$ and $h(x)$ and
-  examining coefficients we find
-  \begin{align*}
-    c_0 &= a_0b_0\\
-    c_1 &= a_0b_1 + a_1 b_0\\
-    &\vdots \\
-    c_n &= a_r b_s.
-  \end{align*}
-  If $p| c_0$, then by Euclid's lemma, Corollary~\ref{C:EL2}, we have
-    that $p|a_0$ or $p|b_0$, but not both as $p^2\nmid c_0$. WLOG
-    assume $p|a_0$ and $p\nmid b_0$.
-
-    Since $p|c_1$, then by Euclid's lemma, Corollary~\ref{C:EL2}, we
-    have that $p|a_1$ or $p|b_0$. Since $p\nmid b_0$, we see
-    $p|a_1$. Continuing on in this fashion, we see $p|c_i$ for all $i$
-    implies $p| a_i$, $i=1,\dots, r$. But this means $p|a_rb_s$ which
-    means $p|c_n$, a contradiction.
+    \end{enumerate}
+    Write
+    \[
+    f(x) = g(x) \cdot h(x)
+    \]
+    where
+    \begin{align*}
+      g(x) &= a_rx^r + \cdots + a_1 x+ a_0\\
+      h(x) &= b_sx^s + \cdots + b_1 x+ b_0,
+    \end{align*}
+    and $r + s = n = \deg(f(x))$. From our work above we know that:
+    \[
+    \text{Factors in $\Z[x]$} \Rightarrow \text{Factors in $\Z_p[x]$} 
+    \]
+    This means that if we reduce the \textbf{coefficients} of the
+    polynomials $f$, $g$, and $h$ modulo $p$ and write
+    \begin{align*}
+      \bar{f} \equiv f \ \text{in $\Z_p[x]$},\\
+      \bar{g} \equiv g \ \text{in $\Z_p[x]$},\\
+      \bar{h} \equiv h \ \text{in $\Z_p[x]$}.
+    \end{align*}
+    By our setup
+    \[
+    \bar{f}(x) =  \bar{a}_r\bar{b}_sx^{r+s} \in \Z_p[x].
+    \]
+    Now we have an equation in $\Z_p[x]$,
+    \[
+    \bar{a}_r\bar{b}_sx^{r+s}=  \bar{g}(x)\cdot \bar{h}(x).
+    \]
+    Polynomials are equal as elements if and only if their
+    coefficients are equal. On the left-hand side above, we have a
+    polynomial whose only nonzero coefficient is at the $(r+s)$-degree
+    term. Since we know $\Z_p$ is a field, and $\Z_p[x]$ has unique
+    factorization, Corollary~\ref{C:UFP}, we deduce that neither
+    $\bar{g}$ nor $\bar{h}$, can have a linear term (a constant
+    term). This means that $p$ divides the constant term of both $g$
+    and $h$. But this means that $p^2$ divides the constant term of
+    $f$, a contradiction.
   \end{proof}
 \end{theorem}
 
@@ -229,5 +241,16 @@ and $b$.
 \end{exercise}
 
 
-\end{document}
 
+
+
+For some interesting extra reading check out:
+\begin{itemize}
+\item \link[\textit{Counting irreducible polynomials over finite fields using the inclusion-exclusion principle},
+  S.\ Chebolu and J.\ Min\'a\v c]{https://doi.org/10.4169/math.mag.84.5.369}.
+
+\end{itemize}
+
+
+
+\end{document}

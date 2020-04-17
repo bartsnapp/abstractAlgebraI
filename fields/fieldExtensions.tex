@@ -648,10 +648,10 @@ In this case,
     a tower of field extensions:
     \[
     \begin{tikzcd}
-      k(\alpha_0,\alpha_1,\dots,\alpha_n,\beta) \ar[d,-, "{[k(\alpha_0,\alpha_1,\dots, \alpha_n,\beta):k] = n}"]\\
-      k(\alpha_0,\alpha_1,\dots,\alpha_n) \ar[d,-, "{[k(\alpha_0,\alpha_1,\dots, \alpha_n):k] \le d_n}"]\\
-      \vdots  \ar[d,-]\\
-      k(\alpha_0,\alpha_1) \ar[d,-, "{[k(\alpha_0,\alpha_1):k] \le d_1}"]\\
+      k(\alpha_0,\alpha_1,\dots,\alpha_n,\beta) \ar[d,-, "{[k(\alpha_0,\alpha_1,\dots, \alpha_n,\beta):k(\alpha_0,\alpha_1,\dots, \alpha_n)] = n}"]\\
+      k(\alpha_0,\alpha_1,\dots,\alpha_n) \ar[d,-, "{[k(\alpha_0,\alpha_1,\dots, \alpha_n):k(\alpha_0,\alpha_1,\dots, \alpha_{n-1})] \le d_n}"]\\
+      \vdots  \ar[d,-,"{[k(\alpha_0,\alpha_1,\alpha_2):k(\alpha_0,\alpha_1)] \le d_1}"]\\
+      k(\alpha_0,\alpha_1) \ar[d,-, "{[k(\alpha_0,\alpha_1):k(\alpha_0)] \le d_1}"]\\
       k(\alpha_0) \ar[d,-, "{[k(\alpha_0):k] =d_0}"]\\
       k
     \end{tikzcd}
