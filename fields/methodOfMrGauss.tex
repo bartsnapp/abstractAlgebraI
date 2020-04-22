@@ -26,10 +26,9 @@ this will be the maxim that we first encountered so long ago:
 Recall that $\aut(X)$\index{automorphism} is the set of bijective maps
 from $X$ to $X$. When $G$ is a group, we \textit{\bfseries insist}
 that $\aut(G)$ is the set of group isomorphisms from $G$ to $G$. When
-$K$ is a field, we \textit{\textbf{insist}} that $\aut(K)$ we
-\textit{\textbf{insist}} that $\aut(K)$ is the set of field
-isomorphisms from $K$ to $K$. Of critical importance, in each case
-above: $\aut(X)$, $\aut(G)$, and $\aut(K)$ form groups.
+$K$ is a field, we \textit{\textbf{insist}} that $\aut(K)$ is the set
+of field isomorphisms from $K$ to $K$. Of critical importance, in each
+case above: $\aut(X)$, $\aut(G)$, and $\aut(K)$ form groups.
 
 
 
@@ -210,8 +209,7 @@ problem.
     \[
     \aut_{\Q}(\Q(\zeta_3))\iso\Z_3^\times.
     \]
-    First note $\Q(\zeta_3)$ is an algebraic extension of degree $2$
-    since $\zeta_3$ is a root of
+    First note $\zeta_3$ is a root of
     \[
     \Phi_3(x) = x^2 + x + 1. 
     \]
@@ -221,8 +219,9 @@ problem.
     \]
     which is irreducible by Eisenstein's criterion,
     Theorem~\ref{T:ec}. Thus $\Phi_3(x)$ is the minimal polynomial for
-    $\zeta_3$. By Lemma~\ref{L:fevs} and Theorem~\ref{T:dae},
-    $\Q(\zeta_3)$ is a $\Q$-vector space with basis
+    $\zeta_3$. Hence $\Q(\zeta_3)$ is an algebraic extension of degree
+    $2$. By Lemma~\ref{L:fevs} and Theorem~\ref{T:dae}, $\Q(\zeta_3)$
+    is a $\Q$-vector space with basis
     \[
     \{1,\zeta_3\}.
     \]
@@ -277,8 +276,7 @@ problem.
     \[
     \aut_{\Q}(\Q(\zeta_5))\iso\Z_5^\times.
     \]
-    First note $\Q(\zeta_5)$ is an algebraic extension of degree $4$
-    since the minimal polynomial for $\zeta_5$ is
+    First note, $\zeta_5$ is a root of
     \[
     \Phi_5(x) = x^4+x^3+x^2 + x + 1.
     \]
@@ -288,11 +286,9 @@ problem.
     \]
     which is irreducible by Eisenstein's criterion,
     Theorem~\ref{T:ec}. Thus $\Phi_5(x)$ is the minimal polynomial for
-    $\zeta_5$.
-
-
-    By Lemma~\ref{L:fevs} and Theorem~\ref{T:dae},
-    $\Q(\zeta_5)$ is a $\Q$-vector space with basis
+    $\zeta_5$.  So $\Q(\zeta_5)$ is an algebraic extension of degree
+    $4$.  By Lemma~\ref{L:fevs} and Theorem~\ref{T:dae}, $\Q(\zeta_5)$
+    is a $\Q$-vector space with basis
     \[
     \{1,\zeta_5,\zeta_5^2,\zeta_5^3\}.
     \]
@@ -325,10 +321,9 @@ problem.
     \end{align*}
     Since
     \[
-    \aut_\Q(\Q(\zeta_5)) = \{e,\sigma,\sigma^2,\sigma^3,\sigma^4\}
+    \aut_\Q(\Q(\zeta_5)) = \{e,\sigma,\sigma^2,\sigma^3\}
     \]
-    as defined above, we
-    write the following isomorphism of groups
+    as defined above, we write the following isomorphism of groups
     \begin{align*}
       \phi: \aut_\Q(\Q(\zeta_5)) &\to \Z_5^\times\\
       e &\mapsto 1\\
@@ -370,9 +365,12 @@ Now it is time for a dirty lemma that we will use over and over again.
   \beta_1 + \beta_2 + \dots + \beta_n \in K.
   \]
   Additionally, suppose that $\aut_{K}(L)$ is cyclic on
-  $\{\beta_1,\dots,\beta_n\}$, and that $\sigma\in\aut_{K}(L)$ is a
-  generator. If $\alpha\in L$ with $\sigma(\alpha) = \alpha$, then
-  $\alpha\in K$.
+  $\{\beta_1,\dots,\beta_n\}$, meaning that for some $\sigma\in
+  \aut_K(L)$, then for any fixed $j$
+  \[
+  \{\beta_1,\dots,\beta_n\} = \{\sigma^i(\beta_j):i\in \N\}.
+  \]
+  If $\alpha\in L$ with $\sigma(\alpha) = \alpha$, then $\alpha\in K$.
   \begin{proof}
     Since
     \[
@@ -511,8 +509,12 @@ Now it is time for a dirty lemma that we will use over and over again.
     \sigma(\alpha+\beta) &= \alpha + \beta,\\
     \sigma(\alpha\beta) &= \alpha\beta,
   \end{align*}
-  which by Lemma~\ref{L:fgf} shows that
-  $\alpha+\beta,\alpha\beta\in\Q$ and so we see $\Q[\alpha,\beta]
+  this combined with the fact that
+  \[
+  \zeta_5^4 + \zeta_5^3 + \zeta_5^2 + \zeta_5  = -1
+  \]
+  allows us to apply Lemma~\ref{L:fgf}, showing that
+  $\alpha+\beta,\alpha\beta\in\Q$, and so we see $\Q[\alpha,\beta]
   \subset \Q(\alpha)$. However, $\alpha$ and $\beta$ are both roots of
   the polynomial
   \[
@@ -689,7 +691,11 @@ Now it is time for a dirty lemma that we will use over and over again.
     \sigma(\alpha+\beta) &= \alpha + \beta,\\
     \sigma(\alpha\beta) &= \alpha\beta,
   \end{align*}
-  which by Lemma~\ref{L:fgf} shows that
+  this combined with the fact that
+  \[
+  \zeta_{17}^{16} + \cdots +\zeta_{17} =-1 
+  \]
+  allows us to use Lemma~\ref{L:fgf} to show that
   $\alpha+\beta,\alpha\beta\in\Q$ and so we see
   $\Q[\alpha,\beta]\subset \Q(\alpha)$. However, $\alpha$ and $\beta$
   are both roots of the polynomial
@@ -729,7 +735,13 @@ Now it is time for a dirty lemma that we will use over and over again.
     \sigma^2(\gamma+\delta) &= \gamma + \delta,\\
     \sigma^2(\gamma\delta) &= \gamma\delta,
   \end{align*}
-  which by Lemma~\ref{L:fgf} shows that
+  this combined with the fact that
+  \[
+   \zeta_{17} + \zeta_{17}^9 + \zeta_{17}^{13} + \zeta_{17}^{15} +
+   \zeta_{17}^{16} + \zeta_{17}^{8} + \zeta_{17}^{4} + \zeta_{17}^{2}
+   = \alpha
+  \]
+  allows us to use Lemma~\ref{L:fgf} to show that
   $\gamma+\delta,\gamma\delta\in\Q(\alpha)$. Again, both $\gamma$ and
   $\delta$ are roots of the polynomial
   \[
@@ -766,7 +778,11 @@ Now it is time for a dirty lemma that we will use over and over again.
     \sigma^4(\epsilon+\eta) &= \epsilon + \eta\\
     \sigma^4(\epsilon\eta) &= \epsilon\eta,
   \end{align*}
-  which by Lemma~\ref{L:fgf} shows that
+  this combined with the fact
+  \[
+  \zeta_{17}   + \zeta_{17}^{13} + \zeta_{17}^{16} + \zeta_{17}^{4} = \gamma
+  \]
+  allows us to use Lemma~\ref{L:fgf} to show that
   $\epsilon+\eta,\epsilon\eta\in\Q(\alpha,\gamma)$. Again, both
   $\epsilon$ and $\eta$ are roots of the polynomial
   \[
@@ -779,7 +795,7 @@ Now it is time for a dirty lemma that we will use over and over again.
   \begin{tikzcd}
     \Q(\alpha,\gamma,\epsilon)\\
     \Q(\alpha,\gamma)\ar[u,-,"2"]\\
-    \Q(\alpha) \ar[u,-,"2"]\\
+a    \Q(\alpha) \ar[u,-,"2"]\\
     \Q \ar[u,-,"2"]
   \end{tikzcd}
   \]
