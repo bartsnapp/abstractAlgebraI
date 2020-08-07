@@ -442,27 +442,25 @@ theorem. We must start with a fundamental lemma.
 
 
 \begin{definition}
-  Let $(G,\star)$ be group, a subset $\{g_1,\dots, g_n,\dots\}\subset
+  Let $(G,\star)$ be group, a subset $\{x_1,\dots, x_n,\dots\}=X\subset
   G$ is a set of \dfn{generators} for $G$ if for all $a\in G$, there
   exist $\alpha_i$ such that
   \[
-  a =\left(\prodstar_{i=1}^m \prodstar_{k=1}^{\alpha_i}g_i \right) \star \left(\prodstar_{i=1}^m \prodstar_{k=1}^{\alpha_i}g^{-1}_i\right)
+  a =\prodstar_{i=1}^m g_i^{\alpha_i}
   \]
-  where $m,\alpha_i\in \Z$ and the $g_i$'s are not necessarily distinct.
-
+  where either $g_i\in X$ or $g_i^{-1}\in X$, and $\alpha_i\in \N$.
   
   If the group has an operation like multiplication, we write
   \begin{align*}
-  a &= \left(\prod_{i=1}^m \prod_{k=1}^{\alpha_i}g_i\right)\cdot \left(\prod_{i=1}^m \prod_{k=1}^{\alpha_i}g_i^{-1}\right)\\
-  &=  \prod_{i=-n}^m g_i^{\alpha_i}.
+  a =  \prod_{i=1}^m g_i^{\alpha_i}.
   \end{align*}
-
+  where either $g_i\in X$ or $g_i^{-1}\in X$, and $\alpha_i\in \N$.
 
   If the group has an operation like addition, we write
   \begin{align*}
-  a &= \left(\sum_{i=1}^m \sum_{k=1}^{\alpha_i}g_i\right)+\left(\sum_{i=1}^m \sum_{k=1}^{\alpha_i}-g_i\right)\\
-  &=  \sum_{i=-n}^m \alpha_i \cdot g_i.
+  a =  \sum_{i=1}^m \alpha_i \cdot g_i.
   \end{align*}
+  where either $g_i\in X$ or $-g_i\in X$, and $\alpha_i\in \N$.
 \end{definition}
 
 
