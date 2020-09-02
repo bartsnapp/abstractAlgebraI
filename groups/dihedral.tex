@@ -192,7 +192,7 @@ $e$.
     \]
     In other words, $\{r,f\}$ generate $D_3$.  In our Cayley table
     below, let's omit the $\circ$, so we will write something like
-    $f\circ r$ as simply $fr$.
+    $f\circ r$ as simply $fr$ and $r\circ r$ as $r^2$.
     \[
     \renewcommand{\arraystretch}{1.6}
     \begin{array}{c!{\vline width 2pt}cccccc}
@@ -239,14 +239,19 @@ maintain the distance between points are called
   X$ will always be bijective.
 \end{exercise}
 
+At this point we have made precise what ``symmetry'' means in terms of
+geometric sets:
+\begin{center}
+  \textbf{Symmetries of the
+$\boldsymbol{n}$-gon are exactly the isometries of an $\boldsymbol{n}$-gon.}
+\end{center}
 
-Isometries of an $n$-gon are exactly the symmetries of the
-$n$-gon. These symmetries (functions that are isometries on the
-$n$-gon that map the $n$-gon to itself) will always form a group. This
-type of a group is called a \textit{dihedral} group.
+These symmetries (functions that are isometries on the $n$-gon that
+map the $n$-gon to itself) will always form a group. This type of a
+group is called a \textit{dihedral} group.
 
 \begin{definition}
-  A \dfn{dihedral group} a group of symmetries of the regular
+  A \dfn{dihedral group} is a group of symmetries of the regular
   $n$-gon. We denote this group as $D_n$.
 \end{definition}
 
@@ -352,7 +357,7 @@ type of a group is called a \textit{dihedral} group.
 \begin{definition}
   Let $(G,\star)$ be a group, the \dfn{order of an element} $g\in G$ is
   \[
-  \o(g) := \min\left\{n: \bigstar_{i=1}^n g = e\right\}\in\N.
+  \o(g) := \min\left\{n: \prodstar_{i=1}^n g = e\right\}\in\N.
   \]
   If the group has an operation like multiplication, $(G,\cdot)$, we will write
   \[
@@ -391,10 +396,12 @@ type of a group is called a \textit{dihedral} group.
 \section{Symmetries of the tetrahedron}
 
 
-We can also study the symmetries of objects in higher
-dimensions. Working in $3$D should prove challenging enough, so let's
-do that. It's a fact, there are exactly five regular solids, called
-\link[\textit{Platonic solids}]{https://en.wikipedia.org/wiki/Platonic\_solid}.
+We can also study the symmetries of objects in higher dimensions,
+these are \textbf{not} dihedral groups, but they are still groups of
+symmetries. Moving up in dimension, we'll find that working in $3$D
+challenging enough. It's a fact, there are exactly
+five regular solids, called \link[\textit{Platonic
+    solids}]{https://en.wikipedia.org/wiki/Platonic\_solid}.
 
 \begin{definition}
   The \textbf{symmetries of the five Platonic solids} will be denoted
