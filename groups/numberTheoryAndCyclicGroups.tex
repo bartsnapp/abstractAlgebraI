@@ -163,7 +163,7 @@ in \equiv jn \pmod m \qquad \Rightarrow\qquad i\equiv j\pmod m.
 
 
 
-\begin{corollary}[Unique factorization of natrual numbers]\label{C:UFNN}
+\begin{corollary}[Unique factorization of natural numbers]\label{C:UFNN}
   Every natural number greater than $1$ can be expressed as a unique
   (up to order) product of prime numbers.
   \begin{proof}
@@ -548,7 +548,7 @@ not have an inverse. We should state this as a lemma.
 
 
 
-\subsection{Finding inverses with the Euclidean algorithm}
+\subsection{Finding inverses with the Euclidean algorithm}\label{S:fiea}
 
 
 
@@ -673,7 +673,7 @@ We can continue on and prove a little more.
 
 
 \begin{lemma}[Order divides other exponents]\label{L:odoe}
-  Let $G$ be a group with $a\in G$. If $a^n = 1$, then $o(a)|n$.
+  Let $G$ be a group with $a\in G$. If $a^n = 1$, then $\o(a)|n$.
   \begin{sketch}
     Use the division theorem, Theorem~\ref{T:DT}.
   \end{sketch}
@@ -702,8 +702,8 @@ We can continue on and prove a little more.
     \[
     \o(a)\o(b)|n.
     \]
-    In particular, this means that the product $\o(a)\o(b)$ is less than $n$.
-    Since $(ab)^{\o(a)\o(b)} = 1$, we are done.
+    In particular, this means that the product $\o(a)\o(b)$ is less
+    than or equal to $n$.  Since $(ab)^{\o(a)\o(b)} = 1$, we are done.
   \end{proof}
 \end{lemma}
 
@@ -785,6 +785,18 @@ studied them, \index{Diophantus of Alexandria}\link[Diophantus of Alexandria]{ht
   Prove that the Diophantine equation $ax + by = c$ has solutions if
   and only if $\gcd(a,b)|c$.
 \end{exercise}
+
+We've actually been solving Diophantine equations for a while. Check
+out the examples in \ref{S:fiea}~Finding inverses with the Euclidean
+algorithm. In the first we solve:
+\[
+16x + 21y = 1
+\]
+and find $x=4$ and $y=-3$.  In the second we solve
+\[
+96x +49y =1
+\]
+and find $x=24$ and $y=-47$. Go back and see for yourself!
 
 \begin{exercise}
   Find integers $x$ and $y$ satisfying the following Diophantine
