@@ -322,13 +322,40 @@ The converse to Lagrange's theorem would be:
 You may wonder, is the converse of Lagrange's theorem true? The answer
 is ``no.''
 
-\begin{example}[Counterexample to converse of Lagrange]\index{tetrahedral group}\index{alternating group}\index{symmetries!of the regular tetrahedron}
+\begin{theorem}[Counterexample to converse of Lagrange]\index{tetrahedral group}\index{alternating group}\index{symmetries!of the regular tetrahedron}
   Consider a group $G\iso A_4\iso \mathcal{T}_{12}$. The order of $G$
   is $12$, yet $G$ has no subgroup of order $6$.
-
-  Note, at this point we have not proved that no such subgroup exists,
-  we have merely stated this.
-\end{example}
+  \begin{proof}
+    Seeking a contradiction, suppose that $A_4$ has a subgroup
+    $H\subgp A_4$ of order $6$. In this case, by Lagrange's theorem, we
+    see that
+    \[
+    [A_4:H] = 2.
+    \]
+    We claim that for all $a\in A_4$, $a^2\in H$. If $a\in H$, this is
+    clear, as $H$ is closed under the group operation. Assume that
+    $a\notin H$ and $a^2\notin H$. Then since there are only $2$ left
+    cosets of $H$ in $A_4$ and the cosets partition the group by
+    Theorem~\ref{T:CPG}, we see that
+    \[
+    a^2\in aH.
+    \]
+    But this means
+    \begin{align*}
+      a^2 &= ah\\
+      a   &= h,
+    \end{align*}
+    meaning $a\in H$, a contradiction. Thus for all $a\in A_4$,
+    $a^2\in H$. But this cannot be, as each three-cycle in $A_4$ is
+    the square of some element and there are eight distinct $3$-cycles
+    in $A_4$
+    \[
+    (1\ 2\ 3), (1\ 3\ 2), (1\ 2\ 4), (1\ 4\ 2),
+    (1\ 3\ 4), (1\ 4\ 3), (2\ 3\ 4), (2\ 4\ 3),
+    \]
+    which is greater than the order of $H$, a contradiction.
+  \end{proof}
+\end{theorem}
 
 Now that we know there is no converse to Lagrange's theorem, we will
 state several partial converses.
