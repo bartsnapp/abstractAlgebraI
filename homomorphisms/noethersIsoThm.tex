@@ -76,7 +76,7 @@ greatest mathematicians of the 20th century. Let's see her isomorphism theorem.
 
 
     \textbf{We must show that $\boldsymbol\eta$ is bijective.} Note
-    $\eta$ is surjective by the defintion of $\im(\phi)$.  To see that
+    $\eta$ is surjective by the definition of $\im(\phi)$.  To see that
     $\eta$ is injective, note that if $\eta(a) = e_H$, then $a\in
     \ker(\phi)$, meaning
     \[
@@ -129,7 +129,11 @@ group homomorphisms. It's saying that the \textbf{image of any
     \frac{d}{dx}:\R[x]&\to\R[x]\\
     f  &\mapsto f'
   \end{align*}
-  is a homomorphism of additive groups.  In this case,
+  is a homomorphism of additive groups.
+
+
+
+  In this case,
   \[
   \ker\left(\frac{d}{dx}\right) = \{c:c\in \R\}
   \]
@@ -137,7 +141,7 @@ group homomorphisms. It's saying that the \textbf{image of any
   \[
   \im\left(\frac{d}{dx}\right) =\R[x].
   \]
-  Moveover, by Noether's isomorphism theorem,
+  Moreover, by Noether's isomorphism theorem,
   \[
   \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \iso \im\left(\frac{d}{dx}\right).
   \]
@@ -155,8 +159,62 @@ group homomorphisms. It's saying that the \textbf{image of any
 
 
 
+So let's pause and reflect a little bit now. A standard calculus
+problem goes something like this:
+
+\begin{quote}
+  \textit{Find the signed area between the $x$-axis and the function
+    $f$ on the interval $[a,b]$.}
+\end{quote}
+
+From the example above we should see there is a connection between
+solving a question like this one and homomorphisms. Let's make that
+explicit now.
+
+We can introduce two new homomorphims. First, the ``evaluation'' map,
+  \begin{align*}
+    [-]_a^b: \R[x]&\to\R\\
+    f &\mapsto f(b)-f(a).
+  \end{align*}
+I'll leave it to you, my friend, to show that this a homomorphism from
+$(\R[x],+)$ to $(\R,+)$.
+
+
+Second, we need the signed ``area'' map,
+  \begin{align*}
+    \alpha_a^b :\R[x]&\to \R\\
+    f &\mapsto \left(\begin{minipage}{2in}signed area between the $x$-axis and the function $f$ on
+    the interval $[a,b]$.\end{minipage}\right)
+  \end{align*}
+Again, it's your task to show that this a homomorphism from
+$(\R[x],+)$ to $(\R,+)$.
+
+Finally, we can represent the solution to the calculus problem above
+with the following diagram:
+\[
+\begin{tikzcd}
+  \R[x] \ar[d,"{\alpha_a^b}",swap] \ar[r,"\iota"]  &  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \ar[d,"{[-]_a^b}"]\\
+  \R \ar[r,equal,"\text{F.T.C.}"]  & \R
+\end{tikzcd}
+\]
+The \index{Fundamental Theorem of Calculus}Fundamental Theorem of
+Calculus says that this diagram commutes, meaning
+\[
+  [\iota(f)]_a^b = \alpha_a^b(f).
+\]
+I like this diagram, and this way of thinking about calculus, because
+it clarifies exactly what is happening at each step, disambiguation
+the symbolic manipulation of functions from the statement of the Fundamental Theorem of Calculus.
+
+
+
+
+
+
+
 
 
 
 
 \end{document}
+ 
