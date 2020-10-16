@@ -77,12 +77,15 @@ greatest mathematicians of the 20th century. Let's see her isomorphism theorem.
 
     \textbf{We must show that $\boldsymbol\eta$ is bijective.} Note
     $\eta$ is surjective by the definition of $\im(\phi)$.  To see that
-    $\eta$ is injective, note that if $\eta(a) = e_H$, then $a\in
-    \ker(\phi)$, meaning
+    $\eta$ is injective, note that if $\eta(a\ker(\phi)) = e_H$, then
     \[
-    a\equiv e_G \pmod{\ker(\phi)},
+    \phi(a) = e_H
     \]
-    hence by Lemma~\ref{L:kerinj}, $\eta$ is injective.
+    and so $a\in \ker(\phi)$, meaning
+    \[
+    a\equiv e_G \pmod{\ker(\phi)}.
+    \]
+    Hence by Lemma~\ref{L:kerinj}, $\eta$ is injective.
 
     We have now shown $\eta$ is a bijective homomorphism, and hence an
     isomorphism. We conclude $\frac{G}{\ker(\phi)} \iso \im(\phi)$.

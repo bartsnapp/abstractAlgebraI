@@ -194,7 +194,7 @@
 \newcommand{\union}{\bigcup}
 \newcommand{\subgp}{\leq}
 \newcommand{\normal}{\trianglelefteq}
-\renewcommand{\i}{\mathfrak}
+%\renewcommand{\i}{\mathfrak}
 \renewcommand{\a}{\mathfrak{a}}
 \renewcommand{\b}{\mathfrak{b}}
 \newcommand{\m}{\mathfrak{m}}
@@ -245,6 +245,12 @@
 \let\phi\varphi
 \let\eulerphi\temp
 
+\newcommand{\pp}[2][]{\frac{\partial #1}{\partial #2}}
+\newcommand{\veci}{{\boldsymbol{\hat{\imath}}}}
+\newcommand{\vecj}{{\boldsymbol{\hat{\jmath}}}}
+\newcommand{\veck}{{\boldsymbol{\hat{k}}}}
+
+
 \def\sgn{\mathop{\rm sgn}} %% for quartic formula
 
 
@@ -271,6 +277,7 @@
 \newcommand{\transpose}{\intercal}
 \newcommand{\grad}{\boldsymbol\nabla}
 \newcommand{\curl}{\boldsymbol{\nabla\times}}
+\newcommand{\divergence}{\grad\dotp}
 \renewcommand{\d}{\, d}
 \newcommand{\<}{\langle}
 \renewcommand{\>}{\rangle}
