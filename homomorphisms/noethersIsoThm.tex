@@ -111,7 +111,7 @@ group homomorphisms. It's saying that the \textbf{image of any
     \pi:\Z &\to \Z_3\\
     1 &\mapsto 1.
   \end{align*}
-  Here $\ker(\phi)= 3\Z$, hence we see by Noether's isomorphism
+  Here $\ker(\pi)= 3\Z$, hence we see by Noether's isomorphism
   theorem that
   \[
   \frac{\Z}{3\Z}\iso \Z_3.
@@ -124,19 +124,16 @@ group homomorphisms. It's saying that the \textbf{image of any
   Let $\R[x]$ denote the group of all polynomials in one variable with
   real coefficients under addition. Meaning
   \[
-  f = a_nx^{n} + a_{n-1}x^{n-1} + \cdots + a_1x + a_0
+  f = c_nx^{n} + c_{n-1}x^{n-1} + \cdots + c_1x + c_0
   \]
-  where $n\in\N\cup\{0\}$ and each $a_i\in\R$.  For each $f$ in $\R[x]$,
-  let $f'$ denote the derivative of $f$. Show that the map
+  where $n\in\N\cup\{0\}$ and each $c_i\in\R$.  For each $f$ in
+  $\R[x]$, let $f'$ denote the derivative of $f$. The map
   \begin{align*}
     \frac{d}{dx}:\R[x]&\to\R[x]\\
-    f  &\mapsto f'
+    f  &\mapsto f'\\
+    c_i x^i &\mapsto i\cdot c_i x^{i-1}
   \end{align*}
-  is a homomorphism of additive groups.
-
-
-
-  In this case,
+  is a homomorphism of additive groups with
   \[
   \ker\left(\frac{d}{dx}\right) = \{c:c\in \R\}
   \]
@@ -150,14 +147,15 @@ group homomorphisms. It's saying that the \textbf{image of any
   \]
   The isomorphisms are given by
   \begin{align*}
-    \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} &\to \im\left(\frac{d}{dx}\right)\\
-    f+\ker\left(\frac{d}{dx}\right) &\mapsto f'(x)
+    \frac{d}{dx}:\frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} &\to \im\left(\frac{d}{dx}\right)\\
+    f+\ker\left(\frac{d}{dx}\right) &\mapsto f'
   \end{align*}
   and
-  \[
-  \im\left(\frac{d}{dx}\right) \lto^{\iota}\frac{\R[x]}{\ker\left(\frac{d}{dx}\right)}
-  \]
-  where $\iota(f) = \int f \d x$.
+  \begin{align*}
+    \iota:   \im\left(\frac{d}{dx}\right) &\to \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \\
+    f &\mapsto \int f \d x\\
+    c_ix^i &\mapsto \frac{c_ix^{i+1}}{i+1} + \ker\left(\frac{d}{dx}\right).
+  \end{align*}
 \end{example}
 
 
@@ -176,11 +174,11 @@ explicit now.
 
 We can introduce two new homomorphims. First, the ``evaluation'' map,
   \begin{align*}
-    [-]_a^b: \R[x]&\to\R\\
-    f &\mapsto f(b)-f(a).
+    [-]_a^b: \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)}&\to\R\\
+    f+ \ker\left(\frac{d}{dx}\right) &\mapsto f(b)-f(a).
   \end{align*}
-I'll leave it to you, my friend, to show that this a homomorphism from
-$(\R[x],+)$ to $(\R,+)$.
+I'll leave it to you, my friend, to show that this a well-defined
+homomorphism from $(\R[x]/\ker\left(d/dx\right),+)$ to $(\R,+)$.
 
 
 Second, we need the signed ``area'' map,
@@ -196,24 +194,46 @@ Finally, we can represent the solution to the calculus problem above
 with the following diagram:
 \[
 \begin{tikzcd}
-  \R[x] \ar[d,"{\alpha_a^b}",swap] \ar[r,"\iota"]  &  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \ar[d,"{[-]_a^b}"]\\
+  \R[x]=\im\left(\frac{d}{dx}\right) \ar[d,"{\alpha_a^b}",swap] \ar[r,"\iota"]  &  \frac{\R[x]}{\ker\left(\frac{d}{dx}\right)} \ar[d,"{[-]_a^b}"]\\
   \R \ar[r,equal,"\text{F.T.C.}"]  & \R
 \end{tikzcd}
 \]
 The \index{Fundamental Theorem of Calculus}Fundamental Theorem of
 Calculus says that this diagram commutes, meaning
 \[
-  [\iota(f)]_a^b = \alpha_a^b(f).
+  [-]_a^b\circ\iota = \alpha_a^b.
 \]
+Let's do a really easy example, we'll compute
+\[
+\int_1^5 x\d x.
+\]
+In the diagram we see:
+\[
+\begin{tikzpicture}
+\matrix[matrix of math nodes,row sep=2cm,column sep=2cm] (m) {%
+\R[x]=\im\left(\frac{d}{dx}\right) & \R[x]/\ker(d/dx) \\
+\R & \R \\};
+\path   (m-1-1) node[above left=2ex and 5ex] (a) {$\scriptstyle f'(x)= x$}
+        (m-1-2) node[above right=2ex and 5ex] (b) {$\scriptstyle \int f' \d x=\frac{x^2}{2}+C$}
+        (m-2-1) node[below left=1.5ex and 5ex] (c) {$\scriptstyle \int_1^5 x \d x = ?$}
+        (m-2-2) node[below right=1.5ex and 5ex] (d) {$\scriptstyle  12=\left[\frac{x^2}{2}+C\right]_1^5$};
+
+\draw[->] (m-1-1) -- node[above] {$\iota$} ++ (m-1-2);
+\draw[->] (m-1-1) -- node[left] {$\alpha_1^5$} ++(m-2-1);
+\draw[->] (m-1-2) -- node[right] {$[-]_1^5$} ++(m-2-2);
+\draw[double] (m-2-1) -- node[above] {\text{F.T.C.}} ++(m-2-2);
+
+\draw[toarrow] (a) to[bend left] (b);
+\draw[toarrow] (b) to[bend left] (d);
+\draw[toarrow] (a) to[bend right] (c);
+\draw[double] (c) to[bend right] (d);
+\end{tikzpicture}
+\]
+So by the Fundamental Theorem of Calculus, we see the answer is $12$.
 I like this diagram, and this way of thinking about calculus, because
 it clarifies exactly what is happening at each step, disambiguation
-the symbolic manipulation of functions from the statement of the Fundamental Theorem of Calculus.
-
-
-
-
-
-
+the symbolic manipulation of functions from the statement of the
+Fundamental Theorem of Calculus.
 
 
 

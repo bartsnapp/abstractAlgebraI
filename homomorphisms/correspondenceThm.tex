@@ -48,7 +48,10 @@ the same relative structure as subgroups of $G$ that contain $N$.
     \[
     \{N\}\subgp \pi_*(S') \subgp \pi_*(S)\subgp G/N.
     \]
-    We know that subgroups are preserved by $\pi_*$ via Lemma
+    We know that subgroups are preserved by $\pi_*$ via Lemma~\ref{L:imsubgp}.
+
+
+    
     \textbf{Now define a map from $\pmb{\mathcal{H}}$ to
       $\pmb{\mathcal{G}}$.}  Define
     \begin{align*}
@@ -79,10 +82,12 @@ the same relative structure as subgroups of $G$ that contain $N$.
     We claim that $\pi_*$ is injective. Seeking a contradiction,
     suppose there exists $S,S'\in \mathcal{G}$ such that
     \[
-    T = \pi(S) =\pi(S').
+    T = \pi_*(S) =\pi_*(S').
     \]
-    In this case, $\pi^*(T) = S\cup S'$. This contradicts the
-    fact that $\pi_*$ and $\pi^*$ are inverses of each other.
+    In this case, $\pi^*(T) = S\cup S'$. Since neither $S$ nor $S'$
+    can be a proper subgroup of the other (containment is preserved
+    through the maps), it must be the case that $S=S'$, and hence
+    $\pi_*$ is injective.
   \end{proof}
 \end{theorem}
 
