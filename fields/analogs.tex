@@ -107,8 +107,8 @@ set of common divisors of $m(x)$ and $n(x)$.
 
 
 \begin{corollary}[Unique factorization of polynomials]\label{C:UFP}
-  Every nonzero polynomial can be expressed as a unique (up to order)
-  product of irreducible polynomials.
+  Every nonzero polynomial can be expressed as a unique (up to order,
+  and up to constant multiple) product of irreducible polynomials.
   \begin{sketch}
     See the proof of unique factorization of natural numbers,
     Corollary~\ref{C:UFNN}.
@@ -235,8 +235,11 @@ an inverse. We did this in Lemma~\ref{L:mi}.
     multiplicative identity is $1\in K[x]/(n(x))$. All that remains to
     be shown is that multiplicative inverses exist in
     $K[x]/(n(x))-\{0\}$. Consider $a(x)\in K[x]/(n(x))$. Since $n(x)$
-    is irreducible, $\gcd(a(x),n(x)) \subset K$. Let $c\in
-    \gcd(a(x),n(x))$ and write
+    is irreducible,
+    \[
+    \gcd(a(x),n(x)) \subset K.
+    \]
+    Take $c\in \gcd(a(x),n(x))$ and write
     \begin{align*}
       c &= a(x) \cdot f(x) + n(x) \cdot g(x) \\
       1 &= c^{-1}a(x) \cdot f(x) + c^{-1}n(x) \cdot g(x) \\
