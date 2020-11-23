@@ -105,7 +105,8 @@ If $n = 2m$, prove that
 \[
 x^n -1 = (x-1)(x+1)q_1(x) \cdots q_{m-1}(x)
 \]
-where $q_i(x)$ are distinct irreducible polynomials in $\R[x]$. 
+where $q_i(x)$ are distinct irreducible quadratic polynomials in
+$\R[x]$.
 \end{exercise}
 
 \begin{exercise}
@@ -113,7 +114,8 @@ If $n = 2m+1$, prove that
 \[
 x^n -1 = (x-1)q_1(x) \cdots q_{m}(x)
 \]
-where $q_i(x)$ are distinct irreducible polynomials in $\R[x]$. 
+where $q_i(x)$ are distinct irreducible quadratic polynomials in
+$\R[x]$.
 \end{exercise}
 
 
@@ -287,7 +289,8 @@ The $n$th \dfn{cyclotomic polynomial} is defined as:
     Carefully explain each step shown below:
     \begin{align*}
       x^n - 1 &= \prod_{k=1}^n (x-\zeta_n^k) \\
-      &=\prod_{d|n}\prod_{\substack{\gcd(k,d) = 1\\ \zeta_d^k \in C_n}}(x-\zeta_d^k) \\
+      &=\prod_{d|n}\prod_{\substack{\gcd(k,n) = d\\ 1\le k\le n}}(x-\zeta_n^k) \\
+      &=\prod_{d|n} \Phi_{n/d}(x)\\
       &=\prod_{d|n} \Phi_d(x).
     \end{align*}
   \end{sketch}
@@ -295,6 +298,9 @@ The $n$th \dfn{cyclotomic polynomial} is defined as:
 
 \begin{exercise}
   Explain how the theorem above will assist in computing $\Phi_n$.
+  \begin{hint}
+    Solve for $\Phi_n$.
+  \end{hint}
 \end{exercise}
 
 
