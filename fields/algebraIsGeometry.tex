@@ -778,15 +778,20 @@ straightedge alone.
   \[
   f(x)=4x^3 -3x -1/2.\index{4x^3-3x-1/2@$4x^3-3x-1/2$}
   \]
-  Set $x = \frac{y+1}{2}$, so
+  The polynomail $f(x)$ is irreducible if and only if
   \[
-  f(x) = g(y) = y^3-3y^2-3.
+  2f(x) = 8x^3 -6x -1
+  \]
+  is also irreducible in $\Q[x]$.  Set $x = \frac{y+1}{2}$, so
+  \[
+  2f(x) = g(y) = y^3+3y^2-3.
   \]
   Now we see that $g(y)$ is irreducible in $\Z[x]$ by Eisenstein's
-  criterion, Theorem~\ref{T:ec}. Hence $f(x)$ is irreducible in
-  $\Z[x]$. By Gauss' lemma, Lemma~\ref{L:G}, we see $f(x)$ is
-  irreducible in $\Q[x]$.  By Lemma~\ref{L:ipi}, $f(x)$ is the minimal
-  polynomial for $\alpha=\cos(20^\circ)$. By Theorem~\ref{T:dae},
+  criterion, Theorem~\ref{T:ec}. Hence $2f(x)$ is irreducible in
+  $\Z[x]$, and so is $f(x)$. By Gauss' lemma, Lemma~\ref{L:G}, we see
+  $f(x)$ is irreducible in $\Q[x]$.  By Lemma~\ref{L:ipi}, $f(x)$ is
+  the minimal polynomial for $\alpha=\cos(20^\circ)$. By
+  Theorem~\ref{T:dae},
   \[
     [\Q(\alpha):\Q]=3.
     \]
