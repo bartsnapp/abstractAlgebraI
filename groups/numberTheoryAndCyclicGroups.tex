@@ -651,11 +651,22 @@ Theorem~\ref{T:DT}.
 \end{lemma}
 
 
+
+\begin{lemma}[Order divides other exponents]\label{L:odoe}
+  Let $G$ be a group with identity $e$ and $a\in G$. If $a^n = e$, then $\o(a)|n$.
+  \begin{sketch}
+    Use the division theorem, Theorem~\ref{T:DT}.
+  \end{sketch}
+\end{lemma}
+
+
+
+
 \begin{theorem}[Element's order divides cyclic group's order]\label{T:eodvgo}
   Let $G$ be a finite cyclic group with $a\in G$. In this case,
   $\o(a)$ divides $|G|$.
   \begin{sketch}
-    Use the division theorem, Theorem~\ref{T:DT}.
+    Now use the fact that $G$ is cyclic to show $a^{|G|} = e$.
   \end{sketch}
 \end{theorem}
 
@@ -671,13 +682,6 @@ Theorem~\ref{T:DT}.
 We can continue on and prove a little more.
 
 
-
-\begin{lemma}[Order divides other exponents]\label{L:odoe}
-  Let $G$ be a group with $a\in G$. If $a^n = 1$, then $\o(a)|n$.
-  \begin{sketch}
-    Use the division theorem, Theorem~\ref{T:DT}.
-  \end{sketch}
-\end{lemma}
 
 
 \begin{lemma}[Coprime element order]\label{L:cpeo}

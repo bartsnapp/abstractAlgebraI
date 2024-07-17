@@ -23,6 +23,11 @@
 \usetikzlibrary{math} %% for assigning variables used in making n-gons
 %\usetikzlibrary{fadings}
 
+%% For diagram chase 
+\tikzset{toarrow/.style={{|[scale=0.7]}-{>[scale=0.7]}},
+    backarrow/.style={{<[scale=0.7]}-{|[scale=0.7]}}}
+
+
 \usepackage{colortbl,boldline,makecell} %% group tables
 
 
@@ -381,7 +386,7 @@
 
 
 \NewEnviron{annotate}{\vspace{-.1cm}\small \begin{spacing}{0.1} \itshape \BODY \end{spacing}\vspace{1cm}}
-
+\usetikzlibrary{positioning}
 
 %%%% TIKZ STUFF
 %% uses \usetikzlibrary{math} (above)
@@ -459,6 +464,5 @@
   \fi\01\11\01\11\01\bcR}
 
 
-%% For diagram chase 
-\tikzset{toarrow/.style={{|[scale=0.7]}-{>[scale=0.7]}},
-    backarrow/.style={{<[scale=0.7]}-{|[scale=0.7]}}}
+
+
